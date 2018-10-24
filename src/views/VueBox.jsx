@@ -4,7 +4,7 @@ class VueBox extends React.Component {
     render() {
         return (
             <div className="vue-box">
-                <h3>vue info</h3>
+                <p>vue页面</p>
             </div>
         )
     }

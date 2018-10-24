@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { BrowserRouter as Redirect } from "react-router-dom"
 import styled from "styled-components"
-import { setCookie } from "@src/utils"
+import { setCookie, getCookie } from "@src/utils"
 
 const LoginBox = styled.div`
     width:260px;
@@ -30,6 +30,10 @@ class Login extends PureComponent {
             userPwd: "",
             redirectToReferrer: false,
         }
+    }
+    componentDidMount() {
+        let info = JSON.parse(getCookie("USER"))
+        console.log(info)
     }
     updateUserName = e => {
         let userName = e.target.value

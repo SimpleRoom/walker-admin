@@ -6,6 +6,7 @@ class ReactBox extends React.Component {
         return (
             <div className="react-box">
                 <ScrollToTopMount />
+                <p>react页面</p>
                 <h3 className="long-content">react info...</h3>
                 <h3 className="long-content">react info...</h3>
                 <h3 className="long-content">react info...</h3>
