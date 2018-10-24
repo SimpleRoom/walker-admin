@@ -8,6 +8,7 @@
     border: 0;
     background: none;
     -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
 }
 body,html {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -51,6 +52,7 @@ button {
 }
 input {
     line-height: normal;
+    background-color: transparent;
 }
 button,
 html input[type="button"],
@@ -81,6 +83,12 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
+}
+
+input:-webkit-autofill {
+    background-color: #f6f6f6 !important;
+    background-image: none !important;
+    box-shadow: 0 0 0px 40px white inset;
 }
 
 // body scrollbar style

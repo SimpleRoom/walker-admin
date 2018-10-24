@@ -1,10 +1,3 @@
-/**
- *  同步组件，首屏加载速度可能受限
- */
-
-// import CssBox from "@src/views/CssBox"
-// import VueBox from "@src/views/VueBox"
-// import ReactBox from "@src/views/ReactBox"
 
 /**
  *  react-loadable 拆分组件为异步组件，提高首屏加载速度
