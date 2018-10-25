@@ -58,7 +58,7 @@ class Main extends React.Component {
                                 component={item.component} />
                         ))}
                         <Route exact path="/login" component={Login} />
-                        {/* <Route exact path="/app" component={App} /> */}
+                        <Route exact path="/app" component={App} />
                         <Route exact path="/" render={() => (
                             <Redirect to="/login" />
                         )} />
