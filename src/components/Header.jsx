@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import styled from "styled-components"
 import { setCookie, getCookie } from "@src/utils"
 
@@ -38,7 +38,7 @@ const SignOutBtn = styled.button`
     padding:15px;
 `;
 
-class User extends PureComponent {
+class Header extends PureComponent {
     constructor(props) {
         super(props)
         console.log(this.props, 'User')
@@ -46,7 +46,10 @@ class User extends PureComponent {
     }
     signOut = () => {
         console.log(this.props)
-        // setCookie("USER", null, 2)
+        // this.props.signOut()
+        setCookie("USER", null, 2)
+        // this.props.history.push("/")
+        this.props.history.push("/login")
         // this.props.history.location.pathname = "/"
     }
     render() {
@@ -62,4 +65,4 @@ class User extends PureComponent {
 
 }
 
-export default withRouter(User)
+export default withRouter(Header)

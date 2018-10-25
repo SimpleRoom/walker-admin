@@ -5,7 +5,7 @@ import Login from "@src/components/Login"
 import routeList from "@src/routes"
 import SideBar from "@src/components/SideBar"
 import NotFound from "@src/components/NotFound"
-import User from "@src/components/User"
+import Header from "@src/components/Header"
 
 // mock user info start
 import { setCookie, getCookie } from "@src/utils"
@@ -48,7 +48,7 @@ class Home extends React.Component {
                     {
                         userInfo ? <React.Fragment>
                             <SideBar />
-                            <User userInfo={userInfo} />
+                            <Header signOut={this.signOut} userInfo={userInfo} />
                             <Switch>
                                 {routeList.map((item, index) => (
                                     <Route
@@ -62,22 +62,14 @@ class Home extends React.Component {
                                 )} />
                                 <Route exact component={NotFound} />
                             </Switch>
-                        </React.Fragment> : <Route exact path="/" render={props => <Login {...props} getUserInfo={this.getInfo} />} />}
+                        </React.Fragment> : <Route exact path="/login" render={props => <Login {...props} getUserInfo={this.getInfo} />} />}
                     }
+                    <Route exact component={NotFound} />
+                    <Route exact path="/login" getUserInfo={this.getInfo} component={Login} />
                 </Switch>
             </Router>
         )
     }
 }
-
-
-// const AuthButton = withRouter(
-//     ({ history }) =>
-//         fakeAuth.isAuthenticated ? (
-//             <p>Welcome!{" "}
-//                 <button onClick={() => {
-//                     fakeAuth.signout(() => history.push("/"));
-//                 }}>Sign out</button></p>) : (<p>You are not logged in.</p>)
-// );
 
 export default Home

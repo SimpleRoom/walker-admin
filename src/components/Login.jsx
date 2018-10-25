@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { BrowserRouter as Redirect } from "react-router-dom"
+import { BrowserRouter as Redirect, withRouter } from "react-router-dom"
 import styled from "styled-components"
 import { setCookie, getCookie } from "@src/utils"
 
@@ -28,13 +28,10 @@ class Login extends PureComponent {
         this.state = {
             userName: "",
             userPwd: "",
-            redirectToReferrer: false,
         }
-        console.log(props)
     }
     componentDidMount() {
         let info = JSON.parse(getCookie("USER"))
-        console.log(info)
     }
     updateUserName = e => {
         let userName = e.target.value
@@ -51,22 +48,17 @@ class Login extends PureComponent {
                 name: userName,
                 pwd: userPwd,
             }
-            this.setState({ redirectToReferrer: true })
-            this.props.getUserInfo(info)
             // setCookie
             setCookie("USER", JSON.stringify(info), 2)
+            this.props.history.push("/app")
+            console.log(this.props)
         } else {
             // 
         }
 
     }
     render() {
-        let { userName, userPwd, redirectToReferrer } = this.state
-        const { from } = this.props.location.state || { from: { pathname: "/" } };
-
-        if (redirectToReferrer) {
-            return <Redirect to={from} />;
-        }
+        let { userName, userPwd} = this.state
         return (
             <LoginBox>
                 <input className="user-name" autoComplete="off" type="text" value={userName} onChange={this.updateUserName} placeholder="用户名" maxLength="10" />
@@ -76,4 +68,4 @@ class Login extends PureComponent {
         )
     }
 }
-export default Login
+export default withRouter(Login)
