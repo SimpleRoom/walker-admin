@@ -7,5 +7,5 @@ import Main from "./views/Main"
 import Home from "./views/Home"
 // import AuthExample from "./views/AuthExample"
 
-ReactDOM.render( <Main /> , document.getElementById('root'));
+ReactDOM.render( <Home /> , document.getElementById('root'));
 registerServiceWorker();

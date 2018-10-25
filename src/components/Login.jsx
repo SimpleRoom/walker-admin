@@ -50,7 +50,10 @@ class Login extends PureComponent {
             }
             // setCookie
             setCookie("USER", JSON.stringify(info), 2)
-            this.props.history.push("/app")
+            // this.props.history.push("/app")
+
+
+            this.props.getUserInfo(info)
             console.log(this.props)
         } else {
             // 

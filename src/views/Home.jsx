@@ -62,10 +62,9 @@ class Home extends React.Component {
                                 )} />
                                 <Route exact component={NotFound} />
                             </Switch>
-                        </React.Fragment> : <Route exact path="/login" render={props => <Login {...props} getUserInfo={this.getInfo} />} />}
+                        </React.Fragment> : <Route exact path="/" render={props => <Login {...props} getUserInfo={this.getInfo} />} />}
                     }
                     <Route exact component={NotFound} />
-                    <Route exact path="/login" getUserInfo={this.getInfo} component={Login} />
                 </Switch>
             </Router>
         )
