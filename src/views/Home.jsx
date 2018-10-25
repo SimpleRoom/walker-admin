@@ -1,15 +1,22 @@
 import React from 'react'
 import { Switch, Route, Redirect } from "react-router-dom"
+import styled from "styled-components"
 
 import routeList from "@src/routes"
 import SideBar from "@src/components/SideBar"
 import NotFound from "@src/components/NotFound"
 import Header from "@src/components/Header"
 
+// HomeBox
+const HomeBox = styled.div`
+    width:100%;
+    height:auto;
+    position:relative;
+`;
 class Home extends React.Component {
     render() {
         return (
-            <div className="app-box">
+            <HomeBox>
                 {/* side nav bar */}
                 <SideBar />
                 {/* top header */}
@@ -29,7 +36,7 @@ class Home extends React.Component {
                     )} />
                     <Route exact component={NotFound} />
                 </Switch>
-            </div>
+            </HomeBox>
         )
     }
 }
