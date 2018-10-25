@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components"
-import { setCookie, getCookie } from "@src/utils"
 
+import { SESSION } from "@src/utils"
+// common
 const ClearFix = styled.div`
     &:before,&:after{
         display:table;
@@ -14,7 +15,7 @@ const headerIndex = 10
 const headerHeight = "70px"
 const barBg = "#282C34";
 const barWidth = "252px";
-
+// header
 const HeaderBox = styled(ClearFix)`
     position:fixed;
     z-index:${headerIndex};
@@ -41,23 +42,34 @@ const SignOutBtn = styled.button`
 class Header extends PureComponent {
     constructor(props) {
         super(props)
-        console.log(this.props, 'User')
-        console.log(this.context)
+        this.state = {
+            userName: null,
+        }
+    }
+    componentDidMount() {
+        let info = SESSION.fetch()
+        const { history } = this.props
+        if (!info) {
+            // back to login
+            history.push("/login")
+        } else {
+            let { userName } = info
+            this.setState({ userName })
+        }
+        console.log(info)
     }
     signOut = () => {
-        console.log(this.props)
-        // this.props.signOut()
-        setCookie("USER", null, 2)
-        // this.props.history.push("/")
+        SESSION.remove()
         this.props.history.push("/login")
-        // this.props.history.location.pathname = "/"
     }
     render() {
-        const { userInfo } = this.props
+        const { userName } = this.state
         return (
             <HeaderBox>
                 <UserInfoBox>
-                    <p>欢迎{userInfo.name}<SignOutBtn onClick={this.signOut}>退出</SignOutBtn></p>
+                    {
+                        userName ? <p>欢迎{userName}<SignOutBtn onClick={this.signOut}>退出</SignOutBtn></p> : null
+                    }
                 </UserInfoBox>
             </HeaderBox>
         )

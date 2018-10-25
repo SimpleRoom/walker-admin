@@ -1,5 +1,4 @@
-
-/**
+/*
  *  react-loadable 拆分组件为异步组件，提高首屏加载速度
  *  Loadable(loader,loading) loader 组件路径
  *  loading: 默认过度的Loading组件
@@ -22,31 +21,31 @@ const ReactBox = Loadable({
 
 const routeList = [
     {
-        path: "/curry",
+        path: "/home/curry",
         exact: true,
         sidebarName: "Stephen-Curry",
         component: CssBox,
     },
     {
-        path: "/thompson",
+        path: "/home/thompson",
         exact: true,
         sidebarName: "Klay-Thompson",
         component: VueBox,
     },
     {
-        path: "/durant",
+        path: "/home/durant",
         exact: true,
         sidebarName: "Kevin-Durant",
         component: ReactBox,
     },
     {
-        path: "/green",
+        path: "/home/green",
         exact: true,
         sidebarName: "Draymond-Green",
         component: ReactBox,
     },
     {
-        path: "/iguodala",
+        path: "/home/iguodala",
         exact: true,
         sidebarName: "Andre-Iguodala",
         component: ReactBox,

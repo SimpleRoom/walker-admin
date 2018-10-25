@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
-import { BrowserRouter as Redirect, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 import styled from "styled-components"
-import { setCookie, getCookie } from "@src/utils"
 
+import { SESSION } from "@src/utils"
+// login box
 const LoginBox = styled.div`
     width:260px;
     margin:0 auto;
@@ -31,7 +32,12 @@ class Login extends PureComponent {
         }
     }
     componentDidMount() {
-        let info = JSON.parse(getCookie("USER"))
+        let info = SESSION.fetch()
+        const { history } = this.props
+        if (info) {
+            history.push("/")
+        }
+        console.log(this.props, info)
     }
     updateUserName = e => {
         let userName = e.target.value
@@ -44,24 +50,17 @@ class Login extends PureComponent {
     login = () => {
         let { userName, userPwd } = this.state
         if (userName && userPwd) {
-            let info = {
-                name: userName,
-                pwd: userPwd,
-            }
-            // setCookie
-            setCookie("USER", JSON.stringify(info), 2)
-            // this.props.history.push("/app")
-
-
-            this.props.getUserInfo(info)
-            console.log(this.props)
-        } else {
-            // 
+            const { history } = this.props
+            let info = { userName, userPwd }
+            // save to sessionStorage
+            SESSION.save(info)
+            // back to home
+            history.push("/")
         }
 
     }
     render() {
-        let { userName, userPwd} = this.state
+        let { userName, userPwd } = this.state
         return (
             <LoginBox>
                 <input className="user-name" autoComplete="off" type="text" value={userName} onChange={this.updateUserName} placeholder="用户名" maxLength="10" />

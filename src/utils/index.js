@@ -18,4 +18,23 @@ const getCookie = (Name) => {
     }
 }
 
-export { setCookie, getCookie }
+const STORAGE_KEY = "USER_INFO";
+
+const SESSION = {
+    save: function (info) {
+        return window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(info));
+    },
+    fetch: function () {
+        return JSON.parse(window.sessionStorage.getItem(STORAGE_KEY) || null);
+    },
+    remove: function () {
+        return window.sessionStorage.removeItem(STORAGE_KEY);
+    }
+};
+
+
+export {
+    setCookie,
+    getCookie,
+    SESSION,
+}
