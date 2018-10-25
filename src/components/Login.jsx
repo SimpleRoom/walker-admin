@@ -30,6 +30,7 @@ class Login extends PureComponent {
             userPwd: "",
             redirectToReferrer: false,
         }
+        console.log(props)
     }
     componentDidMount() {
         let info = JSON.parse(getCookie("USER"))

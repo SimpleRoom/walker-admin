@@ -21,19 +21,21 @@ class Main extends React.Component {
     render() {
         return (
             <div className="app-box clear-fix">
-                <SideBar />
                 <div id="container" className="container">
-                    {routeList.map((item, index) => (
-                        <Route
-                            key={index}
-                            path={item.path}
-                            exact={item.exact}
-                            component={item.component} />
-                    ))}
-                    <Route exact path="/" render={() => (
-                        <Redirect to="/css" />
-                    )} />
-                    <Route exact component={NotFound} />
+                    <SideBar />
+                    <Switch>
+                        {routeList.map((item, index) => (
+                            <Route
+                                key={index}
+                                path={item.path}
+                                exact={item.exact}
+                                component={item.component} />
+                        ))}
+                        <Route exact path="/" render={() => (
+                            <Redirect to="/css" />
+                        )} />
+                        <Route exact component={NotFound} />
+                    </Switch>
                 </div>
             </div>
         )
