@@ -9,7 +9,7 @@ import React from 'react'
 // }
 
 const NotFound = ({ location }) => (
-    <div>
+    <div className="container">
       <h3>
         No match for <code>{location.pathname}</code>
       </h3>

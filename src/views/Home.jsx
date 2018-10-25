@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect, withRouter } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import Login from "@src/components/Login"
-import Main from "./Main"
 
 import routeList from "@src/routes"
 import SideBar from "@src/components/SideBar"
 import NotFound from "@src/components/NotFound"
+import User from "@src/components/User"
 
 // mock user info start
 import { setCookie, getCookie } from "@src/utils"
@@ -35,7 +35,7 @@ class Home extends React.Component {
         this.setState({ userInfo })
         console.log(userInfo)
     }
-    logOut = () => {
+    signOut = () => {
         setCookie("USER", null, 2)
         this.setState({ userInfo: null })
         // console.log(location)
@@ -44,12 +44,11 @@ class Home extends React.Component {
         let { userInfo } = this.state
         return (
             <Router>
-                {/* {userInfo ? <Main /> : <Route exact path="/" render={props => <Login {...props} getUserInfo={this.getInfo} />} />} */}
                 <Switch>
                     {
                         userInfo ? <React.Fragment>
                             <SideBar />
-                            <p>{userInfo.name} <button onClick={this.logOut}>退出</button></p>
+                            <User userInfo={userInfo} />
                             <Switch>
                                 {routeList.map((item, index) => (
                                     <Route
@@ -59,7 +58,7 @@ class Home extends React.Component {
                                         component={item.component} />
                                 ))}
                                 <Route exact path="/" render={() => (
-                                    <Redirect to="/css" />
+                                    <Redirect to="/curry" />
                                 )} />
                                 <Route exact component={NotFound} />
                             </Switch>

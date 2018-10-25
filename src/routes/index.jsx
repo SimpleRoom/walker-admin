@@ -22,23 +22,35 @@ const ReactBox = Loadable({
 
 const routeList = [
     {
-        path: "/css",
+        path: "/curry",
         exact: true,
-        sidebarName: "css",
+        sidebarName: "Stephen-Curry",
         component: CssBox,
     },
     {
-        path: "/vue",
+        path: "/thompson",
         exact: true,
-        sidebarName: "vue",
+        sidebarName: "Klay-Thompson",
         component: VueBox,
     },
     {
-        path: "/react",
+        path: "/durant",
         exact: true,
-        sidebarName: "react",
+        sidebarName: "Kevin-Durant",
         component: ReactBox,
-    }
+    },
+    {
+        path: "/green",
+        exact: true,
+        sidebarName: "Draymond-Green",
+        component: ReactBox,
+    },
+    {
+        path: "/iguodala",
+        exact: true,
+        sidebarName: "Andre-Iguodala",
+        component: ReactBox,
+    },
 ];
 
 export default routeList

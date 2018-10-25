@@ -4,19 +4,15 @@ import ScrollToTopMount from "@src/components/ScrollToTopMount"
 class ReactBox extends React.Component {
     render() {
         return (
-            <div className="react-box">
+            <div className="container react-box">
                 <ScrollToTopMount />
-                <p>react页面</p>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
-                <h3 className="long-content">react info...</h3>
+                <p>Kevin-Durant</p>
+                <h3 className="long-content">Kevin-Durant...</h3>
+                <h3 className="long-content">Kevin-Durant...</h3>
+                <h3 className="long-content">Kevin-Durant...</h3>
+                <h3 className="long-content">Kevin-Durant...</h3>
+                <h3 className="long-content">Kevin-Durant...</h3>
+                <h3 className="long-content">Kevin-Durant...</h3>
             </div>
         )
     }
