@@ -4,10 +4,10 @@ class ButtonWaveEffect {
         this.duration = 750
         this.className = "JS-WAVE-EFFRCT"
     }
-    resetStyle(position) {
+    resetStyle(styles) {
         let styleStr = ""
-        for (let key in position) {
-            if (position.hasOwnProperty(key)) styleStr += key + ':' + position[key] + ';'
+        for (let key in styles) {
+            if (styles.hasOwnProperty(key)) styleStr += key + ':' + styles[key] + ';'
         }
         return styleStr
     }
