@@ -2,6 +2,8 @@ import React from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components"
 import routeList from "@src/routes"
+// button wave effect
+import ButtonWaveEffect from "@src/utils/ButtonWaveEffect"
 
 const barWidth = "252px";
 const barBg = "#282C34";
@@ -34,6 +36,8 @@ const SideBarBox = styled.div`
         overflow:hidden;
     }
     a{
+        position:relative;
+        overflow:hidden;
         display: block;
         text-align:center;
         height: 50px;
@@ -44,6 +48,15 @@ const SideBarBox = styled.div`
             /* color:${barActiveColor}; */
             background-color:${barActiveBg};
         }
+    }
+    .wave-mask{
+        position:absolute;
+        z-index:0;
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+        background-color:transparent;
     }
 `;
 
@@ -79,6 +92,13 @@ const BarTitle = styled(InLineBox)`
     color: #999;
 `;
 class SideBar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.ButtonWave = new ButtonWaveEffect()
+    }
+    clickHandle = (e) => {
+        this.ButtonWave.showWave(e)
+    }
     render() {
         return (
             <SideBarBox>
@@ -90,7 +110,9 @@ class SideBar extends React.Component {
                     {
                         routeList.map((item, index) => (
                             <li key={index}>
-                                <NavLink to={item.path} activeClassName="active">{item.sidebarName}</NavLink>
+                                <NavLink to={item.path} activeClassName="active">{item.sidebarName}
+                                    <span className="wave-mask" onClick={this.clickHandle}></span>
+                                </NavLink>
                             </li>
                         ))
                     }
