@@ -44,6 +44,7 @@ const SideBarBox = styled.div`
         line-height:50px;
         color:${barFontColor};
         font-size:20px;
+        transition:all .6s;
         &.active{
             /* color:${barActiveColor}; */
             background-color:${barActiveBg};

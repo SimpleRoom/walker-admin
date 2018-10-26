@@ -1,7 +1,7 @@
 // button wave effect with clicking
 class ButtonWaveEffect {
     constructor() {
-        this.duration = 800
+        this.duration = 750
         this.className = "JS-WAVE-EFFRCT"
     }
     resetStyle(position) {
@@ -40,7 +40,7 @@ class ButtonWaveEffect {
             "height": "25px",
             "opacity": "0",
             "background": "rgba(255, 255, 255, 0.3)",
-            "transition": "all 0.6s ease-out",
+            "transition": "all 0.7s ease-out",
             "transition-property": "transform, opacity, -webkit-transform",
             "-webkit-transform": "scale(0)",
             "transform": "scale(0)",
