@@ -5,18 +5,18 @@ class ButtonWaveEffect {
         this.className = "JS-WAVE-EFFRCT"
     }
     resetStyle(styles) {
-        let styleStr = ""
+        const styleStr = ""
         for (let key in styles) {
             if (styles.hasOwnProperty(key)) styleStr += key + ':' + styles[key] + ';'
         }
         return styleStr
     }
     getPointerPosition(target) {
-        let position = {
+        const position = {
             top: 0,
             left: 0,
         }
-        let elem = document.documentElement
+        const elem = document.documentElement
         target.getBoundingClientRect && (position = target.getBoundingClientRect())
         return {
             top: position.top + window.pageYOffset - elem.clientTop,
