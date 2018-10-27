@@ -11,7 +11,7 @@ const ClearFix = styled.div`
         clear:both;
     }
 `;
-const headerIndex = 10
+const headerIndex = 1
 const headerHeight = "70px"
 const barBg = "#282C34";
 const barWidth = "252px";
@@ -21,7 +21,7 @@ const HeaderBox = styled(ClearFix)`
     z-index:${headerIndex};
     left:${barWidth};
     top:0;
-    background-color:${barBg};
+    background:rgba(4,30,40,.8);
     width: calc(100% - ${barWidth});
     height:${headerHeight};
     color:#fff;

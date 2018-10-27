@@ -10,13 +10,14 @@ const barBg = "#282C34";
 const barFontColor = "#ffffff"
 const barActiveColor = "#E2777A"
 const barActiveBg = "#357b7b"
-const barIndex = 10
+const barIndex = 1
+const logoHeight = "70px"
 
 const InLineBox = styled.div`
     display:inline-block;
     vertical-align:middle;
 `;
-
+// side bar box
 const SideBarBox = styled.div`
     position:fixed;
     z-index:${barIndex};
@@ -26,6 +27,30 @@ const SideBarBox = styled.div`
     left:0;
     top:0;
     box-shadow: 0 10px 40px 5px rgba(0, 0, 0, 0.5);
+    
+`;
+// side bar background-image
+const SideBarBgImage = styled.div`
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:${barIndex + 1};
+    background-size:cover;
+    background-position:center center;
+    background-image:url("/images/sidebar-bg1.jpg");
+`;
+const SideBarMask = styled.div`
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:${barIndex + 2};
+    background:rgba(4,30,40,.8);
+`;
+// bar list
+const BarList = styled.div`
+    position:relative;
+    height:calc(100vh - ${logoHeight});
+    z-index:${barIndex + 3};
     ul{
         width:85%;
         margin:15px auto 0 auto;
@@ -68,8 +93,10 @@ const LogoBox = styled.div`
     text-align:center;
     vertical-align:middle;
     position:relative;
-    height:70px;
-    line-height:70px;
+    height:${logoHeight};
+    line-height:${logoHeight};
+    position:relative;
+    z-index:${barIndex + 3};
 
     &:after{
         display:table;
@@ -92,10 +119,12 @@ const BarTitle = styled(InLineBox)`
     font-size:22px;
     color: #999;
 `;
+
 class SideBar extends React.Component {
     constructor(props) {
         super(props)
         this.ButtonWave = new ButtonWaveEffect()
+        console.log(props)
     }
     clickHandle = (e) => {
         this.ButtonWave.showWave(e)
@@ -103,21 +132,28 @@ class SideBar extends React.Component {
     render() {
         return (
             <SideBarBox>
+                {/* bg image */}
+                <SideBarBgImage></SideBarBgImage>
+                <SideBarMask></SideBarMask>
+                {/* logo */}
                 <LogoBox>
                     <LogoBg></LogoBg>
                     <BarTitle>Simple Room</BarTitle>
                 </LogoBox>
-                <ul>
-                    {
-                        routeList.map((item, index) => (
-                            <li key={index}>
-                                <NavLink to={item.path} activeClassName="active">{item.sidebarName}
-                                    <span className="wave-mask" onClick={this.clickHandle}></span>
-                                </NavLink>
-                            </li>
-                        ))
-                    }
-                </ul>
+                {/* bar list */}
+                <BarList>
+                    <ul>
+                        {
+                            routeList.map((item, index) => (
+                                <li key={index}>
+                                    <NavLink to={item.path} activeClassName="active">{item.sidebarName}
+                                        <span className="wave-mask" onClick={this.clickHandle}></span>
+                                    </NavLink>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </BarList>
             </SideBarBox>
         )
     }
