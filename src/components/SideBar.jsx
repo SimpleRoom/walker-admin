@@ -171,6 +171,7 @@ class SideBar extends React.Component {
         )
     }
 }
+// export default SideBar
 
 const mapStateToProps = state => {
     return { ...state }
