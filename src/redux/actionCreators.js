@@ -1,26 +1,13 @@
 /**
- *  1 創建不同類型的動作
- * 
+ *  create action list
  */
-
 import * as types from './types'
 
-const fetchNewTime = () => ({
-    type: types.FETCH_NEW_TIME,
-    payload: new Date().toString(),
-})
-
-const login = (user) => ({
-    type: types.LOGIN,
-    payload: user,
-})
-
-const logout = () => ({
-    type: types.LOGOUT
+const fetchNewTheme = rgba => ({
+    type: types.FETCH_NEW_THEME,
+    payload: rgba,
 })
 
 export {
-    fetchNewTime,
-    login,
-    logout
+    fetchNewTheme,
 }

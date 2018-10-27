@@ -21,7 +21,7 @@
     + 1、react-redux包提供了一个connect()函数，将状态树绑定到不同的组件
     + 2、connect() 函数返回一个函数, 它期望第一参数是一个组件。这通常叫做高阶组件
     + 3、connect() 函数要求我们在函数中至少传递一个参数 (但通常我们会传递两个)。它所期望的第一个参数是一个函数, 它将被称为state 并期望一个返回的对象将数据连接到视图,我们将这个函数称为mapStateToProps 函数。因为它的责任是将状态映射到与组件的原始props合并的对象。
-    + 4、如：在Home.js中创建视图，并使用connect函数来绑定currentTime在我们的状态树中的值，此connect()函数自动将函数的第一个参数中的任何键传递为Home 组件的props
+    + 4、如：在Header.jsx中创建视图，并使用connect函数来绑定currentTime在我们的状态树中的值，此connect()函数自动将函数的第一个参数中的任何键传递为Home 组件的props
 
 
 ### 四、Redux动作（触发更新）

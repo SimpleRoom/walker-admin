@@ -1,20 +1,19 @@
-/**
+/*
+ * current theme background-color 
  * 
  */
-
 import * as types from './types'
 // initial starting state
 export const initialState = {
-    currentTime: new Date().toString(),
-    tips: "currentTime",
+    color: "#357b7b",
+    text: "current-theme",
 }
-
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.FETCH_NEW_TIME:
+        case types.FETCH_NEW_THEME:
             return { ...state,
-                currentTime: action.payload
+                color: action.payload
             }
 
         default:

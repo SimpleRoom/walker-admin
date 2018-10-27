@@ -23,7 +23,7 @@ class CssBox extends React.Component {
         return (
             <ContainerBox>
                 <ScrollToTopMount />
-                <p>Stephen-Curry</p>
+                <p>Stephen-Curry-info</p>
                 <h3 className="long-content">Stephen-Curry</h3>
                 <h3 className="long-content">Stephen-Curry</h3>
                 <h3 className="long-content">Stephen-Curry</h3>

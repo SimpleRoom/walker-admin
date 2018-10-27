@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components"
+import { connect } from 'react-redux'
 import routeList from "@src/routes"
 // button wave effect
 import { ButtonWaveEffect } from "@src/utils"
@@ -8,7 +9,7 @@ import { ButtonWaveEffect } from "@src/utils"
 import {
     levelOneZindex,
     sideBarWidth,
-    buttonActiveBg,
+    // buttonActiveBg,
     sideLogoHeight,
     themeRgbaColor,
     whiteColor,
@@ -71,7 +72,7 @@ const BarList = styled.div`
         font-size:20px;
         transition:all .6s;
         &.active{
-            background-color:${buttonActiveBg};
+            background-color:${props => props.bgThemeColor};
         }
     }
     .wave-mask{
@@ -123,12 +124,25 @@ class SideBar extends React.Component {
     constructor(props) {
         super(props)
         this.ButtonWave = new ButtonWaveEffect()
-        console.log(props)
+        this.state = {
+            color: null,
+        }
+    }
+    // listener props from Parent Component
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.color !== prevState.color) {
+            return {
+                color: nextProps.color,
+            }
+        }
+        return null;
     }
     clickHandle = (e) => {
         this.ButtonWave.showWave(e)
     }
     render() {
+        let { color } = this.props.currentTheme
+        console.log(color, `sideBar props`)
         return (
             <SideBarBox>
                 {/* bg image */}
@@ -140,7 +154,7 @@ class SideBar extends React.Component {
                     <BarTitle>Simple Room</BarTitle>
                 </LogoBox>
                 {/* bar list */}
-                <BarList>
+                <BarList bgThemeColor={color}>
                     <ul>
                         {
                             routeList.map((item, index) => (
@@ -158,4 +172,10 @@ class SideBar extends React.Component {
     }
 }
 
-export default SideBar
+const mapStateToProps = state => {
+    return { ...state }
+}
+
+export default connect(
+    mapStateToProps,
+)(SideBar)
