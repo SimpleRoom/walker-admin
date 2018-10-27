@@ -4,14 +4,15 @@ import styled from "styled-components"
 import routeList from "@src/routes"
 // button wave effect
 import { ButtonWaveEffect } from "@src/utils"
-
-const barWidth = "252px";
-const barBg = "#282C34";
-const barFontColor = "#ffffff"
-const barActiveColor = "#E2777A"
-const barActiveBg = "#357b7b"
-const barIndex = 1
-const logoHeight = "70px"
+// global common style
+import {
+    levelOneZindex,
+    sideBarWidth,
+    buttonActiveBg,
+    sideLogoHeight,
+    themeRgbaColor,
+    whiteColor,
+} from "./common-style"
 
 const InLineBox = styled.div`
     display:inline-block;
@@ -20,37 +21,36 @@ const InLineBox = styled.div`
 // side bar box
 const SideBarBox = styled.div`
     position:fixed;
-    z-index:${barIndex};
-    width:${barWidth};
+    z-index:${levelOneZindex};
+    width:${sideBarWidth}px;
     height:100%;
-    background-color:${barBg};
     left:0;
     top:0;
     box-shadow: 0 10px 40px 5px rgba(0, 0, 0, 0.5);
-    
 `;
 // side bar background-image
 const SideBarBgImage = styled.div`
     position:absolute;
     width:100%;
     height:100%;
-    z-index:${barIndex + 1};
+    z-index:${levelOneZindex + 1};
     background-size:cover;
     background-position:center center;
     background-image:url("/images/sidebar-bg1.jpg");
 `;
+
 const SideBarMask = styled.div`
     position:absolute;
     width:100%;
     height:100%;
-    z-index:${barIndex + 2};
-    background:rgba(4,30,40,.8);
+    z-index:${levelOneZindex + 2};
+    background:${themeRgbaColor};
 `;
 // bar list
 const BarList = styled.div`
     position:relative;
-    height:calc(100vh - ${logoHeight});
-    z-index:${barIndex + 3};
+    height:calc(100vh - ${sideLogoHeight}px);
+    z-index:${levelOneZindex + 3};
     ul{
         width:85%;
         margin:15px auto 0 auto;
@@ -67,12 +67,11 @@ const BarList = styled.div`
         text-align:center;
         height: 50px;
         line-height:50px;
-        color:${barFontColor};
+        color:${whiteColor};
         font-size:20px;
         transition:all .6s;
         &.active{
-            /* color:${barActiveColor}; */
-            background-color:${barActiveBg};
+            background-color:${buttonActiveBg};
         }
     }
     .wave-mask{
@@ -93,10 +92,10 @@ const LogoBox = styled.div`
     text-align:center;
     vertical-align:middle;
     position:relative;
-    height:${logoHeight};
-    line-height:${logoHeight};
+    height:${sideLogoHeight}px;
+    line-height:${sideLogoHeight}px;
     position:relative;
-    z-index:${barIndex + 3};
+    z-index:${levelOneZindex + 3};
 
     &:after{
         display:table;

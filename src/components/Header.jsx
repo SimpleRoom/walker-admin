@@ -3,27 +3,25 @@ import { withRouter } from "react-router-dom";
 import styled from "styled-components"
 
 import { sessionStore } from "@src/utils"
-// common
-const ClearFix = styled.div`
-    &:before,&:after{
-        display:table;
-        content:"";
-        clear:both;
-    }
-`;
-const headerIndex = 1
-const headerHeight = "70px"
-const barBg = "#282C34";
-const barWidth = "252px";
+// global common style
+import {
+    levelOneZindex,
+    ClearFix,
+    headerHeight,
+    sideBarWidth,
+    themeRgbaColor,
+} from "./common-style"
+// common scoped style
+
 // header
 const HeaderBox = styled(ClearFix)`
     position:fixed;
-    z-index:${headerIndex};
-    left:${barWidth};
+    z-index:${levelOneZindex};
+    left:${sideBarWidth}px;
     top:0;
-    background:rgba(4,30,40,.8);
-    width: calc(100% - ${barWidth});
-    height:${headerHeight};
+    background:${themeRgbaColor};
+    width: calc(100% - ${sideBarWidth}px);
+    height:${headerHeight}px;
     color:#fff;
     box-shadow:0 6px 10px -2px rgba(0,0,0,0.5);
 `;
