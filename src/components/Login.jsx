@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { withRouter } from "react-router-dom"
 import styled from "styled-components"
 
-import { SESSION } from "@src/utils"
+import { sessionStore } from "@src/utils"
 // login box
 const LoginBox = styled.div`
     width:260px;
@@ -32,7 +32,7 @@ class Login extends PureComponent {
         }
     }
     componentDidMount() {
-        let info = SESSION.fetch()
+        let info = sessionStore.fetch()
         const { history } = this.props
         if (info) {
             history.push("/")
@@ -53,7 +53,7 @@ class Login extends PureComponent {
             const { history } = this.props
             let info = { userName, userPwd }
             // save to sessionStorage
-            SESSION.save(info)
+            sessionStore.save(info)
             // back to home
             history.push("/")
         }

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { withRouter } from "react-router-dom";
 import styled from "styled-components"
 
-import { SESSION } from "@src/utils"
+import { sessionStore } from "@src/utils"
 // common
 const ClearFix = styled.div`
     &:before,&:after{
@@ -47,7 +47,7 @@ class Header extends PureComponent {
         }
     }
     componentDidMount() {
-        let info = SESSION.fetch()
+        let info = sessionStore.fetch()
         const { history } = this.props
         if (!info) {
             // back to login
@@ -59,7 +59,7 @@ class Header extends PureComponent {
         console.log(info)
     }
     signOut = () => {
-        SESSION.remove()
+        sessionStore.remove()
         this.props.history.push("/login")
     }
     render() {

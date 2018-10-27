@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components"
 import routeList from "@src/routes"
 // button wave effect
-import ButtonWaveEffect from "@src/utils/ButtonWaveEffect"
+import { ButtonWaveEffect } from "@src/utils"
 
 const barWidth = "252px";
 const barBg = "#282C34";

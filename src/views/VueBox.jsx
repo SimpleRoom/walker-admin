@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from "styled-components"
-// button wave effect
-import ButtonWaveEffect from "@src/utils/ButtonWaveEffect"
 const TestButton = styled.button`
     width:30px;
     height:30px;
@@ -12,9 +10,7 @@ const TestButton = styled.button`
     position:relative;
 `;
 class VueBox extends React.Component {
-    ButtonWave = new ButtonWaveEffect()
     testClick = e => {
-        this.ButtonWave.showWave(e)
     }
     render() {
         return (
