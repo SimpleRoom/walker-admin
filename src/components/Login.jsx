@@ -4,6 +4,8 @@ import styled from "styled-components"
 
 import { sessionStore } from "@src/utils"
 import { CanvasBg } from "@src/canvas"
+// button wave effect
+import { ButtonWaveEffect } from "@src/utils"
 // global common style
 import {
     levelOneZindex,
@@ -31,18 +33,38 @@ const FormBox = styled.div`
     bottom: 0;
     margin:auto;
     cursor:pointer;
+`;
+const FormList = styled.div`
+    position:relative;
+    margin-bottom:12px;
+    padding:6px 0;
+    background:#fff;
     input{
-        padding:2px 15px;
+        padding:6px 15px;
         font-size:14px;
-        margin-bottom:10px;
+        color:#aaa;
         width:100%;
-        height:40px;
-        line-height:40px;
         cursor:pointer;
         background:#fff;
+
+        &:focus+.line{
+            transform:scaleX(1);
+        }
+    }
+    .line{
+        position:absolute;
+        width:100%;
+        height:4px;
+        background:${loginBtnBg};
+        left:0;
+        top:0;
+        transform:scaleX(0);
+        transition:transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
     }
 `;
 const LoginBtn = styled.button`
+    position:relative;
+    overflow:hidden;
     width:100%;
     height:40px;
     line-height:40px;
@@ -53,6 +75,7 @@ const LoginBtn = styled.button`
 class Login extends PureComponent {
     constructor(props) {
         super(props)
+        this.ButtonWave = new ButtonWaveEffect()
         this.state = {
             userName: "",
             userPwd: "",
@@ -75,7 +98,7 @@ class Login extends PureComponent {
         let userPwd = e.target.value
         this.setState({ userPwd })
     }
-    login = () => {
+    login = (e) => {
         let { userName, userPwd } = this.state
         if (userName && userPwd) {
             const { history } = this.props
@@ -85,6 +108,7 @@ class Login extends PureComponent {
             // back to home
             history.push("/")
         }
+        this.ButtonWave.showWave(e)
 
     }
     render() {
@@ -93,9 +117,15 @@ class Login extends PureComponent {
             <LoginBgBox>
                 <canvas id="canvasMoveBg"></canvas>
                 <FormBox>
-                    <input className="user-name" autoComplete="off" type="text" value={userName} onChange={this.updateUserName} placeholder="用户名" maxLength="10" />
-                    <input className="user-pwd" autoComplete="off" type="password" value={userPwd} onChange={this.updateUserPwd} placeholder="密码" maxLength="10" />
-                    <LoginBtn onClick={this.login}>登录</LoginBtn>
+                    <FormList>
+                        <input className="user-name" autoComplete="off" type="text" value={userName} onChange={this.updateUserName} placeholder="Username" maxLength="10" />
+                        <div className="line"></div>
+                    </FormList>
+                    <FormList>
+                        <input className="user-pwd" autoComplete="off" type="password" value={userPwd} onChange={this.updateUserPwd} placeholder="Password" maxLength="10" />
+                        <div className="line"></div>
+                    </FormList>
+                    <LoginBtn onClick={this.login}>Sign in</LoginBtn>
                 </FormBox>
             </LoginBgBox>
         )
