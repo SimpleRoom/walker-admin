@@ -64,7 +64,8 @@ class Login extends PureComponent {
         if (info) {
             history.push("/")
         }
-        this.canvasBackground = new CanvasBg({ id: "canvasMoveBg" })
+        // create canvas background width canvas id
+        this.canvasBackground = new CanvasBg("canvasMoveBg")
     }
     updateUserName = e => {
         let userName = e.target.value

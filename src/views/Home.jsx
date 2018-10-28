@@ -7,6 +7,7 @@ import routeList from "@src/routes"
 import SideBar from "@src/components/SideBar"
 import NotFound from "@src/components/NotFound"
 import Header from "@src/components/Header"
+import Setting from "@src/components/Setting"
 
 // global common style
 import {
@@ -42,6 +43,8 @@ class Home extends React.Component {
                 <SideBar themeBgColor={color} />
                 {/* top header */}
                 <Header />
+                {/* setting */}
+                <Setting />
                 <ContainerBox>
                     <Switch>
 
