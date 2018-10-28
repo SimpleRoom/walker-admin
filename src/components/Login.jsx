@@ -9,6 +9,7 @@ import {
     levelOneZindex,
     ClearFix,
     buttonActiveBg,
+    themeRgbaColor,
 } from "./common-style"
 // login box
 const LoginBgBox = styled(ClearFix)`
@@ -16,7 +17,7 @@ const LoginBgBox = styled(ClearFix)`
     width:100%;
     height:100%;
     z-index:${levelOneZindex};
-    background-image: radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);
+    background-image: radial-gradient(ellipse farthest-corner at center top, ${themeRgbaColor} 0%, #000105 100%);
     cursor: move;
 `;
 // login form
@@ -31,19 +32,22 @@ const FormBox = styled.div`
     margin:auto;
     cursor:pointer;
     input{
-        padding:2px 10px;
+        padding:2px 15px;
+        font-size:14px;
         border:1px solid #bebebe;
-        margin: 5px 0;
+        margin-bottom:10px;
         width:100%;
-        height:30px;
-        line-height:30px;
+        height:40px;
+        line-height:40px;
         cursor:pointer;
+        background:#fff;
     }
 `;
 const LoginBtn = styled.button`
     width:100%;
-    height:30px;
-    line-height:30px;
+    height:40px;
+    line-height:40px;
+    font-size:14px;
     background:${buttonActiveBg};
 `;
 
