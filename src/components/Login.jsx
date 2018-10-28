@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { withRouter } from "react-router-dom"
 import styled from "styled-components"
-
+import NoticeMessage from "./NoticeMessage"
 import { sessionStore } from "@src/utils"
 import { CanvasBg } from "@src/canvas"
 // button wave effect
@@ -79,6 +79,24 @@ class Login extends PureComponent {
         this.state = {
             userName: "",
             userPwd: "",
+            // 消息提示框
+            message: null,
+            messageType: null,
+            animationName: null,
+        }
+        this.messageInfo = {
+            success: {
+                message: "Sign in success",
+                animationName: null
+            },
+            warning: {
+                message: "Username can not be empty !",
+                animationName: "slideInLeft"
+            },
+            error: {
+                message: "Password can not be blank !",
+                animationName: "shake",
+            },
         }
     }
     componentDidMount() {
@@ -100,6 +118,22 @@ class Login extends PureComponent {
     }
     login = (e) => {
         let { userName, userPwd } = this.state
+        let zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
+        // button wave effect
+        this.ButtonWave.showWave(e)
+        if (!userName) {
+            return this.showMessage("warning")
+        }
+        if (userName && zhReg.test(userName)) {
+            return this.setState({
+                messageType: "error",
+                message: "Username cannot contain Chinese !",
+                animationName: "bounce",
+            })
+        }
+        if (!userPwd) {
+            return this.showMessage("error")
+        }
         if (userName && userPwd) {
             const { history } = this.props
             let info = { userName, userPwd }
@@ -108,13 +142,26 @@ class Login extends PureComponent {
             // back to home
             history.push("/")
         }
-        this.ButtonWave.showWave(e)
-
+    }
+    showMessage(messageType) {
+        let { message, animationName } = this.messageInfo[messageType];
+        this.setState({ messageType, message, animationName });
+    }
+    //移除alert的回调
+    removeNotice = () => {
+        this.setState({ message: null, type: null })
     }
     render() {
-        let { userName, userPwd } = this.state
+        let { userName, userPwd, message, messageType, animationName } = this.state
         return (
             <LoginBgBox>
+                {
+                    message ?
+                        <NoticeMessage message={message}
+                            type={messageType}
+                            animation={animationName}
+                            hideAlert={this.removeNotice} /> : null
+                }
                 <canvas id="canvasMoveBg"></canvas>
                 <FormBox>
                     <FormList>
