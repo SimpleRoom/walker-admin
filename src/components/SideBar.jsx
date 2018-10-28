@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components"
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import routeList from "@src/routes"
 // button wave effect
 import { ButtonWaveEffect } from "@src/utils"
@@ -72,7 +72,7 @@ const BarList = styled.div`
         font-size:20px;
         transition:all .6s;
         &.active{
-            background-color:${props => props.bgThemeColor};
+            background-color:${props => props.themeBgColor};
         }
     }
     .wave-mask{
@@ -120,29 +120,21 @@ const BarTitle = styled(InLineBox)`
     color: #999;
 `;
 
+const SideNavLink = ({ item, onClick }) => (
+    <NavLink to={item.path} activeClassName="active">{item.sidebarName}
+        <span className="wave-mask" onClick={onClick}></span>
+    </NavLink>
+)
 class SideBar extends React.Component {
     constructor(props) {
         super(props)
         this.ButtonWave = new ButtonWaveEffect()
-        this.state = {
-            color: null,
-        }
-    }
-    // listener props from Parent Component
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.color !== prevState.color) {
-            return {
-                color: nextProps.color,
-            }
-        }
-        return null;
     }
     clickHandle = (e) => {
         this.ButtonWave.showWave(e)
     }
     render() {
-        let { color } = this.props.currentTheme
-        console.log(color, `sideBar props`)
+        let { themeBgColor } = this.props
         return (
             <SideBarBox>
                 {/* bg image */}
@@ -154,14 +146,12 @@ class SideBar extends React.Component {
                     <BarTitle>Simple Room</BarTitle>
                 </LogoBox>
                 {/* bar list */}
-                <BarList bgThemeColor={color}>
+                <BarList themeBgColor={themeBgColor}>
                     <ul>
                         {
                             routeList.map((item, index) => (
                                 <li key={index}>
-                                    <NavLink to={item.path} activeClassName="active">{item.sidebarName}
-                                        <span className="wave-mask" onClick={this.clickHandle}></span>
-                                    </NavLink>
+                                    <SideNavLink item={item} onClick={this.clickHandle} />
                                 </li>
                             ))
                         }
@@ -171,12 +161,4 @@ class SideBar extends React.Component {
         )
     }
 }
-// export default SideBar
-
-const mapStateToProps = state => {
-    return { ...state }
-}
-
-export default connect(
-    mapStateToProps,
-)(SideBar)
+export default SideBar
