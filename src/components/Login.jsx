@@ -8,9 +8,9 @@ import { CanvasBg } from "@src/canvas"
 import {
     levelOneZindex,
     ClearFix,
-    buttonActiveBg,
     themeRgbaColor,
 } from "./common-style"
+const loginBtnBg = "#00bcd4"
 // login box
 const LoginBgBox = styled(ClearFix)`
     position:fixed;
@@ -34,7 +34,6 @@ const FormBox = styled.div`
     input{
         padding:2px 15px;
         font-size:14px;
-        border:1px solid #bebebe;
         margin-bottom:10px;
         width:100%;
         height:40px;
@@ -48,7 +47,7 @@ const LoginBtn = styled.button`
     height:40px;
     line-height:40px;
     font-size:14px;
-    background:${buttonActiveBg};
+    background:${loginBtnBg};
 `;
 
 class Login extends PureComponent {
