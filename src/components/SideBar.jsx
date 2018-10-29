@@ -8,7 +8,9 @@ import { ButtonWaveEffect } from "@src/utils"
 // global common style
 import {
     levelOneZindex,
+    ClearFix,
     sideBarWidth,
+    closedSideBarWidth,
     // buttonActiveBg,
     sideLogoHeight,
     themeRgbaColor,
@@ -25,9 +27,28 @@ const SideBarBox = styled.div`
     z-index:${levelOneZindex};
     width:${sideBarWidth}px;
     height:100%;
-    left:0;
+    left:${props => props.isOpened ? '0' : -closedSideBarWidth + 'px'};
     top:0;
     box-shadow: 0 10px 40px 5px rgba(0, 0, 0, 0.5);
+    transition:left .4s;
+
+    .opened-sidebar{
+        display:${props => props.isOpened ? "block" : "none"};
+    }
+    .closed-sidebar{
+        float:right;
+        display:${props => props.isOpened ? "none" : "block"};
+
+        a{
+            display:block;
+            padding:10px 12px;
+            color:#fff;
+            transition:all .3s;
+        }
+        a.active{
+            color:#00bcd4;
+        }
+    }
 `;
 // side bar background-image
 const SideBarBgImage = styled.div`
@@ -48,20 +69,20 @@ const SideBarMask = styled.div`
     background:${themeRgbaColor};
 `;
 // bar list
-const BarList = styled.div`
+const BarList = styled(ClearFix)`
     position:relative;
     height:calc(100vh - ${sideLogoHeight}px);
     z-index:${levelOneZindex + 3};
-    ul{
+    .opened-sidebar{
         width:85%;
         margin:15px auto 0 auto;
     }
-    li{
+    .opened-sidebar li{
         margin-bottom:10px;
         border-radius:5px;
         overflow:hidden;
     }
-    a{
+    .opened-sidebar a{
         position:relative;
         overflow:hidden;
         display: block;
@@ -75,7 +96,7 @@ const BarList = styled.div`
             background-color:${props => props.themeBgColor};
         }
     }
-    .wave-mask{
+    .opened-sidebar .wave-mask{
         position:absolute;
         z-index:0;
         width:100%;
@@ -88,6 +109,7 @@ const BarList = styled.div`
 
 // logo
 const LogoBox = styled.div`
+    opacity:${props => props.isOpened ? 1 : 0};
     width:85%;
     margin:0 auto;
     text-align:center;
@@ -97,6 +119,7 @@ const LogoBox = styled.div`
     line-height:${sideLogoHeight}px;
     position:relative;
     z-index:${levelOneZindex + 3};
+    transition:opacity .3s;
 
     &:after{
         display:table;
@@ -125,6 +148,10 @@ const SideNavLink = ({ item, onClick }) => (
         <span className="wave-mask" onClick={onClick}></span>
     </NavLink>
 )
+
+const SmallNavLink = ({ index, item }) => (
+    <NavLink to={item.path} activeClassName="active">{index + 1}</NavLink>
+)
 class SideBar extends React.Component {
     constructor(props) {
         super(props)
@@ -134,28 +161,39 @@ class SideBar extends React.Component {
         this.ButtonWave.showWave(e)
     }
     render() {
-        let { themeBgColor } = this.props
+        let { themeBgColor, isOpenedSideBar } = this.props
         return (
-            <SideBarBox>
+            <SideBarBox isOpened={isOpenedSideBar}>
                 {/* bg image */}
                 <SideBarBgImage></SideBarBgImage>
                 <SideBarMask></SideBarMask>
                 {/* logo */}
-                <LogoBox>
+                <LogoBox isOpened={isOpenedSideBar}>
                     <LogoBg></LogoBg>
                     <BarTitle>Simple Room</BarTitle>
                 </LogoBox>
                 {/* bar list */}
                 <BarList themeBgColor={themeBgColor}>
-                    <ul>
-                        {
-                            routeList.map((item, index) => (
-                                <li key={index}>
-                                    <SideNavLink item={item} onClick={this.clickHandle} />
-                                </li>
-                            ))
-                        }
-                    </ul>
+                    {
+                        isOpenedSideBar ? <ul className="opened-sidebar">
+                            {
+                                routeList.map((item, index) => (
+                                    <li key={index}>
+                                        <SideNavLink item={item} onClick={this.clickHandle} />
+                                    </li>
+                                ))
+                            }
+                        </ul> : <ul className="closed-sidebar">
+                                {
+
+                                    routeList.map((item, index) => (
+                                        <li key={index}>
+                                            <SmallNavLink index={index} item={item} />
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                    }
                 </BarList>
             </SideBarBox>
         )

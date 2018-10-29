@@ -9,16 +9,23 @@ import {
     ClearFix,
     headerHeight,
     sideBarWidth,
+    closedSideBarWidth,
     themeRgbaColor,
 } from "./common-style"
+// 参数计算
+const closedLeft = sideBarWidth - closedSideBarWidth
+const openWidth = `calc(100% - ${sideBarWidth}px)`
+const closeWidth = `calc(100% - ${closedLeft}px)`
+
 // common scoped style
 const HeaderBox = styled(ClearFix)`
     position:fixed;
     z-index:${levelOneZindex};
-    left:${sideBarWidth}px;
+    transition:all .4s;
+    left:${props => props.isOpenedSideBar ? sideBarWidth + "px" : closedLeft + "px"};
     top:0;
     background:${themeRgbaColor};
-    width: calc(100% - ${sideBarWidth}px);
+    width: ${props => props.isOpenedSideBar ? openWidth : closeWidth};
     height:${headerHeight}px;
     color:#fff;
     box-shadow:0 6px 10px -2px rgba(0,0,0,0.5);
@@ -60,11 +67,12 @@ class Header extends PureComponent {
     }
     render() {
         const { userName } = this.state
+        const { isOpenedSideBar } = this.props
         return (
-            <HeaderBox>
+            <HeaderBox isOpenedSideBar={isOpenedSideBar}>
                 <UserInfoBox>
                     {
-                        userName ? <p>欢迎{userName}<SignOutBtn onClick={this.signOut}>退出</SignOutBtn></p> : null
+                        userName ? <p>Welcome {userName}<SignOutBtn onClick={this.signOut}>Sign out</SignOutBtn></p> : null
                     }
                 </UserInfoBox>
             </HeaderBox>

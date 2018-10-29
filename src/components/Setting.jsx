@@ -2,11 +2,12 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import styled from "styled-components"
 // import actions
-import { fetchNewTheme, fetchSettingStatus } from "../redux/actionCreators"
+import { fetchNewTheme, fetchSettingStatus, fetchBarIsOpened } from "../redux/actionCreators"
 // global common style
 import {
     levelOneZindex,
     ClearFix,
+    themeRgbaColor,
 } from "./common-style"
 // scoped style
 const settingBg = "rgba(4,50,60,.3)"
@@ -15,7 +16,7 @@ const SetingBox = styled(ClearFix)`
     position:fixed;
     width:240px;
     height:100px;
-    bottom:60px;
+    bottom:100px;
     right:${props => props.isHide ? "-246px" : "0"};
     /* right: 0; */
     z-index:${levelOneZindex};
@@ -69,6 +70,16 @@ const ToggleButton = styled.button`
 const ToggleThemeBtn = ({ isActive, item, onClick, indexId }) => (
     <ToggleButton isActive={isActive} onClick={onClick} data-id={indexId} data-color={item} bgColor={item}></ToggleButton>
 )
+// 
+const ToggleSideBarBox = styled.div`
+    text-align:center;
+`;
+const ToggleSideBarBtn = styled.button`
+    width:100px;
+    height:30px;
+    background:${themeRgbaColor};
+    color:#fff;
+`;
 class Setting extends PureComponent {
     constructor(props) {
         super(props)
@@ -106,10 +117,15 @@ class Setting extends PureComponent {
         // update to redux
         this.props.updateTheme(currentColor[0])
     }
+    toogleSideBar = () => {
+        let { isOpened } = this.props.sideBarStatus
+        this.props.togleOpenSideBar(!isOpened)
+    }
     render() {
         let { themeList } = this.state
         let { isHiding } = this.props.settingBox
         let { activeIndex } = this.props.currentTheme
+        let { isOpened } = this.props.sideBarStatus
         const filterActive = (item) => {
             if (item.id === activeIndex) return true
         }
@@ -127,6 +143,10 @@ class Setting extends PureComponent {
                         ))
                     }
                 </ColorBox>
+                {/* toggle sidebar */}
+                <ToggleSideBarBox>
+                    <ToggleSideBarBtn onClick={this.toogleSideBar}>{isOpened ? 'hide side bar' : 'show side bar'}</ToggleSideBarBtn>
+                </ToggleSideBarBox>
             </SetingBox>
         )
     }
@@ -146,6 +166,7 @@ const mapDispatchToProps = dispatch => ({
     updateTheme: (obj) => dispatch(fetchNewTheme(obj)),
     // 暂存是否要显示工具栏： isHiding boolean
     toggleSetting: (isHiding) => dispatch(fetchSettingStatus(isHiding)),
+    togleOpenSideBar: (isOpening) => dispatch(fetchBarIsOpened(isOpening)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Setting)

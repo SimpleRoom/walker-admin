@@ -15,16 +15,20 @@ import {
     ClearFix,
     headerHeight,
     sideBarWidth,
+    closedSideBarWidth,
 } from "@src/components/common-style"
+
+const closedPadLeft = sideBarWidth - closedSideBarWidth + 20
 
 const ContainerBox = styled(ClearFix)`
     position:relative;
     z-index:${levelOneZindex - 1};
     /* will reset padding with props */
-    padding-left:${props => props.sideBarIsHide ? '20px' : sideBarWidth + 20 + 'px'};
-    padding-top:${props => props.headerIsHide ? '20px' : headerHeight + 20 + 'px'};
+    padding-left:${props => props.isOpenedSideBar ? sideBarWidth + 20 + "px" : closedPadLeft + "px"};
+    padding-top:${headerHeight + 20}px;
     padding-right:20px;
     padding-bottom:20px;
+    transition:padding-left .4s;
 `;
 
 // HomeBox
@@ -36,16 +40,16 @@ const HomeBox = styled.div`
 class Home extends React.Component {
     render() {
         // listener theme color from props by redux
-        let { color } = this.props.currentTheme
+        let { currentTheme, sideBarStatus } = this.props
         return (
             <HomeBox>
                 {/* side nav bar */}
-                <SideBar themeBgColor={color} />
+                <SideBar isOpenedSideBar={sideBarStatus.isOpened} themeBgColor={currentTheme.color} />
                 {/* top header */}
-                <Header />
+                <Header isOpenedSideBar={sideBarStatus.isOpened} />
                 {/* setting */}
                 <Setting />
-                <ContainerBox>
+                <ContainerBox isOpenedSideBar={sideBarStatus.isOpened}>
                     <Switch>
 
                         {/* component list */}
