@@ -1,9 +1,8 @@
-
-
+// create store to root for global
 import { createStore } from 'redux'
-import { rootReducer , initialState } from "./reducers"
+import { rootReducer, initialState } from "./reducers"
 
-export const configureStore = () =>{
+export const configureStore = () => {
     const store = createStore(
         rootReducer,
         initialState,

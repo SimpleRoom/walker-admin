@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import styled from "styled-components"
 // import actions
-import { fetchNewTheme } from "../redux/actionCreators"
+import { fetchNewTheme, fetchSettingStatus } from "../redux/actionCreators"
 // global common style
 import {
     levelOneZindex,
@@ -16,7 +16,7 @@ const SetingBox = styled(ClearFix)`
     width:240px;
     height:100px;
     bottom:60px;
-    right:${props => props.isHide ? "-248px" : "-6px"};
+    right:${props => props.isHide ? "-246px" : "0"};
     /* right: 0; */
     z-index:${levelOneZindex};
     background:${settingBg};
@@ -27,13 +27,13 @@ const SetingBox = styled(ClearFix)`
 const SettingBtn = styled.button`
     position:absolute;
     top:0;
-    width:55px;
+    width:65px;
     height:40px;
     text-align:right;
-    padding:0 10px;
+    padding:0 20px;
     vertical-align:middle;
     background:${settingBg};
-    left:-55px;
+    left:-65px;
     border-top-left-radius:6px;
     border-bottom-left-radius:6px;
     .icon{
@@ -49,7 +49,7 @@ const ColorBox = styled.div`
     text-align:center;
     padding:10px;
     h3{
-        font-size:14px;
+        font-size:12px;
     }
 `;
 const ToggleButton = styled.button`
@@ -73,8 +73,6 @@ class Setting extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            isHiding: true,
-            acttiveIndex: 0,
             themeList: [{
                 id: 1,
                 color: "#9c27b0",
@@ -91,20 +89,29 @@ class Setting extends PureComponent {
         }
     }
     toggleSetting = e => {
-        this.setState({ isHiding: !this.state.isHiding })
+        let { isHiding } = this.props.settingBox
+        /* 
+         * use redux instead of setState to store the state with no reload 
+         */
+        this.props.toggleSetting(!isHiding)
+        // this.setState({ isHiding: !this.state.isHiding })
     }
     toggleThemeColor = e => {
         let target = e.target
-        let color = target.getAttribute("data-color")
-        let acttiveIndex = Number(target.getAttribute("data-id"))
-        this.setState({ acttiveIndex })
-        this.props.updateTheme(color)
-        console.log(color)
+        let { themeList } = this.state
+        let activeIndex = Number(target.getAttribute("data-id"))
+        let currentColor = themeList.filter((item) => {
+            return item.id === activeIndex
+        })
+        // update to redux
+        this.props.updateTheme(currentColor[0])
     }
     render() {
-        let { isHiding, acttiveIndex, themeList } = this.state
+        let { themeList } = this.state
+        let { isHiding } = this.props.settingBox
+        let { activeIndex } = this.props.currentTheme
         const filterActive = (item) => {
-            if (item.id === acttiveIndex) return true
+            if (item.id === activeIndex) return true
         }
         return (
             <SetingBox isHide={isHiding}>
@@ -126,7 +133,6 @@ class Setting extends PureComponent {
 }
 
 // export default Setting
-
 // 1、connect 參數1映射屬性到組件
 const mapStateToProps = state => {
     console.log(state, `Setting state update`)
@@ -137,7 +143,9 @@ const mapStateToProps = state => {
  *   updateTheme 函數作為屬性传递 
  */
 const mapDispatchToProps = dispatch => ({
-    updateTheme: (rgba) => dispatch(fetchNewTheme(rgba)),
+    updateTheme: (obj) => dispatch(fetchNewTheme(obj)),
+    // 暂存是否要显示工具栏： isHiding boolean
+    toggleSetting: (isHiding) => dispatch(fetchSettingStatus(isHiding)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Setting)
