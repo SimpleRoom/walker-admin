@@ -42,7 +42,7 @@ const SettingBtn = styled.button`
         width:25px;
         height:25px;
         background-size:cover;
-        background-image:url("/images/icon-tool.svg");
+        background-image:url("/images/icon-setting.svg");
     }
 `;
 

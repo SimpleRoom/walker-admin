@@ -32,13 +32,10 @@ const SideBarBox = styled.div`
     box-shadow: 0 10px 40px 5px rgba(0, 0, 0, 0.5);
     transition:left .4s;
 
-    .opened-sidebar{
-        display:${props => props.isOpened ? "block" : "none"};
-    }
     .closed-sidebar{
         float:right;
         display:${props => props.isOpened ? "none" : "block"};
-
+        transition:all .3s;
         a{
             display:block;
             padding:10px 12px;
@@ -46,6 +43,7 @@ const SideBarBox = styled.div`
             transition:all .3s;
         }
     }
+    
 `;
 // side bar background-image
 const SideBarBgImage = styled.div`
@@ -70,39 +68,6 @@ const BarList = styled(ClearFix)`
     position:relative;
     height:calc(100vh - ${sideLogoHeight}px);
     z-index:${levelOneZindex + 3};
-    .opened-sidebar{
-        width:85%;
-        margin:15px auto 0 auto;
-    }
-    .opened-sidebar li{
-        margin-bottom:10px;
-        border-radius:5px;
-        overflow:hidden;
-    }
-    .opened-sidebar a{
-        position:relative;
-        overflow:hidden;
-        display: block;
-        text-align:center;
-        height: 50px;
-        line-height:50px;
-        color:${whiteColor};
-        font-size:20px;
-        transition:all .6s;
-    }
-    .opened-sidebar .wave-mask{
-        position:absolute;
-        z-index:0;
-        width:100%;
-        height:100%;
-        left:0;
-        top:0;
-        background-color:transparent;
-    }
-
-    a.active{
-        background-color:${props => props.themeBgColor};
-    }
 `;
 
 // logo
@@ -131,24 +96,92 @@ const LogoBox = styled.div`
 `;
 const LogoBg = styled(InLineBox)`
     width:50px;
-    height:49px;
+    height:50px;
     background-size:100% 100%;
     background-image:url("/images/logo.svg");
 `;
 
 const BarTitle = styled(InLineBox)`
-    font-size:22px;
+    font-size:24px;
     color: #999;
 `;
 
+const OpenSideBar = styled.div`
+    width:85%;
+    margin:15px auto 0 auto;
+    display:${props => props.isOpened ? "block" : "none"};
+    transition:left .4s;
+    a{
+        position:relative;
+        overflow:hidden;
+        display: block;
+        color:${whiteColor};
+        font-size:16px;
+        transition:all .6s;
+        border-radius:5px;
+        padding:14px 20px;
+        span{
+            display:inline-block;
+            vertical-align:middle;
+        }
+    }
+    .wave-mask{
+        position:absolute;
+        z-index:0;
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+        background-color:transparent;
+    }
+    a.active{
+        background-color:${props => props.themeBgColor};
+    }
+`;
+
+const OpenList = styled.div`
+    margin-bottom:10px;
+    .nav-icon{
+        display:inline-block;
+        vertical-align:middle;
+        width:22px;
+        height:22px;
+        margin:0 10px;
+        background-size:100% 100%;
+        background-image:url(${props => props.iconSrc ? "/images/icon-" + props.iconSrc + ".svg" : ""});
+    }
+`;
+// closed bar list
+const ClosedSideBar = styled.div`
+    float:right;
+    width:32px;
+    display:${props => props.isOpened ? "none" : "block"};
+    transition:all .3s;
+    a{
+        display:block;
+        text-align:center;
+        padding:5px 0;
+        transition:all .3s;
+        .nav-icon{
+            margin:0;
+        }
+    }
+    a.active{
+        background-color:${props => props.themeBgColor};
+    }
+`;
 const SideNavLink = ({ item, onClick }) => (
-    <NavLink to={item.path} activeClassName="active">{item.sidebarName}
+    <NavLink to={item.path} activeClassName="active">
+        <span className="nav-icon"></span>
+        <span>{item.sidebarName}</span>
         <span className="wave-mask" onClick={onClick}></span>
     </NavLink>
 )
 
-const SmallNavLink = ({ index, item }) => (
-    <NavLink to={item.path} activeClassName="active">{index + 1}</NavLink>
+const SmallNavLink = ({ item }) => (
+    <NavLink to={item.path} activeClassName="active">
+        <span className="nav-icon"></span>
+    </NavLink>
 )
 class SideBar extends React.Component {
     constructor(props) {
@@ -171,26 +204,26 @@ class SideBar extends React.Component {
                     <BarTitle>Simple Room</BarTitle>
                 </LogoBox>
                 {/* bar list */}
-                <BarList themeBgColor={themeBgColor}>
+                <BarList>
                     {
-                        isOpenedSideBar ? <ul className="opened-sidebar">
+                        isOpenedSideBar ? <OpenSideBar themeBgColor={themeBgColor} isOpened={isOpenedSideBar}>
                             {
                                 routeList.map((item, index) => (
-                                    <li key={index}>
+                                    <OpenList key={index} iconSrc={item.icon}>
                                         <SideNavLink item={item} onClick={this.clickHandle} />
-                                    </li>
+                                    </OpenList>
                                 ))
                             }
-                        </ul> : <ul className="closed-sidebar">
+                        </OpenSideBar> : <ClosedSideBar themeBgColor={themeBgColor} isOpened={isOpenedSideBar}>
                                 {
 
                                     routeList.map((item, index) => (
-                                        <li key={index}>
+                                        <OpenList key={index} iconSrc={item.icon}>
                                             <SmallNavLink index={index} item={item} />
-                                        </li>
+                                        </OpenList>
                                     ))
                                 }
-                            </ul>
+                            </ClosedSideBar>
                     }
                 </BarList>
             </SideBarBox>
