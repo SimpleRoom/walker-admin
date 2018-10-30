@@ -45,9 +45,6 @@ const SideBarBox = styled.div`
             color:#fff;
             transition:all .3s;
         }
-        a.active{
-            color:#00bcd4;
-        }
     }
 `;
 // side bar background-image
@@ -92,9 +89,6 @@ const BarList = styled(ClearFix)`
         color:${whiteColor};
         font-size:20px;
         transition:all .6s;
-        &.active{
-            background-color:${props => props.themeBgColor};
-        }
     }
     .opened-sidebar .wave-mask{
         position:absolute;
@@ -104,6 +98,10 @@ const BarList = styled(ClearFix)`
         left:0;
         top:0;
         background-color:transparent;
+    }
+
+    a.active{
+        background-color:${props => props.themeBgColor};
     }
 `;
 
