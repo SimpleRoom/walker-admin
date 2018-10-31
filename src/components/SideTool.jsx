@@ -79,7 +79,7 @@ const ToggleSideBarBtn = styled.button`
     background:${themeRgbaColor};
     color:#fff;
 `;
-class Setting extends PureComponent {
+class SideTool extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
@@ -99,7 +99,7 @@ class Setting extends PureComponent {
         }
     }
     toggleSetting = e => {
-        let { isHiding } = this.props.settingBox
+        let { isHiding } = this.props.sideTool
         /* 
          * use redux instead of setState to store the state with no reload 
          */
@@ -117,14 +117,14 @@ class Setting extends PureComponent {
         this.props.updateTheme(currentColor[0])
     }
     toogleSideBar = () => {
-        let { isOpened } = this.props.sideBarStatus
+        let { isOpened } = this.props.sideBar
         this.props.togleOpenSideBar(!isOpened)
     }
     render() {
         let { themeList } = this.state
-        let { isHiding } = this.props.settingBox
-        let { activeIndex } = this.props.currentTheme
-        let { isOpened } = this.props.sideBarStatus
+        let { isHiding } = this.props.sideTool
+        let { activeIndex } = this.props.buttonColor
+        let { isOpened } = this.props.sideBar
         const filterActive = (item) => {
             if (item.id === activeIndex) return true
         }
@@ -138,7 +138,12 @@ class Setting extends PureComponent {
                     <h3>Theme list</h3>
                     {
                         themeList.map((item, index) => (
-                            <ToggleThemeBtn isActive={filterActive(item)} indexId={item.id} item={item.color} key={index} onClick={this.toggleThemeColor} />
+                            <ToggleThemeBtn
+                                isActive={filterActive(item)}
+                                indexId={item.id}
+                                item={item.color}
+                                key={index}
+                                onClick={this.toggleThemeColor} />
                         ))
                     }
                 </ColorBox>
@@ -151,10 +156,10 @@ class Setting extends PureComponent {
     }
 }
 
-// export default Setting
+// export default SideTool
 // connect's parameter
 const mapStateToProps = state => {
-    console.log(state, `Setting state update`)
+    console.log(state, `SideTool state update`)
     return { ...state }
 }
 /*
@@ -167,4 +172,4 @@ const mapDispatchToProps = dispatch => ({
     togleOpenSideBar: (isOpening) => dispatch(fetchBarIsOpened(isOpening)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Setting)
+export default connect(mapStateToProps, mapDispatchToProps)(SideTool)

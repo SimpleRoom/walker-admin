@@ -1,21 +1,21 @@
 import {
     combineReducers
 } from 'redux'
-import * as currentTheme from "./themeColor"
-import * as settingBox from "./settingTool"
-import * as sideBarStatus from "./sideBarOpenStatus"
+import * as buttonColor from "./toggleButtonColor"
+import * as sideTool from "./switchSideTool"
+import * as sideBar from "./switchSideBar"
 
 // collect default state and update all state to root/components
 export const rootReducer = combineReducers({
-    currentTheme: currentTheme.reducer,
-    settingBox: settingBox.reducer,
-    sideBarStatus: sideBarStatus.reducer,
+    buttonColor: buttonColor.reducer,
+    sideTool: sideTool.reducer,
+    sideBar: sideBar.reducer,
 })
 // create default state for components
 export const initialState = {
-    currentTheme: currentTheme.initialState,
-    settingBox: settingBox.initState,
-    sideBarStatus: sideBarStatus.initState,
+    buttonColor: buttonColor.initialState,
+    sideTool: sideTool.initState,
+    sideBar: sideBar.initState,
 }
 
 export default rootReducer

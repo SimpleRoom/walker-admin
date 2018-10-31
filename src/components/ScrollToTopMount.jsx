@@ -14,9 +14,9 @@ class ScrollToTopMount extends React.Component {
         }, 10)
     }
     moveToTop() {
-        this.d.scrollTop -= Math.ceil((this.d.scrollTop + this.b.scrollTop) * 0.1);
-        this.b.scrollTop -= Math.ceil((this.d.scrollTop + this.b.scrollTop) * 0.1);
-        if ((this.d.scrollTop + this.b.scrollTop) === 0) clearInterval(this.timer);
+        this.d.scrollTop -= Math.ceil((this.d.scrollTop + this.b.scrollTop) * 0.1)
+        this.b.scrollTop -= Math.ceil((this.d.scrollTop + this.b.scrollTop) * 0.1)
+        if ((this.d.scrollTop + this.b.scrollTop) === 0) clearInterval(this.timer)
     }
     render() {
         return null

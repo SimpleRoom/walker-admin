@@ -7,7 +7,7 @@ import routeList from "@src/routes"
 import SideBar from "@src/components/SideBar"
 import NotFound from "@src/components/NotFound"
 import Header from "@src/components/Header"
-import Setting from "@src/components/Setting"
+import SideTool from "@src/components/SideTool"
 
 // global common style
 import {
@@ -40,16 +40,16 @@ const HomeBox = styled.div`
 class Home extends React.Component {
     render() {
         // listener theme color from props by redux
-        let { currentTheme, sideBarStatus } = this.props
+        let { buttonColor, sideBar } = this.props
         return (
             <HomeBox>
                 {/* side nav bar */}
-                <SideBar isOpenedSideBar={sideBarStatus.isOpened} themeBgColor={currentTheme.color} />
+                <SideBar isOpenedSideBar={sideBar.isOpened} activeBgColor={buttonColor.color} />
                 {/* top header */}
-                <Header isOpenedSideBar={sideBarStatus.isOpened} />
+                <Header isOpenedSideBar={sideBar.isOpened} />
                 {/* setting */}
-                <Setting />
-                <ContainerBox isOpenedSideBar={sideBarStatus.isOpened}>
+                <SideTool />
+                <ContainerBox isOpenedSideBar={sideBar.isOpened}>
                     <Switch>
 
                         {/* component list */}

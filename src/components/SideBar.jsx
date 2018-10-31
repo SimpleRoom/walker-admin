@@ -135,7 +135,7 @@ const OpenSideBar = styled.div`
         background-color:transparent;
     }
     a.active{
-        background-color:${props => props.themeBgColor};
+        background-color:${props => props.activeBgColor};
     }
 `;
 
@@ -167,7 +167,7 @@ const ClosedSideBar = styled.div`
         }
     }
     a.active{
-        background-color:${props => props.themeBgColor};
+        background-color:${props => props.activeBgColor};
     }
 `;
 const SideNavLink = ({ item, onClick }) => (
@@ -192,7 +192,7 @@ class SideBar extends React.Component {
         this.ButtonWave.showWave(e)
     }
     render() {
-        let { themeBgColor, isOpenedSideBar } = this.props
+        let { activeBgColor, isOpenedSideBar } = this.props
         return (
             <SideBarBox isOpened={isOpenedSideBar}>
                 {/* bg image */}
@@ -206,7 +206,7 @@ class SideBar extends React.Component {
                 {/* bar list */}
                 <BarList>
                     {
-                        isOpenedSideBar ? <OpenSideBar themeBgColor={themeBgColor} isOpened={isOpenedSideBar}>
+                        isOpenedSideBar ? <OpenSideBar activeBgColor={activeBgColor} isOpened={isOpenedSideBar}>
                             {
                                 routeList.map((item, index) => (
                                     <OpenList key={index} iconSrc={item.icon}>
@@ -214,7 +214,7 @@ class SideBar extends React.Component {
                                     </OpenList>
                                 ))
                             }
-                        </OpenSideBar> : <ClosedSideBar themeBgColor={themeBgColor} isOpened={isOpenedSideBar}>
+                        </OpenSideBar> : <ClosedSideBar activeBgColor={activeBgColor} isOpened={isOpenedSideBar}>
                                 {
 
                                     routeList.map((item, index) => (

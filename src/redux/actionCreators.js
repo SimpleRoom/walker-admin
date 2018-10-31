@@ -8,12 +8,12 @@ const fetchNewTheme = obj => ({
     active: obj.id,
     newColor: obj.color,
 })
-// toggle setting box's hiding state
+// toggle side tool box's hiding state
 const fetchSettingStatus = isHiding => ({
     type: actionTypes.FETCH_SETTING_STATUS,
     isHide: isHiding,
 })
-// toggle sidebar's hiding state
+// toggle sidebar's opening state
 const fetchBarIsOpened = isOpening => ({
     type: actionTypes.FETCH_SIDE_BAR_IS_CLOSED,
     isOpening,
