@@ -77,6 +77,7 @@ class Login extends PureComponent {
         super(props)
         this.ButtonWave = new ButtonWaveEffect()
         this.state = {
+            type: "text",
             userName: "",
             userPwd: "",
             // default state value
@@ -105,7 +106,6 @@ class Login extends PureComponent {
         if (info) {
             history.push("/")
         }
-        console.log(info)
         // create canvas background with canva's id
         this.canvasBackground = new CanvasBg("canvasMoveBg")
     }
@@ -116,6 +116,14 @@ class Login extends PureComponent {
     updateUserPwd = e => {
         let userPwd = e.target.value
         this.setState({ userPwd })
+    }
+    // reset input type while on focusing to prevent browser remember password
+    resetInputType = () => {
+        let { type } = this.state
+        let newType = type === "text" ? "password" : type
+        this.setState({
+            type: newType
+        })
     }
     login = (e) => {
         let { userName, userPwd } = this.state
@@ -142,6 +150,8 @@ class Login extends PureComponent {
             sessionStore.save(info)
             // back to home
             history.push("/")
+            // back default type
+            this.resetInputType()
         }
     }
     showMessage(messageType) {
@@ -153,8 +163,7 @@ class Login extends PureComponent {
         this.setState({ message: null, type: null })
     }
     render() {
-        let { userName, userPwd, message, messageType, animationName } = this.state
-        console.log(userName, userPwd)
+        let { type, userName, userPwd, message, messageType, animationName } = this.state
         return (
             <LoginBgBox>
                 {
@@ -167,11 +176,24 @@ class Login extends PureComponent {
                 <canvas id="canvasMoveBg"></canvas>
                 <FormBox>
                     <FormList>
-                        <input className="user-name" autoComplete="off" type="text" value={userName} onChange={this.updateUserName} placeholder="Username" maxLength="10" />
+                        <input className="user-name"
+                            autoComplete="off"
+                            type="text"
+                            value={userName}
+                            placeholder="Username"
+                            maxLength="10"
+                            onChange={this.updateUserName} />
                         <div className="line"></div>
                     </FormList>
                     <FormList>
-                        <input className="user-pwd" autoComplete="off" type="password" value={userPwd} onChange={this.updateUserPwd} placeholder="Password" maxLength="10" />
+                        <input className="user-pwd"
+                            autoComplete="off"
+                            type={type}
+                            value={userPwd}
+                            placeholder="Password"
+                            maxLength="10"
+                            onFocus={this.resetInputType}
+                            onChange={this.updateUserPwd} />
                         <div className="line"></div>
                     </FormList>
                     <LoginBtn onClick={this.login}>Sign in</LoginBtn>
