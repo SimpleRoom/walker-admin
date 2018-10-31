@@ -70,7 +70,6 @@ const ToggleButton = styled.button`
 const ToggleThemeBtn = ({ isActive, item, onClick, indexId }) => (
     <ToggleButton isActive={isActive} onClick={onClick} data-id={indexId} data-color={item} bgColor={item}></ToggleButton>
 )
-// 
 const ToggleSideBarBox = styled.div`
     text-align:center;
 `;
@@ -153,18 +152,17 @@ class Setting extends PureComponent {
 }
 
 // export default Setting
-// 1、connect 參數1映射屬性到組件
+// connect's parameter
 const mapStateToProps = state => {
     console.log(state, `Setting state update`)
     return { ...state }
 }
 /*
- * 2 connect 參數2 函數，更新主题
- *   updateTheme 函數作為屬性传递 
+ * connect's parameter
+ *   
  */
 const mapDispatchToProps = dispatch => ({
     updateTheme: (obj) => dispatch(fetchNewTheme(obj)),
-    // 暂存是否要显示工具栏： isHiding boolean
     toggleSetting: (isHiding) => dispatch(fetchSettingStatus(isHiding)),
     togleOpenSideBar: (isOpening) => dispatch(fetchBarIsOpened(isOpening)),
 })

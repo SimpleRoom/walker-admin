@@ -10,13 +10,13 @@ import {
     levelOneZindex,
     ClearFix,
     sideBarWidth,
-    closedSideBarWidth,
-    // buttonActiveBg,
-    sideLogoHeight,
+    closedSideBarLeft,
+    headerAndLogoHeight,
     themeRgbaColor,
     whiteColor,
 } from "./common-style"
-
+// scoped style
+const smallBarWidth = sideBarWidth - closedSideBarLeft
 const InLineBox = styled.div`
     display:inline-block;
     vertical-align:middle;
@@ -27,7 +27,7 @@ const SideBarBox = styled.div`
     z-index:${levelOneZindex};
     width:${sideBarWidth}px;
     height:100%;
-    left:${props => props.isOpened ? '0' : -closedSideBarWidth + 'px'};
+    left:${props => props.isOpened ? '0' : -closedSideBarLeft + 'px'};
     top:0;
     box-shadow: 0 10px 40px 5px rgba(0, 0, 0, 0.5);
     transition:left .4s;
@@ -66,7 +66,7 @@ const SideBarMask = styled.div`
 // bar list
 const BarList = styled(ClearFix)`
     position:relative;
-    height:calc(100vh - ${sideLogoHeight}px);
+    height:calc(100vh - ${headerAndLogoHeight}px);
     z-index:${levelOneZindex + 3};
 `;
 
@@ -78,8 +78,8 @@ const LogoBox = styled.div`
     text-align:center;
     vertical-align:middle;
     position:relative;
-    height:${sideLogoHeight}px;
-    line-height:${sideLogoHeight}px;
+    height:${headerAndLogoHeight}px;
+    line-height:${headerAndLogoHeight}px;
     position:relative;
     z-index:${levelOneZindex + 3};
     transition:opacity .3s;
@@ -154,7 +154,7 @@ const OpenList = styled.div`
 // closed bar list
 const ClosedSideBar = styled.div`
     float:right;
-    width:32px;
+    width:${smallBarWidth}px;
     display:${props => props.isOpened ? "none" : "block"};
     transition:all .3s;
     a{

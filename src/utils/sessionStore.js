@@ -1,5 +1,4 @@
-const STORAGE_KEY = "USER_INFO";
-
+const STORAGE_KEY = "USER_INFO"
 const sessionStore = {
     save: (info) => {
         return window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(info));
@@ -11,7 +10,6 @@ const sessionStore = {
         return window.sessionStorage.removeItem(STORAGE_KEY);
     }
 }
-
 export {
     sessionStore
 }

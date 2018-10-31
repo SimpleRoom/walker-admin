@@ -14,13 +14,13 @@ import NotFound from "./components/NotFound"
 import Home from "./views/Home"
 
 const Root = ()=>{
-    // 2、使用Store 作為props傳入
+    // set store to root for global props
     const store = configureStore()
     return (
         <Provider store={store}>
             <Router>
                 <Switch>
-                    {/* Redirect to No.1 under home */}
+                    {/* Redirect to first route in home */}
                     <Route exact path="/" render={() => (
                         <Redirect to="/home/dashboard" />
                     )} />

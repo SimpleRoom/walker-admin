@@ -1,16 +1,28 @@
-import { levelOneZindex } from "./zindex"
-import { ClearFix } from "./ClearFix"
-import { headerHeight } from "./headerStyle"
-import { sideBarWidth, sideLogoHeight, closedSideBarWidth } from "./sideBarStyle"
-import { buttonActiveBg, themeRgbaColor, whiteColor } from "./color"
+// common style for global
+import {
+    levelOneZindex,
+    ClearFix,
+    headerAndLogoHeight,
+} from "./common"
+
+import {
+    sideBarWidth,
+    closedSideBarLeft,
+} from "./sideBarStyle"
+
+import {
+    buttonActiveBg,
+    themeRgbaColor,
+    whiteColor,
+} from "./color"
+
 export {
     levelOneZindex,
     ClearFix,
-    headerHeight,
+    headerAndLogoHeight,
     sideBarWidth,
-    closedSideBarWidth,
+    closedSideBarLeft,
     buttonActiveBg,
-    sideLogoHeight,
     themeRgbaColor,
     whiteColor,
 }

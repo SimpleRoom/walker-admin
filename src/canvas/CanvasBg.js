@@ -6,7 +6,7 @@ const rnd = () => {
 }
 
 class CanvasBg {
-    // @param{id} string,canvas id
+    // @param{id} string,canva's id
     constructor(id) {
         this.num = 200
         this.vel = 0.04;

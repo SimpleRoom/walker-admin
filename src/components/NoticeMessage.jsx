@@ -395,8 +395,7 @@ class NoticeMessage extends PureComponent {
         }
         this.timerId = null
     }
-
-    // listener props from Parent Component
+    // Listening props from Parent Component
     static getDerivedStateFromProps(nextProps, prevState) {
         // console.log(nextProps);
         if (nextProps.message !== prevState.message) {
@@ -408,36 +407,31 @@ class NoticeMessage extends PureComponent {
         }
         return null;
     }
-
     // call auto
     componentDidMount() {
         this.autoDestoryAlert()
     }
-
     // remove timer
     componentWillUnmount() {
         if (this.timerId) {
             clearTimeout(this.timerId)
         }
     }
-
     //auto remove Alert
     autoDestoryAlert() {
-        const { message, delayHideTime } = this.state;
+        const { message, delayHideTime } = this.state
         if (message) {
             this.timerId = setTimeout(() => {
-                this.props.hideAlert()
+                this.props.removeAlert()
             }, delayHideTime)
         }
     }
-
     //remove by hand
     destroyAlert = () => {
-        this.props.hideAlert()
+        this.props.removeAlert()
     }
-
     render() {
-        const { message, type, animation } = this.state;
+        const { message, type, animation } = this.state
         // message style
         const getMessageStyle = (currentType) => {
             if (currentType) {
@@ -449,7 +443,7 @@ class NoticeMessage extends PureComponent {
             return animationList[type]
         }
         /**
-         *  ...getMessageStyle(type)对象的结构赋值
+         *  ...getMessageStyle(type) instead of
          *  bgColor={getMessageStyle(type).bgColor}
          *  borderColor={getMessageStyle(type).borderColor}
          *  fontColor={getMessageStyle(type).fontColor}

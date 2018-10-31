@@ -16,24 +16,20 @@ customer-bar($color = rgba(242,242,242,0),$height = 4px)
         height: $height
     }
 
-    /* 设置滚动条的滑轨 */
     &::-webkit-scrollbar-track {
         background-color: rgba(242,242,242,0)
     }
 
-    /* 滑块 */
     &::-webkit-scrollbar-thumb {
         background-color: $color
         border-radius: 6px;
     }
 
-    /* 滑轨两头的监听按钮 */
     &::-webkit-scrollbar-button {
         background-color: #ddd;
         display: none;
     }
 
-    /* 横向滚动条和纵向滚动条相交处尖角 */
     &::-webkit-scrollbar-corner {
         /*background-color: black;*/
     }

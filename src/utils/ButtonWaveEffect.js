@@ -1,4 +1,4 @@
-// button wave effect with clicking
+// button wave effect while clicking
 class ButtonWaveEffect {
     constructor() {
         this.duration = 750

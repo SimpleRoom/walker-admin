@@ -13,19 +13,19 @@ import Setting from "@src/components/Setting"
 import {
     levelOneZindex,
     ClearFix,
-    headerHeight,
+    headerAndLogoHeight,
     sideBarWidth,
-    closedSideBarWidth,
+    closedSideBarLeft,
 } from "@src/components/common-style"
-
-const closedPadLeft = sideBarWidth - closedSideBarWidth + 20
+// content padding-left value while sidebar closed
+const closedPadLeft = sideBarWidth - closedSideBarLeft + 20
 
 const ContainerBox = styled(ClearFix)`
     position:relative;
     z-index:${levelOneZindex - 1};
-    /* will reset padding with props */
+    /* reset padding with props */
     padding-left:${props => props.isOpenedSideBar ? sideBarWidth + 20 + "px" : closedPadLeft + "px"};
-    padding-top:${headerHeight + 20}px;
+    padding-top:${headerAndLogoHeight + 20}px;
     padding-right:20px;
     padding-bottom:20px;
     transition:padding-left .4s;
@@ -73,7 +73,7 @@ class Home extends React.Component {
 }
 
 // export default Home
-// 监听全局状态到props
+// Listening global state from props
 const mapStateToProps = state => {
     return { ...state }
 }

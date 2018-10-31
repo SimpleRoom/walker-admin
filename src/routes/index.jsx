@@ -1,7 +1,8 @@
 /*
- *  react-loadable 拆分组件为异步组件，提高首屏加载速度
- *  Loadable(loader,loading) loader 组件路径
- *  loading: 默认过度的Loading组件
+ *  react-loadable: load Async component
+ *  Loadable(loader,loading) 
+ *  loader: load component
+ *  loading: default loading effect
  */
 import Loadable from "react-loadable"
 import Loading from "@src/components/Loading"

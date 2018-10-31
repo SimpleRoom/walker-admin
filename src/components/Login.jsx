@@ -4,7 +4,7 @@ import styled from "styled-components"
 import NoticeMessage from "./NoticeMessage"
 import { sessionStore } from "@src/utils"
 import { CanvasBg } from "@src/canvas"
-// button wave effect
+// button wave effect while clicking
 import { ButtonWaveEffect } from "@src/utils"
 // global common style
 import {
@@ -79,7 +79,7 @@ class Login extends PureComponent {
         this.state = {
             userName: "",
             userPwd: "",
-            // 消息提示框
+            // default state value
             message: null,
             messageType: null,
             animationName: null,
@@ -105,7 +105,8 @@ class Login extends PureComponent {
         if (info) {
             history.push("/")
         }
-        // create canvas background width canvas id
+        console.log(info)
+        // create canvas background with canva's id
         this.canvasBackground = new CanvasBg("canvasMoveBg")
     }
     updateUserName = e => {
@@ -147,12 +148,13 @@ class Login extends PureComponent {
         let { message, animationName } = this.messageInfo[messageType];
         this.setState({ messageType, message, animationName });
     }
-    //移除alert的回调
-    removeNotice = () => {
+    // remove notifications callback 
+    removeNotification = () => {
         this.setState({ message: null, type: null })
     }
     render() {
         let { userName, userPwd, message, messageType, animationName } = this.state
+        console.log(userName, userPwd)
         return (
             <LoginBgBox>
                 {
@@ -160,7 +162,7 @@ class Login extends PureComponent {
                         <NoticeMessage message={message}
                             type={messageType}
                             animation={animationName}
-                            hideAlert={this.removeNotice} /> : null
+                            removeAlert={this.removeNotification} /> : null
                 }
                 <canvas id="canvasMoveBg"></canvas>
                 <FormBox>

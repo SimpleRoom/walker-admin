@@ -7,13 +7,13 @@ import { sessionStore } from "@src/utils"
 import {
     levelOneZindex,
     ClearFix,
-    headerHeight,
+    headerAndLogoHeight,
     sideBarWidth,
-    closedSideBarWidth,
+    closedSideBarLeft,
     themeRgbaColor,
 } from "./common-style"
-// 参数计算
-const closedLeft = sideBarWidth - closedSideBarWidth
+// Header left value while closing sideBar
+const closedLeft = sideBarWidth - closedSideBarLeft
 const openWidth = `calc(100% - ${sideBarWidth}px)`
 const closeWidth = `calc(100% - ${closedLeft}px)`
 
@@ -26,7 +26,7 @@ const HeaderBox = styled(ClearFix)`
     top:0;
     background:${themeRgbaColor};
     width: ${props => props.isOpenedSideBar ? openWidth : closeWidth};
-    height:${headerHeight}px;
+    height:${headerAndLogoHeight}px;
     color:#fff;
     box-shadow:0 6px 10px -2px rgba(0,0,0,0.5);
 `;

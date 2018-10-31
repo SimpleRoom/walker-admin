@@ -1,5 +1,5 @@
 /*
- * current setting box is hideing
+ * current setting box's hiding state
  * 
  */
 import * as actionTypes from '../actionTypes'

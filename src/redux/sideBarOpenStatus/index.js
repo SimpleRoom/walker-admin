@@ -1,5 +1,5 @@
 /*
- * current side bar box is closed
+ * current sidebar box is opened
  */
 import * as actionTypes from '../actionTypes'
 // initial default
