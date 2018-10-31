@@ -15,7 +15,7 @@ export const ClearFix = styled.div`
  */
 export const levelOneZindex = 1
 /**
- * headerAndLogoHeight：sideBar and Header default height
+ * headerAndLogoHeight：sideBar's Logo and Header default height
  * control content padding-top
  */
 export const headerAndLogoHeight = 70
