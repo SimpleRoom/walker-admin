@@ -7,54 +7,65 @@
 import Loadable from "react-loadable"
 import Loading from "@src/components/Loading"
 
-const CssBox = Loadable({
-    loader: () => import("@src/views/CssBox"),
-    loading: Loading
-})
-const VueBox = Loadable({
-    loader: () => import("@src/views/VueBox"),
-    loading: Loading
-})
-const ReactBox = Loadable({
-    loader: () => import("@src/views/ReactBox"),
-    loading: Loading
+const DashboardHome = Loadable({
+    loader: () => import("@src/views/dashboard"),
+    loading: Loading,
 })
 
+const ProfileHome = Loadable({
+    loader: () => import("@src/views/profile"),
+    loading: Loading,
+})
+
+const TableHome = Loadable({
+    loader: () => import("@src/views/table"),
+    loading: Loading,
+})
+
+const ChartsHome = Loadable({
+    loader: () => import("@src/views/charts"),
+    loading: Loading,
+})
+
+const NoticeHome = Loadable({
+    loader: () => import("@src/views/notice"),
+    loading: Loading,
+})
 const routeList = [
     {
         path: "/home/dashboard",
         exact: true,
         icon: "dashboard",
         sidebarName: "Dashboard",
-        component: CssBox,
+        component: DashboardHome,
     },
     {
         path: "/home/profile",
         exact: true,
         icon: "profile",
         sidebarName: "User Profile",
-        component: VueBox,
+        component: ProfileHome,
     },
     {
         path: "/home/table",
         exact: true,
         icon: "table",
         sidebarName: "Table List",
-        component: ReactBox,
+        component: TableHome,
     },
     {
         path: "/home/charts",
         exact: true,
         icon: "charts",
         sidebarName: "Charts",
-        component: ReactBox,
+        component: ChartsHome,
     },
     {
         path: "/home/notice",
         exact: true,
         icon: "notice",
         sidebarName: "Notifications",
-        component: ReactBox,
+        component: NoticeHome,
     },
 ];
 
