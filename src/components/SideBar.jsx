@@ -154,13 +154,15 @@ const OpenList = styled.div`
 // closed bar list
 const ClosedSideBar = styled.div`
     float:right;
+    position:relative;
     width:${smallBarWidth}px;
     display:${props => props.isOpened ? "none" : "block"};
     transition:all .3s;
     a{
         display:block;
+        height:${smallBarWidth}px;
+        line-height:${smallBarWidth}px;
         text-align:center;
-        padding:5px 0;
         transition:all .3s;
         .nav-icon{
             margin:0;
@@ -170,6 +172,37 @@ const ClosedSideBar = styled.div`
         background-color:${props => props.activeBgColor};
     }
 `;
+// hover tips while sidebar closed
+
+const HoverBox = styled.div`
+    position:absolute;
+    height:${smallBarWidth}px;
+    line-height:${smallBarWidth}px;
+    background:rgba(4,50,60,.3);
+    left:${smallBarWidth + 14}px;
+    top:${props => props.offTop}px;
+    padding: 0 20px;
+    white-space: nowrap;
+    color:${whiteColor};
+    font-size:14px;
+    border-radius:5px;
+    
+    &:before{
+        display:table;
+        position:absolute;
+        top:50%;
+        left:-16px;
+        transform:translateY(-50%);
+        content:"";
+        border:8px solid transparent;
+        border-right-color:rgba(4,50,60,.3);
+    }
+`;
+const HoverTips = ({ currentNavName, offTop }) => (
+    currentNavName ? <HoverBox offTop={offTop}>{currentNavName}</HoverBox> : null
+)
+
+// opened
 const SideNavLink = ({ item, onClick }) => (
     <NavLink to={item.path} activeClassName="active">
         <span className="nav-icon"></span>
@@ -177,9 +210,12 @@ const SideNavLink = ({ item, onClick }) => (
         <span className="wave-mask" onClick={onClick}></span>
     </NavLink>
 )
-
-const SmallNavLink = ({ item }) => (
-    <NavLink to={item.path} activeClassName="active">
+// closed
+const SmallNavLink = ({ item, onMouseEnter, onMouseLeave }) => (
+    <NavLink to={item.path} activeClassName="active"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        data-name={item.sidebarName}>
         <span className="nav-icon"></span>
     </NavLink>
 )
@@ -187,12 +223,27 @@ class SideBar extends React.Component {
     constructor(props) {
         super(props)
         this.ButtonWave = new ButtonWaveEffect()
+        this.state = {
+            currentNavName: null,
+            offsetTop: 0,
+        }
     }
-    clickHandle = (e) => {
-        this.ButtonWave.showWave(e)
+    clickHandle = event => {
+        this.ButtonWave.showWave(event)
+    }
+    mouserEnter = event => {
+        event.persist()
+        let targetElem = event.target
+        let currentNavName = targetElem.getAttribute("data-name")
+        let offsetTop = targetElem.offsetTop
+        this.setState({ currentNavName, offsetTop })
+    }
+    mouserLeave = () => {
+        this.setState({ currentNavName: null })
     }
     render() {
         let { activeBgColor, isOpenedSideBar } = this.props
+        let { currentNavName, offsetTop } = this.state
         return (
             <SideBarBox isOpened={isOpenedSideBar}>
                 {/* bg image */}
@@ -219,10 +270,11 @@ class SideBar extends React.Component {
 
                                     routeList.map((item, index) => (
                                         <OpenList key={index} iconSrc={item.icon}>
-                                            <SmallNavLink index={index} item={item} />
+                                            <SmallNavLink onMouseEnter={this.mouserEnter} onMouseLeave={this.mouserLeave} item={item} />
                                         </OpenList>
                                     ))
                                 }
+                                <HoverTips currentNavName={currentNavName} offTop={offsetTop} />
                             </ClosedSideBar>
                     }
                 </BarList>
