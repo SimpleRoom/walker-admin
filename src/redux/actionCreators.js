@@ -15,7 +15,7 @@ const fetchSettingStatus = isHiding => ({
 })
 // toggle sidebar's opening state
 const fetchBarIsOpened = isOpening => ({
-    type: actionTypes.FETCH_SIDE_BAR_IS_CLOSED,
+    type: actionTypes.FETCH_SIDE_BAR_IS_OPENED,
     isOpening,
 })
 export {

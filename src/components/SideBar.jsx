@@ -1,10 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components"
-// import { connect } from 'react-redux'
 import routeList from "@src/routes"
-// button wave effect
-import { ButtonWaveEffect } from "@src/utils"
 // global common style
 import {
     levelOneZindex,
@@ -228,14 +225,14 @@ const SmallNavLink = ({ item, onMouseEnter, onMouseLeave }) => (
 class SideBar extends React.Component {
     constructor(props) {
         super(props)
-        this.ButtonWave = new ButtonWaveEffect()
         this.state = {
             currentNavName: null,
             offsetTop: 0,
         }
     }
     clickHandle = event => {
-        this.ButtonWave.showWave(event)
+        // use global function with event from redux
+        this.props.ButtonWave.showWave(event)
     }
     mouserEnter = event => {
         event.persist()
@@ -263,24 +260,35 @@ class SideBar extends React.Component {
                 {/* bar list */}
                 <BarList>
                     {
-                        isOpenedSideBar ? <OpenSideBar activeBgColor={activeBgColor} isOpened={isOpenedSideBar}>
+                        isOpenedSideBar ? <OpenSideBar
+                            activeBgColor={activeBgColor}
+                            isOpened={isOpenedSideBar}>
                             {
                                 routeList.map((item, index) => (
                                     <OpenList key={index} iconSrc={item.icon}>
-                                        <SideNavLink item={item} onClick={this.clickHandle} />
+                                        <SideNavLink
+                                            item={item}
+                                            onClick={this.clickHandle} />
                                     </OpenList>
                                 ))
                             }
-                        </OpenSideBar> : <ClosedSideBar activeBgColor={activeBgColor} isOpened={isOpenedSideBar}>
+                        </OpenSideBar> : <ClosedSideBar
+                            activeBgColor={activeBgColor}
+                            isOpened={isOpenedSideBar}>
                                 {
-
                                     routeList.map((item, index) => (
                                         <OpenList key={index} iconSrc={item.icon}>
-                                            <SmallNavLink onMouseEnter={this.mouserEnter} onMouseLeave={this.mouserLeave} item={item} />
+                                            <SmallNavLink
+                                                onMouseEnter={this.mouserEnter}
+                                                onMouseLeave={this.mouserLeave}
+                                                item={item} />
                                         </OpenList>
                                     ))
                                 }
-                                <HoverTips activeBgColor={activeBgColor} currentNavName={currentNavName} offTop={offsetTop} />
+                                <HoverTips
+                                    activeBgColor={activeBgColor}
+                                    currentNavName={currentNavName}
+                                    offTop={offsetTop} />
                             </ClosedSideBar>
                     }
                 </BarList>

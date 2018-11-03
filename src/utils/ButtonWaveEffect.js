@@ -79,4 +79,4 @@ class ButtonWaveEffect {
     }
 }
 
-export { ButtonWaveEffect }
+export default ButtonWaveEffect

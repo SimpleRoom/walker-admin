@@ -40,13 +40,16 @@ const HomeBox = styled.div`
 class Home extends React.Component {
     render() {
         // listener theme color from props by redux
-        let { buttonColor, sideBar } = this.props
+        let { buttonColor, sideBar, buttonWave } = this.props
         return (
             <HomeBox>
                 {/* side nav bar */}
-                <SideBar isOpenedSideBar={sideBar.isOpened} activeBgColor={buttonColor.color} />
+                <SideBar
+                    isOpenedSideBar={sideBar.isOpened}
+                    activeBgColor={buttonColor.color}
+                    ButtonWave={buttonWave.ButtonWave} />
                 {/* top header */}
-                <Header isOpenedSideBar={sideBar.isOpened} />
+                <Header isOpenedSideBar={sideBar.isOpened} ButtonWave={buttonWave.ButtonWave} />
                 {/* setting */}
                 <SideTool />
                 <ContainerBox isOpenedSideBar={sideBar.isOpened}>

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import { withRouter } from "react-router-dom"
 import styled from "styled-components"
 import HeaderMenu from "./HeaderMenu"
-import { ButtonWaveEffect } from "@src/utils"
 // utils
 import { sessionStore } from "@src/utils"
 // global common style
@@ -98,7 +97,7 @@ class Header extends PureComponent {
             userName: null,
             isOpenMenu: true,
         }
-        this.ButtonWave = new ButtonWaveEffect()
+        // this.ButtonWave = new ButtonWaveEffect()
         // console.log(this.props, `Header props`)
     }
     componentDidMount() {
@@ -119,7 +118,8 @@ class Header extends PureComponent {
     switchSlideDownMenu = (event) => {
         let { isOpenMenu } = this.state
         this.setState({ isOpenMenu: !isOpenMenu })
-        this.ButtonWave.showWave(event)
+        // use global function with event from redux
+        this.props.ButtonWave.showWave(event)
     }
     render() {
         const { userName, isOpenMenu } = this.state
