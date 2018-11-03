@@ -179,7 +179,7 @@ const HoverBox = styled.div`
     position:absolute;
     height:${smallBarWidth}px;
     line-height:${smallBarWidth}px;
-    background:rgba(4,50,60,.3);
+    background:${props => props.activeBgColor};
     left:${smallBarWidth + 14}px;
     top:${props => props.offTop}px;
     padding: 0 20px;
@@ -196,11 +196,16 @@ const HoverBox = styled.div`
         transform:translateY(-50%);
         content:"";
         border:8px solid transparent;
-        border-right-color:rgba(4,50,60,.3);
+        border-right-color:${props => props.activeBgColor};
     }
 `;
-const HoverTips = ({ currentNavName, offTop }) => (
-    currentNavName ? <HoverBox offTop={offTop}>{currentNavName}</HoverBox> : null
+const HoverTips = ({ activeBgColor, currentNavName, offTop }) => (
+    currentNavName ?
+        <HoverBox
+            activeBgColor={activeBgColor}
+            offTop={offTop}>
+            {currentNavName}
+        </HoverBox> : null
 )
 
 // opened
@@ -275,7 +280,7 @@ class SideBar extends React.Component {
                                         </OpenList>
                                     ))
                                 }
-                                <HoverTips currentNavName={currentNavName} offTop={offsetTop} />
+                                <HoverTips activeBgColor={activeBgColor} currentNavName={currentNavName} offTop={offsetTop} />
                             </ClosedSideBar>
                     }
                 </BarList>
