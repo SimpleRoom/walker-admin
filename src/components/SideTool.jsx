@@ -18,7 +18,6 @@ const SetingBox = styled(ClearFix)`
     height:100px;
     bottom:100px;
     right:${props => props.isHide ? "-246px" : "0"};
-    /* right: 0; */
     z-index:${levelOneZindex};
     background:${settingBg};
     transition:right .4s;
@@ -109,12 +108,18 @@ class SideTool extends PureComponent {
     toggleThemeColor = e => {
         let target = e.target
         let { themeList } = this.state
-        let activeIndex = Number(target.getAttribute("data-id"))
-        let currentColor = themeList.filter((item) => {
-            return item.id === activeIndex
-        })
-        // update to redux
-        this.props.updateTheme(currentColor[0])
+        let { activeIndex } = this.props.buttonColor
+        // let activeIndex = Number(target.getAttribute("data-id"))
+        let currentIndex = Number(target.getAttribute("data-id"))
+        if (currentIndex !== activeIndex) {
+            let currentColor = themeList.filter((item) => {
+                return item.id === currentIndex
+            })
+            // update to redux
+            this.props.updateTheme(currentColor[0])
+        } else {
+            console.log(`Nothing changes`)
+        }
     }
     toogleSideBar = () => {
         let { isOpened } = this.props.sideBar
