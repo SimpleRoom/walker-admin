@@ -12,6 +12,7 @@ import {
     sideBarWidth,
     closedSideBarLeft,
     headerAndLogoHeight,
+    borderRadius,
     themeRgbaColor,
     whiteColor,
 } from "./common-style"
@@ -118,7 +119,7 @@ const OpenSideBar = styled.div`
         color:${whiteColor};
         font-size:16px;
         transition:all .6s;
-        border-radius:5px;
+        border-radius:${borderRadius}px;
         padding:14px 20px;
         span{
             display:inline-block;
@@ -185,7 +186,7 @@ const HoverBox = styled.div`
     white-space: nowrap;
     color:${whiteColor};
     font-size:14px;
-    border-radius:5px;
+    border-radius:${borderRadius}px;
     
     &:before{
         display:table;

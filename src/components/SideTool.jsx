@@ -7,6 +7,7 @@ import { fetchNewTheme, fetchSettingStatus, fetchBarIsOpened } from "../redux/ac
 import {
     levelOneZindex,
     ClearFix,
+    borderRadius,
     themeRgbaColor,
 } from "./common-style"
 // scoped style
@@ -21,7 +22,7 @@ const SetingBox = styled(ClearFix)`
     z-index:${levelOneZindex};
     background:${settingBg};
     transition:right .4s;
-    border-bottom-left-radius:6px;
+    border-bottom-left-radius:${borderRadius}px;
 `;
 
 const SettingBtn = styled.button`
@@ -34,8 +35,8 @@ const SettingBtn = styled.button`
     vertical-align:middle;
     background:${settingBg};
     left:-65px;
-    border-top-left-radius:6px;
-    border-bottom-left-radius:6px;
+    border-top-left-radius:${borderRadius}px;
+    border-bottom-left-radius:${borderRadius}px;
     .icon{
         display:inline-block;
         width:25px;
@@ -56,7 +57,7 @@ const ToggleButton = styled.button`
     display:inline-block;
     width:${props => props.isActive ? "30px" : "22px"};
     height:15px;
-    border-radius:4px;
+    border-radius:${borderRadius}px;
     vertical-align:middle;
     background:${props => props.bgColor};
     transition:width .4s;
@@ -109,7 +110,6 @@ class SideTool extends PureComponent {
         let target = e.target
         let { themeList } = this.state
         let { activeIndex } = this.props.buttonColor
-        // let activeIndex = Number(target.getAttribute("data-id"))
         let currentIndex = Number(target.getAttribute("data-id"))
         if (currentIndex !== activeIndex) {
             let currentColor = themeList.filter((item) => {

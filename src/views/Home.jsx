@@ -6,7 +6,7 @@ import styled from "styled-components"
 import routeList from "@src/routes"
 import SideBar from "@src/components/SideBar"
 import NotFound from "@src/components/NotFound"
-import Header from "@src/components/Header"
+import Header from "@src/components/header/Header"
 import SideTool from "@src/components/SideTool"
 
 // global common style
