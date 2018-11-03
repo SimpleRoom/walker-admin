@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { withRouter } from "react-router-dom"
 import styled from "styled-components"
 import HeaderMenu from "./HeaderMenu"
+import { ButtonWaveEffect } from "@src/utils"
 // utils
 import { sessionStore } from "@src/utils"
 // global common style
@@ -88,6 +89,7 @@ const UserToggleBtn = styled.button`
     left:0;
     top:0;
     z-index:${levelOneZindex + 2};
+    overflow:hidden;
 `;
 class Header extends PureComponent {
     constructor(props) {
@@ -96,6 +98,7 @@ class Header extends PureComponent {
             userName: null,
             isOpenMenu: true,
         }
+        this.ButtonWave = new ButtonWaveEffect()
         // console.log(this.props, `Header props`)
     }
     componentDidMount() {
@@ -113,9 +116,10 @@ class Header extends PureComponent {
         sessionStore.remove()
         this.props.history.push("/login")
     }
-    switchSlideDownMenu = () => {
+    switchSlideDownMenu = (event) => {
         let { isOpenMenu } = this.state
         this.setState({ isOpenMenu: !isOpenMenu })
+        this.ButtonWave.showWave(event)
     }
     render() {
         const { userName, isOpenMenu } = this.state
