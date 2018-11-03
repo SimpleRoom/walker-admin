@@ -80,7 +80,8 @@ const UserIconBox = styled(ClearFix)`
     }
 `;
 
-const SignOutBtn = styled.button`
+// toggle slide down menu button
+const UserToggleBtn = styled.button`
     position:absolute;
     width:100%;
     height:100%;
@@ -88,11 +89,6 @@ const SignOutBtn = styled.button`
     top:0;
     z-index:${levelOneZindex + 2};
 `;
-
-const UserToggleBtn = ({ onClick }) => (
-    <SignOutBtn onClick={onClick}></SignOutBtn>
-)
-
 class Header extends PureComponent {
     constructor(props) {
         super(props)
@@ -135,7 +131,7 @@ class Header extends PureComponent {
                             <UserToggleBtn onClick={this.switchSlideDownMenu} />
                         </UserIconBox>
                         {/* slide down menu */}
-                        {isOpenMenu ? <HeaderMenu /> : null}
+                        {isOpenMenu ? <HeaderMenu signOut={this.signOut} /> : null}
                     </UserInfoBox> : null
                 }
             </HeaderBox>

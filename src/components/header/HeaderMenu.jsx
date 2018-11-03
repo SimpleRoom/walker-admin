@@ -31,20 +31,26 @@ const HeaderMenuBox = styled(ClearFix)`
     }
 `;
 
+const slideListHeight = 34
 const MenuContent = styled.div`
-    padding:10px;
+    padding:12px 8px;
     li{
         color: #252525;
-        padding:10px 20px;
+        padding:0 20px;
         cursor:pointer;
         transition:all 200ms linear;
         font-size: 14px;
         border-radius:${borderRadius}px;
+        height:${slideListHeight}px;
+        line-height:${slideListHeight}px;
 
         &:hover{
             color:${whiteColor};
             background:${buttonActiveBg};
             box-shadow:0 12px 20px -10px rgba(4,50,60,.8);
+            button{
+                color:${whiteColor};
+            }
         }
     }
 `;
@@ -52,8 +58,16 @@ const List = [
     "You have unread messages.",
     "You got a new task.",
     "You have unread mail.",
-    "Other notifications.",
-    "Sign out"]
+    "Other notifications."
+]
+
+const SignOutBtn = styled.button`
+    display:block;
+    width:100%;
+    text-align:left;
+    line-height:${slideListHeight}px;
+    color: #252525;
+`;
 
 const HeaderMenu = ({ signOut }) => (
     <HeaderMenuBox>
@@ -66,6 +80,7 @@ const HeaderMenu = ({ signOut }) => (
                         </li>
                     )
                 }
+                <li><SignOutBtn onClick={signOut}>Sign out</SignOutBtn></li>
             </ul>
         </MenuContent>
     </HeaderMenuBox>

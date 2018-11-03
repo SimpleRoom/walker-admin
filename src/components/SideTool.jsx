@@ -57,7 +57,7 @@ const ToggleButton = styled.button`
     display:inline-block;
     width:${props => props.isActive ? "30px" : "22px"};
     height:15px;
-    border-radius:${borderRadius}px;
+    border-radius:${borderRadius-1}px;
     vertical-align:middle;
     background:${props => props.bgColor};
     transition:width .4s;
@@ -68,7 +68,13 @@ const ToggleButton = styled.button`
 `;
 // toggle btns
 const ToggleThemeBtn = ({ isActive, item, onClick, indexId }) => (
-    <ToggleButton isActive={isActive} onClick={onClick} data-id={indexId} data-color={item} bgColor={item}></ToggleButton>
+    <ToggleButton
+        isActive={isActive}
+        onClick={onClick}
+        data-id={indexId}
+        data-color={item}
+        bgColor={item}>
+    </ToggleButton>
 )
 const ToggleSideBarBox = styled.div`
     text-align:center;
