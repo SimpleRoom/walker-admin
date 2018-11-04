@@ -29,6 +29,10 @@ const ContainerBox = styled(ClearFix)`
     padding-right:20px;
     padding-bottom:20px;
     transition:padding-left .4s;
+    /* set height---------------will delete--------------- */
+    .long-content{
+        line-height:300px;
+    }
 `;
 
 // HomeBox

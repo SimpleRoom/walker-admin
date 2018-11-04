@@ -7,8 +7,8 @@ import registerServiceWorker from './registerServiceWorker'
 import { Provider } from 'react-redux'
 // // 1、引入Store
 import configureStore from "./redux/configureStore"
-
-import "./styles/index.styl"
+// reset style
+import "./styles/reset.css"
 import Login from "./components/Login"
 import NotFound from "./components/NotFound"
 import Home from "./views/Home"
