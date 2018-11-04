@@ -123,7 +123,7 @@ class Header extends PureComponent {
     }
     render() {
         const { userName, isOpenMenu } = this.state
-        const { isOpenedSideBar } = this.props
+        const { isOpenedSideBar, activeBgColor } = this.props
         return (
             <HeaderBox isOpenedSideBar={isOpenedSideBar}>
                 {
@@ -135,7 +135,7 @@ class Header extends PureComponent {
                             <UserToggleBtn onClick={this.switchSlideDownMenu} />
                         </UserIconBox>
                         {/* slide down menu */}
-                        {isOpenMenu ? <HeaderMenu signOut={this.signOut} /> : null}
+                        {isOpenMenu ? <HeaderMenu activeBgColor={activeBgColor} signOut={this.signOut} /> : null}
                     </UserInfoBox> : null
                 }
             </HeaderBox>

@@ -34,6 +34,7 @@ const Root = ()=>{
         </Provider>
     )
 }
+console.log("Welcome to->%c https://github.com/SimpleRoom", "color:purple");
 
 ReactDOM.render( <Root /> , document.getElementById('root'));
 registerServiceWorker();

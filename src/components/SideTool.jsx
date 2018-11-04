@@ -8,7 +8,6 @@ import {
     levelOneZindex,
     ClearFix,
     borderRadius,
-    themeRgbaColor,
 } from "./common-style"
 // scoped style
 const settingBg = "rgba(4,50,60,.3)"
@@ -53,15 +52,20 @@ const ColorBox = styled.div`
         font-size:12px;
     }
 `;
+// common
+const insetOnePxShadow = "0px 0px 1px 1px inset rgba(0,0,0,.3)";
 const ToggleButton = styled.button`
     display:inline-block;
     width:${props => props.isActive ? "30px" : "22px"};
     height:15px;
-    border-radius:${borderRadius-1}px;
+    border-radius:${borderRadius - 1}px;
     vertical-align:middle;
     background:${props => props.bgColor};
-    transition:width .4s;
-
+    transition:all .3s;
+    box-shadow:${props => props.isActive ? insetOnePxShadow : 0};
+    &:hover{
+        box-shadow:${insetOnePxShadow};
+    }
     &+button{
         margin-left:10px;
     }
@@ -76,14 +80,44 @@ const ToggleThemeBtn = ({ isActive, item, onClick, indexId }) => (
         bgColor={item}>
     </ToggleButton>
 )
-const ToggleSideBarBox = styled.div`
-    text-align:center;
-`;
-const ToggleSideBarBtn = styled.button`
-    width:100px;
-    height:30px;
-    background:${themeRgbaColor};
-    color:#fff;
+
+const circleWidth = 20;
+const iconFontColor = "#d9d9d9";
+
+const ToggleSideBarContent = styled.div`
+    padding:0 60px;
+    position:relative;
+    span{
+        display:inline-block;
+        vertical-align:middle;
+        font-size:12px;
+    }
+    .circle-icon{
+        position:relative;
+        width:${circleWidth}px;
+        height:${circleWidth}px;
+        background:rgba(0,0,0,.2);
+        box-shadow:${insetOnePxShadow};
+        border-radius:50%;
+        cursor:pointer;
+        margin-right:10px;
+        &:before{
+            display:table;
+            width:100%;
+            height:100%;
+            position:absolute;
+            left:50%;
+            top:55%;
+            transform:translate(-50%,-50%);
+            transition:all .2s;
+
+            content: '✔';
+            line-height: 20px;
+            font-size: 14px;
+            text-align:center;
+            color: ${props => props.isOpened ? iconFontColor : props.activeColor};
+        }
+    }
 `;
 class SideTool extends PureComponent {
     constructor(props) {
@@ -91,17 +125,17 @@ class SideTool extends PureComponent {
         this.state = {
             themeList: [{
                 id: 1,
-                color: "#9c27b0",
-            }, {
-                id: 2,
                 color: "#4caf50",
             }, {
-                id: 3,
+                id: 2,
                 color: "#00bcd4",
             }, {
-                id: 4,
+                id: 3,
                 color: "#ff9800",
-            }],
+            }, {
+                id: 4,
+                color: "#9c27b0",
+            },],
         }
     }
     toggleSetting = e => {
@@ -110,7 +144,6 @@ class SideTool extends PureComponent {
          * use redux instead of setState to store the state with no reload 
          */
         this.props.toggleSetting(!isHiding)
-        // this.setState({ isHiding: !this.state.isHiding })
     }
     toggleThemeColor = e => {
         let target = e.target
@@ -134,7 +167,7 @@ class SideTool extends PureComponent {
     render() {
         let { themeList } = this.state
         let { isHiding } = this.props.sideTool
-        let { activeIndex } = this.props.buttonColor
+        let { activeIndex, color } = this.props.buttonColor
         let { isOpened } = this.props.sideBar
         const filterActive = (item) => {
             if (item.id === activeIndex) return true
@@ -146,7 +179,7 @@ class SideTool extends PureComponent {
                 </SettingBtn>
                 {/* theme list */}
                 <ColorBox>
-                    <h3>Theme list</h3>
+                    <h3>Theme color list</h3>
                     {
                         themeList.map((item, index) => (
                             <ToggleThemeBtn
@@ -159,18 +192,20 @@ class SideTool extends PureComponent {
                     }
                 </ColorBox>
                 {/* toggle sidebar */}
-                <ToggleSideBarBox>
-                    <ToggleSideBarBtn onClick={this.toogleSideBar}>{isOpened ? 'hide side bar' : 'show side bar'}</ToggleSideBarBtn>
-                </ToggleSideBarBox>
+                <ToggleSideBarContent
+                    isOpened={isOpened}
+                    activeColor={color}>
+                    <span className="circle-icon" onClick={this.toogleSideBar}></span>
+                    <span>Hide side bar</span>
+                </ToggleSideBarContent>
             </SetingBox>
         )
     }
 }
 
-// export default SideTool
 // connect's parameter
 const mapStateToProps = state => {
-    console.log(state, `SideTool state update`)
+    // console.log(state, `SideTool state update`)
     return { ...state }
 }
 /*

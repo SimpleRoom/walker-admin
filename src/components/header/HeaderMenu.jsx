@@ -9,7 +9,6 @@ import {
     borderRadius,
     bounceAnimation,
     whiteColor,
-    buttonActiveBg,
 } from "../common-style"
 
 const HeaderMenuBox = styled(ClearFix)`
@@ -46,8 +45,8 @@ const MenuContent = styled.div`
 
         &:hover{
             color:${whiteColor};
-            background:${buttonActiveBg};
-            box-shadow:0 12px 20px -10px rgba(4,50,60,.8);
+            background:${props=>props.activeBgColor};
+            box-shadow:0 12px 20px -10px ${props=>props.activeBgColor};
             button{
                 color:${whiteColor};
             }
@@ -69,9 +68,9 @@ const SignOutBtn = styled.button`
     color: #252525;
 `;
 
-const HeaderMenu = ({ signOut }) => (
+const HeaderMenu = ({ activeBgColor, signOut }) => (
     <HeaderMenuBox>
-        <MenuContent>
+        <MenuContent activeBgColor={activeBgColor}>
             <ul>
                 {
                     List.map((item, index) =>

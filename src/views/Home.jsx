@@ -49,7 +49,10 @@ class Home extends React.Component {
                     activeBgColor={buttonColor.color}
                     ButtonWave={buttonWave.ButtonWave} />
                 {/* top header */}
-                <Header isOpenedSideBar={sideBar.isOpened} ButtonWave={buttonWave.ButtonWave} />
+                <Header
+                    activeBgColor={buttonColor.color}
+                    isOpenedSideBar={sideBar.isOpened}
+                    ButtonWave={buttonWave.ButtonWave} />
                 {/* setting */}
                 <SideTool />
                 <ContainerBox isOpenedSideBar={sideBar.isOpened}>
