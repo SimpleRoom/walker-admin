@@ -91,21 +91,21 @@ input:-webkit-autofill {
 }
 
 /* bar */
-body ::-webkit-scrollbar{
+body::-webkit-scrollbar{
     width: 6px;
     height: 4px;
 }
 
-body ::-webkit-scrollbar-track {
-    background-color: rgba(242,242,242,0);
+body::-webkit-scrollbar-track {
+    background-color: gba(242,242,242,0);
 }
 
-body ::-webkit-scrollbar-thumb {
-    background-color: rgba(242,242,242,0);
+body::-webkit-scrollbar-thumb {
+    background-color: #BEBEBE;
     border-radius: 6px;
 }
 
-body ::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button {
     background-color: #ddd;
     display: none;
 }
