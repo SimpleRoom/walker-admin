@@ -183,7 +183,8 @@ const HoverBox = styled.div`
     white-space: nowrap;
     color:${whiteColor};
     font-size:14px;
-    border-radius:${borderRadius}px;
+    border-radius:${borderRadius-2}px;
+    box-shadow:0 12px 20px -10px ${props => props.activeBgColor};
     
     &:before{
         display:table;

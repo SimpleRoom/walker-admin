@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom"
 import styled from "styled-components"
 import NoticeMessage from "./NoticeMessage"
 import { sessionStore } from "@src/utils"
 import { CanvasBg } from "@src/canvas"
-// button wave effect while clicking
-import { ButtonWaveEffect } from "@src/utils"
 // global common style
 import {
     levelOneZindex,
@@ -75,7 +74,6 @@ const LoginBtn = styled.button`
 class Login extends PureComponent {
     constructor(props) {
         super(props)
-        this.ButtonWave = new ButtonWaveEffect()
         this.state = {
             type: "text",
             userName: "",
@@ -99,6 +97,8 @@ class Login extends PureComponent {
                 animationName: "shake",
             },
         }
+        // get Button wave from redux
+        this.ButtonWave = this.props.buttonWave.ButtonWave
     }
     componentDidMount() {
         let info = sessionStore.fetch()
@@ -202,4 +202,10 @@ class Login extends PureComponent {
         )
     }
 }
-export default withRouter(Login)
+// export default withRouter(Login)
+
+const mapStateToProps = state => {
+    return { ...state }
+}
+
+export default withRouter(connect(mapStateToProps)(Login))
