@@ -42,14 +42,23 @@ const HomeBox = styled.div`
     position:relative;
 `;
 class Home extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            routeList: []
+        }
+    }
+    componentDidMount() {
+        console.log(this.props)
+    }
     render() {
         // listener theme color from props by redux
         let { buttonColor, sideBar, buttonWave } = this.props
-        console.log(this.props)
         return (
             <HomeBox>
                 {/* side nav bar */}
                 <SideBar
+                    routeList={routeList}
                     isOpenedSideBar={sideBar.isOpened}
                     activeBgColor={buttonColor.color}
                     ButtonWave={buttonWave.ButtonWave} />

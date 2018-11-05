@@ -14,7 +14,7 @@ export const reducer = (state = initState, action) => {
         case actionTypes.FETCH_USER_PERMISSION_ROUTE:
             return {
                 ...state,
-                routeList: routeList.filter(item => item.permission === action.permissionId),
+                routeList: routeList.filter(item => item.permission <= action.permissionId),
             }
 
         default:

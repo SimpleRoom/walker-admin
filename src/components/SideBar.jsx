@@ -182,7 +182,7 @@ const HoverBox = styled.div`
     white-space: nowrap;
     color:${whiteColor};
     font-size:14px;
-    border-radius:${borderRadius-2}px;
+    border-radius:${borderRadius - 2}px;
     box-shadow:0 12px 20px -10px ${props => props.activeBgColor};
     
     &:before{
@@ -245,8 +245,8 @@ class SideBar extends React.Component {
         this.setState({ currentNavName: null })
     }
     render() {
-        let { activeBgColor, isOpenedSideBar } = this.props
-        let { currentNavName, offsetTop } = this.state
+        const { activeBgColor, isOpenedSideBar } = this.props
+        const { currentNavName, offsetTop } = this.state
         return (
             <SideBarBox isOpened={isOpenedSideBar}>
                 {/* bg image */}

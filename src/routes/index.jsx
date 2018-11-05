@@ -38,7 +38,7 @@ const routeList = [
         icon: "dashboard",
         sidebarName: "Dashboard",
         component: DashboardHome,
-        permission: 1,
+        permission: 4,
     },
     {
         path: "/home/profile",
@@ -46,7 +46,7 @@ const routeList = [
         icon: "profile",
         sidebarName: "User Profile",
         component: ProfileHome,
-        permission: 2,
+        permission: 3,
     },
     {
         path: "/home/table",
@@ -54,7 +54,7 @@ const routeList = [
         icon: "table",
         sidebarName: "Table List",
         component: TableHome,
-        permission: 1,
+        permission: 2,
     },
     {
         path: "/home/charts",
