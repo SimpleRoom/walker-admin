@@ -2,6 +2,12 @@
  *  create action list for user operating
  */
 import * as actionTypes from './actionTypes'
+//fetch current route list
+const fetchRoutePrimisson = permissionId => ({
+    type: actionTypes.FETCH_USER_PERMISSION_ROUTE,
+    permissionId,
+})
+
 // Setting the sidebar button to select the background color
 const fetchNewTheme = obj => ({
     type: actionTypes.FETCH_NEW_THEME,
@@ -19,6 +25,7 @@ const fetchBarIsOpened = isOpening => ({
     isOpening,
 })
 export {
+    fetchRoutePrimisson,
     fetchNewTheme,
     fetchSettingStatus,
     fetchBarIsOpened,

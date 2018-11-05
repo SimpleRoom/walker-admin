@@ -138,7 +138,7 @@ class SideTool extends PureComponent {
             },],
         }
     }
-    toggleSetting = e => {
+    toggleSetting = () => {
         let { isHiding } = this.props.sideTool
         /* 
          * use redux instead of setState to store the state with no reload 
@@ -175,7 +175,7 @@ class SideTool extends PureComponent {
         return (
             <SetingBox isHide={isHiding}>
                 <SettingBtn onClick={this.toggleSetting}>
-                    <span className="icon"></span>
+                    <span className="icon"/>
                 </SettingBtn>
                 {/* theme list */}
                 <ColorBox>
@@ -195,7 +195,7 @@ class SideTool extends PureComponent {
                 <ToggleSideBarContent
                     isOpened={isOpened}
                     activeColor={color}>
-                    <span className="circle-icon" onClick={this.toogleSideBar}></span>
+                    <span className="circle-icon" onClick={this.toogleSideBar}/>
                     <span>Hide side bar</span>
                 </ToggleSideBarContent>
             </SetingBox>

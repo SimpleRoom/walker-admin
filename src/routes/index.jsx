@@ -38,6 +38,7 @@ const routeList = [
         icon: "dashboard",
         sidebarName: "Dashboard",
         component: DashboardHome,
+        permission: 1,
     },
     {
         path: "/home/profile",
@@ -45,6 +46,7 @@ const routeList = [
         icon: "profile",
         sidebarName: "User Profile",
         component: ProfileHome,
+        permission: 2,
     },
     {
         path: "/home/table",
@@ -52,6 +54,7 @@ const routeList = [
         icon: "table",
         sidebarName: "Table List",
         component: TableHome,
+        permission: 1,
     },
     {
         path: "/home/charts",
@@ -59,6 +62,7 @@ const routeList = [
         icon: "charts",
         sidebarName: "Charts",
         component: ChartsHome,
+        permission: 1,
     },
     {
         path: "/home/notice",
@@ -66,7 +70,8 @@ const routeList = [
         icon: "notice",
         sidebarName: "Notifications",
         component: NoticeHome,
+        permission: 1,
     },
-];
+]
 
 export default routeList

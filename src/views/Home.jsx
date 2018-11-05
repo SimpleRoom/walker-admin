@@ -45,6 +45,7 @@ class Home extends React.Component {
     render() {
         // listener theme color from props by redux
         let { buttonColor, sideBar, buttonWave } = this.props
+        console.log(this.props)
         return (
             <HomeBox>
                 {/* side nav bar */}

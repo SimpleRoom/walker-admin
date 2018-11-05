@@ -78,7 +78,6 @@ const LogoBox = styled.div`
     position:relative;
     height:${headerAndLogoHeight}px;
     line-height:${headerAndLogoHeight}px;
-    position:relative;
     z-index:${levelOneZindex + 3};
     transition:opacity .3s;
 
