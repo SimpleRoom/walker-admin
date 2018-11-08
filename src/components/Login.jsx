@@ -109,7 +109,7 @@ class Login extends PureComponent {
         if (info) {
             history.push("/")
         }
-        // create canvas background with canva's id
+        // create canvas background with canvas id
         new CanvasBg("canvasMoveBg")
     }
 
