@@ -71,7 +71,6 @@ class Home extends React.Component {
                 <SideTool />
                 <ContainerBox isOpenedSideBar={sideBar.isOpened}>
                     <Switch>
-
                         {/* component list */}
                         {routeList.map((item, index) => (
                             <Route
@@ -81,8 +80,8 @@ class Home extends React.Component {
                                 component={item.component} />
                         ))}
                         {/* default No.1 component */}
-                        <Route exact path="/" render={() => (
-                            <Redirect to="/dashboard" />
+                        <Route exact path="/home/" render={() => (
+                            <Redirect to="/home/dashboard" />
                         )} />
                         <Route exact component={NotFound} />
                     </Switch>

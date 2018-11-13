@@ -149,6 +149,7 @@ class Login extends PureComponent {
         }
         if (userName && userPwd) {
             const { history } = this.props
+            //mock permission id
             let permissionId = 2
             let info = { userName, userPwd, permissionId }
             // save to sessionStorage
