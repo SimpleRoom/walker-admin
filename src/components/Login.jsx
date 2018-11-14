@@ -1,11 +1,14 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { withRouter } from "react-router-dom"
+import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
+import {withRouter} from "react-router-dom"
 import styled from "styled-components"
-import { fetchRoutePrimisson } from "../redux/actionCreators"
+import {fetchRoutePrimisson} from "../redux/actionCreators"
 import NoticeMessage from "./NoticeMessage"
-import { sessionStore } from "@src/utils"
-import { CanvasBg } from "@src/canvas"
+import {sessionStore} from "@src/utils"
+import {CanvasBg} from "@src/canvas"
+//test co-dialog
+import CoDialog from "co-dialog"
+
 // global common style
 import {
     levelOneZindex,
@@ -105,7 +108,7 @@ class Login extends PureComponent {
 
     componentDidMount() {
         let info = sessionStore.fetch()
-        const { history } = this.props
+        const {history} = this.props
         if (info) {
             history.push("/")
         }
@@ -115,22 +118,22 @@ class Login extends PureComponent {
 
     updateUserName = e => {
         let userName = e.target.value
-        this.setState({ userName })
+        this.setState({userName})
     }
     updateUserPwd = e => {
         let userPwd = e.target.value
-        this.setState({ userPwd })
+        this.setState({userPwd})
     }
     // reset input type while on focusing to prevent browser remember password
     resetInputType = () => {
-        let { type } = this.state
+        let {type} = this.state
         let newType = type === "text" ? "password" : type
         this.setState({
             type: newType
         })
     }
     login = (e) => {
-        let { userName, userPwd } = this.state
+        let {userName, userPwd} = this.state
         let zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
         // button wave effect
         this.ButtonWave.showWave(e)
@@ -148,10 +151,10 @@ class Login extends PureComponent {
             return this.showMessage("error")
         }
         if (userName && userPwd) {
-            const { history } = this.props
+            const {history} = this.props
             //mock permission id
             let permissionId = 2
-            let info = { userName, userPwd, permissionId }
+            let info = {userName, userPwd, permissionId}
             // save to sessionStorage
             sessionStore.save(info)
             // back to home
@@ -162,52 +165,59 @@ class Login extends PureComponent {
             this.props.fetchMyRoute(permissionId)
         }
     }
+    testCoDialog = () => {
+        CoDialog.app(".layout-right-bottom").use({
+            title: "布局-layout",
+            message: "这是一个layout布局，靠右下角显示的弹出框",
+            layout: "right bottom",
+        }).show()
+    }
 
     showMessage(messageType) {
-        let { message, animationName } = this.messageInfo[messageType]
-        this.setState({ messageType, message, animationName })
+        let {message, animationName} = this.messageInfo[messageType]
+        this.setState({messageType, message, animationName})
     }
 
     // remove notifications callback
     removeNotification = () => {
-        this.setState({ message: null, type: null })
+        this.setState({message: null, type: null})
     }
 
     render() {
-        let { type, userName, userPwd, message, messageType, animationName } = this.state
+        let {type, userName, userPwd, message, messageType, animationName} = this.state
         return (
             <LoginBgBox>
                 {
                     message ?
                         <NoticeMessage message={message}
-                            type={messageType}
-                            animation={animationName}
-                            removeAlert={this.removeNotification} /> : null
+                                       type={messageType}
+                                       animation={animationName}
+                                       removeAlert={this.removeNotification}/> : null
                 }
-                <canvas id="canvasMoveBg" />
+                <canvas id="canvasMoveBg"/>
                 <FormBox>
                     <FormList>
                         <input className="user-name"
-                            autoComplete="off"
-                            type="text"
-                            value={userName}
-                            placeholder="Username"
-                            maxLength="10"
-                            onChange={this.updateUserName} />
-                        <div className="line" />
+                               autoComplete="off"
+                               type="text"
+                               value={userName}
+                               placeholder="Username"
+                               maxLength="10"
+                               onChange={this.updateUserName}/>
+                        <div className="line"/>
                     </FormList>
                     <FormList>
                         <input className="user-pwd"
-                            autoComplete="off"
-                            type={type}
-                            value={userPwd}
-                            placeholder="Password"
-                            maxLength="10"
-                            onFocus={this.resetInputType}
-                            onChange={this.updateUserPwd} />
-                        <div className="line" />
+                               autoComplete="off"
+                               type={type}
+                               value={userPwd}
+                               placeholder="Password"
+                               maxLength="10"
+                               onFocus={this.resetInputType}
+                               onChange={this.updateUserPwd}/>
+                        <div className="line"/>
                     </FormList>
-                    <LoginBtn onClick={this.login}>Sign in</LoginBtn>
+                    <LoginBtn onClick={this.testCoDialog}>Sign in</LoginBtn>
                 </FormBox>
             </LoginBgBox>
         )
@@ -217,7 +227,7 @@ class Login extends PureComponent {
 // export default withRouter(Login)
 
 const mapStateToProps = state => {
-    return { ...state }
+    return {...state}
 }
 
 const mapDispatchToProps = dispatch => ({

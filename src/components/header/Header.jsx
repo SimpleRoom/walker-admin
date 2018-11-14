@@ -98,7 +98,7 @@ class Header extends PureComponent {
             isOpenMenu: true,
         }
         // this.ButtonWave = new ButtonWaveEffect()
-        // console.log(this.props, `Header props`)
+        console.log(this.props, `Header props`)
     }
     componentDidMount() {
         let info = sessionStore.fetch()
