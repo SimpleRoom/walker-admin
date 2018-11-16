@@ -109,3 +109,14 @@ body::-webkit-scrollbar-button {
     background-color: #ddd;
     display: none;
 }
+
+/*  */
+.react-bs-table .table-bordered.my-custom-class{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.my-custom-class td{
+    border: 1px solid #999;
+    line-height: 2;
+}

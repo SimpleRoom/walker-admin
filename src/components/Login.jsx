@@ -6,8 +6,6 @@ import {fetchRoutePrimisson} from "../redux/actionCreators"
 import NoticeMessage from "./NoticeMessage"
 import {sessionStore} from "@src/utils"
 import {CanvasBg} from "@src/canvas"
-//test co-dialog
-import CoDialog from "co-dialog"
 
 // global common style
 import {
@@ -165,14 +163,7 @@ class Login extends PureComponent {
             this.props.fetchMyRoute(permissionId)
         }
     }
-    testCoDialog = () => {
-        CoDialog.app(".layout-right-bottom").use({
-            title: "布局-layout",
-            message: "这是一个layout布局，靠右下角显示的弹出框",
-            layout: "right bottom",
-        }).show()
-    }
-
+    
     showMessage(messageType) {
         let {message, animationName} = this.messageInfo[messageType]
         this.setState({messageType, message, animationName})
@@ -217,7 +208,7 @@ class Login extends PureComponent {
                                onChange={this.updateUserPwd}/>
                         <div className="line"/>
                     </FormList>
-                    <LoginBtn onClick={this.testCoDialog}>Sign in</LoginBtn>
+                    <LoginBtn onClick={this.login}>Sign in</LoginBtn>
                 </FormBox>
             </LoginBgBox>
         )
