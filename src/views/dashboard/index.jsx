@@ -24,7 +24,7 @@ class DashboardHome extends React.Component {
                 <ScrollToTopMount />
                 <div className="list-content">
                     {
-                        teamList.map((item, index) => (
+                        teamList.map(item => (
                             <div className="list-item" key={item.id}>
                                 <p className="nickname">{item.name}</p>
                                 <p className="user-score">得分：{item.score}</p>

@@ -5,30 +5,30 @@
  *  loading: default loading effect
  */
 import Loadable from "react-loadable"
-import Loading from "@src/components/Loading"
+import Loading from "../components/Loading"
 
 const DashboardHome = Loadable({
-    loader: () => import("@src/views/dashboard"),
+    loader: () => import("../views/dashboard"),
     loading: Loading,
 })
 
 const ProfileHome = Loadable({
-    loader: () => import("@src/views/profile"),
+    loader: () => import("../views/profile"),
     loading: Loading,
 })
 
 const TableHome = Loadable({
-    loader: () => import("@src/views/table"),
+    loader: () => import("../views/table"),
     loading: Loading,
 })
 
 const ChartsHome = Loadable({
-    loader: () => import("@src/views/charts"),
+    loader: () => import("../views/charts"),
     loading: Loading,
 })
 
 const NoticeHome = Loadable({
-    loader: () => import("@src/views/notice"),
+    loader: () => import("../views/notice"),
     loading: Loading,
 })
 const routeList = [
