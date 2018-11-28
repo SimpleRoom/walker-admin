@@ -1,20 +1,31 @@
-// import * as uuidv4 from "uuid/v4"
-// import * as uuidv4 from "uuid/v4"
-
-import {
-    ReadonlyObjectArray,
-} from "./type"
-
+import * as uuidv4 from "uuid/v4"
+import { ReadonlyObjectArray, } from "./type"
+import { getRandomNum } from "./Util"
 
 export const RankList: ReadonlyObjectArray = [
     {
-        id: 1,
+        id: uuidv4(),
         name: "Kurry",
-        score: 99,
+        score: getRandomNum(60, 100),
     },
     {
-        id: 2,
+        id: uuidv4(),
         name: "Durrent",
-        score: 100,
+        score: getRandomNum(60, 100),
+    },
+    {
+        id: uuidv4(),
+        name: "Thomphson",
+        score: getRandomNum(60, 100),
+    },
+    {
+        id: uuidv4(),
+        name: "Green",
+        score: getRandomNum(60, 100),
+    },
+    {
+        id: uuidv4(),
+        name: "Iguodala",
+        score: getRandomNum(60, 100),
     },
 ]
