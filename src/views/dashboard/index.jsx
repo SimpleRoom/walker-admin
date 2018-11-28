@@ -4,6 +4,9 @@ import styled from "styled-components"
 // global common style
 import { ClearFix } from "@src/components/common-style"
 
+import { RankList } from "@src/static/Data.ts"
+console.log(RankList)
+
 const DashboardBox = styled(ClearFix)`
     position:relative;
 `;
