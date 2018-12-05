@@ -327,10 +327,6 @@ const MessageContent = styled.div`
 `;
 
 const CloseButton = styled.button`
-    position:relative;
-    float:right;
-    top:-2px;
-    right:-28px;
     color:inherit;
     -webkit-appearance:none;
     outline:none;
@@ -342,6 +338,10 @@ const CloseButton = styled.button`
     line-height:1;
     cursor:pointer;
     font-size:21px;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    right:10px;
 
     &:hover{
         color: #000;
