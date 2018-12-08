@@ -201,6 +201,7 @@ export default class Gauge extends Component {
                                 case '0': return 'E';
                                 case '1': return 'Gas';
                                 case '2': return 'F';
+                                default: return null
                             }
                         }
                     },
@@ -259,6 +260,7 @@ export default class Gauge extends Component {
                                 case '0': return 'H';
                                 case '1': return 'Water';
                                 case '2': return 'C';
+                                default: return null
                             }
                         }
                     },
