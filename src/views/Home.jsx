@@ -3,11 +3,11 @@ import { Switch, Route, Redirect } from "react-router-dom"
 import { connect } from 'react-redux'
 import styled from "styled-components"
 
-import routeList from "@src/routes"
-import SideBar from "@src/components/SideBar"
-import NotFound from "@src/components/NotFound"
-import Header from "@src/components/header/Header"
-import SideTool from "@src/components/SideTool"
+import routeList from "../routes"
+import SideBar from "../components/SideBar"
+import NotFound from "../components/NotFound"
+import Header from "../components/header/Header"
+import SideTool from "../components/SideTool"
 
 // global common style
 import {
@@ -16,7 +16,7 @@ import {
     headerAndLogoHeight,
     sideBarWidth,
     closedSideBarLeft,
-} from "@src/components/common-style"
+} from "../components/common-style"
 // content padding-left value while sidebar closed
 const closedPadLeft = sideBarWidth - closedSideBarLeft + 20
 

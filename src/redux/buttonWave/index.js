@@ -2,7 +2,7 @@
  * current button wave
  */
 // initial default
-import ButtonWaveEffect from "@src/utils/ButtonWaveEffect"
+import ButtonWaveEffect from "../../utils/ButtonWaveEffect"
 import * as actionTypes from '../actionTypes'
 
 export const initState = {

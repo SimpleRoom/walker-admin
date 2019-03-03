@@ -3,7 +3,7 @@
  *
  */
 import * as actionTypes from '../actionTypes'
-import routeList from "@src/routes"
+import routeList from "../../routes"
 // initial default
 export const initState = {
     routeList: routeList,

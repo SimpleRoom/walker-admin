@@ -1,5 +1,5 @@
 import React from 'react'
-import ScrollToTopMount from "@src/components/ScrollToTopMount"
+import ScrollToTopMount from "../../components/ScrollToTopMount"
 import styled from "styled-components"
 // global common style
 import { ClearFix } from "@src/components/common-style"
