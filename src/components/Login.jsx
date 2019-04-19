@@ -162,7 +162,8 @@ class Login extends PureComponent {
             // fetch routelist
             this.props.fetchMyRoute(permissionId)
             const browserInfo = getBrowserInfo()
-            console.log(browserInfo)
+            console.log(`浏览器信息是：${browserInfo}`)
+            console.log('IP信息是：', returnCitySN)
         }
     }
 
