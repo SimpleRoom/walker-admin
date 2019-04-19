@@ -4,8 +4,8 @@ import { withRouter } from "react-router-dom"
 import styled from "styled-components"
 import { fetchRoutePrimisson } from "../redux/actionCreators"
 import NoticeMessage from "./NoticeMessage"
-import { sessionStore } from "@src/utils"
-import { CanvasBg } from "@src/canvas"
+import { sessionStore, getBrowserInfo } from "../utils"
+import { CanvasBg } from "../canvas"
 
 // global common style
 import {
@@ -161,6 +161,8 @@ class Login extends PureComponent {
             this.resetInputType()
             // fetch routelist
             this.props.fetchMyRoute(permissionId)
+            const browserInfo = getBrowserInfo()
+            console.log(browserInfo)
         }
     }
 
