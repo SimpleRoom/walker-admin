@@ -6,6 +6,7 @@ const RadarWrap = styled.div`
   width: 420px;
   position:relative;
   margin-bottom:650px;
+  background-color: rgba(20,7,10,.8);
 `;
 export default class Loading extends PureComponent {
   _t = null;
@@ -69,7 +70,7 @@ export default class Loading extends PureComponent {
             },
           ],
         }],
-      backgroundColor: 'rgba(20,7,10,.8)',
+      // backgroundColor: 'rgba(20,7,10,.8)',
     };
   };
   onChartReady = (chart) => {
