@@ -95,7 +95,8 @@ class Header extends PureComponent {
         super(props)
         this.state = {
             userName: null,
-            isOpenMenu: true,
+            // isOpenMenu: true,
+            isOpenMenu: false,
         }
         // this.ButtonWave = new ButtonWaveEffect()
         console.log(this.props, `Header props`)
@@ -116,7 +117,7 @@ class Header extends PureComponent {
         this.props.history.push("/login")
     }
     switchSlideDownMenu = (event) => {
-        let { isOpenMenu } = this.state
+        const { isOpenMenu } = this.state
         this.setState({ isOpenMenu: !isOpenMenu })
         // use global function with event from redux
         this.props.ButtonWave.showWave(event)
