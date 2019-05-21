@@ -1,5 +1,6 @@
 /**
  *  create action list for user operating
+ *  組件內部引入使用(用戶操作，改變指定state)
  */
 import * as actionTypes from './actionTypes'
 //fetch current route list
