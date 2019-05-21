@@ -3,15 +3,17 @@ import ReactEcharts from 'echarts-for-react'
 import styled from "styled-components"
 
 const RadarWrap = styled.div`
-  margin-bottom:650px;
+  width: 420px;
   position:relative;
+  margin-bottom:650px;
 `;
 export default class Loading extends PureComponent {
   _t = null;
   getOption = () => {
     return {
       title: {
-        text: '基础雷达图'
+        text: '積分雷达图',
+        show: false,
       },
       // 懸停顯示
       tooltip: {
@@ -37,35 +39,37 @@ export default class Loading extends PureComponent {
         // 坐標
         axisLine: {
           lineStyle: {
-            color: 'rgba(112,10,11, 0.9)', // 紅色
+            color: 'rgba(235,215,177, 0.9)',
           }
         },
         // 分割線
         splitLine: {
           lineStyle: {
-            color: 'rgba(206,160,53, 0.9)', // 黃色
+            color: 'rgba(74,62,64, 0.9)',
           }
         }
       },
-      series: [{
-        name: '積分雷達圖',
-        type: 'radar',
-        // areaStyle: {normal: {}},
-        // 面積顏色
-        areaStyle: {
-          color: ['rgba(207,160,53, 0.9)',
-            'rgba(207,160,53, 0.8)', 'rgba(207,160,53, 0.9)',
-            'rgba(207,160,53, 0.8)', 'rgba(207,160,53, 1)'],
-          shadowColor: 'rgba(0, 0, 0, 0.3)',
-          shadowBlur: 10
-        },
-        data: [
-          {
-            value: [14300, 5400, 28000],
-            // name: '预算分配'
+      series: [
+        {
+          name: '積分雷達圖',
+          type: 'radar',
+          // areaStyle: {normal: {}},
+          // 面積顏色
+          areaStyle: {
+            color: ['rgba(207,160,53, 0.9)',
+              'rgba(207,160,53, 0.2)', 'rgba(207,160,53, 0.3)',
+              'rgba(207,160,53, 0.6)', 'rgba(207,160,53, 1)'],
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
+            shadowBlur: 10
           },
-        ]
-      }]
+          data: [
+            {
+              value: [14300, 5400, 28000],
+              // name: '预算分配'
+            },
+          ],
+        }],
+      backgroundColor: 'rgba(20,7,10,.8)',
     };
   };
   onChartReady = (chart) => {
@@ -100,19 +104,18 @@ export default class Loading extends PureComponent {
 
     return (
       <RadarWrap>
-        <div className='parent'>
-          <label> Chart loading With <strong> showLoading </strong>: (when chart ready, hide the loading mask.)</label>
-          <ReactEcharts
-            option={this.getOption()}
-            // onChartReady={this.onChartReady}
-            // loadingOption={this.getLoadingOption()}
-            // showLoading={true}
-          />
-          <label> code below: </label>
-          <pre>
-            <code>{code}</code>
-          </pre>
-        </div>
+        <h4>基礎雷達圖，是否需要loading狀態：</h4>
+        <h4><strong>showLoading</strong>: (when chart ready, hide the loading mask.)</h4>
+        <ReactEcharts
+          option={this.getOption()}
+        // onChartReady={this.onChartReady}
+        // loadingOption={this.getLoadingOption()}
+        // showLoading={true}
+        />
+        <label> code below: </label>
+        <pre>
+          <code>{code}</code>
+        </pre>
       </RadarWrap>
     )
   }
