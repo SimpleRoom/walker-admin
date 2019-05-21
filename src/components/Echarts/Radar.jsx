@@ -13,7 +13,15 @@ export default class Loading extends PureComponent {
       title: {
         text: '基础雷达图'
       },
-      tooltip: {},
+      // 懸停顯示
+      tooltip: {
+        show: true,
+        backgroundColor: 'rgba(20,7,11,.6)',
+        padding: 8,
+        textStyle: {
+          color: 'rgba(206,160,53,.9)',
+        },
+      },
       legend: {
         data: ['预算分配', '实际开销']
       },
@@ -96,9 +104,10 @@ export default class Loading extends PureComponent {
           <label> Chart loading With <strong> showLoading </strong>: (when chart ready, hide the loading mask.)</label>
           <ReactEcharts
             option={this.getOption()}
-            onChartReady={this.onChartReady}
-            loadingOption={this.getLoadingOption()}
-            showLoading={true} />
+            // onChartReady={this.onChartReady}
+            // loadingOption={this.getLoadingOption()}
+            // showLoading={true}
+          />
           <label> code below: </label>
           <pre>
             <code>{code}</code>
