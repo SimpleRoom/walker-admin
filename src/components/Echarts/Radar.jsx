@@ -1,6 +1,11 @@
 import React, { PureComponent } from 'react'
 import ReactEcharts from 'echarts-for-react'
+import styled from "styled-components"
 
+const RadarWrap = styled.div`
+  margin-bottom:650px;
+  position:relative;
+`;
 export default class Loading extends PureComponent {
   _t = null;
   getOption = () => {
@@ -10,32 +15,47 @@ export default class Loading extends PureComponent {
       },
       tooltip: {},
       legend: {
-        data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+        data: ['预算分配', '实际开销']
       },
       radar: {
         // shape: 'circle',
         indicator: [
-          { name: '销售（sales）', max: 6500 },
-          { name: '管理（Administration）', max: 16000 },
-          { name: '信息技术（Information Techology）', max: 30000 },
-          { name: '客服（Customer Support）', max: 38000 },
-          { name: '研发（Development）', max: 52000 },
-          { name: '市场（Marketing）', max: 25000 }
-        ]
+          { name: '互動積分', max: 38000 },
+          // { name: '敬请期待', max: 52000 },
+          { name: '娛樂積分', max: 38000 },
+          { name: '遊戲積分', max: 38000 },
+          // { name: '敬请期待', max: 52000 },
+        ],
+        // 坐標
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(112,10,11, 0.9)', // 紅色
+          }
+        },
+        // 分割線
+        splitLine: {
+          lineStyle: {
+            color: 'rgba(206,160,53, 0.9)', // 黃色
+          }
+        }
       },
       series: [{
-        name: '预算 vs 开销（Budget vs spending）',
+        name: '積分雷達圖',
         type: 'radar',
         // areaStyle: {normal: {}},
+        // 面積顏色
+        areaStyle: {
+          color: ['rgba(207,160,53, 0.9)',
+            'rgba(207,160,53, 0.8)', 'rgba(207,160,53, 0.9)',
+            'rgba(207,160,53, 0.8)', 'rgba(207,160,53, 1)'],
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 10
+        },
         data: [
           {
-            value: [4300, 10000, 28000, 35000, 50000, 19000],
-            name: '预算分配（Allocated Budget）'
+            value: [14300, 5400, 28000],
+            // name: '预算分配'
           },
-          {
-            value: [5000, 14000, 28000, 31000, 42000, 21000],
-            name: '实际开销（Actual Spending）'
-          }
         ]
       }]
     };
@@ -71,7 +91,7 @@ export default class Loading extends PureComponent {
       "  showLoading={true} />";
 
     return (
-      <div className='examples'>
+      <RadarWrap>
         <div className='parent'>
           <label> Chart loading With <strong> showLoading </strong>: (when chart ready, hide the loading mask.)</label>
           <ReactEcharts
@@ -84,7 +104,7 @@ export default class Loading extends PureComponent {
             <code>{code}</code>
           </pre>
         </div>
-      </div>
-    );
+      </RadarWrap>
+    )
   }
 }
