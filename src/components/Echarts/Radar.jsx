@@ -94,14 +94,17 @@ export default class Loading extends PureComponent {
   };
 
   render() {
-    let code = "onChartReady: function(chart) {\n" +
-      "  'chart.hideLoading();\n" +
-      "}\n\n" +
-      "<ReactEcharts \n" +
-      "  option={this.getOption()} \n" +
-      "  onChartReady={this.onChartReady} \n" +
-      "  loadingOption={this.getLoadingOption()} \n" +
-      "  showLoading={true} />";
+      const code = `
+        onChartReady: function(chart) {\n
+          chart.hideLoading();\n
+        }\n\n
+
+        <ReactEcharts \n
+          option={this.getOption()} \n
+          onChartReady={this.onChartReady} \n
+          loadingOption={this.getLoadingOption()} \n
+          showLoading={true} />
+      `
 
     return (
       <RadarWrap>
