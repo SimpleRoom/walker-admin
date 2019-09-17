@@ -9,6 +9,7 @@ export const RankList: ReadonlyObjectArray = [
     score: getRandomNum(60, 100),
     width: getRandomNum(5, 10),
     height: getRandomNum(4, 10),
+    count: 10,
     color: 'blue'
   },
   {
@@ -17,6 +18,7 @@ export const RankList: ReadonlyObjectArray = [
     score: getRandomNum(60, 100),
     width: getRandomNum(8, 10),
     height: getRandomNum(4, 8),
+    count: 10,
     color: 'purple'
   },
   {
@@ -25,6 +27,7 @@ export const RankList: ReadonlyObjectArray = [
     score: getRandomNum(60, 100),
     width: getRandomNum(5, 6),
     height: getRandomNum(7, 10),
+    count: 10,
     color: 'yellow'
   },
   {
@@ -33,6 +36,7 @@ export const RankList: ReadonlyObjectArray = [
     score: getRandomNum(60, 100),
     width: getRandomNum(7, 10),
     height: getRandomNum(5, 10),
+    count: 10,
     color: 'black'
   },
   {
@@ -40,6 +44,7 @@ export const RankList: ReadonlyObjectArray = [
     name: 'Iguodala',
     score: getRandomNum(60, 100),
     width: getRandomNum(5, 10),
-    height: getRandomNum(8, 10)
+    height: getRandomNum(8, 10),
+    count: 10
   }
 ]

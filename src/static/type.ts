@@ -3,8 +3,10 @@ export interface ReadonlyObjectArray {
 }
 
 export interface AreaShape {
-  name: string;
-  width: number;
-  height: number;
-  color?: string;
+  name: string
+  width: number
+  height: number
+  count: number
+  id?: string
+  color?: string
 }
