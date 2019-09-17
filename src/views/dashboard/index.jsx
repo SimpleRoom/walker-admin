@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { ClearFix } from '@src/components/common-style'
 import { RankList } from '@src/static/Data'
 import { CalcArea } from '../../static/Util'
+import { Shape } from '../../static/Shape'
 
 const DashboardBox = styled(ClearFix)`
   position: relative;
@@ -15,6 +16,7 @@ class DashboardHome extends React.Component {
     this.state = {
       teamList: RankList
     }
+    this.Shape = null
   }
 
   componentDidMount() {
@@ -22,6 +24,9 @@ class DashboardHome extends React.Component {
     for (let i = 0; i < list.length; i++) {
       console.log(CalcArea(list[i]))
     }
+    // class shape
+    this.Shape = new Shape(list[0])
+    console.log(this.Shape, 'this.Shape!')
   }
 
   render() {
