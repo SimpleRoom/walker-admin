@@ -26,7 +26,7 @@ class DashboardHome extends React.Component {
     }
     // class shape
     this.Shape = new Shape(list[0])
-    console.log(this.Shape, 'this.Shape!')
+    console.log(this.Shape, this.Shape.speakOut(), 'this.Shape!')
   }
 
   render() {
