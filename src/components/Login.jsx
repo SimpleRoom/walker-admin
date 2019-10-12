@@ -160,8 +160,8 @@ class Login extends PureComponent {
         }
         if (userName && userPwd) {
             const { history } = this.props
-            //mock permission id
-            const permissionId = 2
+            //mock permission id：对应routes/routelist[i].permission(控制用户登录权限1-5)
+            const permissionId = 6
             const info = { userName, userPwd, permissionId }
             // save to sessionStorage
             sessionStore.save(info)
@@ -170,7 +170,7 @@ class Login extends PureComponent {
             // back default type
             this.resetInputType()
             // fetch routelist
-            this.props.fetchMyRoute(permissionId)
+            // this.props.fetchMyRoute(permissionId)
             const browserInfo = getBrowserInfo()
             console.log(`浏览器信息是：${browserInfo}`)
             // console.log('IP信息是：', returnCitySN)

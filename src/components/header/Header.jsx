@@ -102,7 +102,7 @@ class Header extends PureComponent {
         console.log(this.props, `Header props`)
     }
     componentDidMount() {
-        let info = sessionStore.fetch()
+        const info = sessionStore.fetch()
         const { history } = this.props
         if (!info) {
             // back to login

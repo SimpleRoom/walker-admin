@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components"
-import routeList from "@src/routes"
 // global common style
 import {
     levelOneZindex,
@@ -245,7 +244,7 @@ class SideBar extends React.Component {
         this.setState({ currentNavName: null })
     }
     render() {
-        const { activeBgColor, isOpenedSideBar } = this.props
+        const { activeBgColor, isOpenedSideBar, routeList } = this.props
         const { currentNavName, offsetTop } = this.state
         return (
             <SideBarBox isOpened={isOpenedSideBar}>

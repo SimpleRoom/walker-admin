@@ -1,13 +1,15 @@
 import React from 'react'
-import { Switch, Route, Redirect } from "react-router-dom"
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import styled from "styled-components"
+import styled from 'styled-components'
+import { fetchRoutePrimisson } from '../redux/actionCreators'
 
-import routeList from "../routes"
-import SideBar from "../components/SideBar"
-import NotFound from "../components/NotFound"
-import Header from "../components/header/Header"
-import SideTool from "../components/SideTool"
+import { sessionStore } from '../utils/sessionStore'
+// import routeList from "../routes"
+import SideBar from '../components/SideBar'
+import NotFound from '../components/NotFound'
+import Header from '../components/header/Header'
+import SideTool from '../components/SideTool'
 
 // global common style
 import {
@@ -49,11 +51,17 @@ class Home extends React.Component {
         }
     }
     componentDidMount() {
-        console.log(this.props)
+        const info = sessionStore.fetch()
+        const { permissionId } = info
+        this.props.fetchMyRoute(permissionId)
+        // console.log(this.props)
     }
+
     render() {
         // listener theme color from props by redux
-        const { buttonColor, sideBar, buttonWave } = this.props
+        const { buttonColor, sideBar, buttonWave, permissionRoute } = this.props
+        const { routeList } = permissionRoute
+        console.log(routeList, 'permission')
         return (
             <HomeBox>
                 {/* side nav bar */}
@@ -81,7 +89,7 @@ class Home extends React.Component {
                         ))}
                         {/* default No.1 component */}
                         <Route exact path="/home/" render={() => (
-                            <Redirect to="/home/dashboard" />
+                            <Redirect to={routeList[0].path} />
                         )} />
                         <Route exact component={NotFound} />
                     </Switch>
@@ -97,6 +105,11 @@ const mapStateToProps = state => {
     return { ...state }
 }
 
+const mapDispatchToProps = dispatch => ({
+    fetchMyRoute: (id) => dispatch(fetchRoutePrimisson(id)),
+})
+
 export default connect(
     mapStateToProps,
+    mapDispatchToProps,
 )(Home)
