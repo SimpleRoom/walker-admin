@@ -118,21 +118,31 @@ class Login extends PureComponent {
         let userName = e.target.value
         this.setState({ userName })
     }
+
     updateUserPwd = e => {
         let userPwd = e.target.value
         this.setState({ userPwd })
     }
+
     // reset input type while on focusing to prevent browser remember password
     resetInputType = () => {
-        let { type } = this.state
-        let newType = type === "text" ? "password" : type
+        const { type } = this.state
+        const newType = type === "text" ? "password" : type
         this.setState({
             type: newType
         })
     }
+
+    keyUpEnter = (e) => {
+        const { keyCode } = e
+        if (keyCode && keyCode === 13) {
+            this.login(e)
+        }
+    }
+
     login = (e) => {
-        let { userName, userPwd } = this.state
-        let zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
+        const { userName, userPwd } = this.state
+        const zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
         // button wave effect
         this.ButtonWave.showWave(e)
         if (!userName) {
@@ -151,8 +161,8 @@ class Login extends PureComponent {
         if (userName && userPwd) {
             const { history } = this.props
             //mock permission id
-            let permissionId = 2
-            let info = { userName, userPwd, permissionId }
+            const permissionId = 2
+            const info = { userName, userPwd, permissionId }
             // save to sessionStorage
             sessionStore.save(info)
             // back to home
@@ -168,7 +178,7 @@ class Login extends PureComponent {
     }
 
     showMessage(messageType) {
-        let { message, animationName } = this.messageInfo[messageType]
+        const { message, animationName } = this.messageInfo[messageType]
         this.setState({ messageType, message, animationName })
     }
 
@@ -178,7 +188,7 @@ class Login extends PureComponent {
     }
 
     render() {
-        let { type, userName, userPwd, message, messageType, animationName } = this.state
+        const { type, userName, userPwd, message, messageType, animationName } = this.state
         return (
             <LoginBgBox>
                 {
@@ -208,7 +218,8 @@ class Login extends PureComponent {
                             placeholder="Password"
                             maxLength="10"
                             onFocus={this.resetInputType}
-                            onChange={this.updateUserPwd} />
+                            onChange={this.updateUserPwd}
+                            onKeyUp={this.keyUpEnter} />
                         <div className="line" />
                     </FormList>
                     <LoginBtn onClick={this.login}>Sign in</LoginBtn>

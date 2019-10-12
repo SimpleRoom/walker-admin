@@ -41,7 +41,7 @@ class DashboardHome extends React.Component {
   }
 
   render() {
-    let { teamList } = this.state
+    const { teamList } = this.state
     return (
       <DashboardBox>
         <ScrollToTopMount />

@@ -250,11 +250,11 @@ class SideBar extends React.Component {
         return (
             <SideBarBox isOpened={isOpenedSideBar}>
                 {/* bg image */}
-                <SideBarBgImage></SideBarBgImage>
-                <SideBarMask></SideBarMask>
+                <SideBarBgImage />
+                <SideBarMask />
                 {/* logo */}
                 <LogoBox isOpened={isOpenedSideBar}>
-                    <LogoBg></LogoBg>
+                    <LogoBg />
                     <BarTitle>Simple Room</BarTitle>
                 </LogoBox>
                 {/* bar list */}
