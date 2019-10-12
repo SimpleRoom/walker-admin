@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 // global common style
 import {
@@ -9,7 +9,7 @@ import {
     borderRadius,
     bounceAnimation,
     whiteColor,
-} from "../common-style"
+} from '../common-style'
 
 const HeaderMenuBox = styled(ClearFix)`
     position:absolute;

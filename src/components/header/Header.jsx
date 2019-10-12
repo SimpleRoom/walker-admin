@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
-import { withRouter } from "react-router-dom"
-import styled from "styled-components"
-import HeaderMenu from "./HeaderMenu"
+import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
+import HeaderMenu from './HeaderMenu'
 // utils
-import { sessionStore } from "@src/utils"
+import { sessionStore } from '@src/utils'
 // global common style
 import {
     levelOneZindex,
@@ -13,7 +13,7 @@ import {
     closedSideBarLeft,
     themeRgbaColor,
     whiteColor,
-} from "../common-style"
+} from '../common-style'
 // Header left value while closing sideBar
 const closedLeft = sideBarWidth - closedSideBarLeft
 const openWidth = `calc(100% - ${sideBarWidth}px)`
@@ -106,22 +106,25 @@ class Header extends PureComponent {
         const { history } = this.props
         if (!info) {
             // back to login
-            history.push("/login")
+            history.push('/login')
         } else {
-            let { userName } = info
+            const { userName } = info
             this.setState({ userName })
         }
     }
+
     signOut = () => {
         sessionStore.remove()
-        this.props.history.push("/login")
+        this.props.history.push('/login')
     }
+
     switchSlideDownMenu = (event) => {
         const { isOpenMenu } = this.state
         this.setState({ isOpenMenu: !isOpenMenu })
         // use global function with event from redux
         this.props.ButtonWave.showWave(event)
     }
+
     render() {
         const { userName, isOpenMenu } = this.state
         const { isOpenedSideBar, activeBgColor } = this.props

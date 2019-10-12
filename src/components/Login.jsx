@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from "react-router-dom"
-import styled from "styled-components"
-import { fetchRoutePrimisson } from "../redux/actionCreators"
-import NoticeMessage from "./NoticeMessage"
-import { sessionStore, getBrowserInfo } from "../utils"
-import { CanvasBg } from "../canvas"
+import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
+import NoticeMessage from './NoticeMessage'
+import { sessionStore, getBrowserInfo } from '../utils'
+import { CanvasBg } from '../canvas'
 
 // global common style
 import {
@@ -235,8 +234,8 @@ const mapStateToProps = state => {
     return { ...state }
 }
 
-const mapDispatchToProps = dispatch => ({
-    fetchMyRoute: (id) => dispatch(fetchRoutePrimisson(id)),
-})
+// const mapDispatchToProps = dispatch => ({
+//     fetchMyRoute: (id) => dispatch(fetchRoutePrimisson(id)),
+// })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
+export default withRouter(connect(mapStateToProps)(Login))

@@ -6,7 +6,7 @@ import * as actionTypes from '../actionTypes'
 import routeList from "../../routes"
 // initial default
 export const initState = {
-    routeList: routeList,
+    routeList: [],
 }
 
 export const reducer = (state = initState, action) => {

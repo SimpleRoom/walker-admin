@@ -89,7 +89,7 @@ class Home extends React.Component {
                         ))}
                         {/* default No.1 component */}
                         <Route exact path="/home/" render={() => (
-                            <Redirect to={routeList[0].path} />
+                            <Redirect to={routeList.length ? routeList[0].path : ''} />
                         )} />
                         <Route exact component={NotFound} />
                     </Switch>
