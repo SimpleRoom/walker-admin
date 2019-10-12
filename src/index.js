@@ -22,7 +22,7 @@ const Root = ()=>{
                 <Switch>
                     {/* Redirect to first route in home */}
                     <Route exact path="/" render={() => (
-                        <Redirect to="/home" />
+                        <Redirect to="/home/" />
                     )} />
                     {/* home page */}
                     <Route path="/home" component={Home} />

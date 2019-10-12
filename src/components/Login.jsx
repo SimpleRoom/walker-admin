@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import NoticeMessage from './NoticeMessage'
+import { fetchRoutePrimisson } from '../redux/actionCreators'
 import { sessionStore, getBrowserInfo } from '../utils'
 import { CanvasBg } from '../canvas'
 
@@ -160,16 +161,17 @@ class Login extends PureComponent {
         if (userName && userPwd) {
             const { history } = this.props
             //mock permission id：对应routes/routelist[i].permission(控制用户登录权限1-5)
-            const permissionId = 6
+            const permissionId = 2
             const info = { userName, userPwd, permissionId }
             // save to sessionStorage
             sessionStore.save(info)
-            // back to home
-            history.push("/")
             // back default type
             this.resetInputType()
             // fetch routelist
-            // this.props.fetchMyRoute(permissionId)
+            this.props.fetchMyRoute(permissionId)
+            console.log(this.props, 'login')
+            // back to home
+            history.push("/")
             const browserInfo = getBrowserInfo()
             console.log(`浏览器信息是：${browserInfo}`)
             // console.log('IP信息是：', returnCitySN)
@@ -234,8 +236,8 @@ const mapStateToProps = state => {
     return { ...state }
 }
 
-// const mapDispatchToProps = dispatch => ({
-//     fetchMyRoute: (id) => dispatch(fetchRoutePrimisson(id)),
-// })
+const mapDispatchToProps = dispatch => ({
+    fetchMyRoute: (id) => dispatch(fetchRoutePrimisson(id)),
+})
 
-export default withRouter(connect(mapStateToProps)(Login))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

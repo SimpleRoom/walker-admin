@@ -52,8 +52,10 @@ class Home extends React.Component {
     }
     componentDidMount() {
         const info = sessionStore.fetch()
-        const { permissionId } = info
-        this.props.fetchMyRoute(permissionId)
+        if (info && Object.keys(info).length) {
+            const { permissionId = 0 } = info || {}
+            this.props.fetchMyRoute(permissionId)
+        }
         // console.log(this.props)
     }
 
@@ -89,7 +91,7 @@ class Home extends React.Component {
                         ))}
                         {/* default No.1 component */}
                         <Route exact path="/home/" render={() => (
-                            <Redirect to={routeList.length ? routeList[0].path : ''} />
+                            <Redirect to={routeList.length ? routeList[0].path : '/login'} />
                         )} />
                         <Route exact component={NotFound} />
                     </Switch>
