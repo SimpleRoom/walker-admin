@@ -22,6 +22,7 @@ function ensureSlash(path, needsSlash) {
   }
 }
 
+// 手动设定服务器根目录，方便资源引入：/public/images/xxx.png
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
 
