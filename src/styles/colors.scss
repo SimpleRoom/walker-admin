@@ -1,0 +1,16 @@
+$color-stack: (
+  (group: green, id: 1, color: #67C23A),
+  (group: warning, id: 1, color: #E6A23C),
+  (group: danger, id: 1, color: #F56C6C),
+  (group: gray, id: 1, color: #909399),
+);
+
+@function color($group, $shade:1, $transparency:1){
+  @each $color in $color-stack{
+    $c-group: map-get($color, group);
+    $c-shade: map-get($color, id);
+    @if($group == map-get($color, group) and $shade == map-get($color, id)){
+      @return rgba(map-get($color, color), $transparency);
+    }
+  }
+}

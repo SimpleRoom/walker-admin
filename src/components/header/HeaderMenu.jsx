@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 // global common style
@@ -45,8 +45,8 @@ const MenuContent = styled.div`
 
         &:hover{
             color:${whiteColor};
-            background:${props=>props.activeBgColor};
-            box-shadow:0 12px 20px -10px ${props=>props.activeBgColor};
+            background:${props => props.activeBgColor};
+            box-shadow:0 12px 20px -10px ${props => props.activeBgColor};
             button{
                 color:${whiteColor};
             }
@@ -68,21 +68,43 @@ const SignOutBtn = styled.button`
     color: #252525;
 `;
 
-const HeaderMenu = ({ activeBgColor, signOut }) => (
-    <HeaderMenuBox>
-        <MenuContent activeBgColor={activeBgColor}>
-            <ul>
-                {
-                    List.map((item, index) =>
-                        <li key={index}>
-                            {item}
-                        </li>
-                    )
-                }
-                <li><SignOutBtn onClick={signOut}>Sign out</SignOutBtn></li>
-            </ul>
-        </MenuContent>
-    </HeaderMenuBox>
-)
+// const HeaderMenu = ({ activeBgColor, signOut }) => (
+//     <HeaderMenuBox>
+//         <MenuContent activeBgColor={activeBgColor}>
+//             <ul>
+//                 {
+//                     List.map((item, index) =>
+//                         <li key={index}>
+//                             {item}
+//                         </li>
+//                     )
+//                 }
+//                 <li><SignOutBtn onClick={signOut}>Sign out</SignOutBtn></li>
+//             </ul>
+//         </MenuContent>
+//     </HeaderMenuBox>
+// )
+
+class HeaderMenu extends Component {
+    render() {
+        const { activeBgColor, signOut } = this.props
+        return (
+            <HeaderMenuBox>
+                <MenuContent activeBgColor={activeBgColor}>
+                    <ul>
+                        {
+                            List.map((item, index) =>
+                                <li key={index}>
+                                    {item}
+                                </li>
+                            )
+                        }
+                        <li><SignOutBtn onClick={signOut}>Sign out</SignOutBtn></li>
+                    </ul>
+                </MenuContent>
+            </HeaderMenuBox>
+        )
+    }
+}
 
 export default HeaderMenu

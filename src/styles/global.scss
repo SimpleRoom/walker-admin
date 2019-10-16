@@ -6,3 +6,11 @@
 @mixin borderRadius {
   border-radius: 2px;
 }
+
+@mixin custInner {
+  height: 42px;
+  line-height: 42px;
+  font-size: 12px;
+  padding: 0 1em;
+  margin: 0 0.5em;
+}

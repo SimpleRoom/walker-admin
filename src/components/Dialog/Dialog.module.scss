@@ -1,0 +1,88 @@
+
+.dialogMaskContainer {
+  transition: 0.4s all;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.4s all;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  top: 0;
+  left: 0;
+  &.onShow {
+    opacity: 1;
+  }
+}
+
+.background {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+.dialogContainer {
+  padding: 24px;
+  transition: 0.4s all;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  transform: translate3d(-50%, 50%, 0);
+  width: 500px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24);
+  border: solid 1px #2e2e26;
+  background-color: #1c1c17;
+  font-size: 16px;
+
+  & > h2 {
+    font-size: 21px;
+    display: block;
+    width: 100%;
+    height: 63px;
+    line-height: 63px;
+    color: color(white, 1, 0.86);
+  }
+  .closeButton {
+    position: absolute;
+    width: 24px;
+    top: 0;
+    right: -26px;
+  }
+  .buttonsBox {
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 32px;
+    button {
+      margin-left: 8px;
+    }
+  }
+
+  &.small {
+    width: 300px;
+  }
+
+  &.large {
+    width: 800px;
+  }
+
+  &.extra-large {
+    width: 1024px;
+  }
+}
+.onShow .dialogContainer {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0);
+}
