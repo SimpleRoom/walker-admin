@@ -99,6 +99,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "plop": "^2.4.0",
     "react-loadable": "^5.5.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

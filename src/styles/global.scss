@@ -1,0 +1,8 @@
+@mixin flexMiddle {
+  display: flex;
+  align-items: center;
+}
+
+@mixin borderRadius {
+  border-radius: 2px;
+}
