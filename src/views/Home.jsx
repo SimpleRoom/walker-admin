@@ -9,7 +9,7 @@ import { sessionStore } from '../utils/sessionStore'
 // import Dialog from '../components/Dialog/Dialog'
 import SideBar from '../components/SideBar'
 import NotFound from '../components/NotFound'
-import Header from '../components/header/Header'
+import Header from '../components/Header/Header'
 import SideTool from '../components/SideTool'
 
 // global common style
