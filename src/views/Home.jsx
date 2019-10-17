@@ -6,7 +6,7 @@ import { fetchRoutePrimisson } from '../redux/actionCreators'
 
 import { sessionStore } from '../utils/sessionStore'
 // import routeList from "../routes"
-import Dialog from '../components/Dialog/Dialog'
+// import Dialog from '../components/Dialog/Dialog'
 import SideBar from '../components/SideBar'
 import NotFound from '../components/NotFound'
 import Header from '../components/header/Header'
@@ -67,7 +67,7 @@ class Home extends React.Component {
         console.log(routeList, 'permission')
         return (
             <HomeBox>
-                <Dialog />
+                {/* <Dialog /> */}
                 {/* side nav bar */}
                 <SideBar
                     routeList={routeList}
