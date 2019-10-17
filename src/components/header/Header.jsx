@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import HeaderMenu from './HeaderMenu'
 // utils
-import { sessionStore } from '@src/utils'
+import { sessionStore } from '../../utils'
 // global common style
 import {
     levelOneZindex,
@@ -122,7 +122,7 @@ class Header extends PureComponent {
         const { isOpenMenu } = this.state
         this.setState({ isOpenMenu: !isOpenMenu })
         // use global function with event from redux
-        this.props.ButtonWave.showWave(event)
+        // this.props.ButtonWave.showWave(event)
     }
 
     render() {

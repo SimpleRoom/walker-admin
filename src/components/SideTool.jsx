@@ -2,7 +2,17 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import styled from "styled-components"
 // import actions
-import { fetchNewTheme, fetchSettingStatus, fetchBarIsOpened } from "../redux/actionCreators"
+import {
+    fetchNewTheme,
+    fetchSettingStatus,
+    fetchBarIsOpened,
+} from '../store/modules/common/action'
+
+import {
+    getThemeColor,
+    getSideBarIsOpened,
+    getSideToolIsHiding,
+} from '../store/modules/common/selector'
 // global common style
 import {
     levelOneZindex,
@@ -139,11 +149,12 @@ class SideTool extends PureComponent {
         }
     }
     toggleSetting = () => {
-        let { isHiding } = this.props.sideTool
+        const { isHiding } = this.props
         /* 
          * use redux instead of setState to store the state with no reload 
          */
-        this.props.toggleSetting(!isHiding)
+        this.props.fetchSettingStatus(!isHiding)
+        console.log(11)
     }
     toggleThemeColor = e => {
         let target = e.target
@@ -155,20 +166,19 @@ class SideTool extends PureComponent {
                 return item.id === currentIndex
             })
             // update to redux
-            this.props.updateTheme(currentColor[0])
+            this.props.fetchNewTheme(currentColor[0])
         } else {
             console.log(`Nothing changes`)
         }
     }
     toogleSideBar = () => {
-        let { isOpened } = this.props.sideBar
-        this.props.togleOpenSideBar(!isOpened)
+        let { isOpened } = this.props
+        this.props.fetchBarIsOpened(!isOpened)
     }
     render() {
         let { themeList } = this.state
-        let { isHiding } = this.props.sideTool
-        let { activeIndex, color } = this.props.buttonColor
-        let { isOpened } = this.props.sideBar
+        let { isHiding, isOpened, buttonColor = {} } = this.props
+        let { activeIndex, color } = buttonColor
         const filterActive = (item) => {
             if (item.id === activeIndex) return true
         }
@@ -203,19 +213,16 @@ class SideTool extends PureComponent {
     }
 }
 
-// connect's parameter
-const mapStateToProps = state => {
-    // console.log(state, `SideTool state update`)
-    return { ...state }
-}
-/*
- * connect's parameter
- *   
- */
-const mapDispatchToProps = dispatch => ({
-    updateTheme: (obj) => dispatch(fetchNewTheme(obj)),
-    toggleSetting: (isHiding) => dispatch(fetchSettingStatus(isHiding)),
-    togleOpenSideBar: (isOpening) => dispatch(fetchBarIsOpened(isOpening)),
+const mapStateToProps = state => ({
+    buttonColor: getThemeColor(state),
+    sideBarIsShow: getSideBarIsOpened(state),
+    isHiding: getSideToolIsHiding(state),
 })
+
+const mapDispatchToProps = {
+    fetchNewTheme,
+    fetchSettingStatus,
+    fetchBarIsOpened,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideTool)

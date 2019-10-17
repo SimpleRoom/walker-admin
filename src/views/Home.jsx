@@ -2,9 +2,20 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { fetchRoutePrimisson } from '../redux/actionCreators'
+import {
+    fetchPermissionRoute,
+    // fetchNewTheme,
+    // fetchBarIsOpened,
+    // fetchSettingStatus,
+} from '../store/modules/common/action'
+import {
+    getThemeColor,
+    getButtonWave,
+    getSideBarIsOpened,
+    getPermissionRoute,
+} from '../store/modules/common/selector'
 
-import { sessionStore } from '../utils/sessionStore'
+import { sessionStore } from '../utils'
 // import routeList from "../routes"
 // import Dialog from '../components/Dialog/Dialog'
 import SideBar from '../components/SideBar'
@@ -55,42 +66,41 @@ class Home extends React.Component {
         const info = sessionStore.fetch()
         if (info && Object.keys(info).length) {
             const { permissionId = 0 } = info || {}
-            this.props.fetchMyRoute(permissionId)
+            this.props.fetchPermissionRoute(permissionId)
         }
         // console.log(this.props)
     }
 
     render() {
         // listener theme color from props by redux
-        const { buttonColor, sideBar, buttonWave, permissionRoute } = this.props
-        const { routeList } = permissionRoute
-        console.log(routeList, 'permission')
+        const { buttonColor, sideBarIsShow, buttonWave, routeList } = this.props
+        // console.log(routeList, 'permission')
         return (
             <HomeBox>
                 {/* <Dialog /> */}
                 {/* side nav bar */}
                 <SideBar
                     routeList={routeList}
-                    isOpenedSideBar={sideBar.isOpened}
+                    isOpenedSideBar={sideBarIsShow}
                     activeBgColor={buttonColor.color}
-                    ButtonWave={buttonWave.ButtonWave} />
+                    ButtonWave={buttonWave} />
                 {/* top header */}
                 <Header
                     activeBgColor={buttonColor.color}
-                    isOpenedSideBar={sideBar.isOpened}
-                    ButtonWave={buttonWave.ButtonWave} />
+                    isOpenedSideBar={sideBarIsShow}
+                    ButtonWave={buttonWave} />
                 {/* setting */}
                 <SideTool />
-                <ContainerBox isOpenedSideBar={sideBar.isOpened}>
+                <ContainerBox isOpenedSideBar={sideBarIsShow}>
                     <Switch>
                         {/* component list */}
-                        {routeList.map((item, index) => (
+                        {routeList.length ? routeList.map((item, index) => (
                             <Route
                                 key={index}
                                 path={item.path}
                                 exact={item.exact}
                                 component={item.component} />
-                        ))}
+                        )) : null}
                         {/* default No.1 component */}
                         <Route exact path="/home/" render={() => (
                             <Redirect to={routeList.length ? routeList[0].path : '/login'} />
@@ -105,13 +115,17 @@ class Home extends React.Component {
 
 // export default Home
 // Listening global state from props
-const mapStateToProps = state => {
-    return { ...state }
-}
 
-const mapDispatchToProps = dispatch => ({
-    fetchMyRoute: (id) => dispatch(fetchRoutePrimisson(id)),
+const mapStateToProps = state => ({
+    buttonColor: getThemeColor(state),
+    sideBarIsShow: getSideBarIsOpened(state),
+    buttonWave: getButtonWave(state),
+    routeList: getPermissionRoute(state),
 })
+
+const mapDispatchToProps = {
+    fetchPermissionRoute,
+}
 
 export default connect(
     mapStateToProps,

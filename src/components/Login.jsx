@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import NoticeMessage from './NoticeMessage'
-import { fetchRoutePrimisson } from '../redux/actionCreators'
+import {
+    fetchPermissionRoute,
+} from '../store/modules/common/action'
 import { sessionStore, getBrowserInfo } from '../utils'
 import { CanvasBg } from '../canvas'
 
@@ -101,15 +103,15 @@ class Login extends PureComponent {
             },
         }
         // get Button wave from redux
-        this.ButtonWave = this.props.buttonWave.ButtonWave
+        // this.ButtonWave = this.props.buttonWave.ButtonWave
     }
 
     componentDidMount() {
-        let info = sessionStore.fetch()
-        const { history } = this.props
-        if (info) {
-            history.push("/")
-        }
+        // let info = sessionStore.fetch()
+        // const { history } = this.props
+        // if (info) {
+        //     history.push("/")
+        // }
         // create canvas background with canvas id
         new CanvasBg("canvasMoveBg")
     }
@@ -144,7 +146,7 @@ class Login extends PureComponent {
         const { userName, userPwd } = this.state
         const zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
         // button wave effect
-        this.ButtonWave.showWave(e)
+        // this.ButtonWave.showWave(e)
         if (!userName) {
             return this.showMessage("warning")
         }
@@ -168,7 +170,7 @@ class Login extends PureComponent {
             // back default type
             this.resetInputType()
             // fetch routelist
-            this.props.fetchMyRoute(permissionId)
+            this.props.fetchPermissionRoute(permissionId)
             console.log(this.props, 'login')
             // back to home
             history.push("/")
@@ -232,12 +234,12 @@ class Login extends PureComponent {
 
 // export default withRouter(Login)
 
-const mapStateToProps = state => {
-    return { ...state }
+// const mapStateToProps = state => {
+//     return { ...state }
+// }
+
+const mapDispatchToProps = {
+    fetchPermissionRoute,
 }
 
-const mapDispatchToProps = dispatch => ({
-    fetchMyRoute: (id) => dispatch(fetchRoutePrimisson(id)),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
+export default withRouter(connect(null, mapDispatchToProps)(Login))

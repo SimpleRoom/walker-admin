@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import registerServiceWorker from './registerServiceWorker'
 
-
 import { Provider } from 'react-redux'
 // // 1、引入Store
-import configureStore from "./redux/configureStore"
+// import configureStore from "./redux/configureStore"
+// import ButtonWaveEffect from './utils/ButtonWaveEffect'
+import configureStore, { commonNamespace } from './store/indexStore'
 // reset style
 import "./styles/reset.css"
 import Login from "./components/Login"
@@ -15,7 +16,12 @@ import Home from "./views/Home"
 
 const Root = ()=>{
     // set store to root for global props
-    const store = configureStore()
+    const store = configureStore({
+        [commonNamespace]: {
+            globalTips: 'test',
+            // ButtonWave: new ButtonWaveEffect(),
+        }
+    })
     return (
         <Provider store={store}>
             <Router>

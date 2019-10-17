@@ -287,11 +287,11 @@ export default class Gauge extends Component {
                     data: [{ value: 0.5, name: 'gas' }]
                 }
             ]
-        };
-    };
+        }
+    }
 
-    timeTicket = null;
-    getInitialState = () => ({ option: this.getOption() });
+    timeTicket = null
+    getInitialState = () => ({ option: this.getOption() })
 
     componentDidMount() {
         if (this.timeTicket) {
@@ -305,13 +305,13 @@ export default class Gauge extends Component {
         //     option.series[3].data[0].value = (Math.random() * 2).toFixed(2) - 0;
         //     this.setState({ option: option });
         // }, 1000);
-    };
+    }
 
     componentWillUnmount() {
         if (this.timeTicket) {
             clearInterval(this.timeTicket);
         }
-    };
+    }
 
     render() {
         return (
@@ -324,6 +324,6 @@ export default class Gauge extends Component {
                         className='react_for_echarts' />
                 </div>
             </div>
-        );
+        )
     }
 }

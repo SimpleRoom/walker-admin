@@ -463,4 +463,4 @@ class NoticeMessage extends PureComponent {
     }
 }
 
-export default NoticeMessage;
+export default NoticeMessage
