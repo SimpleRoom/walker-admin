@@ -108,13 +108,9 @@ class Login extends PureComponent {
     }
 
     componentDidMount() {
-        // let info = sessionStore.fetch()
-        // const { history } = this.props
-        // if (info) {
-        //     history.push("/")
-        // }
         // create canvas background with canvas id
         new CanvasBg("canvasMoveBg")
+        console.log(this.props, 'header-didMount')
     }
 
     updateUserName = e => {

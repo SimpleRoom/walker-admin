@@ -16,7 +16,7 @@ const Root = ()=>{
     // set store to root for global props
     const store = configureStore({
         [commonNamespace]: {
-            globalTips: 'static store',
+            globalTips: 'static global store',
         }
     })
     return (
