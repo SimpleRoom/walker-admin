@@ -95,11 +95,8 @@ class Header extends PureComponent {
         super(props)
         this.state = {
             userName: null,
-            // isOpenMenu: true,
             isOpenMenu: false,
         }
-        // this.ButtonWave = new ButtonWaveEffect()
-        console.log(this.props, `Header props`)
     }
     componentDidMount() {
         const info = sessionStore.fetch()
@@ -122,7 +119,7 @@ class Header extends PureComponent {
         const { isOpenMenu } = this.state
         this.setState({ isOpenMenu: !isOpenMenu })
         // use global function with event from redux
-        // this.props.ButtonWave.showWave(event)
+        this.props.ButtonWave.showWave(event)
     }
 
     render() {

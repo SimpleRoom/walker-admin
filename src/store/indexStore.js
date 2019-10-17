@@ -23,5 +23,6 @@ export default (receivedState) => {
   return createStore(
     rootReducer,
     initialState || null,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 }

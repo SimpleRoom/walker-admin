@@ -6,6 +6,7 @@ import NoticeMessage from './NoticeMessage'
 import {
     fetchPermissionRoute,
 } from '../store/modules/common/action'
+import { getButtonWave } from '../store/modules/common/selector'
 import { sessionStore, getBrowserInfo } from '../utils'
 import { CanvasBg } from '../canvas'
 
@@ -146,7 +147,7 @@ class Login extends PureComponent {
         const { userName, userPwd } = this.state
         const zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
         // button wave effect
-        // this.ButtonWave.showWave(e)
+        this.props.ButtonWave.showWave(e)
         if (!userName) {
             return this.showMessage("warning")
         }
@@ -163,7 +164,7 @@ class Login extends PureComponent {
         if (userName && userPwd) {
             const { history } = this.props
             //mock permission id：对应routes/routelist[i].permission(控制用户登录权限1-5)
-            const permissionId = 2
+            const permissionId = 6
             const info = { userName, userPwd, permissionId }
             // save to sessionStorage
             sessionStore.save(info)
@@ -234,12 +235,12 @@ class Login extends PureComponent {
 
 // export default withRouter(Login)
 
-// const mapStateToProps = state => {
-//     return { ...state }
-// }
+const mapStateToProps = state => ({
+    ButtonWave: getButtonWave(state)
+})
 
 const mapDispatchToProps = {
     fetchPermissionRoute,
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(Login))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

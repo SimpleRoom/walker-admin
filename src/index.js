@@ -5,8 +5,6 @@ import registerServiceWorker from './registerServiceWorker'
 
 import { Provider } from 'react-redux'
 // // 1、引入Store
-// import configureStore from "./redux/configureStore"
-// import ButtonWaveEffect from './utils/ButtonWaveEffect'
 import configureStore, { commonNamespace } from './store/indexStore'
 // reset style
 import "./styles/reset.css"
@@ -18,8 +16,7 @@ const Root = ()=>{
     // set store to root for global props
     const store = configureStore({
         [commonNamespace]: {
-            globalTips: 'test',
-            // ButtonWave: new ButtonWaveEffect(),
+            globalTips: 'static store',
         }
     })
     return (

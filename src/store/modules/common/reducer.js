@@ -39,16 +39,13 @@ export default handleActions(
       dialog.key = key + 1
       return { ...state, dialog: { ...dialog, displayed } }
     },
-  },
-  {
+
     [fetchPermissionRoute]: (state, action) => {
-      console.log('id----------')
       const { permissionId } = action.payload || {}
       const list = routeList.filter(item => item.permission <= permissionId)
       return { ...state, routeList: [ ...list ]}
-    }
-  },
-  {
+    },
+
     [fetchNewTheme]: (state, action) => {
       const { info } = action.payload || {}
       const themeColor = {
@@ -57,16 +54,13 @@ export default handleActions(
       }
       return { ...state, buttonColor: { ...themeColor }}
     },
-  },
-  {
+
     [fetchBarIsOpened]: (state, action) => {
       const { isOpened } = action.payload
       return { ...state, isOpened }
-    }
-  },
-  {
+    },
+
     [fetchSettingStatus]: (state, action) => {
-      console.log(state, action, 22222)
       const { isHiding } = action.payload
       return { ...state, isHiding }
     }

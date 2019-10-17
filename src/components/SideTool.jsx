@@ -154,7 +154,6 @@ class SideTool extends PureComponent {
          * use redux instead of setState to store the state with no reload 
          */
         this.props.fetchSettingStatus(!isHiding)
-        console.log(11)
     }
     toggleThemeColor = e => {
         let target = e.target
@@ -172,7 +171,7 @@ class SideTool extends PureComponent {
         }
     }
     toogleSideBar = () => {
-        let { isOpened } = this.props
+        const { isOpened } = this.props
         this.props.fetchBarIsOpened(!isOpened)
     }
     render() {
@@ -215,7 +214,7 @@ class SideTool extends PureComponent {
 
 const mapStateToProps = state => ({
     buttonColor: getThemeColor(state),
-    sideBarIsShow: getSideBarIsOpened(state),
+    isOpened: getSideBarIsOpened(state),
     isHiding: getSideToolIsHiding(state),
 })
 
