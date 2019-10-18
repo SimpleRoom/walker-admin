@@ -28,9 +28,9 @@ const Root = ()=>{
                         <Redirect to="/home/" />
                     )} />
                     {/* home page */}
-                    <Route path="/home" component={Home} />
+                    <Route path="/home/" component={Home} />
                     {/* login page */}
-                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/login/" component={Login} />
                     <Route exact component={NotFound} />
                 </Switch>
             </Router>

@@ -42,6 +42,7 @@ export default handleActions(
 
     [fetchPermissionRoute]: (state, action) => {
       const { permissionId } = action.payload || {}
+      console.log(action, 'action111')
       const list = routeList.filter(item => item.permission <= permissionId)
       return { ...state, routeList: [ ...list ]}
     },
