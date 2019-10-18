@@ -31,7 +31,7 @@ export const defaultState = {
   isHiding: true,
 }
 
-export default handleActions(
+export const commonReducer = handleActions(
   {
     [displaySetDialog]: (state, action) => {
       const { dialog, displayed = true } = action.payload || {}
@@ -68,4 +68,3 @@ export default handleActions(
   },
   defaultState
 )
-

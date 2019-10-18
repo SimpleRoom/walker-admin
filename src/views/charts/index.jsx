@@ -2,7 +2,7 @@ import React from 'react'
 import ScrollToTopMount from '../../components/ScrollToTopMount'
 import styled from 'styled-components'
 // global common style
-import { ClearFix } from '@src/components/common-style'
+import { ClearFix } from '../../components/common-style'
 import Gauge from '../../components/Gauge'
 import Radar from '../../components/Echarts/Radar'
 

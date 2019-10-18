@@ -1,8 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
-import registerServiceWorker from './registerServiceWorker'
-
+import React from 'react'
+import ReactDOM from 'react-dom'
+import * as serviceWorker from './serviceWorker'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux'
 // // 1、引入Store
 import configureStore, { commonNamespace } from './store/indexStore'
@@ -39,5 +38,6 @@ const Root = ()=>{
 }
 console.log('%c Welcome to-> https://github.com/SimpleRoom','background:#357b7b;color:#bada55;');
 
-ReactDOM.render( <Root /> , document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render( <Root /> , document.getElementById('root'))
+
+serviceWorker.unregister();

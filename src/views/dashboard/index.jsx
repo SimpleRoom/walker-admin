@@ -1,9 +1,9 @@
 import React from 'react'
-import ScrollToTopMount from '@src/components/ScrollToTopMount'
+import ScrollToTopMount from '../../components/ScrollToTopMount'
 import styled from 'styled-components'
 // global common style
-import { ClearFix } from '@src/components/common-style'
-import { RankList } from '@src/static/Data'
+import { ClearFix } from '../../components/common-style'
+import { RankList } from '../../static/Data'
 // import { CalcArea } from '../../static/Util'
 import { Shape, Shape3D } from '../../static/Shape'
 

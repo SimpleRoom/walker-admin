@@ -5,7 +5,7 @@ import {
   // applyMiddleware,
 } from 'redux'
 
-import commonReducer, { defaultState, namespace as commonNamespace } from './modules/common/reducer'
+import { defaultState, commonReducer, namespace as commonNamespace } from './modules/common/reducer'
 
 export { namespace as commonNamespace, commonReducer } from './modules/common/reducer'
 
