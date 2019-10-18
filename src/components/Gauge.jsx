@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-// import cloneDeep from 'lodash.clonedeep';
-import ReactEcharts from 'echarts-for-react';
+import React, { Component } from 'react'
+// import cloneDeep from 'lodash.clonedeep'
+import ReactEcharts from 'echarts-for-react'
 
 export default class Gauge extends Component {
     constructor(props) {

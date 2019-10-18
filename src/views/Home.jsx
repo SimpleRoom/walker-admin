@@ -16,7 +16,6 @@ import {
 } from '../store/modules/common/selector'
 
 import { sessionStore } from '../utils'
-// import routeList from "../routes"
 // import Dialog from '../components/Dialog/Dialog'
 import SideBar from '../components/SideBar'
 import NotFound from '../components/NotFound'

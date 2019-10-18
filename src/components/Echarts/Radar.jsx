@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import ReactEcharts from 'echarts-for-react'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const RadarWrap = styled.div`
   width: 420px;

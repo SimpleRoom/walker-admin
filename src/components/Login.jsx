@@ -2,13 +2,13 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
-import NoticeMessage from './NoticeMessage'
 import {
     fetchPermissionRoute,
 } from '../store/modules/common/action'
 import { getButtonWave } from '../store/modules/common/selector'
 import { sessionStore, getBrowserInfo } from '../utils'
 import { CanvasBg } from '../canvas'
+import NoticeMessage from './NoticeMessage'
 
 // global common style
 import {
@@ -103,8 +103,6 @@ class Login extends PureComponent {
                 animationName: "shake",
             },
         }
-        // get Button wave from redux
-        // this.ButtonWave = this.props.buttonWave.ButtonWave
     }
 
     componentDidMount() {

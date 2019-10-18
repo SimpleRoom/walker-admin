@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react"
+import React, { PureComponent } from 'react'
 import styled, { keyframes } from 'styled-components'
 // common
 const ClearFix = styled.div`
