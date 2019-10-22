@@ -147,6 +147,7 @@
     ]
   },
   "devDependencies": {
+    "conventional-changelog": "^3.1.12",
     "cz-conventional-changelog": "^3.0.2",
     "plop": "^2.5.0",
     "react-loadable": "^5.5.0",
@@ -162,10 +163,24 @@
       "path": "./node_modules/cz-conventional-changelog"
     },
     "validate-commit-msg": {
-      "types": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"],
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "chore",
+        "revert"
+      ],
       "scope": {
         "required": false,
-        "allowed": ["*"],
+        "allowed": [
+          "*"
+        ],
         "validate": false,
         "multiple": false
       },
