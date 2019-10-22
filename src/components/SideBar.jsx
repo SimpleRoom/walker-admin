@@ -254,7 +254,7 @@ class SideBar extends React.Component {
                 {/* logo */}
                 <LogoBox isOpened={isOpenedSideBar}>
                     <LogoBg />
-                    <BarTitle>Simple Room</BarTitle>
+                    <BarTitle>徒步者</BarTitle>
                 </LogoBox>
                 {/* bar list */}
                 <BarList>

@@ -129,7 +129,7 @@ class Header extends PureComponent {
             <HeaderBox isOpenedSideBar={isOpenedSideBar}>
                 {
                     userName ? <UserInfoBox data-index="1">
-                        <span>Welcome {userName}</span>
+                        <span>欢迎：{userName}</span>
                         <UserIconBox>
                             <div className="user-icon"></div>
                             <div className="unread-count">3</div>
