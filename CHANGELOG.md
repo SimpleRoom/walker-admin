@@ -1,5 +1,8 @@
 # 0.1.0 (2019-10-22)
 
+### Bug Fixes
+
+* **loadable-component:** 替换组件懒加载 ([6697b1e](https://github.com/SimpleRoom/walker-admin/commit/6697b1e969c440a736210cd7962017e02893230c))
 
 ### Features
 
