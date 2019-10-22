@@ -42,7 +42,7 @@ export const commonReducer = handleActions(
 
     [fetchPermissionRoute]: (state, action) => {
       const { permissionId } = action.payload || {}
-      console.log(action, 'action111')
+      console.log(action, ' 权限路由匹配成功..')
       const list = routeList.filter(item => item.permission <= permissionId)
       return { ...state, routeList: [ ...list ]}
     },

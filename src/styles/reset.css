@@ -91,7 +91,7 @@ input:-webkit-autofill {
 }
 
 /* bar */
-body::-webkit-scrollbar{
+/* body::-webkit-scrollbar{
     width: 6px;
     height: 4px;
 }
@@ -108,4 +108,4 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-button {
     background-color: #ddd;
     display: none;
-}
+} */
