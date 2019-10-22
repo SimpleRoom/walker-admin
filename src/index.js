@@ -6,10 +6,11 @@ import { Provider } from 'react-redux'
 // // 1、引入Store
 import configureStore, { commonNamespace } from './store/indexStore'
 // reset style
-import "./styles/reset.css"
-import Login from "./components/Login"
-import NotFound from "./components/NotFound"
-import Home from "./views/Home"
+import './styles/reset.css'
+import './assets/css/material-dashboard-react.css'
+import Login from './components/Login'
+import NotFound from './components/NotFound'
+import Home from './views/Home'
 
 const Root = ()=>{
     // set store to root for global props
@@ -23,13 +24,13 @@ const Root = ()=>{
             <Router>
                 <Switch>
                     {/* Redirect to first route in home */}
-                    <Route exact path="/" render={() => (
-                        <Redirect to="/home/" />
+                    <Route exact path='/' render={() => (
+                        <Redirect to='/home/' />
                     )} />
                     {/* home page */}
-                    <Route path="/home/" component={Home} />
+                    <Route path='/home/' component={Home} />
                     {/* login page */}
-                    <Route exact path="/login/" component={Login} />
+                    <Route exact path='/login/' component={Login} />
                     <Route exact component={NotFound} />
                 </Switch>
             </Router>
