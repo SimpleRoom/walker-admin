@@ -75,7 +75,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "plop": "plop"
+    "plop": "plop",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -152,12 +153,28 @@
     "stylus": "^0.54.7",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "validate-commit-msg": "^2.14.0"
   },
   "homepage": "public",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"],
+      "scope": {
+        "required": false,
+        "allowed": ["*"],
+        "validate": false,
+        "multiple": false
+      },
+      "warnOnFail": false,
+      "maxSubjectLength": 100,
+      "subjectPattern": ".+",
+      "subjectPatternErrorMsg": "subject does not match subject pattern!",
+      "helpMessage": "",
+      "autoFix": false
     }
   }
 }
