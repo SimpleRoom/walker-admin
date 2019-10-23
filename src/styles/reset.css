@@ -90,6 +90,11 @@ input:-webkit-autofill {
     box-shadow: 0 0 0px 40px white inset;
 }
 
+#root{
+    width:100%;
+    height:auto;
+    position:relative;
+}
 /* bar */
 /* body::-webkit-scrollbar{
     width: 6px;

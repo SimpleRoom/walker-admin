@@ -11,56 +11,67 @@
 import Loadable from '@loadable/component'
 // import Loading from '../components/Loading'
 
-const DashboardHome = Loadable(() => import('../views/dashboard'))
-
-const ProfileHome = Loadable(() => import('../views/profile'))
-
-const TableHome = Loadable(() => import('../views/table'))
-
-const ChartsHome = Loadable(() => import('../views/charts'))
-
-const NoticeHome = Loadable(() => import('../views/notice'))
+// 图表查看
+const ChartListPage = Loadable(() => import('../views/ChartPage/ChartPage'))
+// 个人资料
+const UserProfile = Loadable(() => import('../views/UserProfile/UserProfile'))
+// 游玩线路
+const PlayLinePage = Loadable(() => import('../views/PlayLinePage/PlayLinePage'))
+// 酒店预订
+const HotelPage = Loadable(() => import('../views/HotelPage/HotelPage'))
+// 会员管理
+const MemberPage = Loadable(() => import('../views/MemberPage/MemberPage'))
+// 员工管理
+const EmployeeManagementPage = Loadable(() => import('../views/EmployeeManagement/EmployeeManagement'))
 
 const routeList = [
     {
-        path: '/home/dashboard',
+        path: '/home/charts',
         exact: true,
         icon: 'charts',
         sidebarName: '图表查看',
-        component: DashboardHome,
+        component: ChartListPage,
         permission: 4,
     },
     {
         path: '/home/profile',
         exact: true,
         icon: 'profile',
-        sidebarName: '员工管理',
-        component: ProfileHome,
+        sidebarName: '个人资料',
+        component: UserProfile,
         permission: 3,
     },
     {
-        path: '/home/table',
+        path: '/home/line',
         exact: true,
         icon: 'table',
         sidebarName: '路线设计',
-        component: TableHome,
+        component: PlayLinePage,
         permission: 2,
     },
     {
-        path: '/home/charts',
+        path: '/home/hotel',
         exact: true,
         icon: 'dashboard',
         sidebarName: '酒店预订',
-        component: ChartsHome,
+        component: HotelPage,
         permission: 1,
     },
     {
-        path: '/home/notice',
+        path: '/home/member',
         exact: true,
         icon: 'notice',
-        sidebarName: '计划安排',
-        component: NoticeHome,
+        sidebarName: '会员管理',
+        component: MemberPage,
         permission: 1,
+    },
+    {
+        path: '/home/employee',
+        exact: true,
+        icon: 'profile',
+        sidebarName: '员工管理',
+        component: EmployeeManagementPage,
+        permission: 6,
     },
 ]
 

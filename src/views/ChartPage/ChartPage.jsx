@@ -49,14 +49,14 @@ const DashboardBox = styled(ClearFix)`
   position: relative;
 `
 
-const DashboardHome = () => {
+const ChartPage = () => {
   const classes = useStyles()
   return (
     <DashboardBox>
       <ScrollToTopMount />
       {/* 一列 */}
       <GridContainer>
-        {/* 2 */}
+        {/* 1 */}
         <GridItem xs={12} sm={6} md={3}>
           <Card>
             <CardHeader color='warning' stats icon>
@@ -249,4 +249,4 @@ const DashboardHome = () => {
   )
 }
 
-export default DashboardHome
+export default ChartPage

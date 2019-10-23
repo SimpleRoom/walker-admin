@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
@@ -21,6 +21,7 @@ import SideBar from '../components/SideBar'
 import NotFound from '../components/NotFound'
 import Header from '../components/Header/Header'
 import SideTool from '../components/SideTool'
+import Footer from '../components/Footer/Footer'
 
 // global common style
 import {
@@ -48,12 +49,6 @@ const ContainerBox = styled(ClearFix)`
     }
 `;
 
-// HomeBox
-const HomeBox = styled.div`
-    width:100%;
-    height:auto;
-    position:relative;
-`;
 class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -75,7 +70,7 @@ class Home extends React.Component {
         const { buttonColor, sideBarIsShow, buttonWave, routeList } = this.props
         // console.log(routeList, 'permission')
         return (
-            <HomeBox>
+            <Fragment>
                 {/* <Dialog /> */}
                 {/* side nav bar */}
                 <SideBar
@@ -106,8 +101,9 @@ class Home extends React.Component {
                         )} />
                         <Route exact component={NotFound} />
                     </Switch>
+                    <Footer />
                 </ContainerBox>
-            </HomeBox >
+            </Fragment>
         )
     }
 }

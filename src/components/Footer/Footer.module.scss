@@ -1,0 +1,21 @@
+.footer{
+  position: relative;
+  &:before,&:after{
+    display: table;
+    content: "";
+    clear: both;
+  }
+  p{
+    font-size: 14px;
+    text-align: right;
+    a{
+      margin: 0 5px;
+    }
+    svg{
+      display: inline-block;
+      font-size: 16px;
+      vertical-align: middle;
+      margin: 0 4px;
+    }
+  }
+}
