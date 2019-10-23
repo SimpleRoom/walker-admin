@@ -10,7 +10,7 @@ export default () => {
       <p>
         &copy;2018-by
         <a
-          href="https://github.com/SimpleRoom/walker-admin"
+          href="https://github.com/wjf444128852"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -1,6 +1,6 @@
 import { createActions } from 'redux-actions'
 
-export const { tempSetInfo, tempGetInfo } = createActions(
+export const { tempGetInfo } = createActions(
   {
     TEMP_SET_INFO: info => ({
       info,

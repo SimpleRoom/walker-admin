@@ -8,6 +8,8 @@ import {
   fetchNewTheme,
   fetchBarIsOpened,
   fetchSettingStatus,
+  // 暂存github信息
+  setGithubInfo,
 } from './action'
 
 export const namespace = 'common'
@@ -29,6 +31,8 @@ export const defaultState = {
   isOpened: true,
   // 右侧side tool
   isHiding: true,
+  // github个人信息
+  githubInfo: {},
 }
 
 export const commonReducer = handleActions(
@@ -64,6 +68,10 @@ export const commonReducer = handleActions(
     [fetchSettingStatus]: (state, action) => {
       const { isHiding } = action.payload
       return { ...state, isHiding }
+    },
+    [setGithubInfo]: (state, action) => {
+      const { githubData } = action.payload
+      return { ...state, githubData }
     }
   },
   defaultState

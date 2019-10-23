@@ -108,7 +108,7 @@ class Login extends PureComponent {
     componentDidMount() {
         // create canvas background with canvas id
         new CanvasBg("canvasMoveBg")
-        console.log(this.props, 'header-didMount')
+        // console.log(this.props, 'header-didMount')
     }
 
     updateUserName = e => {
@@ -166,7 +166,7 @@ class Login extends PureComponent {
             this.resetInputType()
             // fetch routelist
             this.props.fetchPermissionRoute(permissionId)
-            console.log(this.props, 'login')
+            // console.log(this.props, 'login')
             // back to home
             history.push("/")
             const browserInfo = getBrowserInfo()

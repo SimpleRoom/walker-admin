@@ -1,8 +1,13 @@
-import { fork, put, takeLatest } from 'redux-saga/effects'
+import axios from 'axios'
+import { fork, put, takeEvery } from 'redux-saga/effects'
 
 import {
-  tempSetInfo,
+  // 模板
   tempGetInfo,
+  tempSetInfo,
+  // github 个人信息
+  fetchGitInfo,
+  setGithubInfo,
 } from './action'
 
 function* getTemp() {
@@ -10,9 +15,19 @@ function* getTemp() {
   yield put(tempSetInfo(result))
 }
 
-function* watch() {
-  yield takeLatest(tempGetInfo, getTemp)
+// 请求github
+function* getGithubInfo(action) {
+  const { username } = action.payload
+  const result = yield axios.get(`https://api.github.com/users/${username}`)
+  // console.log(action, result, 'saga.....')
+  yield put(setGithubInfo(result.data))
 }
 
-export default [fork(watch)]
+function* watchCommon() {
+  yield takeEvery(tempGetInfo, getTemp)
+  // 请求接口
+  yield takeEvery(fetchGitInfo, getGithubInfo)
+}
+
+export default [fork(watchCommon)]
 

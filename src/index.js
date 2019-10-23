@@ -4,7 +4,7 @@ import * as serviceWorker from './serviceWorker'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux'
 // // 1、引入Store
-import configureStore, { commonNamespace } from './store/indexStore'
+import configureStore, { commonNamespace, rootSaga, sagaMiddleware } from './store/indexStore'
 // reset style
 import './styles/reset.css'
 import './assets/css/material-dashboard-react.css'
@@ -37,8 +37,10 @@ const Root = ()=>{
         </Provider>
     )
 }
-console.log('%c Welcome to-> https://github.com/SimpleRoom','background:#357b7b;color:#bada55;');
+console.log('%c Welcome to-> https://github.com/SimpleRoom','background:#357b7b;color:#bada55;')
 
 ReactDOM.render( <Root /> , document.getElementById('root'))
+
+sagaMiddleware.run(rootSaga)
 
 serviceWorker.unregister();
