@@ -44,8 +44,13 @@ const UserProfile = (props) => {
     //   setInfo(res.data)
     // }
     // getData()
-    fetchGitInfo('wjf444128852')
-  }, [fetchGitInfo])
+
+    // 方法二、使用redux,结合redux-saga获取：异步代码分离
+    // 避免每次组件挂载都请求一次
+    if (myGithubInfo && !Object.keys(myGithubInfo).length) {
+      fetchGitInfo('wjf444128852')
+    }
+  }, [myGithubInfo, fetchGitInfo])
   return (
     <Fragment>
       <ScrollToTopMount />
