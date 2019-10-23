@@ -27,12 +27,11 @@ import GridContainer from '../../components/Grid/GridContainer'
 import GridItem from '../../components/Grid/GridItem'
 import Card from '../../components/Card/Card'
 import CardHeader from '../../components/Card/CardHeader'
-// import CardAvatar from '../../components/Card/CardAvatar'
 import CardBody from '../../components/Card/CardBody'
 import CardFooter from '../../components/Card/CardFooter'
 import CardIcon from '../../components/Card/CardIcon'
-
 import Danger from '../../components/Typography/Danger'
+import Table from '../../components/Table/Table'
 
 import styles from '../../assets/jss/material-dashboard-react/views/dashboardStyle'
 
@@ -190,7 +189,7 @@ const ChartPage = () => {
           </Card>
         </GridItem>
       </GridContainer>
-      {/* ---- */}
+      {/* ------------------ */}
       <GridContainer>
         {/* 图表--3 */}
         <GridItem xs={12} sm={12} md={6}>
@@ -242,6 +241,34 @@ const ChartPage = () => {
                 <AccessTime /> 1天之前
               </div>
             </CardFooter>
+          </Card>
+        </GridItem>
+      </GridContainer>
+      {/* -------地区--Table-------------- */}
+      <GridContainer>
+        {/* 地区统计*/}
+        <GridItem xs={12} sm={12} md={12}>
+          <Card>
+            <CardHeader color="success">
+              <h4 className={classes.cardTitleWhite}>热门景点排名</h4>
+              <p className={classes.cardCategoryWhite}>
+                每个月底最后一周开始更新
+              </p>
+            </CardHeader>
+            <CardBody>
+              <Table
+                tableHeaderColor="success"
+                tableHead={["名次", "城市", "景点", "组团总次数", "总参与人数", "单次价格/人"]}
+                tableData={[
+                  ["1", "杭州", "杭州西湖", "89", "98000", "￥168"],
+                  ["2", "黄山", "黄山风景区", "68", "79060", "￥368"],
+                  ["3", "绍兴", "安山古道", "67", "68040", "￥139"],
+                  ["4", "杭州", "杭州湘湖", "59", "56800", "￥139"],
+                  ["5", "宁波", "宁波卖柴古道", "49", "48500", "￥168"],
+                  ["6", "黄山", "云端村落木梨硔", "38", "36800", "￥268"],
+                ]}
+              />
+            </CardBody>
           </Card>
         </GridItem>
       </GridContainer>
