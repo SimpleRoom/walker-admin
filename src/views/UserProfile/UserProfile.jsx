@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
+// ICON
+import Favorite from '@material-ui/icons/Favorite'
+import Phone from '@material-ui/icons/Phone'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import AddAlert from '@material-ui/icons/AddAlert'
 // core components
 import ScrollToTopMount from '../../components/ScrollToTopMount'
 import GridItem from '../../components/Grid/GridItem'
@@ -14,8 +19,9 @@ import CardHeader from '../../components/Card/CardHeader'
 import CardBody from '../../components/Card/CardBody'
 import CardFooter from '../../components/Card/CardFooter'
 import CardAvatar from '../../components/Card/CardAvatar'
+import Snackbar from '../../components/Snackbar/Snackbar'
 
-import avatar from '../../assets/img/faces/marc.jpg'
+import avatar from '../../assets/img/defaultAvatar.png'
 import styles from './UserProfile.module.scss'
 
 import { fetchGitInfo } from '../../store/modules/common/action'
@@ -35,6 +41,67 @@ const useStyles = makeStyles(styles)
 
 const UserProfile = (props) => {
   const classes = useStyles()
+  // 提示消息
+  let timerId = null
+  const [open, setOpen] = React.useState(false)
+  const [place, setPlace] = React.useState("tl")
+  const [color, setColor] = React.useState("info")
+  const showNotification = () => {
+    if (open === false) {
+      var rand = Math.floor(Math.random() * 5 + 1)
+      var newColor
+      switch (rand) {
+        case 1:
+          newColor = "info"
+          break
+        case 2:
+          newColor = "success"
+          break
+        case 3:
+          newColor = "warning"
+          break
+        case 4:
+          newColor = "danger"
+          break
+        case 5:
+          newColor = "primary"
+          break
+        default:
+          break
+      }
+      rand = Math.floor(Math.random() * 6 + 1)
+      var newPlace
+      switch (rand) {
+        case 1:
+          newPlace = "tl"
+          break
+        case 2:
+          newPlace = "tc"
+          break
+        case 3:
+          newPlace = "tr"
+          break
+        case 4:
+          newPlace = "bl"
+          break
+        case 5:
+          newPlace = "bc"
+          break
+        case 6:
+          newPlace = "br"
+          break
+        default:
+          break
+      }
+      setPlace(newPlace)
+      setColor(newColor)
+      setOpen(true)
+      timerId = setTimeout(function () {
+        setOpen(false)
+      }, 5000)
+    }
+  }
+  // -----------------接口请求--------------------------
   // const [info, setInfo] = useState({})
   const { myGithubInfo, fetchGitInfo } = props
   useEffect(() => {
@@ -50,7 +117,12 @@ const UserProfile = (props) => {
     if (myGithubInfo && !Object.keys(myGithubInfo).length) {
       fetchGitInfo('wjf444128852')
     }
-  }, [myGithubInfo, fetchGitInfo])
+    // 组件销毁时的操作：willUnmounted
+    return () => {
+      clearTimeout(timerId)
+    }
+  }, [myGithubInfo, fetchGitInfo, timerId])
+
   return (
     <Fragment>
       <ScrollToTopMount />
@@ -58,7 +130,7 @@ const UserProfile = (props) => {
         {/*------编辑区域--------*/}
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="rose">
+            <CardHeader color="success">
               <h4 className={classes.cardTitleWhite}>个人资料</h4>
               <p className={classes.cardCategoryWhite}>填写自己的详细信息</p>
             </CardHeader>
@@ -112,6 +184,13 @@ const UserProfile = (props) => {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    inputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <Phone />
+                        </InputAdornment>
+                      )
+                    }}
                   />
                 </GridItem>
               </GridContainer>
@@ -120,6 +199,7 @@ const UserProfile = (props) => {
                   <CustomInput
                     labelText="籍贯"
                     id="city"
+                    success
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -129,6 +209,7 @@ const UserProfile = (props) => {
                   <CustomInput
                     labelText="暂住地址"
                     id="address"
+                    error
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -153,7 +234,8 @@ const UserProfile = (props) => {
               </GridContainer>
             </CardBody>
             <CardFooter className={styles.textRight}>
-              <Button color="rose">提交</Button>
+              <Button color="success" onClick={() => showNotification()}>提交</Button>
+              <Button color="rose">重置</Button>
             </CardFooter>
           </Card>
         </GridItem>
@@ -172,21 +254,33 @@ const UserProfile = (props) => {
             <CardBody profile>
               <h6 className={classes.cardCategory}>{myGithubInfo.name || '九成'}</h6>
               <h4 className={classes.cardTitle}>{myGithubInfo.bio || '搬运工...'}</h4>
-              <p className={classes.description}>Location：{myGithubInfo.location || 'China'}</p>
               <p className={classes.description}>Followers：{myGithubInfo.followers || 0}</p>
               <p className={classes.description}>Repositories：{myGithubInfo.public_repos || 0}</p>
+              <p className={classes.description}>Location：{myGithubInfo.location || 'China'}</p>
               <p className={classes.description}>加入时间：{myGithubInfo.created_at || '00:00:00'}</p>
               <a
                 href={myGithubInfo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button color='rose' round>Follow</Button>
+                <Button color='rose' round><Favorite />Follow</Button>
               </a>
             </CardBody>
           </Card>
         </GridItem>
       </GridContainer>
+      {/* 提示消息 */}
+      <Snackbar
+        tempPlace={place}
+        tempColor={color}
+        place={'br'}
+        color={'danger'}
+        icon={AddAlert}
+        message='提交失败，信息填写错误或者服务器无法提交，稍后再试...'
+        open={open}
+        closeNotification={() => setOpen(false)}
+        close
+      />
     </Fragment>
   )
 }
