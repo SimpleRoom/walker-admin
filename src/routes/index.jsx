@@ -29,7 +29,7 @@ const routeList = [
         path: '/home/charts',
         exact: true,
         icon: 'charts',
-        sidebarName: '图表查看',
+        sidebarName: '数据统计',
         component: ChartListPage,
         permission: 4,
     },

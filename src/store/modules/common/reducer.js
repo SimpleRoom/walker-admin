@@ -23,9 +23,9 @@ export const defaultState = {
   routeList: [],
   // button bg-color
   buttonColor: {
-    color: "#00bcd4",
+    color: "#4caf50",
     text: "current-theme",
-    activeIndex: 2,
+    activeIndex: 1,
   },
   // 左侧side bar
   isOpened: true,

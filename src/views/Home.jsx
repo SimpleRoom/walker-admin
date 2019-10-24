@@ -14,7 +14,6 @@ import Footer from '../components/Footer/Footer'
 import {
   levelOneZindex,
   ClearFix,
-  headerAndLogoHeight,
   sideBarWidth,
   closedSideBarLeft,
 } from '../components/common-style'
@@ -39,7 +38,7 @@ const ContainerBox = styled(ClearFix)`
   z-index:${levelOneZindex - 1};
   /* reset padding with props */
   padding-left:${props => props.isOpenedSideBar ? sideBarWidth + 20 + "px" : closedPadLeft + "px"};
-  padding-top:${headerAndLogoHeight + 20}px;
+  padding-top:4px;
   padding-right:20px;
   padding-bottom:20px;
   transition:padding-left .4s;

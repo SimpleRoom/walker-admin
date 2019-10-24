@@ -53,87 +53,6 @@ const ChartPage = () => {
   return (
     <DashboardBox>
       <ScrollToTopMount />
-      {/* 一列 */}
-      <GridContainer>
-        {/* 1 */}
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color='warning' stats icon>
-              <CardIcon color='warning'>
-                <Icon>content_copy</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>本月任务</p>
-              <h3 className={classes.cardTitle}>
-                49/50 <small>个</small>
-              </h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Danger>
-                  <Warning />
-                </Danger>
-                <a href='#pablo' onClick={e => e.preventDefault()}>
-                  查看详情
-                </a>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        {/* 2 */}
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Accessibility />
-              </CardIcon>
-              <p className={classes.cardCategory}>新增会员</p>
-              <h3 className={classes.cardTitle}>+245</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                刚刚更新
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        {/* 3 */}
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="danger" stats icon>
-              <CardIcon color="danger">
-                <Icon>info_outline</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>未达标人数</p>
-              <h3 className={classes.cardTitle}>15</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <LocalOffer />
-                查看详情
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        {/* 4 */}
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <Store />
-              </CardIcon>
-              <p className={classes.cardCategory}>本月营收</p>
-              <h3 className={classes.cardTitle}>￥34,245</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <DateRange />
-                过去一个月
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-      </GridContainer>
       {/* ----图表----- */}
       <GridContainer>
         {/* 图表---1 */}
@@ -244,7 +163,7 @@ const ChartPage = () => {
           </Card>
         </GridItem>
       </GridContainer>
-      {/* -------地区--Table-------------- */}
+      {/* -------热门地区--Table-------------- */}
       <GridContainer>
         {/* 地区统计*/}
         <GridItem xs={12} sm={12} md={12}>
@@ -269,6 +188,87 @@ const ChartPage = () => {
                 ]}
               />
             </CardBody>
+          </Card>
+        </GridItem>
+      </GridContainer>
+      {/* ----任务卡片----- */}
+      <GridContainer>
+        {/* 1 */}
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color='warning' stats icon>
+              <CardIcon color='warning'>
+                <Icon>content_copy</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>本月任务</p>
+              <h3 className={classes.cardTitle}>
+                49/50 <small>个</small>
+              </h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Danger>
+                  <Warning />
+                </Danger>
+                <a href='#pablo' onClick={e => e.preventDefault()}>
+                  查看详情
+                </a>
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        {/* 2 */}
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="info" stats icon>
+              <CardIcon color="info">
+                <Accessibility />
+              </CardIcon>
+              <p className={classes.cardCategory}>新增会员</p>
+              <h3 className={classes.cardTitle}>+245</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Update />
+                刚刚更新
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        {/* 3 */}
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="danger" stats icon>
+              <CardIcon color="danger">
+                <Icon>info_outline</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>未达标人数</p>
+              <h3 className={classes.cardTitle}>15</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <LocalOffer />
+                查看详情
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        {/* 4 */}
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="success" stats icon>
+              <CardIcon color="success">
+                <Store />
+              </CardIcon>
+              <p className={classes.cardCategory}>本月营收</p>
+              <h3 className={classes.cardTitle}>￥34,245</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <DateRange />
+                过去一个月
+              </div>
+            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>
