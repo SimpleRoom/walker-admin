@@ -111,16 +111,10 @@ h6 {
   font-weight: 500;
 }
 
-body {
-  background-color: #eeeeee;
-  color: #3c4858;
-}
-
 blockquote p {
   font-style: italic;
 }
 
-body,
 h1,
 h2,
 h3,
