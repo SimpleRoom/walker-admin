@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 // global common style
 import {
-    levelOneZindex,
-    ClearFix,
-    sideBarWidth,
-    closedSideBarLeft,
-    headerAndLogoHeight,
-    borderRadius,
-    themeRgbaColor,
-    whiteColor,
+  levelOneZindex,
+  ClearFix,
+  sideBarWidth,
+  closedSideBarLeft,
+  headerAndLogoHeight,
+  borderRadius,
+  themeRgbaColor,
+  whiteColor,
 } from "./common-style"
 // scoped style
 const smallBarWidth = sideBarWidth - closedSideBarLeft
@@ -196,103 +196,103 @@ const HoverBox = styled.div`
     }
 `;
 const HoverTips = ({ activeBgColor, currentNavName, offTop }) => (
-    currentNavName ?
-        <HoverBox
-            activeBgColor={activeBgColor}
-            offTop={offTop}>
-            {currentNavName}
-        </HoverBox> : null
+  currentNavName ?
+    <HoverBox
+      activeBgColor={activeBgColor}
+      offTop={offTop}>
+      {currentNavName}
+    </HoverBox> : null
 )
 
 // opened
 const SideNavLink = ({ item, onClick }) => (
-    <NavLink to={item.path} activeClassName="active">
-        <span className="nav-icon"></span>
-        <span>{item.sidebarName}</span>
-        <span className="wave-mask" onClick={onClick}></span>
-    </NavLink>
+  <NavLink to={item.path} activeClassName="active">
+    <span className="nav-icon"></span>
+    <span>{item.sidebarName}</span>
+    <span className="wave-mask" onClick={onClick}></span>
+  </NavLink>
 )
 // closed
 const SmallNavLink = ({ item, onMouseEnter, onMouseLeave }) => (
-    <NavLink to={item.path} activeClassName="active"
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        data-name={item.sidebarName}>
-        <span className="nav-icon"></span>
-    </NavLink>
+  <NavLink to={item.path} activeClassName="active"
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    data-name={item.sidebarName}>
+    <span className="nav-icon"></span>
+  </NavLink>
 )
 class SideBar extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            currentNavName: null,
-            offsetTop: 0,
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentNavName: null,
+      offsetTop: 0,
     }
-    clickHandle = event => {
-        // use global function with event from redux
-        this.props.ButtonWave.showWave(event)
-    }
-    mouserEnter = event => {
-        event.persist()
-        let targetElem = event.target
-        let currentNavName = targetElem.getAttribute("data-name")
-        let offsetTop = targetElem.offsetTop
-        this.setState({ currentNavName, offsetTop })
-    }
-    mouserLeave = () => {
-        this.setState({ currentNavName: null })
-    }
-    render() {
-        const { activeBgColor, isOpenedSideBar, routeList } = this.props
-        const { currentNavName, offsetTop } = this.state
-        return (
-            <SideBarBox isOpened={isOpenedSideBar}>
-                {/* bg image */}
-                <SideBarBgImage />
-                <SideBarMask />
-                {/* logo */}
-                <LogoBox isOpened={isOpenedSideBar}>
-                    <LogoBg />
-                    <BarTitle>徒步者</BarTitle>
-                </LogoBox>
-                {/* bar list */}
-                <BarList>
-                    {
-                        isOpenedSideBar ? <OpenSideBar
-                            activeBgColor={activeBgColor}
-                            isOpened={isOpenedSideBar}>
-                            {
-                                routeList.map((item, index) => (
-                                    <OpenList key={index} iconSrc={item.icon}>
-                                        <SideNavLink
-                                            item={item}
-                                            onClick={this.clickHandle} />
-                                    </OpenList>
-                                ))
-                            }
-                        </OpenSideBar> : <ClosedSideBar
-                            activeBgColor={activeBgColor}
-                            isOpened={isOpenedSideBar}>
-                                {
-                                    routeList.map((item, index) => (
-                                        <OpenList key={index} iconSrc={item.icon}>
-                                            <SmallNavLink
-                                                onMouseEnter={this.mouserEnter}
-                                                onMouseLeave={this.mouserLeave}
-                                                item={item} />
-                                        </OpenList>
-                                    ))
-                                }
-                                <HoverTips
-                                    activeBgColor={activeBgColor}
-                                    currentNavName={currentNavName}
-                                    offTop={offsetTop} />
-                            </ClosedSideBar>
-                    }
-                </BarList>
-            </SideBarBox>
-        )
-    }
+  }
+  clickHandle = event => {
+    // use global function with event from redux
+    this.props.ButtonWave.showWave(event)
+  }
+  mouserEnter = event => {
+    event.persist()
+    let targetElem = event.target
+    let currentNavName = targetElem.getAttribute("data-name")
+    let offsetTop = targetElem.offsetTop
+    this.setState({ currentNavName, offsetTop })
+  }
+  mouserLeave = () => {
+    this.setState({ currentNavName: null })
+  }
+  render() {
+    const { activeBgColor, isOpenedSideBar, routeList } = this.props
+    const { currentNavName, offsetTop } = this.state
+    return (
+      <SideBarBox isOpened={isOpenedSideBar}>
+        {/* bg image */}
+        <SideBarBgImage />
+        <SideBarMask />
+        {/* logo */}
+        <LogoBox isOpened={isOpenedSideBar}>
+          <LogoBg />
+          <BarTitle>徒步者</BarTitle>
+        </LogoBox>
+        {/* bar list */}
+        <BarList>
+          {
+            isOpenedSideBar ? <OpenSideBar
+              activeBgColor={activeBgColor}
+              isOpened={isOpenedSideBar}>
+              {
+                routeList.map((item, index) => (
+                  <OpenList key={index} iconSrc={item.icon}>
+                    <SideNavLink
+                      item={item}
+                      onClick={this.clickHandle} />
+                  </OpenList>
+                ))
+              }
+            </OpenSideBar> : <ClosedSideBar
+              activeBgColor={activeBgColor}
+              isOpened={isOpenedSideBar}>
+                {
+                  routeList.map((item, index) => (
+                    <OpenList key={index} iconSrc={item.icon}>
+                      <SmallNavLink
+                        onMouseEnter={this.mouserEnter}
+                        onMouseLeave={this.mouserLeave}
+                        item={item} />
+                    </OpenList>
+                  ))
+                }
+                <HoverTips
+                  activeBgColor={activeBgColor}
+                  currentNavName={currentNavName}
+                  offTop={offsetTop} />
+              </ClosedSideBar>
+          }
+        </BarList>
+      </SideBarBox>
+    )
+  }
 }
 export default SideBar

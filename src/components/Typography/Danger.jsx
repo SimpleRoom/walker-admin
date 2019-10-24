@@ -7,7 +7,7 @@ import styles from '../../assets/jss/material-dashboard-react/components/typogra
 
 const useStyles = makeStyles(styles)
 
-const  Danger = (props) => {
+const Danger = (props) => {
   const classes = useStyles()
   const { children } = props
   return (

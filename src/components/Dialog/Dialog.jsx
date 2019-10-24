@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Button from '../Button/Button'
+import Button from '../CustomButtons/CustomButtons'
 // import Icon from '../Icon/Icon'
 import { getDialog } from '../../store/modules/common/selector'
 import { displaySetDialog } from '../../store/modules/common/action'

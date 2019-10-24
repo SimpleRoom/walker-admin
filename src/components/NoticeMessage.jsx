@@ -37,7 +37,7 @@ const bounce = keyframes`
     }
 `;
 const animationList = {
-    shake: keyframes`
+  shake: keyframes`
         from, to {
             transform: translate3d(0, 0, 0);
         }
@@ -48,7 +48,7 @@ const animationList = {
             transform: translate3d(10px, 0, 0);
         }
     `,
-    rubberBand: keyframes`
+  rubberBand: keyframes`
         from {
             transform: scale3d(1, 1, 1);
         }
@@ -71,7 +71,7 @@ const animationList = {
             transform: scale3d(1, 1, 1);
         }
     `,
-    wobble: keyframes`
+  wobble: keyframes`
         from {
             transform: none;
         }
@@ -94,7 +94,7 @@ const animationList = {
             transform: none;
         }
     `,
-    bounceIn: keyframes`
+  bounceIn: keyframes`
         from, 20%, 40%, 60%, 80%, to {
             animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
@@ -120,7 +120,7 @@ const animationList = {
             transform: scale3d(1, 1, 1);
         }
     `,
-    bounceInDown: keyframes`
+  bounceInDown: keyframes`
         from, 60%, 75%, 90%, to {
             animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
@@ -142,7 +142,7 @@ const animationList = {
             transform: none;
         }
     `,
-    bounceInLeft: keyframes`
+  bounceInLeft: keyframes`
         from, 60%, 75%, 90%, to {
             animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
@@ -164,7 +164,7 @@ const animationList = {
             transform: none;
         }
     `,
-    bounceInRight: keyframes`
+  bounceInRight: keyframes`
         from, 60%, 75%, 90%, to {
             animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
@@ -186,7 +186,7 @@ const animationList = {
             transform: none;
         }
     `,
-    bounceInUp: keyframes`
+  bounceInUp: keyframes`
         from, 60%, 75%, 90%, to {
             animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
@@ -208,7 +208,7 @@ const animationList = {
             transform: translate3d(0, 0, 0);
         }
     `,
-    slideInUp: keyframes`
+  slideInUp: keyframes`
         from {
             transform: translate3d(0, 100%, 0);
             visibility: visible;
@@ -217,7 +217,7 @@ const animationList = {
             transform: translate3d(0, 0, 0);
         }
     `,
-    slideOutDown: keyframes`
+  slideOutDown: keyframes`
         from {
 	        transform: translate3d(0, 0, 0);
         }
@@ -226,7 +226,7 @@ const animationList = {
             transform: translate3d(0, 100%, 0);
         }
     `,
-    slideInLeft: keyframes`
+  slideInLeft: keyframes`
         from {
             transform: translate3d(-100%, 0, 0);
             visibility: visible;
@@ -235,7 +235,7 @@ const animationList = {
             transform: translate3d(0, 0, 0);
         }
     `,
-    slideInRight: keyframes`
+  slideInRight: keyframes`
         from {
             transform: translate3d(100%, 0, 0);
             visibility: visible;
@@ -244,7 +244,7 @@ const animationList = {
             transform: translate3d(0, 0, 0);
         }
     `,
-    zoomIn: keyframes`
+  zoomIn: keyframes`
         from {
             opacity: 0;
             transform: scale3d(.3, .3, .3);
@@ -253,7 +253,7 @@ const animationList = {
             opacity: 1;
         }
     `,
-    zoomInDown: keyframes`
+  zoomInDown: keyframes`
         from {
             opacity: 0;
             transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
@@ -265,7 +265,7 @@ const animationList = {
             animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
         }
     `,
-    zoomInLeft: keyframes`
+  zoomInLeft: keyframes`
         from {
             opacity: 0;
             transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);
@@ -277,7 +277,7 @@ const animationList = {
             animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
         }
     `,
-    zoomInRight: keyframes`
+  zoomInRight: keyframes`
         from {
             opacity: 0;
             transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
@@ -289,7 +289,7 @@ const animationList = {
             animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
         }
     `,
-    zoomInUp: keyframes`
+  zoomInUp: keyframes`
         from {
             opacity: 0;
             transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
@@ -350,117 +350,117 @@ const CloseButton = styled.button`
 `;
 // message styles
 const MessageStyles = {
-    default: {
-        bgColor: "#d9edf7",
-        borderColor: "#bce8f1",
-        fontColor: "#31708f",
-    },
-    success: {
-        bgColor: "#dff0d8",
-        borderColor: "#d6e9c6",
-        fontColor: "#3c763d",
-    },
-    warning: {
-        bgColor: "#fcf8e3",
-        borderColor: "#faebcc",
-        fontColor: "#8a6d3b",
-    },
-    error: {
-        bgColor: "#f2dede",
-        borderColor: "#ebccd1",
-        fontColor: "#a94442",
-    },
+  default: {
+    bgColor: "#d9edf7",
+    borderColor: "#bce8f1",
+    fontColor: "#31708f",
+  },
+  success: {
+    bgColor: "#dff0d8",
+    borderColor: "#d6e9c6",
+    fontColor: "#3c763d",
+  },
+  warning: {
+    bgColor: "#fcf8e3",
+    borderColor: "#faebcc",
+    fontColor: "#8a6d3b",
+  },
+  error: {
+    bgColor: "#f2dede",
+    borderColor: "#ebccd1",
+    fontColor: "#a94442",
+  },
 }
 
 
 class NoticeMessage extends PureComponent {
-    constructor(props) {
-        super(props)
-        /**
-         * @param{message}          String
-         * @param{type}             [String]: success,warning,error...
-         * @param{animation}        [String]
-         * animation support list total(18): default=>bounce
-         * shake ,rubberBand, wobble,
-         * bounceIn, bounceInDown, bounceInLeft, bounceInRight, bounceInUp,
-         * slideInUp, slideOutDown, slideInLeft, slideInRight,
-         * zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp,
-         *
-         **/
-        this.state = {
-            message: null,
-            type: null,
-            animation: null,
-            delayHideTime: 5000,
-        }
-        this.timerId = null
+  constructor(props) {
+    super(props)
+    /**
+     * @param{message}          String
+     * @param{type}             [String]: success,warning,error...
+     * @param{animation}        [String]
+     * animation support list total(18): default=>bounce
+     * shake ,rubberBand, wobble,
+     * bounceIn, bounceInDown, bounceInLeft, bounceInRight, bounceInUp,
+     * slideInUp, slideOutDown, slideInLeft, slideInRight,
+     * zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp,
+     *
+     **/
+    this.state = {
+      message: null,
+      type: null,
+      animation: null,
+      delayHideTime: 5000,
     }
-    // Listening props from Parent Component
-    static getDerivedStateFromProps(nextProps, prevState) {
-        // console.log(nextProps);
-        if (nextProps.message !== prevState.message) {
-            return {
-                message: nextProps.message,
-                type: nextProps.type,
-                animation: nextProps.animation,
-            }
-        }
-        return null;
+    this.timerId = null
+  }
+  // Listening props from Parent Component
+  static getDerivedStateFromProps(nextProps, prevState) {
+    // console.log(nextProps);
+    if (nextProps.message !== prevState.message) {
+      return {
+        message: nextProps.message,
+        type: nextProps.type,
+        animation: nextProps.animation,
+      }
     }
-    // call auto
-    componentDidMount() {
-        this.autoDestoryAlert()
+    return null;
+  }
+  // call auto
+  componentDidMount() {
+    this.autoDestoryAlert()
+  }
+  // remove timer
+  componentWillUnmount() {
+    if (this.timerId) {
+      clearTimeout(this.timerId)
     }
-    // remove timer
-    componentWillUnmount() {
-        if (this.timerId) {
-            clearTimeout(this.timerId)
-        }
-    }
-    //auto remove Alert
-    autoDestoryAlert() {
-        const { message, delayHideTime } = this.state
-        if (message) {
-            this.timerId = setTimeout(() => {
-                this.props.removeAlert()
-            }, delayHideTime)
-        }
-    }
-    //remove by hand
-    destroyAlert = () => {
+  }
+  //auto remove Alert
+  autoDestoryAlert() {
+    const { message, delayHideTime } = this.state
+    if (message) {
+      this.timerId = setTimeout(() => {
         this.props.removeAlert()
+      }, delayHideTime)
     }
-    render() {
-        const { message, type, animation } = this.state
-        // message style
-        const getMessageStyle = (currentType) => {
-            if (currentType) {
-                return MessageStyles[currentType]
-            }
-        };
-        // alert join animation
-        const getAnimation = (type) => {
-            return animationList[type]
-        }
-        /**
-         *  ...getMessageStyle(type) instead of
-         *  bgColor={getMessageStyle(type).bgColor}
-         *  borderColor={getMessageStyle(type).borderColor}
-         *  fontColor={getMessageStyle(type).fontColor}
-         *
-         */
-        return (
-            <div className="message-wrap">
-                <MessageBox>
-                    <MessageContent animationName={getAnimation(animation)}
-                        isHasMessage={message} {...getMessageStyle(type)}>
-                        {message}
-                        <CloseButton onClick={this.destroyAlert}>×</CloseButton>
-                    </MessageContent>
-                </MessageBox>
-            </div>
-        );
+  }
+  //remove by hand
+  destroyAlert = () => {
+    this.props.removeAlert()
+  }
+  render() {
+    const { message, type, animation } = this.state
+    // message style
+    const getMessageStyle = (currentType) => {
+      if (currentType) {
+        return MessageStyles[currentType]
+      }
+    };
+    // alert join animation
+    const getAnimation = (type) => {
+      return animationList[type]
     }
+    /**
+     *  ...getMessageStyle(type) instead of
+     *  bgColor={getMessageStyle(type).bgColor}
+     *  borderColor={getMessageStyle(type).borderColor}
+     *  fontColor={getMessageStyle(type).fontColor}
+     *
+     */
+    return (
+      <div className="message-wrap">
+        <MessageBox>
+          <MessageContent animationName={getAnimation(animation)}
+            isHasMessage={message} {...getMessageStyle(type)}>
+            {message}
+            <CloseButton onClick={this.destroyAlert}>×</CloseButton>
+          </MessageContent>
+        </MessageBox>
+      </div>
+    );
+  }
 }
 
 export default NoticeMessage

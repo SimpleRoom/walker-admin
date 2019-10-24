@@ -6,13 +6,13 @@ import HeaderMenu from './HeaderMenu'
 import { sessionStore } from '../../utils'
 // global common style
 import {
-    levelOneZindex,
-    ClearFix,
-    headerAndLogoHeight,
-    sideBarWidth,
-    closedSideBarLeft,
-    themeRgbaColor,
-    whiteColor,
+  levelOneZindex,
+  ClearFix,
+  headerAndLogoHeight,
+  sideBarWidth,
+  closedSideBarLeft,
+  themeRgbaColor,
+  whiteColor,
 } from '../common-style'
 // Header left value while closing sideBar
 const closedLeft = sideBarWidth - closedSideBarLeft
@@ -37,47 +37,47 @@ const HeaderBox = styled(ClearFix)`
 const iconBoxWidth = 32;
 const marginTop = (headerAndLogoHeight - iconBoxWidth) / 2;
 const UserInfoBox = styled.div`
-    float:right;
-    margin-right:14px;
-    margin-top:${marginTop}px;
+  float:right;
+  margin-right:14px;
+  margin-top:${marginTop}px;
 `;
 
 const UserIconBox = styled(ClearFix)`
-    display:inline-block;
-    vertical-align:middle;
-    width:${iconBoxWidth}px;
-    height:${iconBoxWidth}px;
-    position:relative;
-    cursor:pointer;
-    margin-left:10px;
+  display:inline-block;
+  vertical-align:middle;
+  width:${iconBoxWidth}px;
+  height:${iconBoxWidth}px;
+  position:relative;
+  cursor:pointer;
+  margin-left:10px;
     
-    .user-icon{
-        width:22px;
-        height:22px;
-        position:absolute;
-        left:0;
-        top:0;
-        right:0;
-        bottom:0;
-        margin:auto;
-        background-size:100% 100%;
-        background-image:url("/images/user-center.svg");
-        z-index:${levelOneZindex};
-    }
-    .unread-count{
-        position:absolute;
-        width:16px;
-        height:16px;
-        background:#e4393c;
-        text-align:center;
-        line-height:16px;
-        color:${whiteColor};
-        font-size:10px;
-        border-radius:50%;
-        top:0;
-        right:0;
-        z-index:${levelOneZindex + 1};
-    }
+  .user-icon{
+    width:22px;
+    height:22px;
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    background-size:100% 100%;
+    background-image:url("/images/user-center.svg");
+    z-index:${levelOneZindex};
+  }
+  .unread-count{
+    position:absolute;
+    width:16px;
+    height:16px;
+    background:#e4393c;
+    text-align:center;
+    line-height:16px;
+    color:${whiteColor};
+    font-size:10px;
+    border-radius:50%;
+    top:0;
+    right:0;
+    z-index:${levelOneZindex + 1};
+  }
 `;
 
 // toggle slide down menu button
@@ -91,57 +91,58 @@ const UserToggleBtn = styled.button`
     overflow:hidden;
 `;
 class Header extends PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {
-            userName: null,
-            isOpenMenu: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      userName: null,
+      isOpenMenu: false,
+    }
+  }
+  componentDidMount() {
+    const info = sessionStore.fetch()
+    const { history } = this.props
+    if (!info) {
+      // back to login
+      history.push('/login')
+    } else {
+      const { userName } = info
+      this.setState({ userName })
+    }
+  }
+
+  signOut = () => {
+    sessionStore.remove()
+    this.props.history.push('/login')
+  }
+
+  switchSlideDownMenu = (event) => {
+    const { isOpenMenu } = this.state
+    this.setState({ isOpenMenu: !isOpenMenu })
+    // use global function with event from redux
+    this.props.ButtonWave.showWave(event)
+  }
+  
+  render() {
+    const { userName, isOpenMenu } = this.state
+    const { isOpenedSideBar, activeBgColor } = this.props
+    console.log(111)
+    return (
+      <HeaderBox isOpenedSideBar={isOpenedSideBar}>
+        {
+          userName ? <UserInfoBox data-index="1">
+            <span>欢迎：{userName}</span>
+            <UserIconBox>
+              <div className="user-icon"></div>
+              <div className="unread-count">3</div>
+              <UserToggleBtn onClick={this.switchSlideDownMenu} />
+            </UserIconBox>
+            {/* slide down menu */}
+            {isOpenMenu ? <HeaderMenu activeBgColor={activeBgColor} signOut={this.signOut} /> : null}
+          </UserInfoBox> : null
         }
-    }
-    componentDidMount() {
-        const info = sessionStore.fetch()
-        const { history } = this.props
-        if (!info) {
-            // back to login
-            history.push('/login')
-        } else {
-            const { userName } = info
-            this.setState({ userName })
-        }
-    }
-
-    signOut = () => {
-        sessionStore.remove()
-        this.props.history.push('/login')
-    }
-
-    switchSlideDownMenu = (event) => {
-        const { isOpenMenu } = this.state
-        this.setState({ isOpenMenu: !isOpenMenu })
-        // use global function with event from redux
-        this.props.ButtonWave.showWave(event)
-    }
-
-    render() {
-        const { userName, isOpenMenu } = this.state
-        const { isOpenedSideBar, activeBgColor } = this.props
-        return (
-            <HeaderBox isOpenedSideBar={isOpenedSideBar}>
-                {
-                    userName ? <UserInfoBox data-index="1">
-                        <span>欢迎：{userName}</span>
-                        <UserIconBox>
-                            <div className="user-icon"></div>
-                            <div className="unread-count">3</div>
-                            <UserToggleBtn onClick={this.switchSlideDownMenu} />
-                        </UserIconBox>
-                        {/* slide down menu */}
-                        {isOpenMenu ? <HeaderMenu activeBgColor={activeBgColor} signOut={this.signOut} /> : null}
-                    </UserInfoBox> : null
-                }
-            </HeaderBox>
-        )
-    }
+      </HeaderBox>
+    )
+  }
 }
 
 

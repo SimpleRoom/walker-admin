@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import {
-    fetchPermissionRoute,
+  fetchPermissionRoute,
 } from '../store/modules/common/action'
 import { getButtonWave } from '../store/modules/common/selector'
 import { sessionStore, getBrowserInfo } from '../utils'
@@ -12,9 +12,9 @@ import NoticeMessage from './NoticeMessage'
 
 // global common style
 import {
-    levelOneZindex,
-    ClearFix,
-    themeRgbaColor,
+  levelOneZindex,
+  ClearFix,
+  themeRgbaColor,
 } from "./common-style"
 
 const loginBtnBg = "#00bcd4"
@@ -78,163 +78,163 @@ const LoginBtn = styled.button`
 `
 
 class Login extends PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {
-            type: "text",
-            userName: "",
-            userPwd: "",
-            // default state value
-            message: null,
-            messageType: null,
-            animationName: null,
+  constructor(props) {
+    super(props)
+    this.state = {
+      type: "text",
+      userName: "",
+      userPwd: "",
+      // default state value
+      message: null,
+      messageType: null,
+      animationName: null,
+    }
+    this.messageInfo = {
+      success: {
+        message: "Sign in success",
+        animationName: null
+      },
+      warning: {
+        message: "Username can not be empty !",
+        animationName: "slideInLeft"
+      },
+      error: {
+        message: "Password can not be blank !",
+        animationName: "shake",
+      },
+    }
+  }
+
+  componentDidMount() {
+    // create canvas background with canvas id
+    new CanvasBg("canvasMoveBg")
+    // console.log(this.props, 'header-didMount')
+  }
+
+  updateUserName = e => {
+    let userName = e.target.value
+    this.setState({ userName })
+  }
+
+  updateUserPwd = e => {
+    let userPwd = e.target.value
+    this.setState({ userPwd })
+  }
+
+  // reset input type while on focusing to prevent browser remember password
+  resetInputType = () => {
+    const { type } = this.state
+    const newType = type === "text" ? "password" : type
+    this.setState({
+      type: newType
+    })
+  }
+
+  keyUpEnter = (e) => {
+    const { keyCode } = e
+    if (keyCode && keyCode === 13) {
+      this.login(e)
+    }
+  }
+
+  login = (e) => {
+    const { userName, userPwd } = this.state
+    const zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
+    // button wave effect
+    this.props.ButtonWave.showWave(e)
+    if (!userName) {
+      return this.showMessage("warning")
+    }
+    if (userName && zhReg.test(userName)) {
+      return this.setState({
+        messageType: "error",
+        message: "Username cannot contain Chinese !",
+        animationName: "bounce",
+      })
+    }
+    if (!userPwd) {
+      return this.showMessage("error")
+    }
+    if (userName && userPwd) {
+      const { history } = this.props
+      //mock permission id：对应routes/routelist[i].permission(控制用户登录权限1-5)
+      const permissionId = 6
+      const info = { userName, userPwd, permissionId }
+      // save to sessionStorage
+      sessionStore.save(info)
+      // back default type
+      this.resetInputType()
+      // fetch routelist
+      this.props.fetchPermissionRoute(permissionId)
+      // console.log(this.props, 'login')
+      // back to home
+      history.push("/")
+      const browserInfo = getBrowserInfo()
+      console.log(`浏览器信息是：${browserInfo}`)
+      // console.log('IP信息是：', returnCitySN)
+    }
+  }
+
+  showMessage(messageType) {
+    const { message, animationName } = this.messageInfo[messageType]
+    this.setState({ messageType, message, animationName })
+  }
+
+  // remove notifications callback
+  removeNotification = () => {
+    this.setState({ message: null, type: null })
+  }
+
+  render() {
+    const { type, userName, userPwd, message, messageType, animationName } = this.state
+    return (
+      <LoginBgBox>
+        {
+          message ?
+            <NoticeMessage message={message}
+              type={messageType}
+              animation={animationName}
+              removeAlert={this.removeNotification} /> : null
         }
-        this.messageInfo = {
-            success: {
-                message: "Sign in success",
-                animationName: null
-            },
-            warning: {
-                message: "Username can not be empty !",
-                animationName: "slideInLeft"
-            },
-            error: {
-                message: "Password can not be blank !",
-                animationName: "shake",
-            },
-        }
-    }
-
-    componentDidMount() {
-        // create canvas background with canvas id
-        new CanvasBg("canvasMoveBg")
-        // console.log(this.props, 'header-didMount')
-    }
-
-    updateUserName = e => {
-        let userName = e.target.value
-        this.setState({ userName })
-    }
-
-    updateUserPwd = e => {
-        let userPwd = e.target.value
-        this.setState({ userPwd })
-    }
-
-    // reset input type while on focusing to prevent browser remember password
-    resetInputType = () => {
-        const { type } = this.state
-        const newType = type === "text" ? "password" : type
-        this.setState({
-            type: newType
-        })
-    }
-
-    keyUpEnter = (e) => {
-        const { keyCode } = e
-        if (keyCode && keyCode === 13) {
-            this.login(e)
-        }
-    }
-
-    login = (e) => {
-        const { userName, userPwd } = this.state
-        const zhReg = new RegExp("[\\u4E00-\\u9FFF]+", "g")
-        // button wave effect
-        this.props.ButtonWave.showWave(e)
-        if (!userName) {
-            return this.showMessage("warning")
-        }
-        if (userName && zhReg.test(userName)) {
-            return this.setState({
-                messageType: "error",
-                message: "Username cannot contain Chinese !",
-                animationName: "bounce",
-            })
-        }
-        if (!userPwd) {
-            return this.showMessage("error")
-        }
-        if (userName && userPwd) {
-            const { history } = this.props
-            //mock permission id：对应routes/routelist[i].permission(控制用户登录权限1-5)
-            const permissionId = 6
-            const info = { userName, userPwd, permissionId }
-            // save to sessionStorage
-            sessionStore.save(info)
-            // back default type
-            this.resetInputType()
-            // fetch routelist
-            this.props.fetchPermissionRoute(permissionId)
-            // console.log(this.props, 'login')
-            // back to home
-            history.push("/")
-            const browserInfo = getBrowserInfo()
-            console.log(`浏览器信息是：${browserInfo}`)
-            // console.log('IP信息是：', returnCitySN)
-        }
-    }
-
-    showMessage(messageType) {
-        const { message, animationName } = this.messageInfo[messageType]
-        this.setState({ messageType, message, animationName })
-    }
-
-    // remove notifications callback
-    removeNotification = () => {
-        this.setState({ message: null, type: null })
-    }
-
-    render() {
-        const { type, userName, userPwd, message, messageType, animationName } = this.state
-        return (
-            <LoginBgBox>
-                {
-                    message ?
-                        <NoticeMessage message={message}
-                            type={messageType}
-                            animation={animationName}
-                            removeAlert={this.removeNotification} /> : null
-                }
-                <canvas id="canvasMoveBg" />
-                <FormBox>
-                    <FormList>
-                        <input className="user-name"
-                            autoComplete="off"
-                            type="text"
-                            value={userName}
-                            placeholder="Username"
-                            maxLength="10"
-                            onChange={this.updateUserName} />
-                        <div className="line" />
-                    </FormList>
-                    <FormList>
-                        <input className="user-pwd"
-                            autoComplete="off"
-                            type={type}
-                            value={userPwd}
-                            placeholder="Password"
-                            maxLength="10"
-                            onFocus={this.resetInputType}
-                            onChange={this.updateUserPwd}
-                            onKeyUp={this.keyUpEnter} />
-                        <div className="line" />
-                    </FormList>
-                    <LoginBtn onClick={this.login}>Sign in</LoginBtn>
-                </FormBox>
-            </LoginBgBox>
-        )
-    }
+        <canvas id="canvasMoveBg" />
+        <FormBox>
+          <FormList>
+            <input className="user-name"
+              autoComplete="off"
+              type="text"
+              value={userName}
+              placeholder="Username"
+              maxLength="10"
+              onChange={this.updateUserName} />
+            <div className="line" />
+          </FormList>
+          <FormList>
+            <input className="user-pwd"
+              autoComplete="off"
+              type={type}
+              value={userPwd}
+              placeholder="Password"
+              maxLength="10"
+              onFocus={this.resetInputType}
+              onChange={this.updateUserPwd}
+              onKeyUp={this.keyUpEnter} />
+            <div className="line" />
+          </FormList>
+          <LoginBtn onClick={this.login}>Sign in</LoginBtn>
+        </FormBox>
+      </LoginBgBox>
+    )
+  }
 }
 
 // export default withRouter(Login)
 
 const mapStateToProps = state => ({
-    ButtonWave: getButtonWave(state)
+  ButtonWave: getButtonWave(state)
 })
 
 const mapDispatchToProps = {
-    fetchPermissionRoute,
+  fetchPermissionRoute,
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 // global common style
 import {
-    levelOneZindex,
-    ClearFix,
-    headerAndLogoHeight,
-    borderRadius,
-    bounceAnimation,
-    whiteColor,
+  levelOneZindex,
+  ClearFix,
+  headerAndLogoHeight,
+  borderRadius,
+  bounceAnimation,
+  whiteColor,
 } from '../common-style'
 
 const HeaderMenuBox = styled(ClearFix)`
@@ -54,10 +54,10 @@ const MenuContent = styled.div`
     }
 `;
 const List = [
-    "You have unread messages.",
-    "You got a new task.",
-    "You have unread mail.",
-    "Other notifications."
+  "You have unread messages.",
+  "You got a new task.",
+  "You have unread mail.",
+  "Other notifications."
 ]
 
 const SignOutBtn = styled.button`
@@ -86,25 +86,25 @@ const SignOutBtn = styled.button`
 // )
 
 class HeaderMenu extends Component {
-    render() {
-        const { activeBgColor, signOut } = this.props
-        return (
-            <HeaderMenuBox>
-                <MenuContent activeBgColor={activeBgColor}>
-                    <ul>
-                        {
-                            List.map((item, index) =>
-                                <li key={index}>
-                                    {item}
-                                </li>
-                            )
-                        }
-                        <li><SignOutBtn onClick={signOut}>Sign out</SignOutBtn></li>
-                    </ul>
-                </MenuContent>
-            </HeaderMenuBox>
-        )
-    }
+  render() {
+    const { activeBgColor, signOut } = this.props
+    return (
+      <HeaderMenuBox>
+        <MenuContent activeBgColor={activeBgColor}>
+          <ul>
+            {
+              List.map((item, index) =>
+                <li key={index}>
+                  {item}
+                </li>
+              )
+            }
+            <li><SignOutBtn onClick={signOut}>Sign out</SignOutBtn></li>
+          </ul>
+        </MenuContent>
+      </HeaderMenuBox>
+    )
+  }
 }
 
 export default HeaderMenu

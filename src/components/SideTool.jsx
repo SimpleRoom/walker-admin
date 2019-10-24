@@ -3,21 +3,21 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 // import actions
 import {
-    fetchNewTheme,
-    fetchSettingStatus,
-    fetchBarIsOpened,
+  fetchNewTheme,
+  fetchSettingStatus,
+  fetchBarIsOpened,
 } from '../store/modules/common/action'
 
 import {
-    getThemeColor,
-    getSideBarIsOpened,
-    getSideToolIsHiding,
+  getThemeColor,
+  getSideBarIsOpened,
+  getSideToolIsHiding,
 } from '../store/modules/common/selector'
 // global common style
 import {
-    levelOneZindex,
-    ClearFix,
-    borderRadius,
+  levelOneZindex,
+  ClearFix,
+  borderRadius,
 } from "./common-style"
 // scoped style
 const settingBg = "rgba(4,50,60,.3)"
@@ -82,13 +82,13 @@ const ToggleButton = styled.button`
 `;
 // toggle btns
 const ToggleThemeBtn = ({ isActive, item, onClick, indexId }) => (
-    <ToggleButton
-        isActive={isActive}
-        onClick={onClick}
-        data-id={indexId}
-        data-color={item}
-        bgColor={item}>
-    </ToggleButton>
+  <ToggleButton
+    isActive={isActive}
+    onClick={onClick}
+    data-id={indexId}
+    data-color={item}
+    bgColor={item}>
+  </ToggleButton>
 )
 
 const circleWidth = 20;
@@ -130,98 +130,98 @@ const ToggleSideBarContent = styled.div`
     }
 `;
 class SideTool extends PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {
-            themeList: [{
-                id: 1,
-                color: "#4caf50",
-            }, {
-                id: 2,
-                color: "#00bcd4",
-            }, {
-                id: 3,
-                color: "#ff9800",
-            }, {
-                id: 4,
-                color: "#9c27b0",
-            },],
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      themeList: [{
+        id: 1,
+        color: "#4caf50",
+      }, {
+        id: 2,
+        color: "#00bcd4",
+      }, {
+        id: 3,
+        color: "#ff9800",
+      }, {
+        id: 4,
+        color: "#9c27b0",
+      },],
     }
-    toggleSetting = () => {
-        const { isHiding } = this.props
-        /* 
-         * use redux instead of setState to store the state with no reload 
-         */
-        this.props.fetchSettingStatus(!isHiding)
+  }
+  toggleSetting = () => {
+    const { isHiding } = this.props
+    /* 
+     * use redux instead of setState to store the state with no reload 
+     */
+    this.props.fetchSettingStatus(!isHiding)
+  }
+  toggleThemeColor = e => {
+    let target = e.target
+    let { themeList } = this.state
+    let { activeIndex } = this.props.buttonColor
+    let currentIndex = Number(target.getAttribute("data-id"))
+    if (currentIndex !== activeIndex) {
+      let currentColor = themeList.filter((item) => {
+        return item.id === currentIndex
+      })
+      // update to redux
+      this.props.fetchNewTheme(currentColor[0])
+    } else {
+      console.log(`Nothing changes`)
     }
-    toggleThemeColor = e => {
-        let target = e.target
-        let { themeList } = this.state
-        let { activeIndex } = this.props.buttonColor
-        let currentIndex = Number(target.getAttribute("data-id"))
-        if (currentIndex !== activeIndex) {
-            let currentColor = themeList.filter((item) => {
-                return item.id === currentIndex
-            })
-            // update to redux
-            this.props.fetchNewTheme(currentColor[0])
-        } else {
-            console.log(`Nothing changes`)
-        }
+  }
+  toogleSideBar = () => {
+    const { isOpened } = this.props
+    this.props.fetchBarIsOpened(!isOpened)
+  }
+  render() {
+    let { themeList } = this.state
+    let { isHiding, isOpened, buttonColor = {} } = this.props
+    let { activeIndex, color } = buttonColor
+    const filterActive = (item) => {
+      if (item.id === activeIndex) return true
     }
-    toogleSideBar = () => {
-        const { isOpened } = this.props
-        this.props.fetchBarIsOpened(!isOpened)
-    }
-    render() {
-        let { themeList } = this.state
-        let { isHiding, isOpened, buttonColor = {} } = this.props
-        let { activeIndex, color } = buttonColor
-        const filterActive = (item) => {
-            if (item.id === activeIndex) return true
-        }
-        return (
-            <SetingBox isHide={isHiding}>
-                <SettingBtn onClick={this.toggleSetting}>
-                    <span className="icon"/>
-                </SettingBtn>
-                {/* theme list */}
-                <ColorBox>
-                    <h3>Theme color list</h3>
-                    {
-                        themeList.map((item, index) => (
-                            <ToggleThemeBtn
-                                isActive={filterActive(item)}
-                                indexId={item.id}
-                                item={item.color}
-                                key={index}
-                                onClick={this.toggleThemeColor} />
-                        ))
-                    }
-                </ColorBox>
-                {/* toggle sidebar */}
-                <ToggleSideBarContent
-                    isOpened={isOpened}
-                    activeColor={color}>
-                    <span className="circle-icon" onClick={this.toogleSideBar}/>
-                    <span>Hide side bar</span>
-                </ToggleSideBarContent>
-            </SetingBox>
-        )
-    }
+    return (
+      <SetingBox isHide={isHiding}>
+        <SettingBtn onClick={this.toggleSetting}>
+          <span className="icon" />
+        </SettingBtn>
+        {/* theme list */}
+        <ColorBox>
+          <h3>Theme color list</h3>
+          {
+            themeList.map((item, index) => (
+              <ToggleThemeBtn
+                isActive={filterActive(item)}
+                indexId={item.id}
+                item={item.color}
+                key={index}
+                onClick={this.toggleThemeColor} />
+            ))
+          }
+        </ColorBox>
+        {/* toggle sidebar */}
+        <ToggleSideBarContent
+          isOpened={isOpened}
+          activeColor={color}>
+          <span className="circle-icon" onClick={this.toogleSideBar} />
+          <span>Hide side bar</span>
+        </ToggleSideBarContent>
+      </SetingBox>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
-    buttonColor: getThemeColor(state),
-    isOpened: getSideBarIsOpened(state),
-    isHiding: getSideToolIsHiding(state),
+  buttonColor: getThemeColor(state),
+  isOpened: getSideBarIsOpened(state),
+  isHiding: getSideToolIsHiding(state),
 })
 
 const mapDispatchToProps = {
-    fetchNewTheme,
-    fetchSettingStatus,
-    fetchBarIsOpened,
+  fetchNewTheme,
+  fetchSettingStatus,
+  fetchBarIsOpened,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideTool)
