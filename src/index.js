@@ -8,7 +8,7 @@ import configureStore, { commonNamespace, rootSaga, sagaMiddleware } from './sto
 // reset style
 import './styles/reset.css'
 import './assets/css/material-dashboard-react.css'
-import Login from './components/Login'
+import Login from './components/Login/Login'
 import NotFound from './components/NotFound'
 import Home from './views/Home'
 
