@@ -30,11 +30,11 @@ export const bounceAnimation = keyframes`
     }
     40%, 43% {
         animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-        transform: translate3d(0, -30px, 0);
+        transform: translate3d(0, -15px, 0);
     }
     70% {
         animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-        transform: translate3d(0, -15px, 0);
+        transform: translate3d(0, -8px, 0);
     }
     90% {
         transform: translate3d(0,-4px,0);

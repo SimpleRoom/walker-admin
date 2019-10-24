@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles'
@@ -28,22 +28,34 @@ const NavbarItem = ({ activeBgColor, historyRouter }) => {
   const [showMsg, setShowMsg] = useState(false)
   const [showPersonal, setShowPersonal] = useState(false)
   const [myName, setMyName] = useState('')
-  const showMsgHandle = () => {
+  const showMsgHandle = (e) => {
+    e.stopPropagation()
     setShowMsg(!showMsg)
     showPersonal && setShowPersonal(false)
   }
-  const showPersonalHandle = () => {
+  const showPersonalHandle = (e) => {
+    e.stopPropagation()
     setShowPersonal(!showPersonal)
     showMsg && setShowMsg(false)
   }
   const signOutHandle = () => {
     historyRouter.push('/login')
   }
+  // 点击其他地方取消dropdown的显示，useCallback去除副作用
+  const cancleDropHandle = useCallback(() => {
+    showMsg && setShowMsg(false)
+    showPersonal && setShowPersonal(false)
+  }, [showMsg, showPersonal])
   useEffect(() => {
     const info = sessionStore.fetch()
-    const { userName } = info
+    const { userName = '' } = info
     setMyName(userName)
-  }, [])
+    // 点击其他地方就取消
+    window.addEventListener('click', cancleDropHandle)
+    return () => {
+      window.removeEventListener('click', cancleDropHandle)
+    }
+  }, [cancleDropHandle])
   return (
     <Fragment>
       <div className={classes.searchWrapper}>

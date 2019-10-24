@@ -80,7 +80,7 @@ class Home extends React.Component {
           ButtonWave={buttonWave} />
         {/* ----top header bar--- */}
         <HeaderNavbar
-          color="info"
+          // color="info"
           isOpenedSideBar={sideBarIsShow}
           activeBgColor={buttonColor.color} />
         {/* side-setting */}
