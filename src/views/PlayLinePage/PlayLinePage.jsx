@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 // core icon
 import Favorite from '@material-ui/icons/Favorite'
 // material ui component
@@ -8,8 +8,8 @@ import GridItem from '../../components/Grid/GridItem'
 import CustomTabs from '../../components/CustomTabs/CustomTabs'
 import CustomTable from '../../components/CustomTabs/CustomTable'
 // global common style
-import ScrollToTopMount from "../../components/ScrollToTopMount"
-import { ClearFix } from "../../components/common-style"
+import ScrollToTopMount from '../../components/ScrollToTopMount'
+import { ClearFix } from '../../components/common-style'
 
 // mock data
 import { hotSealist, fameStyle, mountains } from '../../dbdata/linedata'

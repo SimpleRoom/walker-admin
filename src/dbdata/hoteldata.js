@@ -1,4 +1,4 @@
-const hotelList = [{
+const hotelCategorys = [{
     id: 'A',
     title: '网红民宿',
     description: '住有温度的民宿',
@@ -21,15 +21,302 @@ const hotelList = [{
     title: '古镇酒店',
     description: '在古镇发现前世的自己',
     img_url: 'https://m.tuniucdn.com/fb2/t1/G4/M00/E2/1F/Cii-VV2MadSIDWB_AAFiV3EjK-4AAK-pgP7oWMAAWJv33.jpeg',
-  },
-  {
-    id: 'E',
-    title: '依山酒店',
-    description: '住有温度找回征服大山的激情的民宿',
-    img_url: 'https://m3.tuniucdn.com/fb2/t1/G4/M00/E2/27/Cii_J12MadWIGaakAAEicYQi9_gAAK-pwAOk-QAASKJ88.jpeg',
   }
 ]
 
+const huzhou = [{
+  "id": "i7869650f79e",
+  "title": "莫干山漫步山乡精品民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G3/M00/03/06/Cii_LllCHpCIfnztAAKR0rtdfy8AAAWjwIhdx4AApHq039_w450_h300_c1_t0.jpg",
+  "price": "￥749起"
+}, {
+  "id": "jc0dh6448cih",
+  "title": "莫干山幽静民宿",
+  "type": "经济型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G1/M00/41/32/Cii9EVky9amIOQEzAAGRJKAUZ3MAALf9gJASOEAAZE8329_w450_h300_c1_t0.jpg",
+  "price": "￥550起"
+}, {
+  "id": "ibif6j93c5ea",
+  "title": "花筑·莫干山瑶庄客栈",
+  "type": "舒适型",
+  "score_rate": "评分:4.7分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/AB/BF/Cii-tFtg5zaIabbgAAFtxffjzbAAALJkgOlivwAAW3d467_w450_h300_c1_t0.jpg",
+  "price": "￥880起"
+}, {
+  "id": "hd1fbj9cf83j8",
+  "title": "莫干山野奢(精品民宿)",
+  "type": "高档型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G3/M00/5B/9F/Cii_Lll5J2uITG9QAAIhu6Fy-n4AAFQdgPXKacAAiHT265_w450_h300_c1_t0.jpg",
+  "price": "￥880起"
+}, {
+  "id": "gc8gbd1hcc97a",
+  "title": "安吉古道缘精品民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/EC/A2/Cii-T1k2C0-IX2BNAAG9MKOsi5YAALYHAP5XzMAAb1I315_w450_h300_c1_t0.jpg",
+  "price": "￥1180起"
+}, {
+  "id": "48j0i6436603f",
+  "title": "安吉蓝莲花开·秘径民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/F0/DC/Cii-tFrx_7CIAEIVAAFGYM94A2MAAGkywD4rEMAAUZ4216_w450_h300_c1_t0.jpg",
+  "price": "￥816起"
+}, {
+  "id": "9jef71i8j9aeg",
+  "title": "安吉坐雲精品民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/5C/67/Cii-s1p6sKmIDmlTAAGDQ6HKtoMAADMjgGLjxIAAYNb571_w450_h300_c1_t0.jpg",
+  "price": "￥880起"
+}, {
+  "id": "ij7d56jj15g57",
+  "title": "安吉逍遥谷民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.6分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G4/M00/C1/3D/Cii_J1n8GaCIKjjHAAJcBfPdu6YAAC36QH_ODYAAlwd128_w450_h300_c1_t0.jpg",
+  "price": "￥569起"
+}]
+
+const sanya = [{
+  "id": "e438g373fd3b",
+  "title": "三亚亚龙湾木落客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.5分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G1/M00/2F/82/Cii-U1krpfGId1xAAAHqrM9f2kUAAK_6AIPEVMAAerE727_w450_h300_c1_t0.jpg",
+  "price": "￥120起"
+}, {
+  "id": "05j82808723e5d",
+  "title": "三亚夏末花开海岸客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.7分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/2D/8C/Cii-tFsbBCiIXLAjAAG1Na2mwTMAAIN-wDFw_sAAbVN095_w450_h300_c1_t0.jpg",
+  "price": "￥123起"
+}, {
+  "id": "13djc526jf505",
+  "title": "远方有个村精品客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.6分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/2C/3B/Cii-tFw4bWqIauGDAAGrcw8TaQYAAS8iAKTdQ8AAauL970_w450_h300_c1_t0.jpg",
+  "price": "￥128起"
+}, {
+  "id": "ai3e5a2jh9b6",
+  "title": "海岸精品客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/F3/6A/Cii-Tlk3uPaINFp8AAIYWtukWbcAALg-gFg6CYAAhhy365_w450_h300_c1_t0.jpg",
+  "price": "￥116起"
+}, {
+  "id": "84dhgee63ad3a",
+  "title": "三亚慢享时光海景客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G1/M00/38/34/Cii9EFkv3fCIMHLEAAGi6xY2i34AALPsgHfFPIAAaMD063_w450_h300_c1_t0.jpg",
+  "price": "￥158起"
+}, {
+  "id": "g0b0i2092idaa",
+  "title": "三亚时光仓怀旧艺术客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.6分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/D1/3A/Cii-Tlkre72IK0QJAAK7t7hverkAAKm1wEAf-YAArvP483_w450_h300_c1_t0.jpg",
+  "price": "￥176起"
+}, {
+  "id": "16b46i732ibbf",
+  "title": "三亚薰衣草海边精品客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.4分",
+  "img_url": "http://m1.tuniucdn.com/filebroker/cdn/res/d7/b9/d7b9c7f8b7245e2d30739fe195b758ec_w450_h300_c1_t0.jpg",
+  "price": "￥188起"
+}, {
+  "id": "h2ehi4ib47bc",
+  "title": "三亚亼乐冲浪客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.2分",
+  "img_url": "http://m3.tuniucdn.com/filebroker/cdn/res/cb/f7/cbf7ec3050ef86ba283b631d5cea96b0_w450_h300_c1_t0.jpg",
+  "price": "￥268起"
+}]
+
+const shanghai = [{
+  "id": "361f0hb01cg0h",
+  "title": "上海不舍精品民宿",
+  "type": "经济型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/C7/E9/Cii-TlknIJWIYxwiAAHU6QWpL2wAAKY1QP-GqQAAdUB177_w450_h300_c1_t0.jpg",
+  "price": "￥259起"
+}, {
+  "id": "fhbb65ef57549",
+  "title": "上海过来民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G1/M00/26/C3/Cii9EVknHpyIaojWAAHiE8EzxpcAAKxMwLx9uoAAeIr978_w450_h300_c1_t0.jpg",
+  "price": "￥328起"
+}, {
+  "id": "7gc3j303jfhhb",
+  "title": "上海良住民宿",
+  "type": "经济型",
+  "score_rate": "评分:4.7分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/23/2F/Cii-sly1xTOIEMRkAAIbtvy6b-EAAVKJQLpViYAAhvO100_w450_h300_c1_t0.jpg",
+  "price": "￥339起"
+}, {
+  "id": "5c7dd7a14cj65",
+  "title": "上海角里小筑精品客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/C6/F0/Cii-slzrz_mITXpVAAHtreU1sisAAWLFQKYVp0AAe3F962_w450_h300_c1_t0.jpg",
+  "price": "￥780起"
+}, {
+  "id": "0baebdi79jj4ed",
+  "title": "上海艺外萄源民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.3分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G3/M00/0B/09/Cii_JVlH-faIVvnYAAFaLQYwyVsAAA7SwPpeDoAAVpF518_w450_h300_c1_t0.jpg",
+  "price": "￥612起"
+}, {
+  "id": "25207b2b2hh03",
+  "title": "花筑·上海裕大俚舍民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.7分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/5D/B1/Cii-tFxNLYiIC6dnAAHnwHqsYP4AATk9QNwDxoAAefY229_w450_h300_c1_t0.jpg",
+  "price": "￥670起"
+}, {
+  "id": "fhbcb50b010e",
+  "title": "上海源来客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.7分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G1/M00/4D/94/Cii-U1k2k6uIPFBuAAG3ASNW7u0AALx7ACI_gAAAbcZ004_w450_h300_c1_t0.jpg",
+  "price": "￥536起"
+}, {
+  "id": "7d3b6f19h50g9",
+  "title": "上海漫公馆精致客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/E7/2E/Cii-Tlk0Un-INK68AAD_Do5fZwwAALPEgLo_jIAAP8m341_w450_h300_c1_t0.jpg",
+  "price": "￥980起"
+}]
+
+const hangzhou = [{
+  "id": "0he4adec2haa8",
+  "title": "西塘佳途留香精品客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.6分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G4/M00/51/C8/Cii-VVm_S96IKLdoAAGp_GWL7eQAABVXQFXUZgAAaoU499_w450_h300_c1_t0.jpg",
+  "price": "￥107起"
+}, {
+  "id": "3e6afd429ceci",
+  "title": "安吉吾集民宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.7分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G4/M00/B7/2A/Cii_J1xd2NSIHcIcAAF9LLfiX9cAADxkAKGLAQAAX1E337_w450_h300_c1_t0.jpg",
+  "price": "￥1089起"
+}, {
+  "id": "g08h84i608ff",
+  "title": "湖州了如三舍安吉体验中心客栈(分店)",
+  "type": "经济型",
+  "score_rate": "评分:0分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G5/M00/27/B1/Cii-slpGGT2IOXx_AALWg8j1YDQAABfLAMO3_QAAtab156_w450_h300_c1_t0.jpg",
+  "price": "￥749起"
+}, {
+  "id": "69315a5228h3",
+  "title": "清蝉酒店(杭州西湖店)",
+  "type": "舒适型",
+  "score_rate": "评分:4.7分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/DB/AB/Cii-TlkwXpqIL1-jAAL6cDAsLBkAAK55QIQTuUAAvqI047_w450_h300_c1_t0.jpg",
+  "price": "￥772起"
+}, {
+  "id": "ge65g82gf04c8",
+  "title": "杭州西溪花间堂",
+  "type": "豪华型",
+  "score_rate": "评分:4.5分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/F1/6D/Cii-Tlk3XNGIEOT0AAJbF7st1m4AALelAJ4UUcAAlsv737_w450_h300_c1_t0.jpg",
+  "price": "￥1362起"
+}, {
+  "id": "ef57e1i6f5g3",
+  "title": "杭州如来心灵客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.6分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G3/M00/67/23/Cii_Nll_D9uIIvKmAAIeYis6GIkAAFyXgDmkUcAAh56691_w450_h300_c1_t0.jpg",
+  "price": "￥390起"
+}, {
+  "id": "7bi78gb534b7d",
+  "title": "杭州蓝莲花开·溪上",
+  "type": "舒适型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/DB/E5/Cii-TFkwrAqIFcYnAAJ3c9lNA78AAK7ugDlW-gAAneL909_w450_h300_c1_t0.jpg",
+  "price": "￥386起"
+}, {
+  "id": "iib6fi59i2gec",
+  "title": "杭州萱蓝小筑度假民宿",
+  "type": "经济型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G4/M00/E9/1F/Cii_J1ykHBqIJn5bAAHN6Z1Vk7wAAE8YgCajVkAAc4B479_w450_h300_c1_t0.jpg",
+  "price": "￥499起"
+}]
+
+const suzhou = [{
+  "id": "a2j58if2466he",
+  "title": "苏州姑苏丁香9号民宿",
+  "type": "经济型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/C8/01/Cii-TFknW76IFO0MAAGxQBIKdHIAAKaeQHidxoAAbFY601_w450_h300_c1_t0.jpg",
+  "price": "￥399起"
+}, {
+  "id": "b62j7hedbij6",
+  "title": "平江小舍",
+  "type": "经济型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/05/B9/Cii-T1k8-T6If7OQAAHsziXAflQAALw-AEM904AAezm712_w450_h300_c1_t0.jpg",
+  "price": "￥488起"
+}, {
+  "id": "cbhib65b93id",
+  "title": "苏州香樟小院主题客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/E3/2E/Cii-T1kzCWSIWmWWAAH7jK8bTmwAALIpQGjURoAAfuk068_w450_h300_c1_t0.jpg",
+  "price": "￥600起"
+}, {
+  "id": "6a849e5863jda",
+  "title": "漫·太湖四季客栈)",
+  "type": "经济型",
+  "score_rate": "评分:4.4分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G1/M00/40/C1/Cii-U1ky0GiIGW74AALCtccboGIAALfKwFSKJ4AAsLN614_w450_h300_c1_t0.jpg",
+  "price": "￥158起"
+}, {
+  "id": "8j29a92fce685",
+  "title": "周庄漫行居·花园美宿",
+  "type": "舒适型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G3/M00/0D/60/Cii_NllJsLyIEt1kAAJBiDRdqMIAABGEwANej0AAkGg701_w450_h300_c1_t0.jpg",
+  "price": "￥328起"
+}, {
+  "id": "eaga8a3a2bcib",
+  "title": "周庄呆住贞丰轩精品客栈",
+  "type": "舒适型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m1.tuniucdn.com/filebroker/cdn/res/4c/b7/4cb72aaed9bf1f256bb9c48b976e5a3d_w450_h300_c1_t0.jpg",
+  "price": "￥878起"
+}, {
+  "id": "20f0h64gfic3b",
+  "title": "驿雲精品客栈",
+  "type": "舒适型",
+  "score_rate": "评分:4.8分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G2/M00/C7/FF/Cii-T1knWZGIZJn9AAH3X1sXdE4AAKaaAACc8MAAfd3662_w450_h300_c1_t0.jpg",
+  "price": "￥341起"
+}, {
+  "id": "b31i5657ii5i",
+  "title": "青檐雅舍精品主题客栈",
+  "type": "经济型",
+  "score_rate": "评分:4.9分",
+  "img_url": "http://m.tuniucdn.com/fb2/t1/G3/M00/10/7E/Cii_JVlLeFmIQ2VBAAFH2M2d_5kAABQuwESISkAAUfw178_w450_h300_c1_t0.jpg",
+  "price": "￥436起"
+}]
+
+const hotelList = [sanya, huzhou, shanghai, hangzhou, suzhou]
+
 export {
-  hotelList
+  hotelCategorys,
+  hotelList,
 }

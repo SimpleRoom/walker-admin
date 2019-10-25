@@ -1,0 +1,29 @@
+.content{
+  padding: 10px 0;
+}
+.wrap{
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background-color: #cdcdcd;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 8px;
+}
+
+.mask{
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, .3);
+  text-align: right;
+  color: #ffffff;
+  font-size: .8em;
+  cursor: pointer;
+  transition: all .2s;
+  &:hover{
+    background: rgba(0, 0, 0, .5);
+  }
+}
