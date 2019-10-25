@@ -18,7 +18,6 @@ const ProfileBox = styled(ClearFix)`
     position:relative;
 `;
 const UserPage = () => {
-  console.log(hotSealist, '111')
   return (
     <ProfileBox>
       <ScrollToTopMount />
@@ -27,14 +26,14 @@ const UserPage = () => {
         <GridItem xs={12} sm={12} md={12}>
           <CustomTabs
             title="温情浪漫海滨"
-            headerColor="primary"
+            headerColor="success"
             tabs={[
               {
                 tabName: "北海",
                 tabIcon: Favorite,
                 tabContent: (
                   <CustomTable
-                    tableHeaderColor="primary"
+                    tableHeaderColor="success"
                     taskList={hotSealist[0]} />
                 )
               },
@@ -43,7 +42,7 @@ const UserPage = () => {
                 tabIcon: Favorite,
                 tabContent: (
                   <CustomTable
-                    tableHeaderColor="primary"
+                    tableHeaderColor="success"
                     taskList={hotSealist[1]} />
                 )
               },
@@ -52,7 +51,7 @@ const UserPage = () => {
                 tabIcon: Favorite,
                 tabContent: (
                   <CustomTable
-                    tableHeaderColor="primary"
+                    tableHeaderColor="success"
                     taskList={hotSealist[2]} />
                 )
               },
@@ -61,7 +60,7 @@ const UserPage = () => {
                 tabIcon: Favorite,
                 tabContent: (
                   <CustomTable
-                    tableHeaderColor="primary"
+                    tableHeaderColor="success"
                     taskList={hotSealist[3]} />
                 )
               },
