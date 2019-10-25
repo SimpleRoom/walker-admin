@@ -1,0 +1,243 @@
+// 名山胜水
+
+const sichuang = [{
+  "id": "7d469acd3a874",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G1/M00/B1/92/Cii9EVjQx_6IAXWVACs02wB73wYAAJAhQJTuCYAKzTz279_w640_h480_c1_t0.jpg",
+  "line_title": "九寨沟风景名胜区3日游",
+  "line_desc": "增游黄龙风景区、成都大熊猫繁育基地，纯玩0购物，含藏家土火锅，可选酒店升级，成都三环内上门接",
+  "price": "¥920",
+  "happiness": "96%"
+}, {
+  "id": "h145874e2467e",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/12/4A/Cii-VVzJBxyIQeU9ACmgtHB3LPsAAFpAAPTF40AKaDM719_w640_h480_c1_t0.jpg",
+  "line_title": "稻城亚丁单汽单飞4日游",
+  "line_desc": "车进机出，保姆车陆地头等舱，0购物，夏季特惠赠送精美旅拍/相框，2次特色餐，单人保证拼房，配备氧气",
+  "price": "¥1833",
+  "happiness": "94%"
+}, {
+  "id": "551b5f261f6hh",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/DF/EA/Cii_J1yYinGIMwbgAOOVbTi7vpoAAEvYgLtsYMA45WF757_w640_h480_c1_t0.jpg",
+  "line_title": "九寨沟",
+  "line_desc": "好久不见九姑娘，0自费，进店赔付1000，送土火锅，成都三环内接，舒适住宿，可升级头等舱2+1座椅(当地参团)",
+  "price": "¥798",
+  "happiness": "86%"
+}, {
+  "id": "ffjf9j9j68gfa",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G3/M00/12/82/Cii_NllMurGIJcIQAB8v9IIu1cYAABW1QM6awQAHzAM665_w640_h480_c1_t0.jpg",
+  "line_title": "九寨沟风景名胜区3日游",
+  "line_desc": "0购物，新增两大5A景区都江堰和黄龙景区，特色石板烧烤成都三环以内接（当地游）",
+  "price": "¥949",
+  "happiness": "98%"
+}, {
+  "id": "8i2ihf352ibjf",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/68/46/Cii-sls7JvmAJo5sAbXlq-aq_bY155_w640_h480_c1_t0.jpg",
+  "line_title": "成都",
+  "line_desc": "环线深度精品4-6人小包团越野车纯玩团(当地参团)",
+  "price": "¥3580",
+  "happiness": "93%"
+}, {
+  "id": "8af8ecdff809i",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G3/M00/13/01/Cii_NllM6xWITrm3ACQ4X13xTesAABYDgJYWLIAJDh3190_w640_h480_c1_t0.jpg",
+  "line_title": "九寨沟风景名胜区4日游",
+  "line_desc": "增游5A黄龙和都江堰，4A熊猫乐园，一排三座陆地头等舱，上限26客，精选2晚沟口酒店，享石板烧烤，成都三环以内接（当地游）",
+  "price": "¥572",
+  "happiness": "86%"
+}, {
+  "id": "jd2a2e28c687e",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/A2/7A/Cii-s1q8ahWIYe-UABnM8cApkyQAAE4LwH326IAGc0J593_w640_h480_c1_t0.jpg",
+  "line_title": "成都",
+  "line_desc": "牛人独立发团，5年沉淀销量领头，专车接送机，牛人专属定制餐，夜宿沟口酒店",
+  "price": "¥1100",
+  "happiness": "93%"
+}, {
+  "id": "aa9g1gf725c9",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G1/M00/22/B6/Cii9EFbfkYeIVsgRAAuzYBaBkD0AACiZwD1DNMAC7N4802_w640_h480_c1_t0.jpg",
+  "line_title": "成都",
+  "line_desc": "九寨壹号，乘头等舱保姆车，2晚挂5星天源豪生温泉酒店，1晚川主记忆氧吧酒店，陈硕家宴（当地游）",
+  "price": "¥1150",
+  "happiness": "94%"
+}]
+
+const huadong = [{
+  "id": "2i16i69b6gj7",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/70/58/Cii-slzRUV-IVn0KAAuiutTOW3sAAVm8AM405QAC6LS80_w640_h480_c1_t0.jpeg",
+  "line_title": "华东",
+  "line_desc": "国际海岛大会热推，一晚杭州四星，夜宿普陀听梵音，拜南海观音大佛，祈福之旅，船游西湖，慢享乌镇",
+  "price": "¥2050",
+  "happiness": "94%"
+}, {
+  "id": "71cc48981h5e",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G2/M00/1E/62/Cii-TFg1Zl2IRKAWACNtvMVjX4gAAEuBAOpQVMAI23U783_w640_h480_c1_t0.jpg",
+  "line_title": "上海迪士尼",
+  "line_desc": "0购物,正餐50元+/住乌镇五星酒店,15分钟走到西栅/登雷峰塔,360度看西湖/途牛直接采购,帮你节省近2成",
+  "price": "¥2526",
+  "happiness": "86%"
+}, {
+  "id": "2if0ia88bah6b",
+  "img_url": "https://s.tuniu.net/qn/image/f1/7f6b0cdf880c818e68ab25a694a689ba/8dae979b-b036-4146-9b4f-6a16efb340f5.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "黄山",
+  "line_desc": "徽州全境游，享接送机礼遇，1晚宿山上3晚市区香茗假日酒店（送120元徽韵秀），纯玩深游徽州",
+  "price": "¥2367",
+  "happiness": "91%"
+}, {
+  "id": "g08328gg8219",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G1/M00/82/C3/Cii9EVimyPqIehH4ACdIa1LXizIAAHkOQIjJVwAJ0iD715_w640_h480_c1_t0.jpg",
+  "line_title": "华东",
+  "line_desc": "夜宿乌镇，国际五星，船游西湖，水乡特色餐，嗨翻迪士尼2日（当地游）",
+  "price": "¥2880",
+  "happiness": "99%"
+}, {
+  "id": "2g0jgc1da5hj5",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/07/3D/Cii-tFuR8cOIMLTrAAkhew6uSX0AANUWQI5N6AACSGT005_w640_h480_c1_t0.jpg",
+  "line_title": "南昌",
+  "line_desc": "20人1车1导VIP小团，两省双世遗黄金连线，自营0购，食（8正餐）宿（全程高标）升级，享24H接送机",
+  "price": "¥3439",
+  "happiness": "99%"
+}, {
+  "id": "45j5db6973da5",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/9F/5D/Cii-sl0sSSiIKDweAA7eQX40eb0AAXqaAGp9ngADt5Z749_w640_h480_c1_t0.jpg",
+  "line_title": "华东五市",
+  "line_desc": "深度纯玩0购物，国际五星酒店，西栅&拈花湾精品双客栈，高标50元定制餐，2万+牛人的选择，连续6年高销量",
+  "price": "¥2738",
+  "happiness": "98%"
+}, {
+  "id": "864a9f3d3j208",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/66/5F/Cii-sls6DFuIceOvAHqbn8bb9T8AAJfzgCWR34Aepu3292_w640_h480_c1_t0.jpg",
+  "line_title": "杭州",
+  "line_desc": "夜宿乌镇，邂逅西塘，漫步西湖，登雷峰塔，品乾隆御茶宴，含接机服务，可升级入住西栅内",
+  "price": "¥2584",
+  "happiness": "94%"
+}, {
+  "id": "0g861gii78aabd",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/BE/13/Cii-slwHYD2IJSJwABbUihw6qR0AARQVANHZQsAFtSi624_w640_h480_c1_t0.jpg",
+  "line_title": "华东五市",
+  "line_desc": "11月起全新升级4晚维也纳系列酒店，江南双古镇，观水乡婚礼，登雷峰塔赏全景西湖，金陵十六味品秦淮味道",
+  "price": "¥1900",
+  "happiness": "95%"
+}]
+
+const hunan = [{
+  "id": "4g4d5if5djgbj",
+  "img_url": "https://s.tuniu.net/qn/image/f2/70b163655b5d3101360d50ed5116520a/49925ffe-7e0f-4c3f-90b5-1c208be72913.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "张家界",
+  "line_desc": "牛全景0购物,含双玻/双古镇/芙蓉镇/老腔Show,长沙宿2晚豪华型/5星,打卡湖南必到景点,儿童3大赠送,嗨玩湘西",
+  "price": "¥3120",
+  "happiness": "98%"
+}, {
+  "id": "b1j34fi8dj957",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/0E/E0/Cii_J11Lf4iIVrzyACevBkXgQe4AAI0XgEqT3EAJ68e910_w640_h480_c1_t0.jpg",
+  "line_title": "张家界",
+  "line_desc": "纯玩30人团，0购物，VIP航空座椅大巴，宿2晚五星/1晚碧桂园紫金花舍，沱江泛舟，打卡网红芙蓉镇",
+  "price": "¥2573",
+  "happiness": "97%"
+}, {
+  "id": "b7gaai2a0i5c9",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/1F/0C/Cii-tFugnESIT5KgADfIvGNWqkEAAN4TQOyz3AAN8jU998_w640_h480_c1_t0.jpg",
+  "line_title": "长沙",
+  "line_desc": "长沙进桂林出，高性价比，热搜景点全游览",
+  "price": "¥5036",
+  "happiness": "86%"
+}, {
+  "id": "967j4f8ei4f0b",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/72/E4/Cii-slvS2cSIdgjGABa880oLswAAAPrRQAlQtcAFr0L274_w640_h480_c1_t0.jpg",
+  "line_title": "长沙",
+  "line_desc": "0购物专车专导、30人小团、宿碧桂园紫金花舍、打卡网红芙蓉镇、享沱江泛舟",
+  "price": "¥2668",
+  "happiness": "96%"
+}, {
+  "id": "041i0j4034eh53",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G2/M00/59/0D/Cii-T1jXYDWIe_bmACFGxCyYlWQAAIy5wO0YgIAIUbc322_w640_h480_c1_t0.jpg",
+  "line_title": "韶山",
+  "line_desc": "长沙2晚五星神农/万家丽,高餐标/湘西美食,凤凰含价值125元9景/赠144元百龙天梯往返",
+  "price": "¥1680",
+  "happiness": "98%"
+}, {
+  "id": "i7fa2c5aadcef",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G2/M00/39/51/Cii-T1jA_feIQ6qMABHX2vH67PoAAITYQLOeQ0AEdfy664_w640_h480_c1_t0.jpg",
+  "line_title": "张家界",
+  "line_desc": "优先安排A线，悬空玻璃栈道，纯玩专线，酒店上门接，2人以上可升小包团",
+  "price": "¥204",
+  "happiness": "93%"
+}, {
+  "id": "97ba3688icd43",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/73/F1/Cii-slqSRx-IdN8uACJnFH_wrIAAADpZwESXY0AImcs952_w640_h480_c1_t0.jpg",
+  "line_title": "长沙",
+  "line_desc": "湖南红色旅游、文化岳阳、伟人故居、品韵湖湘文化之旅",
+  "price": "¥2255",
+  "happiness": "86%"
+}, {
+  "id": "f1ae4ja51j599",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/9D/12/Cii-s1q3wYuINCjAAB3WAO_AymIAAEvAgC4dL8AHdYY380_w640_h480_c1_t0.jpg",
+  "line_title": "长沙",
+  "line_desc": "五星住宿，0购物0自费，森林公园VIP/含往返索道，赠芙蓉镇/张家界千古情（当地游）",
+  "price": "¥2295",
+  "happiness": "99%"
+}]
+
+const xibei = [{
+  "id": "3jiebh4eij2ie",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/C5/51/Cii-VVx0pc2IXr2zAAR2OtpuqS4AAEIhAJ5uSYABHZS718_w640_h480_c1_t0.jpg",
+  "line_title": "宁夏",
+  "line_desc": "20人全景游，0自费0购，品葡萄红酒，大话西游情景拍照，四星/高档酒店，住宿可升级",
+  "price": "¥3147",
+  "happiness": "94%"
+}, {
+  "id": "42hf8eg4929a",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/0B/71/Cii-VVzFTyGIBR0zAAZ18I8CY7cAAFklwGf-hkABnYI212_w640_h480_c1_t0.jpg",
+  "line_title": "青海湖",
+  "line_desc": "10人纯玩团/随走随停/二进大漠赏日落观丹霞日出/住宿优选/茶卡hing尖叫/24h接送机",
+  "price": "¥4058",
+  "happiness": "91%"
+}, {
+  "id": "c96c5i7jf5308",
+  "img_url": "https://s.tuniu.net/qn/image/f2/b4dbd9669e3e1eba5f416fc15497ce0e/88137505-8328-4e15-9fb4-ec3802ff3ca7.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "青海湖",
+  "line_desc": "5年西北热销+纯玩0购+塔尔寺祈福+乘兰新高铁省一天半车程+6晚四星或高档酒店",
+  "price": "¥3808",
+  "happiness": "95%"
+}, {
+  "id": "chdgf5dge2b7f",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/CD/1A/Cii-tFyB0WaIXjCFAA-2d6XdJdIAAUTLQA3sR0AD7aP294_w640_h480_c1_t0.jpg",
+  "line_title": "塔尔寺",
+  "line_desc": "6至12人小团，市区范围内接，只去正规景点，纯玩无购物",
+  "price": "¥433",
+  "happiness": "98%"
+}, {
+  "id": "0f7ja7d4ci87f",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/A8/F8/Cii-tFxzuTaIeN2jACfvtWmUGX8AAUE-QDSL8UAJ-_N162_w640_h480_c1_t0.jpg",
+  "line_title": "青海湖",
+  "line_desc": "全程纯玩，纯净之旅1人也成团，行摄高原双湖，全程不走回头路，享惊喜小礼品",
+  "price": "¥541",
+  "happiness": "97%"
+}, {
+  "id": "gd30b7ga9955a",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/A9/66/Cii-slziyBqIOMVEABV32yJmJhoAAV8_wPA22wAFXfz090_w640_h480_c1_t0.jpg",
+  "line_title": "青海湖",
+  "line_desc": "西北纯玩10人封顶团，含莫高窟门票，0购物、24H接送机，赠送沙漠狂欢BBQ",
+  "price": "¥2882",
+  "happiness": "95%"
+}, {
+  "id": "6hae28477g4i8",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/9B/9F/Cii-slxre1OIVaBMAA2qBXI_3NQAAT9gQNCE_cADaod677_w640_h480_c1_t0.jpg",
+  "line_title": "敦煌古城",
+  "line_desc": "提供接站服务，送一晚住宿，观日落仰望璀璨星空",
+  "price": "¥373",
+  "happiness": "98%"
+}, {
+  "id": "430850355h17",
+  "img_url": "https://m.tuniucdn.com/filebroker/cdn/online/7c/8d/7c8d5285_w640_h480_c1_t0.jpg",
+  "line_title": "塔尔寺",
+  "line_desc": "0购物纯玩赏双景区品大美青海1人也发团",
+  "price": "¥346",
+  "happiness": "97%"
+}]
+
+const mountains = [huadong, sichuang, hunan, xibei]
+
+export {
+  huadong,
+  sichuang,
+  hunan,
+  xibei,
+  mountains,
+}

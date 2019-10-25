@@ -48,7 +48,7 @@ const NavbarItem = ({ activeBgColor, historyRouter }) => {
   }, [showMsg, showPersonal])
   useEffect(() => {
     const info = sessionStore.fetch()
-    const { userName = '' } = info
+    const { userName = '' } = info || {}
     setMyName(userName)
     // 点击其他地方就取消
     window.addEventListener('click', cancleDropHandle)

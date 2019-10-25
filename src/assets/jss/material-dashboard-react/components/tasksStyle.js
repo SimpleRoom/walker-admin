@@ -1,12 +1,55 @@
 import {
-  defaultFont,
+  warningColor,
   primaryColor,
   dangerColor,
-  grayColor
+  successColor,
+  infoColor,
+  roseColor,
+  grayColor,
+  defaultFont,
 } from "../../material-dashboard-react"
 import tooltipStyle from "../tooltipStyle"
 import checkboxAdnRadioStyle from "../checkboxAdnRadioStyle"
 const tasksStyle = {
+  warningTableHeader: {
+    color: warningColor[0]
+  },
+  primaryTableHeader: {
+    color: primaryColor[0]
+  },
+  dangerTableHeader: {
+    color: dangerColor[0]
+  },
+  successTableHeader: {
+    color: successColor[0]
+  },
+  infoTableHeader: {
+    color: infoColor[0]
+  },
+  roseTableHeader: {
+    color: roseColor[0]
+  },
+  grayTableHeader: {
+    color: grayColor[0]
+  },
+  tableHeadCell: {
+    color: "inherit",
+    ...defaultFont,
+    lineHeight: "1.42857143",
+    padding: "12px 8px",
+    verticalAlign: "middle",
+    fontSize: "0.8125rem",
+    "&, &$tableCell": {
+      fontSize: "1em"
+    }
+  },
+  tableHeadRow: {
+    height: "56px",
+    color: "inherit",
+    display: "table-row",
+    outline: "none",
+    verticalAlign: "middle"
+  },
   ...tooltipStyle,
   ...checkboxAdnRadioStyle,
   table: {

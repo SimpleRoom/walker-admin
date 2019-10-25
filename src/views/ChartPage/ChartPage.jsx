@@ -2,11 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import ChartistGraph from 'react-chartist'
 import { makeStyles } from '@material-ui/core/styles'
-
-// global common style
-import { ClearFix } from '../../components/common-style'
-import ScrollToTopMount from '../../components/ScrollToTopMount'
-
 // @material-ui/icons
 import Icon from '@material-ui/core/Icon'
 import Store from '@material-ui/icons/Store'
@@ -21,6 +16,10 @@ import Accessibility from '@material-ui/icons/Accessibility'
 // import BugReport from '@material-ui/icons/BugReport'
 // import Code from '@material-ui/icons/Code'
 // import Cloud from '@material-ui/icons/Cloud'
+
+// global common style
+import { ClearFix } from '../../components/common-style'
+import ScrollToTopMount from '../../components/ScrollToTopMount'
 
 // material ui component
 import GridContainer from '../../components/Grid/GridContainer'

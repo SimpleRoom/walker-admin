@@ -1,0 +1,242 @@
+// 民族风情
+const xizang = [{
+  "id": "h74f9hb5acg4c",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G3/M00/1B/0C/Cii_JVlSa6mIGDvlAAc6ThSoXNoAABybwO0ZqcABzpm057_w640_h480_c1_t0.jpg",
+  "line_title": "拉萨",
+  "line_desc": "冬游力荐缓解高反五星IHG洲际供氧房24H接送0购物0自费观湖闲逛红酒牛排大餐说停就停轻松摄影14人小团(当地参)",
+  "price": "¥2099",
+  "happiness": "86%"
+}, {
+  "id": "5081b6da3732g",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/27/CA/Cii-tFy4K42ICaprAAiNDvjslkEAAVNNQDdsucACI0m45_w640_h480_c1_t0.jpeg",
+  "line_title": "西藏林芝2日游",
+  "line_desc": "零购物+酒店免费接+舒适型酒店+高餐标+赠送石锅鸡2日纯玩游(当地参团)",
+  "price": "¥1080",
+  "happiness": "86%"
+}, {
+  "id": "687igj85ia8h7",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/37/02/Cii-tF1eXs6IT9DRAGE9Fz3VnVUAAZG8wD-DOoAYT0v861_w640_h480_c1_t0.jpg",
+  "line_title": "拉萨",
+  "line_desc": "西藏大全景0购物0自费，勇闯珠峰/夜宿大本营无限量供氧，冰川摄影/特色藏餐（当地游）",
+  "price": "¥4294",
+  "happiness": "97%"
+}, {
+  "id": "82a3cd4dahaj8",
+  "img_url": "https://s.tuniu.net/qn/image/f1/1cdfdadc067042968b1ddb29d0ed61c1/d6fec858-e6c5-44b8-8bfc-a0936fe7b8a9.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "西藏羊卓雍措",
+  "line_desc": "空姆措沉措羊湖内湖真纯玩、旅游达人带队含餐、商务小团",
+  "price": "¥366",
+  "happiness": "99%"
+}, {
+  "id": "ec3gae40ae6ea",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G1/M00/9E/C4/Cii9EFjBAUWIFifnAA2QBpie4k8AAInDAFyLvYADZAe395_w640_h480_c1_t0.jpg",
+  "line_title": "林芝雅鲁藏布大峡谷",
+  "line_desc": "环线深度游不走回头路、商务车小团、相遇林芝春天",
+  "price": "¥2190",
+  "happiness": "95%"
+}, {
+  "id": "gd6g043c5i9fd",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/C2/C9/Cii-tFwKGtyIfZXZAAqoEkcEJkMAARVkgBu0fMACqgq226_w640_h480_c1_t0.jpg",
+  "line_title": "西藏拉萨",
+  "line_desc": "稻城亚丁，海螺沟，4人越野车小团，可升级普拉多，畅游G318观景大道，住精选酒店，含接机，含成都住宿",
+  "price": "¥4799",
+  "happiness": "86%"
+}, {
+  "id": "099ce568gjg0fa",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/24/0C/Cii-s1sVCu-If0dzAAqEfGv9MigAAH5VAH3foYACoSU545_w640_h480_c1_t0.jpg",
+  "line_title": "西藏珠峰",
+  "line_desc": "商务车mini团环线不走回头路送氧气边防证（当地游）",
+  "price": "¥2464",
+  "happiness": "86%"
+}, {
+  "id": "0d4fc6hg377cae",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/D9/2D/Cii_J1yPgjmIJaKhAAZUvJmNH48AAEl0AL1A2IABlTU141_w640_h480_c1_t0.jpg",
+  "line_title": "西藏拉萨廓琼岗日冰川",
+  "line_desc": "羊八井、户外挑战、5500冰川、达人带队、水果、红酒、矿泉水、配备登山杖、便捷式氧气、商务车纯玩",
+  "price": "¥435",
+  "happiness": "86%"
+}]
+
+const guizhou = [{
+  "id": "7hdb49g9512hd",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/C1/1F/Cii-s1wI_3iIKMu0ABnIL4WH58AAARTxwNzfrsAGchH610_w640_h480_c1_t0.jpg",
+  "line_title": "贵州黄果树瀑布",
+  "line_desc": "36人小团/双重赠游高荡布依古寨/下司古镇/升级酒店住宿（当地参团）",
+  "price": "¥1169",
+  "happiness": "86%"
+}, {
+  "id": "e6h66843be0a",
+  "img_url": "https://s.tuniu.net/qn/image/f1/dad89b1bc60bbacb448590567f4ba033/85daac99-702e-4af2-bf6b-051091961aff.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "贵州黄果树",
+  "line_desc": "30人内/11月赠石阡御生汤泡温泉养生/享24H专车接机，住西江赏夜景/品长桌高山流水，当地游",
+  "price": "¥1511",
+  "happiness": "98%"
+}, {
+  "id": "d2084haif66jd",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/B4/10/Cii-VVny3OKIEK_fABbqyiCqYY0AACoQQPm9PsAFuri533_w640_h480_c1_t0.jpg",
+  "line_title": "贵州",
+  "line_desc": "牛专独立成团+真正纯玩0购物+一车一导24H接驳+充分景区游玩时间+游玩更加轻松放心",
+  "price": "¥2150",
+  "happiness": "95%"
+}, {
+  "id": "67eibjgc3a56i",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/D0/A8/Cii-tFtzvyGIBXe2AAFrn1f3ayQAAMCnwPptPEAAWu325_w640_h480_c1_t0.jpeg",
+  "line_title": "五一]<贵阳",
+  "line_desc": "全程无强消赏西江夜景苗家特色长桌宴观苗家歌舞表演含天星桥陡坡塘瀑布旅游意外保险(当地参团)",
+  "price": "¥799",
+  "happiness": "80%"
+}, {
+  "id": "767c3d0gfegi",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G1/M00/87/CC/Cii9EFisP7OIOvp_AAsSa0ZY3-UAAHrBQGWSlcACxKD841_w640_h480_c1_t0.jpg",
+  "line_title": "贵州黄果树瀑布",
+  "line_desc": "专车专导/住一晚苗寨/赏苗寨夜景/选升级方案赠送接机/接高铁服务/惠游贵州",
+  "price": "¥822",
+  "happiness": "97%"
+}, {
+  "id": "409485i71bei",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/36/86/Cii-VVzs6WCIEMzgAAO2j7rQ-LgAAGaJgKsUycAA7an189_w640_h480_c1_t0.jpg",
+  "line_title": "贵州",
+  "line_desc": "成都高铁往返贵阳，纯玩0购物，含130元景区电瓶车，品西江长桌宴，一车一导，深度游",
+  "price": "¥2200",
+  "happiness": "47%"
+}, {
+  "id": "ia89bdg8dgi7d",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/EB/39/Cii-slyS_CqIYBk1AEGwHwKlTbgAAUjiwI6MWYAQbA3120_w640_h480_c1_t0.png",
+  "line_title": "贵州",
+  "line_desc": "35人内/纯玩0购物/住苗寨看夜景/晨游黄果树错峰游/含120元景交，当地参团",
+  "price": "¥1249",
+  "happiness": "95%"
+}, {
+  "id": "2beb0cij3i4h",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/F2/26/Cii-s1uEpbOIdZhOAAEG6oW2VsIAAMxzgDa6UAAAQcC53_w640_h480_c1_t0.jpeg",
+  "line_title": "贵阳",
+  "line_desc": "纯玩无购物含景区电瓶车苗寨独卫标准间赏西江夜景品苗家特色餐长桌宴歌舞表演含旅游意外保险(当地参团)",
+  "price": "¥838",
+  "happiness": "86%"
+}]
+
+const guangxi = [{
+  "id": "0dbjcjb4ca8a6e",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G2/M00/14/80/Cii-TFeWv8eIME04ABkFoT35O3cAAAd_ABh7KcAGQW5653_w640_h480_c1_t0.jpg",
+  "line_title": "桂林",
+  "line_desc": "惠游桂林，漓江精华游，1晚阳朔住宿，2餐特色美食，赠198元山水间演出，24小时接送站，车次自选",
+  "price": "¥1525",
+  "happiness": "99%"
+}, {
+  "id": "g3392g5id5ii8",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/1B/46/Cii-VVmlNCeIYP1dAB7L93k-leQAAAjOALpvUQAHswP582_w640_h480_c1_t0.jpg",
+  "line_title": "南宁",
+  "line_desc": "0自费游越南,境外国四/1晚海景房,海上天坑/水上木偶戏,河内莲花自助,送签证,仅1个店",
+  "price": "¥2803",
+  "happiness": "93%"
+}, {
+  "id": "aii47b8a98hib",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/7D/03/Cii-s1vat16IeqF8AAKgUcz5aO0AAP71gOwDloAAqBp365_w640_h480_c1_t0.jpg",
+  "line_title": "桂林",
+  "line_desc": "人气热销，纯玩0自费，臻选1晚大公馆，星级游船畅游漓江，桂林千古情，车次自选",
+  "price": "¥2334",
+  "happiness": "99%"
+}, {
+  "id": "82j4f744g927g",
+  "img_url": "https://s.tuniu.net/qn/image/f1/b5d28ca42817f5e9049da4cd2341b34f/ca8255af-6c18-4d04-b4c6-58a4c1fed1ea.gif?imageView2/1/w/640/h/480",
+  "line_title": "桂林",
+  "line_desc": "成都往返/20元背景/280千古情VS龙脊梯田/VIP银子岩/遇龙河/登双塔/60标小南国/啤酒鱼宴",
+  "price": "¥1817",
+  "happiness": "98%"
+}, {
+  "id": "6h8hi2he6fa77",
+  "img_url": "https://s.tuniu.net/qn/image/f1/b5d28ca42817f5e9049da4cd2341b34f/1c7ee655-2094-4d16-9254-0f16957d027a.gif?imageView2/1/w/640/h/480",
+  "line_title": "桂林",
+  "line_desc": "成都往返/升级双秀/280千古情/198山水间/20元背景/银子岩/遇龙双漂/象鼻山/60标小南国",
+  "price": "¥1850",
+  "happiness": "98%"
+}, {
+  "id": "e0f9he77f8de",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/C7/E4/Cii-tFrYBs-IfyItAAV0b5M1rncAAFzswLuLG8ABXSH870_w640_h480_c1_t0.jpg",
+  "line_title": "南宁",
+  "line_desc": "纯玩不进店，升级1晚花千骨拍摄地明仕山庄，竹筏明仕，北海休闲半自助，特色海鲜餐，自营品质保证",
+  "price": "¥2777",
+  "happiness": "97%"
+}, {
+  "id": "ffeic8e31gc5d",
+  "img_url": "https://s.tuniu.net/qn/image/f1/f23f1baba71a3cd4837270f03bc765bd/c3cf2b68-9304-4d4d-a106-bb310be25562.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "桂林",
+  "line_desc": "18人团，漓江四星船/全程豪华型酒店(指定连住2晚大公馆)，热气球或千古情/山水骑行，高餐标，0购0自费",
+  "price": "¥3196",
+  "happiness": "98%"
+}, {
+  "id": "3g3d29674j6ge",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/5C/A6/Cii-s1s1nuGIIne1AAXf_X6PfvYAAJUBAM-Qs8ABeAV293_w640_h480_c1_t0.jpg",
+  "line_title": "北海",
+  "line_desc": "MINI小团，2晚海岛民宿观日出日落/专车环岛，宝妈萌宝海滨优选，24H管家式服务/赠泡泡相机",
+  "price": "¥2240",
+  "happiness": "86%"
+}]
+
+const yunnan = [{
+  "id": "767108dgac1ef",
+  "img_url": "https://s.tuniu.net/qn/image/f1/856e6bf1c0d14ca6b819b1eacd98fbc7/53a68264-41ee-432f-a684-ef3bce14c4a9.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "丽江",
+  "line_desc": "纯玩无购物/大理海景房/丽江一晚五星酒店/360度洱海大游轮/崇圣寺三塔/玉龙雪山/大理古城/南诏风情岛",
+  "price": "¥1573",
+  "happiness": "95%"
+}, {
+  "id": "82ge4agb7hhgc",
+  "img_url": "https://s.tuniu.net/qn/image/f1/e3aca9939e3bf54779e7c4b74a400cf0/7408e42f-5996-47d6-b94c-b7f8b6984389.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "元旦丽江",
+  "line_desc": "湖景房/温泉泡汤,全程大床,Jeep洱海旅拍,玉龙雪山大索道,赠印象丽江,花海打卡天空之境,云南0自费,可升级品牌希尔顿",
+  "price": "¥1986",
+  "happiness": "98%"
+}, {
+  "id": "icbc694940i07",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/5E/EF/Cii_J10AbcOICvXxAA_Szw0KGe0AAHChwAz_7AAD9Ln723_w640_h480_c1_t0.jpg",
+  "line_title": "元旦丽江",
+  "line_desc": "真正0购物/15人小团,临湖泸沽湖湖景房/洱海海景房,大索道往返/洱海旅拍精修,云南热销98满意度/秋意正盎然",
+  "price": "¥2803",
+  "happiness": "98%"
+}, {
+  "id": "7i77be39787gg",
+  "img_url": "https://s.tuniu.net/qn/image/f1/856e6bf1c0d14ca6b819b1eacd98fbc7/708787db-9db4-46d4-a52e-fb6b64a348ac.jpeg?imageView2/1/w/640/h/480",
+  "line_title": "丽江",
+  "line_desc": "纯玩无购物/双廊网红旅拍/南诏风情岛/丽江一晚五星酒店/玉龙雪山/泸沽湖环湖游",
+  "price": "¥2033",
+  "happiness": "97%"
+}, {
+  "id": "gaihj231aijfe",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G5/M00/2E/2C/Cii-slpNtTyIdMv0AADDDJ-fkQEAABpwQJ0yQEAAMMk31_w640_h480_c1_t0.jpeg",
+  "line_title": "云南昆明",
+  "line_desc": "放心真纯玩湖景房篝火晚会洱海游船行程透明放心出游(当地参团)",
+  "price": "¥1280",
+  "happiness": "86%"
+}, {
+  "id": "hc8b43ee6aj4e",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G4/M00/DC/EC/Cii_J1oOUwSIGdeoAAOQfqLo3xcAADYagBtjeAAA5CW885_w640_h480_c1_t0.jpg",
+  "line_title": "丽江",
+  "line_desc": "自在纯玩，12人舒适小团，泸沽湖深度游玩、摩挲特色猪槽船游湖/里格半岛/情人滩，篝火晚会，可升级泸沽湖湖景房、享云南慢时光",
+  "price": "¥1820",
+  "happiness": "93%"
+}, {
+  "id": "7adj49328g4",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G3/M00/19/63/Cii_NllRuK2IZVWoAByuOQmEq2wAABugwAw5sUAHK5R414_w640_h480_c1_t0.jpg",
+  "line_title": "丽江",
+  "line_desc": "周末游云南，游秘境香格里拉，探险虎跳峡，追梦普达措，含土司宴",
+  "price": "¥1615",
+  "happiness": "86%"
+}, {
+  "id": "37i19aj3bhh7d",
+  "img_url": "https://m.tuniucdn.com/fb2/t1/G1/M00/8A/89/Cii9EVaCB3OITfjvAAvdmBtq-j8AABM1gBOlYAAC92w443_w640_h480_c1_t0.jpg",
+  "line_title": "昆明",
+  "line_desc": "产品大升级，纯玩无购物，5A景区勐仑植物园，穿越原始森林，品傣味特色大餐，赠送勐巴拉娜西歌舞晚会，邂逅亚洲象",
+  "price": "¥2119",
+  "happiness": "94%"
+}]
+
+const fameStyle = [xizang, yunnan, guizhou, guangxi]
+
+export {
+  xizang,
+  yunnan,
+  guizhou,
+  guangxi,
+  fameStyle,
+}
