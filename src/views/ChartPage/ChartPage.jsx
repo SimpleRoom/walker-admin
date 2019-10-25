@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import ChartistGraph from 'react-chartist'
 import { makeStyles } from '@material-ui/core/styles'
 // @material-ui/icons
@@ -18,7 +17,7 @@ import Accessibility from '@material-ui/icons/Accessibility'
 // import Cloud from '@material-ui/icons/Cloud'
 
 // global common style
-import { ClearFix } from '../../components/common-style'
+import { CommonWrap } from '../../components/common-style'
 import ScrollToTopMount from '../../components/ScrollToTopMount'
 
 // material ui component
@@ -43,14 +42,10 @@ import {
 
 const useStyles = makeStyles(styles)
 
-const DashboardBox = styled(ClearFix)`
-  position: relative;
-`
-
 const ChartPage = () => {
   const classes = useStyles()
   return (
-    <DashboardBox>
+    <CommonWrap>
       <ScrollToTopMount />
       {/* ----图表----- */}
       <GridContainer>
@@ -271,7 +266,7 @@ const ChartPage = () => {
           </Card>
         </GridItem>
       </GridContainer>
-    </DashboardBox>
+    </CommonWrap>
   )
 }
 

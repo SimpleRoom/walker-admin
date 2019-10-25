@@ -5,6 +5,7 @@ import {
     headerAndLogoHeight,
     borderRadius,
     bounceAnimation,
+    CommonWrap,
 } from "./common"
 
 import {
@@ -21,6 +22,7 @@ import {
 export {
     levelOneZindex,
     ClearFix,
+    CommonWrap,
     headerAndLogoHeight,
     borderRadius,
     bounceAnimation,

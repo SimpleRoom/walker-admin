@@ -17,17 +17,30 @@ import { sessionStore } from '../../utils'
 const useStyles = makeStyles(styles)
 
 const List = [
-  "You have unread messages.",
-  "You got a new task.",
-  "You have unread mail.",
-  "Other notifications."
+  '个人面板',
+  '我的订单',
+  '密码修改',
+]
+
+const MsgList = [
+  '权限升级通知',
+  '今日任务',
+  '订单取消通知',
+  '过期任务未删除',
+  '3项新任务尚未处理',
 ]
 
 const NavbarItem = ({ activeBgColor, historyRouter }) => {
   const classes = useStyles()
+  const [count, setCount] = useState(5)
   const [showMsg, setShowMsg] = useState(false)
   const [showPersonal, setShowPersonal] = useState(false)
   const [myName, setMyName] = useState('')
+  const readMsgHandle = () => {
+    let num = count - 1
+    if (num <= 0) num = 0
+    setCount(num)
+  }
   const showMsgHandle = (e) => {
     e.stopPropagation()
     setShowMsg(!showMsg)
@@ -41,11 +54,13 @@ const NavbarItem = ({ activeBgColor, historyRouter }) => {
   const signOutHandle = () => {
     historyRouter.push('/login')
   }
+
   // 点击其他地方取消dropdown的显示，useCallback去除副作用
   const cancleDropHandle = useCallback(() => {
     showMsg && setShowMsg(false)
     showPersonal && setShowPersonal(false)
   }, [showMsg, showPersonal])
+
   useEffect(() => {
     const info = sessionStore.fetch()
     const { userName = '' } = info || {}
@@ -56,6 +71,7 @@ const NavbarItem = ({ activeBgColor, historyRouter }) => {
       window.removeEventListener('click', cancleDropHandle)
     }
   }, [cancleDropHandle])
+
   return (
     <Fragment>
       <div className={classes.searchWrapper}>
@@ -82,13 +98,16 @@ const NavbarItem = ({ activeBgColor, historyRouter }) => {
           onClick={showMsgHandle}
         >
           <Notifications className={classes.icons} />
-          <span className={classes.notifications}>5</span>
+          {
+            count ? <span className={classes.notifications}>{count}</span> : null
+          }
         </Button>
         {/* ------dropdown-list----- */}
         {
           showMsg ? (<DropdownList
             activeBgColor={activeBgColor}
-            list={List} />) : null
+            onClick={readMsgHandle}
+            list={MsgList} />) : null
         }
       </div>
       <div className={classes.manager}>

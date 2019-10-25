@@ -4,11 +4,15 @@ import styled, { keyframes } from "styled-components"
  * clear float and margin
  */
 export const ClearFix = styled.div`
-    &:before,&:after{
-        display:table;
-        content:"";
-        clear:both;
-    }
+  &:before,&:after{
+    display:table;
+    content:"";
+    clear:both;
+  }
+`;
+export const CommonWrap = styled(ClearFix)`
+  position:relative;
+  min-height: 84vh;
 `;
 /**
  * z-index

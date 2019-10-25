@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles'
@@ -9,6 +9,7 @@ import Phone from '@material-ui/icons/Phone'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import AddAlert from '@material-ui/icons/AddAlert'
 // core components
+import { CommonWrap } from '../../components/common-style'
 import ScrollToTopMount from '../../components/ScrollToTopMount'
 import GridItem from '../../components/Grid/GridItem'
 import GridContainer from '../../components/Grid/GridContainer'
@@ -124,7 +125,7 @@ const UserProfile = (props) => {
   }, [myGithubInfo, fetchGitInfo, timerId])
 
   return (
-    <Fragment>
+    <CommonWrap>
       <ScrollToTopMount />
       <GridContainer>
         {/*------编辑区域--------*/}
@@ -281,7 +282,7 @@ const UserProfile = (props) => {
         closeNotification={() => setOpen(false)}
         close
       />
-    </Fragment>
+    </CommonWrap>
   )
 }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import ScrollToTopMount from '../../components/ScrollToTopMount'
 // core icon
 import Room from '@material-ui/icons/Room'
@@ -10,18 +9,13 @@ import HotelCard from '../../components/HotelCard/HotelCard'
 import CustomTabs from '../../components/CustomTabs/CustomTabs'
 import HotelList from '../../components/HotelList/HotelList'
 // global common style
-import { ClearFix } from '../../components/common-style'
+import { CommonWrap } from '../../components/common-style'
 
 import { hotelCategorys, hotelList } from '../../dbdata/hoteldata'
 
-const ProfileBox = styled(ClearFix)`
-    position:relative;
-`;
-
 const HotelPage = () => {
-  console.log(hotelCategorys, '111')
   return (
-    <ProfileBox>
+    <CommonWrap>
       <ScrollToTopMount />
       <GridContainer>
         {
@@ -81,7 +75,7 @@ const HotelPage = () => {
           />
         </GridItem>
       </GridContainer>
-    </ProfileBox>
+    </CommonWrap>
   )
 }
 
