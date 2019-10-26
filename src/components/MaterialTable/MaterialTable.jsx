@@ -5,9 +5,9 @@ import MaterialTable from 'material-table'
 import { columnsArr, optionsSetting, localizationConfig } from './materialTableConfig'
 // mock data
 import { getMockMembers } from '../../dbdata/memberdb'
-const list = getMockMembers(32)
 
 export default function MaterialTableWrap() {
+  const list = getMockMembers(32)
   const [data, setData] = useState(list)
   const pageSizeChange = (pageSize) => {
     console.log(`pageSize change ${pageSize}`)
@@ -64,6 +64,7 @@ export default function MaterialTableWrap() {
                 const data = [...prevState]
                 const { index } = oldData
                 data.splice(index, 1)
+                console.log(oldData, '1111')
                 // console.log(data, 'NEXT')
                 return [...data]
               })

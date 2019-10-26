@@ -27,10 +27,10 @@ export const columnsArr = [
 
 export const optionsSetting = {
   headerStyle: {
-    // backgroundColor: '#66bb6a',
+    backgroundColor: '#66bb6a',
     ...bodyCellStyle,
     fontSize: '1rem',
-    color: '#66bb6a'
+    color: '#ffffff',
   },
   rowStyle: {
     backgroundColor: '#EEE',
