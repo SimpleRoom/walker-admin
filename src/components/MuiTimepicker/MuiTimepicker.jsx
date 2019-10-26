@@ -22,7 +22,7 @@ export default function MuiTimepicker() {
         <KeyboardTimePicker
           margin="normal"
           id="time-picker"
-          label="Time picker"
+          label="当前时间"
           value={selectedTime}
           onChange={handleTimeChange}
           KeyboardButtonProps={{
