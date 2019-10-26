@@ -169,7 +169,7 @@ const ChartPage = () => {
                 <GridItem xs={12} sm={12} md={3}>
                   <h4 className={classes.cardTitleWhite}>热门景点排名</h4>
                   <p className={classes.cardCategoryWhite}>
-                    每个月底最后一周开始更新
+                    每月最后一周更新
                   </p>
                 </GridItem>
                 <MuiDatepicker />
