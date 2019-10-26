@@ -165,7 +165,6 @@
     "uuid": "^3.3.3",
     "validate-commit-msg": "^2.14.0"
   },
-  "homepage": "public",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

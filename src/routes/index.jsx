@@ -44,7 +44,7 @@ const routeList = [
     {
         path: '/home/line',
         exact: true,
-        icon: 'table',
+        icon: 'road',
         sidebarName: '路线设计',
         component: PlayLinePage,
         permission: 2,
@@ -52,7 +52,7 @@ const routeList = [
     {
         path: '/home/hotel',
         exact: true,
-        icon: 'dashboard',
+        icon: 'hotel',
         sidebarName: '酒店预订',
         component: HotelPage,
         permission: 1,
@@ -60,7 +60,7 @@ const routeList = [
     {
         path: '/home/member',
         exact: true,
-        icon: 'notice',
+        icon: 'member',
         sidebarName: '会员管理',
         component: MemberPage,
         permission: 1,
@@ -68,7 +68,7 @@ const routeList = [
     {
         path: '/home/employee',
         exact: true,
-        icon: 'profile',
+        icon: 'employee',
         sidebarName: '员工管理',
         component: EmployeeManagementPage,
         permission: 6,
