@@ -26,6 +26,14 @@ const EmployeeManagementPage = Loadable(() => import('../views/EmployeeManagemen
 
 const routeList = [
   {
+    path: '/home/charts',
+    exact: true,
+    icon: 'charts',
+    sidebarName: '数据统计',
+    component: ChartListPage,
+    permission: 4,
+  },
+  {
     path: '/home/profile',
     exact: true,
     icon: 'profile',
@@ -40,14 +48,6 @@ const routeList = [
     sidebarName: '会员管理',
     component: MemberPage,
     permission: 1,
-  },
-  {
-    path: '/home/charts',
-    exact: true,
-    icon: 'charts',
-    sidebarName: '数据统计',
-    component: ChartListPage,
-    permission: 4,
   },
   {
     path: '/home/line',
