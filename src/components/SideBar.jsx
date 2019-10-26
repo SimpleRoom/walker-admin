@@ -229,6 +229,14 @@ class SideBar extends React.Component {
       offsetTop: 0,
     }
   }
+  componentDidMount() {
+    const { routeList, setTextToHeader } = this.props
+    if(routeList && routeList.length) {
+      const { sidebarName = '' } = routeList[0]
+      setTextToHeader(sidebarName)
+    }
+  }
+
   clickHandle = event => {
     const { setTextToHeader } = this.props
     const { text } = event.currentTarget.dataset
@@ -236,6 +244,7 @@ class SideBar extends React.Component {
     // use global function with event from redux
     this.props.ButtonWave.showWave(event)
   }
+
   mouserEnter = event => {
     event.persist()
     let targetElem = event.target
@@ -243,9 +252,11 @@ class SideBar extends React.Component {
     let offsetTop = targetElem.offsetTop
     this.setState({ currentNavName, offsetTop })
   }
+
   mouserLeave = () => {
     this.setState({ currentNavName: null })
   }
+
   render() {
     const { activeBgColor, isOpenedSideBar, routeList } = this.props
     const { currentNavName, offsetTop } = this.state

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 // material component
@@ -16,6 +17,7 @@ import Button from '../CustomButtons/CustomButtons'
 import NavbarItem from './NavbarItem'
 
 import styles from '../../assets/jss/material-dashboard-react/components/headerStyle'
+import { getRouterText } from '../../store/modules/theme/selector'
 // global common style
 import {
   levelOneZindex,
@@ -46,7 +48,7 @@ const useStyles = makeStyles(styles)
 
 const HeaderNavbar = (props) => {
   const classes = useStyles()
-  const { color, isOpenedSideBar, activeBgColor, history } = props
+  const { color, isOpenedSideBar, activeBgColor, history, routerText } = props
   const appBarClasses = classNames({
     [" " + classes[color]]: color
   })
@@ -60,7 +62,7 @@ const HeaderNavbar = (props) => {
               className={classes.title}
               color="transparent"
             >
-              ...
+              <span>{routerText}</span>
             </Button>
           </div>
           <Hidden smDown implementation="css">
@@ -85,6 +87,11 @@ HeaderNavbar.propType = {
   activeBgColor: PropTypes.string,
   history: PropTypes.object,
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
+  routerText: PropTypes.string,
 }
 
-export default withRouter(HeaderNavbar)
+const mapStateToProps = state => ({
+  routerText: getRouterText(state)
+})
+
+export default withRouter(connect(mapStateToProps, null)(HeaderNavbar))
