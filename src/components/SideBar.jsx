@@ -209,7 +209,7 @@ const SideNavLink = ({ item, onClick }) => (
   <NavLink to={item.path} activeClassName="active">
     <span className="nav-icon"></span>
     <span>{item.sidebarName}</span>
-    <span className="wave-mask" onClick={onClick}></span>
+    <span className="wave-mask" data-text={item.sidebarName} onClick={onClick}></span>
   </NavLink>
 )
 // closed
@@ -230,6 +230,9 @@ class SideBar extends React.Component {
     }
   }
   clickHandle = event => {
+    const { setTextToHeader } = this.props
+    const { text } = event.currentTarget.dataset
+    text && setTextToHeader(text)
     // use global function with event from redux
     this.props.ButtonWave.showWave(event)
   }
@@ -259,21 +262,23 @@ class SideBar extends React.Component {
         {/* bar list */}
         <BarList>
           {
-            isOpenedSideBar ? <OpenSideBar
-              activeBgColor={activeBgColor}
-              isOpened={isOpenedSideBar}>
-              {
-                routeList.map((item, index) => (
-                  <OpenList key={index} iconSrc={item.icon}>
-                    <SideNavLink
-                      item={item}
-                      onClick={this.clickHandle} />
-                  </OpenList>
-                ))
-              }
-            </OpenSideBar> : <ClosedSideBar
-              activeBgColor={activeBgColor}
-              isOpened={isOpenedSideBar}>
+            isOpenedSideBar ?
+              (<OpenSideBar
+                activeBgColor={activeBgColor}
+                isOpened={isOpenedSideBar}>
+                {
+                  routeList.map((item, index) => (
+                    <OpenList key={index} iconSrc={item.icon}>
+                      <SideNavLink
+                        item={item}
+                        onClick={this.clickHandle} />
+                    </OpenList>
+                  ))
+                }
+              </OpenSideBar>) :
+              (<ClosedSideBar
+                activeBgColor={activeBgColor}
+                isOpened={isOpenedSideBar}>
                 {
                   routeList.map((item, index) => (
                     <OpenList key={index} iconSrc={item.icon}>
@@ -288,7 +293,7 @@ class SideBar extends React.Component {
                   activeBgColor={activeBgColor}
                   currentNavName={currentNavName}
                   offTop={offsetTop} />
-              </ClosedSideBar>
+              </ClosedSideBar>)
           }
         </BarList>
       </SideBarBox>

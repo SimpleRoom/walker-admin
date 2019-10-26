@@ -22,6 +22,7 @@ import {
   fetchPermissionRoute,
   // fetchNewTheme,
 } from '../store/modules/common/action'
+import { setRouterText } from '../store/modules/theme/action'
 // reselect
 import {
   getThemeColor,
@@ -62,7 +63,7 @@ class Home extends React.Component {
 
   render() {
     // listener theme color from props by redux
-    const { buttonColor, sideBarIsShow, buttonWave, routeList } = this.props
+    const { buttonColor, sideBarIsShow, buttonWave, routeList, setRouterText } = this.props
     // console.log(routeList, 'permission')
     return (
       <Fragment>
@@ -72,7 +73,8 @@ class Home extends React.Component {
           routeList={routeList}
           isOpenedSideBar={sideBarIsShow}
           activeBgColor={buttonColor.color}
-          ButtonWave={buttonWave} />
+          ButtonWave={buttonWave}
+          setTextToHeader={setRouterText} />
         {/* ----top header bar--- */}
         <HeaderNavbar
           // color="info"
@@ -115,6 +117,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchPermissionRoute,
+  // set router to Header
+  setRouterText,
 }
 
 export default connect(
