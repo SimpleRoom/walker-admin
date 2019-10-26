@@ -15,7 +15,8 @@ import Accessibility from '@material-ui/icons/Accessibility'
 // import BugReport from '@material-ui/icons/BugReport'
 // import Code from '@material-ui/icons/Code'
 // import Cloud from '@material-ui/icons/Cloud'
-
+import MuiDatepicker from '../../components/MuiDatepicker/MuiDatepicker'
+import MuiTimepicker from '../../components/MuiTimepicker/MuiTimepicker'
 // global common style
 import { CommonWrap } from '../../components/common-style'
 import ScrollToTopMount from '../../components/ScrollToTopMount'
@@ -47,6 +48,7 @@ const ChartPage = () => {
   return (
     <CommonWrap>
       <ScrollToTopMount />
+      <MuiTimepicker />
       {/* ----图表----- */}
       <GridContainer>
         {/* 图表---1 */}
@@ -163,10 +165,15 @@ const ChartPage = () => {
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="success">
-              <h4 className={classes.cardTitleWhite}>热门景点排名</h4>
-              <p className={classes.cardCategoryWhite}>
-                每个月底最后一周开始更新
-              </p>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={3}>
+                  <h4 className={classes.cardTitleWhite}>热门景点排名</h4>
+                  <p className={classes.cardCategoryWhite}>
+                    每个月底最后一周开始更新
+                  </p>
+                </GridItem>
+                <MuiDatepicker />
+              </GridContainer>
             </CardHeader>
             <CardBody>
               <Table

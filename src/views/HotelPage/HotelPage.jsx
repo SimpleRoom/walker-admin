@@ -1,5 +1,7 @@
 import React from 'react'
 import ScrollToTopMount from '../../components/ScrollToTopMount'
+// global common style
+import { CommonWrap } from '../../components/common-style'
 // core icon
 import Room from '@material-ui/icons/Room'
 // material ui component
@@ -8,8 +10,7 @@ import GridItem from '../../components/Grid/GridItem'
 import HotelCard from '../../components/HotelCard/HotelCard'
 import CustomTabs from '../../components/CustomTabs/CustomTabs'
 import HotelList from '../../components/HotelList/HotelList'
-// global common style
-import { CommonWrap } from '../../components/common-style'
+import MuiDatepicker from '../../components/MuiDatepicker/MuiDatepicker'
 
 import { hotelCategorys, hotelList } from '../../dbdata/hoteldata'
 
@@ -17,6 +18,7 @@ const HotelPage = () => {
   return (
     <CommonWrap>
       <ScrollToTopMount />
+      <MuiDatepicker />
       <GridContainer>
         {
           hotelCategorys !== undefined ? hotelCategorys.map(category => (
