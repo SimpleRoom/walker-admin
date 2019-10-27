@@ -46,10 +46,11 @@ plop
 npm run plop
 ```
 
-#### 2、功能模块
+#### 2、目录模块
 
 
 ```shell
+
 plop── 快速创建components和store的模板
 
      ┌── assets      资源文件
@@ -60,30 +61,51 @@ src──├── styles      页面样式
      ├
      ├── utils       插件和工具
      ├
-     ├── views 		 页面
-     └── index.js  	 页面配置入口
+     ├── views       与路由对应的页面
+     └── index.js    页面配置入口
+     
+ 
+             ┌── Card             面板组件
+             ├── CustomButtons    按钮组件
+             ├── CustomInput      输入框组件
+             ├── CustomTabs       公用Tab切换组件
+components ──├── Dialog           弹框组件
+             ├── Footer           底部footer
+             ├── Grid             栅格组件
+             ├── HeadNavBar       头部导航组件
+             ├── HotelCard        酒店页面UI面板
+             ├── HotelList        酒店页面列表UI组件
+             ├── Login            登录组件
+             ├── MaterialTable    定制可编辑Table组件
+             ├── MuiDatepicker    日期选择器组件
+             ├── MuiTimepicker    时间选择器组件
+             ├── Notifications    自定义提示消息组件
+             ├── Snackbar         Material-ui官方消息提示组件
+             ├── Table            定制不可编辑的Table组件
+             ├── Loading          loading组件
+             ├── NotFound         404组件
+             ├── ScrollToTopMount 路由切换缓动到顶部组件
+             ├── SideBar          侧边栏路由导航
+             └── SideTool         右边工具栏组件
      
 ```
 
 #### 3、日志记录
 + [CHANGELOG](https://github.com/SimpleRoom/walker-admin/blob/master/CHANGELOG.md)
 
-#### 4、工具说明
+#### 4、在线查看
++ [在线预览](https://simpleroom.github.io/)
++ 账号：<code>admin</code>密码：<code>123456</code>
 
-+ 1、 <code>create-react-app</code>
-+ 2、 <code>npm install</code>
-+ 3、 <code>npm run start</code>
-+ 4、 <code>npm run build</code>
-+ 5、 <code>redux</code>state管理容器
-+ 6、 <code>react-redux</code>React官方控制React组件与Redux的连接容器
-+ 7、 <code>redux-actions</code>简化Redux写法工具
-+ 8、 <code>redux-saga</code>Redux处理异步数据的中间件
-+ 9、 <code>reselect</code>Redux的选择器工具，精确获取指定state，减轻渲染压力
-+ 10、<code>styled-components</code>可以使用es6来编写css的工具
-+ 11、plop：<code>npm run plop</code>自动生成组件/store到指定目录(plopfile/plop),根据提示上下选择
+#### 5、工具概括
 
-  + 1.component(class/function)：输入componentName即自动创建该组件到components目录下
-  + 2.module：输入moduleName自动创建对应的store module到store目录下
++ 1、 <code>redux</code>state管理容器
++ 2、 <code>react-redux</code>React官方控制React组件与Redux的连接容器
++ 3、 <code>redux-actions</code>简化Redux写法工具
++ 4、 <code>redux-saga</code>Redux处理异步数据的中间件
++ 5、 <code>reselect</code>Redux的选择器工具，精确获取指定state，减轻渲染压力
++ 6、<code>styled-components</code>可以使用es6来编写css的工具
++ 7、<code>npm run plop</code>自动生成组件或store到指定目录，配置：(plopfile.js&plop)
 
 ### License
 
