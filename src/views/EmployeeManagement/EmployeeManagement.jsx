@@ -35,7 +35,7 @@ const EmployeeManagement = () => {
                 tabIcon: People,
                 tabContent: (
                   <MaterialTableWrap
-                    columnsConfig={columnsArr}
+                    columnsConfigArr={columnsArr}
                     dataList={employeeList[0]} />
                 )
               },
@@ -44,7 +44,7 @@ const EmployeeManagement = () => {
                 tabIcon: DriveEta,
                 tabContent: (
                   <MaterialTableWrap
-                    columnsConfig={columnsArr}
+                    columnsConfigArr={columnsArr}
                     dataList={employeeList[1]} />
                 )
               },
@@ -53,7 +53,7 @@ const EmployeeManagement = () => {
                 tabIcon: LeakAdd,
                 tabContent: (
                   <MaterialTableWrap
-                    columnsConfig={columnsArr}
+                    columnsConfigArr={columnsArr}
                     dataList={employeeList[2]} />
                 )
               },

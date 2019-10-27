@@ -23,6 +23,11 @@ import MaterialTableWrap from '../../components/MaterialTable/MaterialTable'
 import Button from '../../components/CustomButtons/CustomButtons'
 
 import styles from '../../assets/jss/material-dashboard-react/views/dashboardStyle'
+// Table thead config
+import { columnsArr } from './memberTableConfig'
+// mock data
+import { memberList } from '../../dbdata/memberdata'
+// make styles
 const useStyles = makeStyles(styles)
 
 const MemberPage = () => {
@@ -98,7 +103,9 @@ const MemberPage = () => {
               </GridContainer>
             </CardHeader>
             <CardBody>
-              <MaterialTableWrap />
+              <MaterialTableWrap
+                columnsConfigArr={columnsArr}
+                dataList={memberList} />
             </CardBody>
           </Card>
         </GridItem>
