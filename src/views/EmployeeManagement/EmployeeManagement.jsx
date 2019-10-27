@@ -17,7 +17,10 @@ import MaterialTableWrap from '../../components/MaterialTable/MaterialTable'
 
 import { employeeList } from '../../dbdata/employeedata'
 import { columnsArr } from './employeeTableConfig'
-
+import { createMockList } from '../../dbdata/create'
+const list  = createMockList(20)
+console.log(list)
+// console.log(JSON.stringify(list))
 
 const EmployeeManagement = () => {
   return (

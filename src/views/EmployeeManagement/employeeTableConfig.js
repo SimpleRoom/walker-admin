@@ -13,10 +13,10 @@ export const columnsArr = [
   { title: '电话', field: 'phone', cellStyle: bodyCellStyle },
   { title: '生日', field: 'birthday', type: 'string', cellStyle: bodyCellStyle },
   {
-    title: '出生地',
-    field: 'birthCity',
-    // birthCity id 
-    lookup: { 1: '安徽', 2: '北京', 3: '上海', 4: '深圳', 5: '广州', 6: '杭州' },
+    title: '月薪',
+    field: 'salary',
+    // lookup 自动filter的关键词
+    lookup: { 1: 10000, 2: 8000, 3: 7000, 4: 6500, 5: 5500, 6: 4500 },
     cellStyle: bodyCellStyle,
   },
 ]
