@@ -25,6 +25,7 @@ export const getMockMembers = (count) => {
       ...obj,
       index: i,
       id: getRandomNum(1000, 2000),
+      uuid: Math.random().toString(36).slice(2,8),
       age: getRandomNum(18, 36),
       // name: faker.name.findName().replace(/^[\u4e00-\u9fa5]+$/g, ''),
       name: faker.name.findName().replace(/[\r\n\sA-Za-z]/g, ''),

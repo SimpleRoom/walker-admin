@@ -20,6 +20,7 @@ import Danger from '../../components/Typography/Danger'
 
 import MuiDatepicker from '../../components/MuiDatepicker/MuiDatepicker'
 import MaterialTableWrap from '../../components/MaterialTable/MaterialTable'
+import Button from '../../components/CustomButtons/CustomButtons'
 
 import styles from '../../assets/jss/material-dashboard-react/views/dashboardStyle'
 const useStyles = makeStyles(styles)
@@ -82,15 +83,19 @@ const MemberPage = () => {
           </Card>
         </GridItem>
       </GridContainer>
-      <MuiDatepicker />
       {/* -------会员管理------- */}
       <GridContainer>
-        {/* 地区统计*/}
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="success">
-              <h4>本月新增会员</h4>
-              <p>每月最后一周更新</p>
+            <CardHeader color="primary">
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={3}>
+                  <h4 className={classes.cardTitleWhite}>本月新增会员</h4>
+                  <p className={classes.cardCategoryWhite}>每月最后一周更新</p>
+                </GridItem>
+                <MuiDatepicker />
+                <Button color="danger">查询</Button>
+              </GridContainer>
             </CardHeader>
             <CardBody>
               <MaterialTableWrap />

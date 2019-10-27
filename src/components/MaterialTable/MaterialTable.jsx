@@ -4,11 +4,10 @@ import MaterialTable from 'material-table'
 // table config
 import { columnsArr, optionsSetting, localizationConfig } from './materialTableConfig'
 // mock data
-import { getMockMembers } from '../../dbdata/memberdb'
+import { memberList } from '../../dbdata/memberdata'
 
 export default function MaterialTableWrap() {
-  const list = getMockMembers(32)
-  const [data, setData] = useState(list)
+  const [data, setData] = useState(memberList)
   const pageSizeChange = (pageSize) => {
     console.log(`pageSize change ${pageSize}`)
   }
@@ -37,7 +36,7 @@ export default function MaterialTableWrap() {
               setData(prevState => {
                 const nextData = [...prevState]
                 const dataLength = nextData.length
-                nextData.push({ ...newData, index: dataLength })
+                nextData.unshift({ ...newData, index: dataLength, uuid: Math.random().toString(36).slice(2, 8) })
                 return [...nextData]
               })
             }, 600)
@@ -49,8 +48,8 @@ export default function MaterialTableWrap() {
               if (oldData) {
                 setData(prevState => {
                   const data = [...prevState]
-                  var index = data.filter(item => item.index === newData.index)[0].index
-                  data[index] = { ...newData }
+                  const currentIndex = data.findIndex(item => item.uuid === oldData.uuid)
+                  data[currentIndex] = { ...newData }
                   return [...data]
                 })
               }
@@ -62,10 +61,9 @@ export default function MaterialTableWrap() {
               resolve()
               setData(prevState => {
                 const data = [...prevState]
-                const { index } = oldData
-                data.splice(index, 1)
-                console.log(oldData, '1111')
-                // console.log(data, 'NEXT')
+                const deleteIndex = data.findIndex(item => item.uuid === oldData.uuid)
+                console.log(oldData, '被删除了')
+                data.splice(deleteIndex, 1)
                 return [...data]
               })
             }, 600)
