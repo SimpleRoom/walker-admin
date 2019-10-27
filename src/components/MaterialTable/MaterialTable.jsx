@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 // 更高级的table
 import MaterialTable from 'material-table'
+import PropTypes from 'prop-types'
 // table config
 import { columnsArr, optionsSetting, localizationConfig } from './materialTableConfig'
 // mock data
 import { memberList } from '../../dbdata/memberdata'
 
-export default function MaterialTableWrap() {
-  const [data, setData] = useState(memberList)
+export default function MaterialTableWrap({
+  columnsConfig = columnsArr,
+  dataList = memberList,
+}) {
+  const [data, setData] = useState(dataList)
   const pageSizeChange = (pageSize) => {
     console.log(`pageSize change ${pageSize}`)
   }
@@ -20,7 +24,7 @@ export default function MaterialTableWrap() {
   return (
     <MaterialTable
       title=""
-      columns={columnsArr}
+      columns={columnsConfig}
       data={data}
       options={optionsSetting}
       // 显示设置
@@ -71,4 +75,10 @@ export default function MaterialTableWrap() {
       }}
     />
   )
+}
+
+
+MaterialTableWrap.propTypes = {
+  columnsConfig: PropTypes.array,
+  dataList: PropTypes.array,
 }
