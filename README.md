@@ -38,11 +38,32 @@ yarn start
 npm run build
 # 或者
 yarn build
+
+# 快速创建components和store
+# 全局安装plop后
+plop
+# 未全局安装
+npm run plop
 ```
 
 #### 2、功能模块
 
 
+```shell
+plop── 快速创建components和store的模板
+
+     ┌── assets      资源文件
+     ├── components  页面组件
+     ├── router      路由配置
+     ├── store       state模块管理中心
+src──├── styles      页面样式
+     ├
+     ├── utils       插件和工具
+     ├
+     ├── views 		 页面
+     └── index.js  	 页面配置入口
+     
+```
 
 #### 3、日志记录
 + [CHANGELOG](https://github.com/SimpleRoom/walker-admin/blob/master/CHANGELOG.md)
@@ -63,10 +84,6 @@ yarn build
 
   + 1.component(class/function)：输入componentName即自动创建该组件到components目录下
   + 2.module：输入moduleName自动创建对应的store module到store目录下
-
-+ 12、Canvas背景动画封装
-+ 13、按钮点击波浪背景封装
-+ 14、redux：控制全局主题颜色
 
 ### License
 
