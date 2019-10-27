@@ -45,7 +45,7 @@ const user = {
   // joinTime: '2016/05/03',
   // expiredTime: '2022/10/04',
   // birthday: '1990/08/09',
-  birthCity: 63,
+  // birthCity: 63,
 }
 
 export const createMockList = (count) => {
@@ -60,11 +60,11 @@ export const createMockList = (count) => {
       phone: mobileNumList[Math.floor(Math.random() * randomMaxLength)],
       name: faker.name.findName().replace(/[\r\n\sA-Za-z.]/g, ''),
       // name: faker.name.findName().replace(/^[\u4e00-\u9fa5]+$/g, ''),
-      joinTime: `${getRandomNum(2015,2019)}/${getRandomNum(1,12)}/${getRandomNum(1,28)}`,
-      expiredTime: `${getRandomNum(2019,2023)}/${getRandomNum(1,12)}/${getRandomNum(1,28)}`,
-      // birthday: `${getRandomNum(1988,2000)}/${getRandomNum(1,12)}/${getRandomNum(1,28)}`,
-      // salary: getRandomNum(1, 6),
-      birthCity: getRandomNum(1, 6),
+      // joinTime: `${getRandomNum(2015,2019)}/${getRandomNum(1,12)}/${getRandomNum(1,28)}`,
+      // expiredTime: `${getRandomNum(2019,2023)}/${getRandomNum(1,12)}/${getRandomNum(1,28)}`,
+      birthday: `${getRandomNum(1988,2000)}/${getRandomNum(1,12)}/${getRandomNum(1,28)}`,
+      salary: getRandomNum(1, 6),
+      // birthCity: getRandomNum(1, 6),
     }
     dataList.push(newMember)
   }
