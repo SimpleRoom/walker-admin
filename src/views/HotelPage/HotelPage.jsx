@@ -10,7 +10,7 @@ import GridItem from '../../components/Grid/GridItem'
 import HotelCard from '../../components/HotelCard/HotelCard'
 import CustomTabs from '../../components/CustomTabs/CustomTabs'
 import HotelList from '../../components/HotelList/HotelList'
-import MuiDatepicker from '../../components/MuiDatepicker/MuiDatepicker'
+// import MuiDatepicker from '../../components/MuiDatepicker/MuiDatepicker'
 
 import { hotelCategorys, hotelList } from '../../dbdata/hoteldata'
 
@@ -18,7 +18,7 @@ const HotelPage = () => {
   return (
     <CommonWrap>
       <ScrollToTopMount />
-      <MuiDatepicker />
+      {/* <MuiDatepicker /> */}
       <GridContainer>
         {
           hotelCategorys !== undefined ? hotelCategorys.map(category => (

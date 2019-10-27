@@ -5,6 +5,7 @@ import Icon from '@material-ui/core/Icon'
 import Warning from '@material-ui/icons/Warning'
 import Update from '@material-ui/icons/Update'
 import Accessibility from '@material-ui/icons/Accessibility'
+import SearchIcon from '@material-ui/icons/Search'
 import ScrollToTopMount from '../../components/ScrollToTopMount'
 // global common style
 import { CommonWrap } from '../../components/common-style'
@@ -92,14 +93,15 @@ const MemberPage = () => {
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="success">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   <h4 className={classes.cardTitleWhite}>本月新增会员</h4>
                   <p className={classes.cardCategoryWhite}>每月最后一周更新</p>
                 </GridItem>
                 <MuiDatepicker />
-                <Button color="danger">查询</Button>
+                {/* <Button color="transparent">查询</Button> */}
+                <Button color='transparent' round><SearchIcon />查询</Button>
               </GridContainer>
             </CardHeader>
             <CardBody>

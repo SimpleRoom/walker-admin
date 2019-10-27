@@ -24,6 +24,7 @@ const MemberPage = Loadable(() => import('../views/MemberPage/MemberPage'))
 // 员工管理
 const EmployeeManagementPage = Loadable(() => import('../views/EmployeeManagement/EmployeeManagement'))
 
+// permission： 控制路由权限
 const routeList = [
   {
     path: '/home/charts',
@@ -40,6 +41,14 @@ const routeList = [
     sidebarName: '个人资料',
     component: UserProfile,
     permission: 3,
+  },
+  {
+    path: '/home/employee',
+    exact: true,
+    icon: 'employee',
+    sidebarName: '员工管理',
+    component: EmployeeManagementPage,
+    permission: 6,
   },
   {
     path: '/home/member',
@@ -64,14 +73,6 @@ const routeList = [
     sidebarName: '酒店预订',
     component: HotelPage,
     permission: 1,
-  },
-  {
-    path: '/home/employee',
-    exact: true,
-    icon: 'employee',
-    sidebarName: '员工管理',
-    component: EmployeeManagementPage,
-    permission: 6,
   },
 ]
 
