@@ -30,44 +30,55 @@ const MemberPage = () => {
     <CommonWrap>
       <ScrollToTopMount />
       <GridContainer>
-        {/* 1 */}
-        <GridItem xs={12} sm={6} md={6}>
+        {/* 变更情况 */}
+        <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <Accessibility />
-              </CardIcon>
-              <p className={classes.cardCategory}>新增会员</p>
-              <h3 className={classes.cardTitle}>+245</h3>
+            <CardHeader color="success">
+              <h4>本月会员变更详情</h4>
+              <p>每月最后一周更新</p>
             </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                刚刚更新
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        {/* 2 */}
-        <GridItem xs={12} sm={6} md={6}>
-          <Card>
-            <CardHeader color="danger" stats icon>
-              <CardIcon color="danger">
-                <Icon>info_outline</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>即将过期会员</p>
-              <h3 className={classes.cardTitle}>15</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Danger>
-                  <Warning />
-                </Danger>
-                <a href='#pablo' onClick={e => e.preventDefault()}>
-                  查看详情
-                </a>
-              </div>
-            </CardFooter>
+            <CardBody>
+              <GridContainer>
+                {/* 1 */}
+                <GridItem xs={12} sm={6} md={6}>
+                  <Card>
+                    <CardHeader color="success" stats icon>
+                      <CardIcon color="success">
+                        <Accessibility />
+                      </CardIcon>
+                      <p className={classes.cardCategory}>新增会员</p>
+                      <h3 className={classes.cardTitle}>+245</h3>
+                    </CardHeader>
+                    <CardFooter stats>
+                      <div className={classes.stats}>
+                        <Update />
+                        刚刚更新
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </GridItem>
+                {/* 2 */}
+                <GridItem xs={12} sm={6} md={6}>
+                  <Card>
+                    <CardHeader color="danger" stats icon>
+                      <CardIcon color="danger">
+                        <Icon>info_outline</Icon>
+                      </CardIcon>
+                      <p className={classes.cardCategory}>即将过期会员</p>
+                      <h3 className={classes.cardTitle}>15</h3>
+                    </CardHeader>
+                    <CardFooter stats>
+                      <div className={classes.stats}>
+                        <Danger>
+                          <Warning />
+                        </Danger>
+                        <a href='#pablo' onClick={e => e.preventDefault()}>查看详情</a>
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </GridItem>
+              </GridContainer>
+            </CardBody>
           </Card>
         </GridItem>
       </GridContainer>

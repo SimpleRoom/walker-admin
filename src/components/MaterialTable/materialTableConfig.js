@@ -26,11 +26,12 @@ export const columnsArr = [
 ]
 
 export const optionsSetting = {
+  // thead style
   headerStyle: {
-    backgroundColor: '#66bb6a',
+    // backgroundColor: '#66bb6a',
     ...bodyCellStyle,
     fontSize: '1rem',
-    color: '#ffffff',
+    color: '#66bb6a',
   },
   rowStyle: {
     backgroundColor: '#EEE',
@@ -49,7 +50,7 @@ export const localizationConfig = {
   },
   toolbar: {
     searchTooltip: '搜索',
-    searchPlaceholder: '查询用户',
+    searchPlaceholder: '查找指定用户',
     exportTitle: '导出',
     exportName: '导出到CVS文件',
   },
