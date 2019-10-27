@@ -13,7 +13,9 @@
 [![styled-components](https://img.shields.io/badge/styled--components-v4.4.0-orange)](https://www.styled-components.com)
 [![plop](https://img.shields.io/badge/plop-v2.5.0-%233ab88b)](https://plopjs.com/)
 
-</div> 
+</div>
+
+> 一个基于React全家桶结合Material-ui的管理系统，使用redux管理全局state，redux-saga中间件处理异步数据，更好的融合state和action，redux-actions中间件简化了redux的复杂写法，使用reselect来精确获取指定的state，内置缓存效果，优化渲染压力。
 
 #### 1、如何开发查看
 
@@ -87,6 +89,14 @@ components ──├── Dialog           弹框组件
              ├── ScrollToTopMount 路由切换缓动到顶部组件
              ├── SideBar          侧边栏路由导航
              └── SideTool         右边工具栏组件
+             
+             
+       ┌── modules         不同的state模块
+       ├     ├── account   登录验证state
+       ├     ├── common    全局公用的state
+       ├     └── theme     主题控制state
+store──├
+       └── indexStore.js   state入口
      
 ```
 
