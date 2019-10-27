@@ -1,8 +1,4 @@
-<p align="center">
-  ![](./doc/admin-logo.png)
-</p>
-
-<h2 align="center">React全家桶+Material-ui构建的后台管理系统</h2>
+<h2 align="center">React+Material-ui构建的后台管理系统</h2>
 
 <div align="center">
 
@@ -21,18 +17,27 @@
 
 #### 1、如何开发查看
 
-```sh
-<!--克隆该仓库-->
+``` bash
+# 克隆该仓库
 git clone git@github.com:SimpleRoom/walker-admin.git
-<!--进入walker-admin文件夹-->
+
+# 进入walker-admin文件夹
 cd walker-admin
-<!--安装依赖-->
+
+# 安装依赖
 npm install
-<!--启动-->
+# 或者
+yarn add
+
+# 启动项目：http://localhost:3800
 npm run start
-http://localhost:3800
-<!--打包构建-->
+# 或者
+yarn start
+
+# 打包构建
 npm run build
+# 或者
+yarn build
 ```
 
 #### 2、功能模块
