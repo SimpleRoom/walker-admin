@@ -6,6 +6,7 @@ const bodyCellStyle = {
   fontWeight: 300,
 }
 
+// 对应 table thead列表项，异步数据需要配置 totalCount参数
 export const columnsArr = [
   { title: 'ID', field: 'id', cellStyle: bodyCellStyle },
   { title: '姓名', field: 'name', cellStyle: bodyCellStyle },
