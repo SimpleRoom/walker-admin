@@ -21,7 +21,13 @@ const Root = ()=>{
     })
     return (
         <Provider store={store}>
-            <Router>
+          {/* 
+            如果需要部署到服务器二级目录下，需要添加如：basename='/admin'，
+            对应: www.xx.com/admin 是项目更目录！需要在package.json内配置："homepage": "/admin"，
+            来读取相关资源css,js，注意还需要webpack.config的output路径，即config/paths/appBuild
+          */}
+            <Router basename='/admin'>
+            {/* <Router basename='/admin'> */}
                 <Switch>
                     {/* Redirect to first route in home */}
                     <Route exact path='/' render={() => (

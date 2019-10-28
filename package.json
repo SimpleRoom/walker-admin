@@ -200,5 +200,6 @@
       "helpMessage": "",
       "autoFix": false
     }
-  }
+  },
+  "homepage": "/admin"
 }
