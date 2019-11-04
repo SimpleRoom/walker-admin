@@ -20,16 +20,16 @@ import {
 // react-actions
 import {
   fetchPermissionRoute,
-  // fetchNewTheme,
 } from '../store/modules/common/action'
 import { setRouterText } from '../store/modules/theme/action'
 // reselect
 import {
-  getThemeColor,
   getButtonWave,
   getSideBarIsOpened,
   getPermissionRoute,
 } from '../store/modules/common/selector'
+
+import { getBtnColor } from '../store/modules/theme/selector'
 
 // content padding-left value while sidebar closed
 const closedPadLeft = sideBarWidth - closedSideBarLeft + 20
@@ -109,7 +109,7 @@ class Home extends React.Component {
 // Listening global state from props
 
 const mapStateToProps = state => ({
-  buttonColor: getThemeColor(state),
+  buttonColor: getBtnColor(state),
   sideBarIsShow: getSideBarIsOpened(state),
   buttonWave: getButtonWave(state),
   routeList: getPermissionRoute(state),

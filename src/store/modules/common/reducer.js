@@ -5,9 +5,7 @@ import ButtonWaveEffect from '../../../utils/ButtonWaveEffect'
 import {
   displaySetDialog,
   fetchPermissionRoute,
-  fetchNewTheme,
   fetchBarIsOpened,
-  fetchSettingStatus,
   // 暂存github信息
   setGithubInfo,
 } from './action'
@@ -21,16 +19,8 @@ export const defaultState = {
     displayed: false,
   },
   routeList: [],
-  // button bg-color
-  buttonColor: {
-    color: "#4caf50",
-    text: "current-theme",
-    activeIndex: 1,
-  },
   // 左侧side bar
   isOpened: true,
-  // 右侧side tool
-  isHiding: true,
   // github个人信息
   githubInfo: {},
 }
@@ -51,24 +41,11 @@ export const commonReducer = handleActions(
       return { ...state, routeList: [ ...list ]}
     },
 
-    [fetchNewTheme]: (state, action) => {
-      const { info } = action.payload || {}
-      const themeColor = {
-        color: info.color,
-        activeIndex: info.id,
-      }
-      return { ...state, buttonColor: { ...themeColor }}
-    },
-
     [fetchBarIsOpened]: (state, action) => {
       const { isOpened } = action.payload
       return { ...state, isOpened }
     },
 
-    [fetchSettingStatus]: (state, action) => {
-      const { isHiding } = action.payload
-      return { ...state, isHiding }
-    },
     [setGithubInfo]: (state, action) => {
       const { githubData } = action.payload
       return { ...state, githubData }

@@ -7,9 +7,7 @@ export const {
   // 无接口本地公有
   displaySetDialog,
   fetchPermissionRoute,
-  fetchNewTheme,
   fetchBarIsOpened,
-  fetchSettingStatus,
   // 获取github个人信息
   fetchGitInfo,
   setGithubInfo,
@@ -20,9 +18,7 @@ export const {
       displayed,
     }),
     FETCH_PERMISSION_ROUTE: (permissionId) => ({ permissionId }),
-    FETCH_NEW_THEME: (info) => ({ info }),
     FETCH_BAR_IS_OPENED: (isOpened) => ({ isOpened }),
-    FETCH_SETTING_STATUS: (isHiding) => ({ isHiding }),
     // 获取github个人信息
     FETCH_GIT_INFO: (username) => ({ username }),
     SET_GITHUB_INFO: (githubData) => ({ githubData}),

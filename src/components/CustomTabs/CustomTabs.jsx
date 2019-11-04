@@ -22,10 +22,9 @@ export default function CustomTabs(props) {
     setValue(value)
   }
   const classes = useStyles()
-  const { headerColor, plainTabs, tabs, title, rtlActive } = props
+  const { headerColor, plainTabs, tabs, title } = props
   const cardTitle = classNames({
     [classes.cardTitle]: true,
-    [classes.cardTitleRTL]: rtlActive
   })
   return (
     <Card plain={plainTabs}>
@@ -93,6 +92,5 @@ CustomTabs.propTypes = {
       tabContent: PropTypes.node.isRequired
     })
   ),
-  rtlActive: PropTypes.bool,
   plainTabs: PropTypes.bool
 }

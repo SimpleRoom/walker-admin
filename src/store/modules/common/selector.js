@@ -9,11 +9,7 @@ export const getDialog = state => state[namespace].dialog
 
 export const getPermissionRoute = state => state[namespace].routeList
 
-export const getThemeColor = state => state[namespace].buttonColor
-
 export const getSideBarIsOpened = state => state[namespace].isOpened
-
-export const getSideToolIsHiding = state => state[namespace].isHiding
 
 // 获得github个人信息
 export const getGithubData = state => state[namespace].githubData || {}
