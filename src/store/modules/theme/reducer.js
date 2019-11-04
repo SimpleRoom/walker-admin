@@ -12,6 +12,7 @@ export const namespace = 'theme'
 
 export const defaultState = {
   temp: 'theme',
+  storeTips: 'theme store',
   // 按钮主题
   themeColor: {
     color: "#4caf50",

@@ -8,6 +8,7 @@ export const namespace = 'account'
 
 export const defaultState = {
   temp: 'account',
+  storeTips: 'theme store111',
 }
 
 export default handleActions(

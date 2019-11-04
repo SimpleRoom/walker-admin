@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { Provider } from 'react-redux'
 // // 1、引入Store
 import configureStore, { commonNamespace, rootSaga, sagaMiddleware } from './store/indexStore'
-// import { namespace as themeNameSpace } from './store/modules/theme/reducer'
+import { namespace as themeNamespace } from './store/modules/theme/reducer'
 // reset style
 import './styles/reset.css'
 import './assets/css/material-dashboard-react.css'
@@ -17,11 +17,12 @@ const Root = ()=>{
     // set store to root for global props
     const store = configureStore({
         [commonNamespace]: {
-          globalTips: 'static global store',
+          storeTips: 'Common global store',
         },
-        // [themeNameSpace]: {
-        //   tips: 'theme store',
-        // },
+        // 这里还可以单独添加替换指定的state
+        [themeNamespace]: {
+          storeTips: 'Theme global store instead of inner',
+        },
     })
     return (
         <Provider store={store}>
