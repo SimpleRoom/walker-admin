@@ -21,9 +21,9 @@ import {
 import { fetchPermissionRoute } from '../store/modules/common/action'
 import { setRouterText } from '../store/modules/theme/action'
 // reselect
-import { getButtonWave, getPermissionRoute } from '../store/modules/common/selector'
+import { getPermissionRoute } from '../store/modules/common/selector'
 
-import { getBtnColor, getSideBarStatus } from '../store/modules/theme/selector'
+import { getButtonWave, getBtnColor, getSideBarStatus } from '../store/modules/theme/selector'
 
 // content padding-left value while sidebar closed
 const closedPadLeft = sideBarWidth - closedSideBarLeft + 20

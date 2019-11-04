@@ -1,4 +1,5 @@
 import { handleActions } from 'redux-actions'
+import ButtonWaveEffect from '../../../utils/ButtonWaveEffect'
 
 import {
   tempSetInfo,
@@ -11,8 +12,8 @@ import {
 export const namespace = 'theme'
 
 export const defaultState = {
-  temp: 'theme',
   storeTips: 'theme store',
+  ButtonWave: new ButtonWaveEffect(),
   // 按钮主题
   themeColor: {
     color: "#4caf50",
@@ -20,7 +21,7 @@ export const defaultState = {
     activeIndex: 1,
   },
   // 右侧tool是否展开
-  toolIsOpened: false,
+  toolIsHided: true,
   sidebarIsOpened: true,
   routerText: '',
 }
@@ -45,7 +46,7 @@ export const themeReducer = handleActions(
     // 右侧tool工具栏显示切换
     [switchTool]: (state, action) => {
       const { status } = action.payload
-      return { ...state, toolIsOpened: status }
+      return { ...state, toolIsHided: status }
     },
     [switchSideBar]: (state, action) => {
       const { status } = action.payload

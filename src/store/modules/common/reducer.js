@@ -1,6 +1,5 @@
 import { handleActions } from 'redux-actions'
 import routeList from '../../../routes'
-import ButtonWaveEffect from '../../../utils/ButtonWaveEffect'
 
 import {
   displaySetDialog,
@@ -12,7 +11,6 @@ import {
 export const namespace = 'common'
 
 export const defaultState = {
-  ButtonWave: new ButtonWaveEffect(),
   dialog: {
     key: 0,
     displayed: false,
