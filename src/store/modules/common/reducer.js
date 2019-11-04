@@ -5,7 +5,6 @@ import ButtonWaveEffect from '../../../utils/ButtonWaveEffect'
 import {
   displaySetDialog,
   fetchPermissionRoute,
-  fetchBarIsOpened,
   // 暂存github信息
   setGithubInfo,
 } from './action'
@@ -19,8 +18,6 @@ export const defaultState = {
     displayed: false,
   },
   routeList: [],
-  // 左侧side bar
-  isOpened: true,
   // github个人信息
   githubInfo: {},
 }
@@ -39,11 +36,6 @@ export const commonReducer = handleActions(
       console.log(action, ' 权限路由匹配成功..')
       const list = routeList.filter(item => item.permission <= permissionId)
       return { ...state, routeList: [ ...list ]}
-    },
-
-    [fetchBarIsOpened]: (state, action) => {
-      const { isOpened } = action.payload
-      return { ...state, isOpened }
     },
 
     [setGithubInfo]: (state, action) => {

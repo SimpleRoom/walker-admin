@@ -18,18 +18,12 @@ import {
   closedSideBarLeft,
 } from '../components/common-style'
 // react-actions
-import {
-  fetchPermissionRoute,
-} from '../store/modules/common/action'
+import { fetchPermissionRoute } from '../store/modules/common/action'
 import { setRouterText } from '../store/modules/theme/action'
 // reselect
-import {
-  getButtonWave,
-  getSideBarIsOpened,
-  getPermissionRoute,
-} from '../store/modules/common/selector'
+import { getButtonWave, getPermissionRoute } from '../store/modules/common/selector'
 
-import { getBtnColor } from '../store/modules/theme/selector'
+import { getBtnColor, getSideBarStatus } from '../store/modules/theme/selector'
 
 // content padding-left value while sidebar closed
 const closedPadLeft = sideBarWidth - closedSideBarLeft + 20
@@ -110,7 +104,7 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   buttonColor: getBtnColor(state),
-  sideBarIsShow: getSideBarIsOpened(state),
+  sideBarIsShow: getSideBarStatus(state),
   buttonWave: getButtonWave(state),
   routeList: getPermissionRoute(state),
 })

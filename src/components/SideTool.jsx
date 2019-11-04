@@ -2,14 +2,9 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 // import actions
-import { fetchBarIsOpened } from '../store/modules/common/action'
-import { switchTool } from '../store/modules/theme/action'
-import { switchThemeColor } from '../store/modules/theme/action'
-
-import {
-  getSideBarIsOpened,
-} from '../store/modules/common/selector'
-import { getBtnColor, getToolIsOpen } from '../store/modules/theme/selector'
+import { switchThemeColor, switchTool, switchSideBar } from '../store/modules/theme/action'
+// import state
+import { getBtnColor, getToolIsOpen, getSideBarStatus } from '../store/modules/theme/selector'
 // global common style
 import {
   levelOneZindex,
@@ -169,7 +164,7 @@ class SideTool extends PureComponent {
   }
   toogleSideBar = () => {
     const { isOpened } = this.props
-    this.props.fetchBarIsOpened(!isOpened)
+    this.props.switchSideBar(!isOpened)
   }
   render() {
     let { themeList } = this.state
@@ -178,7 +173,7 @@ class SideTool extends PureComponent {
     const filterActive = (item) => {
       if (item.id === activeIndex) return true
     }
-    console.log(this.props, 'tool')
+    // console.log(this.props, 'tool')
     return (
       <SetingBox isHide={isHiding}>
         <SettingBtn onClick={this.toggleSetting}>
@@ -212,14 +207,14 @@ class SideTool extends PureComponent {
 
 const mapStateToProps = state => ({
   buttonColor: getBtnColor(state),
-  isOpened: getSideBarIsOpened(state),
+  isOpened: getSideBarStatus(state),
   isHiding: getToolIsOpen(state),
 })
 
 const mapDispatchToProps = {
   switchThemeColor,
   switchTool,
-  fetchBarIsOpened,
+  switchSideBar,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideTool)

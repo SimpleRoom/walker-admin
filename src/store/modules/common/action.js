@@ -7,7 +7,6 @@ export const {
   // 无接口本地公有
   displaySetDialog,
   fetchPermissionRoute,
-  fetchBarIsOpened,
   // 获取github个人信息
   fetchGitInfo,
   setGithubInfo,
@@ -18,7 +17,6 @@ export const {
       displayed,
     }),
     FETCH_PERMISSION_ROUTE: (permissionId) => ({ permissionId }),
-    FETCH_BAR_IS_OPENED: (isOpened) => ({ isOpened }),
     // 获取github个人信息
     FETCH_GIT_INFO: (username) => ({ username }),
     SET_GITHUB_INFO: (githubData) => ({ githubData}),

@@ -4,6 +4,7 @@ import {
   tempSetInfo,
   switchThemeColor,
   switchTool,
+  switchSideBar,
   setRouterText,
 } from './action'
 
@@ -19,6 +20,7 @@ export const defaultState = {
   },
   // 右侧tool是否展开
   toolIsOpened: false,
+  sidebarIsOpened: true,
   routerText: '',
 }
 
@@ -43,6 +45,10 @@ export const themeReducer = handleActions(
     [switchTool]: (state, action) => {
       const { status } = action.payload
       return { ...state, toolIsOpened: status }
+    },
+    [switchSideBar]: (state, action) => {
+      const { status } = action.payload
+      return { ...state, sidebarIsOpened: status }
     },
     // router text切换
     [setRouterText]: (state, action) => {
