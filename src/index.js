@@ -31,7 +31,7 @@ const Root = ()=>{
             对应: www.xx.com/admin 是项目更目录！需要在package.json内配置："homepage": "/admin"，
             来读取相关资源css,js，注意还需要webpack.config的output路径，即config/paths/appBuild
           */}
-            <Router basename={'/admin'}>
+            <Router>
             {/* <Router basename='/admin'> */}
                 <Switch>
                     {/* Redirect to first route in home */}

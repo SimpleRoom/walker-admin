@@ -46,6 +46,26 @@ yarn build
 plop
 # 未全局安装
 npm run plop
+
+# 注：CHANGELOG-安装使用(细化commit)
+npm install -g commitizen
+# 或者本地安装
+npm install --save-dev commitizen
+
+npm install -g cz-conventional-changelog
+# 或者本地安装
+npm install cz-conventional-changelog --save-dev
+
+# 添加新的CHANGELOG
+git add XX之后
+
+# 进入可选择性的命令行界面：按照提示选择填写
+git cz
+
+# 自动生成对应的commit信息到：CHANGELOG.md文件内，方面追踪查看
+git changelog
+
+
 ```
 
 #### 2、目录模块
