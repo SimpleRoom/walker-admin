@@ -8,11 +8,14 @@
  *  options.ssr            If false, it will not be processed server-side. Default to true.
  *  options.cacheKey       Cache key function (see dynamic import)
  */
+import React from 'react'
 import Loadable from '@loadable/component'
-// import Loading from '../components/Loading'
+import Loading from '../components/Loading'
 
 // 图表查看
-const ChartListPage = Loadable(() => import('../views/ChartPage/ChartPage'))
+const ChartListPage = Loadable(() => import('../views/ChartPage/ChartPage'), {
+  fallback: <Loading />
+})
 // 个人资料
 const UserProfile = Loadable(() => import('../views/UserProfile/UserProfile'))
 // 游玩线路

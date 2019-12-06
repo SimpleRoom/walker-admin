@@ -1,15 +1,13 @@
 import { createActions } from 'redux-actions'
 
 export const {
-  tempSetInfo,
-  tempGetInfo,
+  setLogin,
+  setLoginOut,
 } = createActions(
   {
-    TEMP_SET_INFO: info => ({
-      info,
-    }),
+    SET_LOGIN: info => ({ info }),
   },
-  'TEMP_GET_INFO'
+  'SET_LOGIN_OUT'
 )
 
 export default {}

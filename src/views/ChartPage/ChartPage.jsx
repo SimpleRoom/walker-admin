@@ -31,6 +31,7 @@ import CardFooter from '../../components/Card/CardFooter'
 import CardIcon from '../../components/Card/CardIcon'
 import Danger from '../../components/Typography/Danger'
 import Table from '../../components/Table/Table'
+import AuthExample from '../TestAuth'
 
 import styles from '../../assets/jss/material-dashboard-react/views/dashboardStyle'
 
@@ -47,6 +48,7 @@ const ChartPage = () => {
   const classes = useStyles()
   return (
     <CommonWrap>
+      <AuthExample />
       <ScrollToTopMount />
       <MuiTimepicker />
       {/* ----图表----- */}

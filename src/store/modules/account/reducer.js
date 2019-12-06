@@ -1,23 +1,27 @@
 import { handleActions } from 'redux-actions'
 
 import {
-  tempSetInfo,
+  setLogin,
+  setLoginOut,
 } from './action'
 
 export const namespace = 'account'
 
 export const defaultState = {
   temp: 'account',
-  storeTips: 'theme store111',
+  storeTips: 'account store module',
+  loginState: 0,
 }
 
-export default handleActions(
+export const accountReducer = handleActions(
   {
     // 示例
-    [tempSetInfo]: (state, action) => {
-      const { data } = action.payload
-      return { ...state, data }
+    [setLogin]: (state, action) => {
+      const { info } = action.payload
+      let status = (info && Object.keys(info).length) ? 1 : 0
+      return { ...state, loginState: status }
     },
+    [setLoginOut]: (state) => ({...state, loginState: 0})
   },
   defaultState
 )

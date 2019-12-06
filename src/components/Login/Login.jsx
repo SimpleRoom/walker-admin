@@ -19,6 +19,7 @@ import Button from '../CustomButtons/CustomButtons'
 import {
   fetchPermissionRoute,
 } from '../../store/modules/common/action'
+import { setLogin } from '../../store/modules/account/action'
 // reselect
 // import { getTempData } from '../../store/modules/common/selector'
 
@@ -156,6 +157,7 @@ class Login extends PureComponent {
       const info = { userName, userPwd, permissionId }
       // save to sessionStorage
       sessionStore.save(info)
+      this.props.setLogin(info)
       // back default type
       this.resetInputType()
       // fetch routelist
@@ -227,6 +229,7 @@ class Login extends PureComponent {
 
 const mapDispatchToProps = {
   fetchPermissionRoute,
+  setLogin,
 }
 
 export default withRouter(connect(null, mapDispatchToProps)(Login))

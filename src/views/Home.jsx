@@ -9,6 +9,7 @@ import NotFound from '../components/NotFound'
 import HeaderNavbar from '../components/HeaderNavbar/HeaderNavbar'
 import SideTool from '../components/SideTool'
 import Footer from '../components/Footer/Footer'
+import HocVerifyLogin from '../hoc/HocVerifyLogin'
 
 // global common style
 import {
@@ -87,7 +88,7 @@ class Home extends React.Component {
                 component={item.component} />
             )) : null}
             {/* default No.1 component */}
-            <Route exact path="/home/" render={() => (
+            <Route exact path="/home" render={() => (
               <Redirect to={routeList.length ? routeList[0].path : '/login'} />
             )} />
             <Route exact component={NotFound} />
@@ -115,7 +116,7 @@ const mapDispatchToProps = {
   setRouterText,
 }
 
-export default connect(
+export default HocVerifyLogin(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home)
+)(Home))
