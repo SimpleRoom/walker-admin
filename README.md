@@ -62,8 +62,8 @@ git add XX之后
 # 进入可选择性的命令行界面：按照提示选择填写
 git cz
 
-# 自动生成对应的commit信息到：CHANGELOG.md文件内，方面追踪查看
-git changelog
+# 自动生成对应的commit信息到：CHANGELOG.md文件内，方面追踪查看(复制命令行内变化到changelog)
+npm run changelog
 
 
 ```
