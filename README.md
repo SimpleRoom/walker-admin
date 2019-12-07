@@ -119,8 +119,10 @@ store──├
        └── indexStore.js   state入口
      
 ```
-root-state-tree
-![](./doc/state-tree.png)
+
++ root-state-tree
+
+![](./doc/state-tree-v2.png)
 
 #### 3、日志记录
 + [CHANGELOG](https://github.com/SimpleRoom/walker-admin/blob/master/CHANGELOG.md)
