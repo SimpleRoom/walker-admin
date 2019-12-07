@@ -30,7 +30,7 @@ const MsgList = [
   '3项新任务尚未处理',
 ]
 
-const NavbarItem = ({ activeBgColor, historyRouter }) => {
+const NavbarItem = ({ activeBgColor, historyRouter, loginOut }) => {
   const classes = useStyles()
   const [count, setCount] = useState(5)
   const [showMsg, setShowMsg] = useState(false)
@@ -52,6 +52,7 @@ const NavbarItem = ({ activeBgColor, historyRouter }) => {
     showMsg && setShowMsg(false)
   }
   const signOutHandle = () => {
+    loginOut()
     historyRouter.push('/login')
   }
 
@@ -135,6 +136,7 @@ const NavbarItem = ({ activeBgColor, historyRouter }) => {
 NavbarItem.propType = {
   activeBgColor: PropTypes.string,
   historyRouter: PropTypes.object,
+  loginOut: PropTypes.func,
 }
 
 export default NavbarItem

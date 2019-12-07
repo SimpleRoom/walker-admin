@@ -9,7 +9,7 @@ export default WrappedComponent => {
   })
   return connect(mapStateToProps)(class HocVerifyLogin extends Component {
     render() {
-      console.log(this.props, 'HOC')
+      console.log(this.props, 'HOC_Verify_Login')
       const { isLogin } = this.props
       if (!isLogin) return (<Redirect to='/login' />)
       return (

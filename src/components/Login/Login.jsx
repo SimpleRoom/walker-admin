@@ -11,7 +11,6 @@ import {
   ClearFix,
   themeRgbaColor,
 } from '../common-style'
-import { sessionStore, getBrowserInfo } from '../../utils'
 // material-button
 import Button from '../CustomButtons/CustomButtons'
 
@@ -155,8 +154,7 @@ class Login extends PureComponent {
       //mock permission id：对应routes/routelist[i].permission(控制用户登录权限1-5)
       const permissionId = 6
       const info = { userName, userPwd, permissionId }
-      // save to sessionStorage
-      sessionStore.save(info)
+      // save to sessionStorage & save login state
       this.props.setLogin(info)
       // back default type
       this.resetInputType()
@@ -164,8 +162,6 @@ class Login extends PureComponent {
       this.props.fetchPermissionRoute(permissionId)
       // back to home
       history.push("/")
-      const browserInfo = getBrowserInfo()
-      console.log(`浏览器信息是：${browserInfo}`)
       // console.log('IP信息是：', returnCitySN)
     }
   }

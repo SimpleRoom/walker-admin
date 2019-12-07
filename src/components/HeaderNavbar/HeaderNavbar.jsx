@@ -17,6 +17,7 @@ import Button from '../CustomButtons/CustomButtons'
 import NavbarItem from './NavbarItem'
 
 import styles from '../../assets/jss/material-dashboard-react/components/headerStyle'
+import { setLoginOut } from '../../store/modules/account/action'
 import { getRouterText } from '../../store/modules/theme/selector'
 // global common style
 import {
@@ -48,7 +49,7 @@ const useStyles = makeStyles(styles)
 
 const HeaderNavbar = (props) => {
   const classes = useStyles()
-  const { color, isOpenedSideBar, activeBgColor, history, routerText } = props
+  const { color, isOpenedSideBar, activeBgColor, history, setLoginOut ,routerText } = props
   const appBarClasses = classNames({
     [" " + classes[color]]: color
   })
@@ -66,7 +67,7 @@ const HeaderNavbar = (props) => {
             </Button>
           </div>
           <Hidden smDown implementation="css">
-            <NavbarItem activeBgColor={activeBgColor} historyRouter={history} />
+            <NavbarItem activeBgColor={activeBgColor} historyRouter={history} loginOut={setLoginOut} />
           </Hidden>
           <Hidden mdUp implementation="css">
             <IconButton
@@ -94,4 +95,8 @@ const mapStateToProps = state => ({
   routerText: getRouterText(state)
 })
 
-export default withRouter(connect(mapStateToProps, null)(HeaderNavbar))
+const mapDispatchToProps = {
+  setLoginOut,
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HeaderNavbar))

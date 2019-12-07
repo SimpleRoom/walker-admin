@@ -48,8 +48,9 @@ class Home extends React.Component {
     }
   }
   componentDidMount() {
-    const info = sessionStore.fetch()
-    if (info && Object.keys(info).length) {
+    const { routeList = [], isLogin } = this.props
+    if (isLogin === 1 && !routeList.length) {
+      const info = sessionStore.fetch()
       const { permissionId = 0 } = info || {}
       this.props.fetchPermissionRoute(permissionId)
     }
