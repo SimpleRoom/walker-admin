@@ -16,8 +16,8 @@ import Button from '../CustomButtons/CustomButtons'
 
 // react-actions
 import {
-  fetchPermissionRoute,
-} from '../../store/modules/common/action'
+  fetchPermissionRoute
+} from '../../store/modules/account/action'
 import { setLogin } from '../../store/modules/account/action'
 // reselect
 // import { getTempData } from '../../store/modules/common/selector'

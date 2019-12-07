@@ -19,10 +19,10 @@ import {
   closedSideBarLeft,
 } from '../components/common-style'
 // react-actions
-import { fetchPermissionRoute } from '../store/modules/common/action'
+import { fetchPermissionRoute } from '../store/modules/account/action'
 import { setRouterText } from '../store/modules/theme/action'
 // reselect
-import { getPermissionRoute } from '../store/modules/common/selector'
+import { getPermissionRoute } from '../store/modules/account/selector'
 
 import { getButtonWave, getBtnColor, getSideBarStatus } from '../store/modules/theme/selector'
 

@@ -6,7 +6,6 @@ export const {
   tempSetInfo,
   // 无接口本地公有
   displaySetDialog,
-  fetchPermissionRoute,
   // 获取github个人信息
   fetchGitInfo,
   setGithubInfo,
@@ -16,7 +15,6 @@ export const {
       dialog,
       displayed,
     }),
-    FETCH_PERMISSION_ROUTE: (permissionId) => ({ permissionId }),
     // 获取github个人信息
     FETCH_GIT_INFO: (username) => ({ username }),
     SET_GITHUB_INFO: (githubData) => ({ githubData}),
