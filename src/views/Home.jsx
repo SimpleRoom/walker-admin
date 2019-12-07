@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { sessionStore } from '../utils'
 // import Dialog from '../components/Dialog/Dialog'
 import SideBar from '../components/SideBar'
 import NotFound from '../components/NotFound'
@@ -22,7 +21,7 @@ import {
 import { fetchPermissionRoute } from '../store/modules/account/action'
 import { setRouterText } from '../store/modules/theme/action'
 // reselect
-import { getPermissionRoute } from '../store/modules/account/selector'
+import { getUserInfo, getPermissionRoute } from '../store/modules/account/selector'
 
 import { getButtonWave, getBtnColor, getSideBarStatus } from '../store/modules/theme/selector'
 
@@ -48,10 +47,9 @@ class Home extends React.Component {
     }
   }
   componentDidMount() {
-    const { routeList = [], isLogin } = this.props
+    const { routeList = [], isLogin, userInfo } = this.props
     if (isLogin === 1 && !routeList.length) {
-      const info = sessionStore.fetch()
-      const { permissionId = 0 } = info || {}
+      const { permissionId = 0 } = userInfo || {}
       this.props.fetchPermissionRoute(permissionId)
     }
     // console.log(this.props)
@@ -108,6 +106,7 @@ const mapStateToProps = state => ({
   buttonColor: getBtnColor(state),
   sideBarIsShow: getSideBarStatus(state),
   buttonWave: getButtonWave(state),
+  userInfo: getUserInfo(state),
   routeList: getPermissionRoute(state),
 })
 

@@ -30,7 +30,7 @@ export const accountReducer = handleActions(
         status = 1
       }
       // let status = (info && Object.keys(info).length) ? 1 : 0
-      return { ...state, loginState: status }
+      return { ...state, loginState: status, userInfo: info }
     },
     // 退出：1.清除用户信息 2.登录状态 3.清除匹配的路由
     [setLoginOut]: (state) => {

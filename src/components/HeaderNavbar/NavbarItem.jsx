@@ -13,7 +13,6 @@ import DropdownList from './DropdownList'
 
 import styles from '../../assets/jss/material-dashboard-react/components/headerLinksStyle'
 // utils
-import { sessionStore } from '../../utils'
 const useStyles = makeStyles(styles)
 
 const List = [
@@ -30,12 +29,11 @@ const MsgList = [
   '3项新任务尚未处理',
 ]
 
-const NavbarItem = ({ activeBgColor, historyRouter, loginOut }) => {
+const NavbarItem = ({ userName, activeBgColor, historyRouter, loginOut }) => {
   const classes = useStyles()
   const [count, setCount] = useState(5)
   const [showMsg, setShowMsg] = useState(false)
   const [showPersonal, setShowPersonal] = useState(false)
-  const [myName, setMyName] = useState('')
   const readMsgHandle = () => {
     let num = count - 1
     if (num <= 0) num = 0
@@ -63,9 +61,6 @@ const NavbarItem = ({ activeBgColor, historyRouter, loginOut }) => {
   }, [showMsg, showPersonal])
 
   useEffect(() => {
-    const info = sessionStore.fetch()
-    const { userName = '' } = info || {}
-    setMyName(userName)
     // 点击其他地方就取消
     window.addEventListener('click', cancleDropHandle)
     return () => {
@@ -128,7 +123,7 @@ const NavbarItem = ({ activeBgColor, historyRouter, loginOut }) => {
             signOut={signOutHandle} />) : null
         }
       </div>
-      <div className={classes.manager}>{myName}</div>
+      <div className={classes.manager}>{userName}</div>
     </Fragment>
   )
 }
@@ -137,6 +132,7 @@ NavbarItem.propType = {
   activeBgColor: PropTypes.string,
   historyRouter: PropTypes.object,
   loginOut: PropTypes.func,
+  userName: PropTypes.string,
 }
 
 export default NavbarItem
