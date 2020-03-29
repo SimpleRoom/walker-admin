@@ -1,8 +1,9 @@
-# 0.1.0 (2019-12-07)
+# 0.1.0 (2020-03-29)
 
 
 ### Bug Fixes
 
+* **github api load error:** github api load error ([0ab4536](https://github.com/SimpleRoom/walker-admin/commit/0ab4536eeb43efdb0b1d9c5443f05370050f9d13))
 * move routeList state ([8806c8a](https://github.com/SimpleRoom/walker-admin/commit/8806c8a61b1cddca66da55b89810e1a1f6a29c7b))
 * set userinfo to account ([a4e603c](https://github.com/SimpleRoom/walker-admin/commit/a4e603caff504342e1221f622258386a644b941f))
 * **loadable-component:** 替换组件懒加载 ([6697b1e](https://github.com/SimpleRoom/walker-admin/commit/6697b1e969c440a736210cd7962017e02893230c))
