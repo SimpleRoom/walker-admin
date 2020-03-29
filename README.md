@@ -65,6 +65,9 @@ git cz
 # 自动生成对应的commit信息到：CHANGELOG.md文件内，方面追踪查看(复制命令行内变化到changelog)
 npm run changelog
 
+# 生成releases
+npm run release -- --release-as 1.0.0
+
 
 ```
 
