@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/SimpleRoom/walker-admin/compare/v1.0.0...v1.1.0) (2020-03-29)
+
+
+### Features
+
+* 🎸 add release ([33aac69](https://github.com/SimpleRoom/walker-admin/commit/33aac69638148035e4fd5c4d5ea8e9434a0bf4b3))
+
 # [1.0.0](https://github.com/SimpleRoom/walker-admin/compare/1a66b4ccc0fc03d68bae22efd5f6db679fb6c350...v1.0.0) (2020-03-29)
 
 
