@@ -88,7 +88,7 @@
     "test": "node scripts/test.js",
     "plop": "plop",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "release": "standard-version --release-as"
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
