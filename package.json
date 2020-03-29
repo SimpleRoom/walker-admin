@@ -87,7 +87,13 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "plop": "plop",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "release": "standard-version --release-as"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -158,48 +164,13 @@
     ]
   },
   "devDependencies": {
-    "conventional-changelog": "^3.1.12",
-    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^4.2.3",
     "plop": "^2.5.0",
+    "standard-version": "^7.1.0",
     "stylus": "^0.54.7",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
-    "uuid": "^3.3.3",
-    "validate-commit-msg": "^2.14.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    },
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "build",
-        "ci",
-        "chore",
-        "revert"
-      ],
-      "scope": {
-        "required": false,
-        "allowed": [
-          "*"
-        ],
-        "validate": true,
-        "multiple": false
-      },
-      "warnOnFail": false,
-      "maxSubjectLength": 100,
-      "subjectPattern": ".+",
-      "subjectPatternErrorMsg": "subject does not match subject pattern!",
-      "helpMessage": "",
-      "autoFix": false
-    }
+    "uuid": "^3.3.3"
   },
   "homepage": "/admin"
 }
