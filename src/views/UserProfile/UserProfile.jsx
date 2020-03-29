@@ -124,6 +124,12 @@ const UserProfile = (props) => {
     }
   }, [myGithubInfo, fetchGitInfo, timerId])
 
+  // 添加如果img加载错误就使用默认的头像，避免图片显示错误
+  const [imgError, setImgError] = React.useState(false)
+  const imgUrlLoadError = () => {
+    setImgError(true)
+  }
+
   return (
     <CommonWrap>
       <ScrollToTopMount />
@@ -132,8 +138,8 @@ const UserProfile = (props) => {
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="success">
-              <h4 className={classes.cardTitleWhite}>个人资料</h4>
-              <p className={classes.cardCategoryWhite}>填写自己的详细信息</p>
+              <h4 className={styles.cardTitleWhite}>个人资料</h4>
+              <p className={styles.cardCategoryWhite}>填写自己的详细信息</p>
             </CardHeader>
             <CardBody>
               <GridContainer>
@@ -234,7 +240,7 @@ const UserProfile = (props) => {
                 </GridItem>
               </GridContainer>
             </CardBody>
-            <CardFooter className={styles.textRight}>
+            <CardFooter>
               <Button color="success" onClick={() => showNotification()}>提交</Button>
               <Button color="rose">重置</Button>
             </CardFooter>
@@ -248,8 +254,11 @@ const UserProfile = (props) => {
                 href={myGithubInfo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
+                className={styles.avatarLink}
               >
-                <img src={myGithubInfo.avatar_url || avatar} alt="..." />
+                <img
+                  onError={() => imgUrlLoadError()}
+                  src={imgError ? avatar : (myGithubInfo.avatar_url ? myGithubInfo.avatar_url : avatar) } alt="..." />
               </a>
             </CardAvatar>
             <CardBody profile>
@@ -260,7 +269,7 @@ const UserProfile = (props) => {
               <p className={classes.description}>Location：{myGithubInfo.location || 'China'}</p>
               <p className={classes.description}>加入时间：{myGithubInfo.created_at || '00:00:00'}</p>
               <a
-                href={myGithubInfo.html_url}
+                href={myGithubInfo.html_url || 'https://github.com/wjf444128852'}
                 target="_blank"
                 rel="noopener noreferrer"
               >

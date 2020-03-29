@@ -18,9 +18,13 @@ function* getTemp() {
 // 请求github
 function* getGithubInfo(action) {
   const { username } = action.payload
-  const result = yield axios.get(`https://api.github.com/users/${username}`)
-  // console.log(action, result, 'saga.....')
-  yield put(setGithubInfo(result.data))
+  try {
+    const result = yield axios.get(`https://api.github.com/users/${username}`)
+    // console.log(action, result, 'saga.....')
+    yield put(setGithubInfo(result.data))
+  } catch (error) {
+    console.log(error, 'Github info load error')
+  }
 }
 
 function* watchCommon() {
