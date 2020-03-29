@@ -190,7 +190,7 @@
         "allowed": [
           "*"
         ],
-        "validate": false,
+        "validate": true,
         "multiple": false
       },
       "warnOnFail": false,
