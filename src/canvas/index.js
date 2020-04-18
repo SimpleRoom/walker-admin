@@ -1,2 +1,2 @@
-import { CanvasBg } from "./CanvasBg"
+import { CanvasBg } from './CanvasBg'
 export { CanvasBg }
