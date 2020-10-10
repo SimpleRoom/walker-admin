@@ -70,7 +70,7 @@ module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
   //打包到二级目录：admin,与package.json的publicPath一致(要部署的远程CDN：www.xx.com/admin)
-  appBuild: resolveApp('build/admin'),
+  appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
