@@ -17,7 +17,7 @@ export const {
     }),
     // 获取github个人信息
     FETCH_GIT_INFO: (username) => ({ username }),
-    SET_GITHUB_INFO: (githubData) => ({ githubData}),
+    SET_GITHUB_INFO: (githubData) => ({ githubData }),
   },
   'TEMP_GET_INFO'
 )
