@@ -146,4 +146,4 @@ store──├
 
 ### License
 
-[MIT](http://opensource.org/licenses/MIT)
+[Simplified](https://github.com/SimpleRoom/walker-admin/blob/master/LICENSE)
