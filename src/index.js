@@ -12,6 +12,8 @@ import './assets/css/material-dashboard-react.css'
 import Login from './components/Login/Login'
 import NotFound from './components/NotFound'
 import Home from './views/Home'
+// add build date
+import './utils/record'
 
 const Root = ()=>{
     // set store to root for global props
@@ -48,7 +50,7 @@ const Root = ()=>{
         </Provider>
     )
 }
-console.log('%c Welcome to-> https://github.com/SimpleRoom','background:#357b7b;color:#bada55;')
+// console.log('%c Welcome to-> https://github.com/SimpleRoom','background:#357b7b;color:#bada55;')
 
 ReactDOM.render( <Root /> , document.getElementById('root'))
 

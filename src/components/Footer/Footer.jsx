@@ -10,7 +10,7 @@ export default () => {
       <p>
         &copy;2018-by
         <a
-          href="https://github.com/wjf444128852"
+          href="https://github.com/jiucheng-front"
           target="_blank"
           rel="noopener noreferrer"
         >

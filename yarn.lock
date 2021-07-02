@@ -3238,9 +3238,8 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001173:
-  version "1.0.30001178"
-  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001178.tgz?cache=0&sync_timestamp=1610863391252&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001178.tgz#3ad813b2b2c7d585b0be0a2440e1e233c6eabdbc"
-  integrity sha1-OtgTsrLH1YWwvgokQOHiM8bqvbw=
+  version "1.0.30001241"
+  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001241.tgz"
 
 canvg@^3.0.6:
   version "3.0.7"

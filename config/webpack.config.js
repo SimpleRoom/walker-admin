@@ -50,6 +50,8 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+// add time for build
+const TIME_STAMP = new Date().getTime();
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -520,6 +522,9 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new webpack.DefinePlugin({
+        timeStamp: TIME_STAMP
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
