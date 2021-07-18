@@ -108,7 +108,7 @@ const UserProfile = (props) => {
   useEffect(() => {
     // 方法一、直接异步获取使用：useState设置
     // const getData = async () => {
-    //   const res = await axios.get('https://api.github.com/users/wjf444128852')
+    //   const res = await axios.get('https://api.github.com/users/jiucheng-front')
     //   setInfo(res.data)
     // }
     // getData()
@@ -116,7 +116,7 @@ const UserProfile = (props) => {
     // 方法二、使用redux,结合redux-saga获取：异步代码分离
     // 避免每次组件挂载都请求一次
     if (myGithubInfo && !Object.keys(myGithubInfo).length) {
-      fetchGitInfo('wjf444128852')
+      fetchGitInfo('jiucheng-front')
     }
     // 组件销毁时的操作：willUnmounted
     return () => {
