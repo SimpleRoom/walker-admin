@@ -32,6 +32,6 @@ customConsole({
 })
 customConsole({
   title: 'Contact  Us',
-  value: 'https://gitee.com/jikey/react-store-admin/',
+  value: 'https://github.com/jiucheng-front',
   bgColor: 'transparent'
 })
