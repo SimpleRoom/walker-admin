@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // 更高级的table
-import MaterialTable from 'material-table'
+// MaterialTable doc https://material-table-core.com/docs
+import MaterialTable from '@material-table/core'
 import PropTypes from 'prop-types'
 // table config: 可props传入
 import { 
@@ -16,12 +17,12 @@ export default function MaterialTableWrap({
   dataList,
 }) {
   const [data, setData] = useState(dataList)
-  const pageSizeChange = (pageSize) => {
-    console.log(`pageSize change ${pageSize}`)
-  }
-  const pageChange = (page) => {
-    console.log(`page change ${page}`)
-  }
+  // const pageSizeChange = (pageSize) => {
+  //   console.log(`pageSize change ${pageSize}`)
+  // }
+  // const pageChange = (page) => {
+  //   console.log(`page change ${page}`)
+  // }
   const showHandle = (column, hidden) => {
     console.log(column, hidden)
   }
@@ -33,8 +34,8 @@ export default function MaterialTableWrap({
       options={optionsSetting}
       // 显示设置
       localization={localizationConfig}
-      onChangePage={pageChange}
-      onChangeRowsPerPage={pageSizeChange}
+      // onChangePage={pageChange}
+      // onChangeRowsPerPage={pageSizeChange}
       onChangeColumnHidden={showHandle}
       editable={{
         onRowAdd: newData =>
