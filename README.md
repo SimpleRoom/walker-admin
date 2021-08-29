@@ -9,7 +9,7 @@
 [![redux-saga](https://img.shields.io/badge/redux--saga-v1.1.1-blue)](https://redux-saga.js.org/)
 [![reselect](https://img.shields.io/badge/reselect-v4.0.0-green)](https://github.com/reduxjs/reselect)
 [![material-ui](https://img.shields.io/badge/%40material--ui-v4.5.1-%23764abc)](https://github.com/mui-org/material-ui)
-[![material-table](https://img.shields.io/badge/material--table-v1.53.0-%233f51b5)](https://material-table.com/)
+[![material-table](https://img.shields.io/badge/%40material--table%2Fcore-%5E4.3.0-green)](https://material-table-core.com/)
 [![styled-components](https://img.shields.io/badge/styled--components-v4.4.0-orange)](https://www.styled-components.com)
 [![plop](https://img.shields.io/badge/plop-v2.5.0-%233ab88b)](https://plopjs.com/)
 
