@@ -26,4 +26,6 @@ const getBrowserInfo = () => {
   }
 }
 
-export { getBrowserInfo }
+export {
+  getBrowserInfo
+}

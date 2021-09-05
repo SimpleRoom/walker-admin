@@ -1,5 +1,7 @@
 // add record
-const { NODE_ENV } = process.env
+const {
+  NODE_ENV
+} = process.env
 const customConsole = (config) => {
   console.log(
     `%c${config.title} %c${config.value}`,
