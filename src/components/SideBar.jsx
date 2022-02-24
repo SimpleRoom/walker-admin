@@ -171,29 +171,29 @@ const ClosedSideBar = styled.div`
 // hover tips while sidebar closed
 
 const HoverBox = styled.div`
+  position:absolute;
+  height:${smallBarWidth}px;
+  line-height:${smallBarWidth}px;
+  background:${props => props.activeBgColor};
+  left:${smallBarWidth + 14}px;
+  top:${props => props.offTop}px;
+  padding: 0 20px;
+  white-space: nowrap;
+  color:${whiteColor};
+  font-size:14px;
+  border-radius:${borderRadius - 2}px;
+  box-shadow:0 12px 20px -10px ${props => props.activeBgColor};
+  
+  &:before{
+    display:table;
     position:absolute;
-    height:${smallBarWidth}px;
-    line-height:${smallBarWidth}px;
-    background:${props => props.activeBgColor};
-    left:${smallBarWidth + 14}px;
-    top:${props => props.offTop}px;
-    padding: 0 20px;
-    white-space: nowrap;
-    color:${whiteColor};
-    font-size:14px;
-    border-radius:${borderRadius - 2}px;
-    box-shadow:0 12px 20px -10px ${props => props.activeBgColor};
-    
-    &:before{
-        display:table;
-        position:absolute;
-        top:50%;
-        left:-16px;
-        transform:translateY(-50%);
-        content:"";
-        border:8px solid transparent;
-        border-right-color:${props => props.activeBgColor};
-    }
+    top:50%;
+    left:-16px;
+    transform:translateY(-50%);
+    content:"";
+    border:8px solid transparent;
+    border-right-color:${props => props.activeBgColor};
+  }
 `;
 const HoverTips = ({ activeBgColor, currentNavName, offTop }) => (
   currentNavName ?

@@ -51,7 +51,7 @@ const ColorBox = styled.div`
     text-align:center;
     padding:10px;
     h3{
-        font-size:12px;
+      font-size:12px;
     }
 `;
 // common
@@ -66,10 +66,10 @@ const ToggleButton = styled.button`
     transition:all .3s;
     box-shadow:${props => props.isActive ? insetOnePxShadow : 0};
     &:hover{
-        box-shadow:${insetOnePxShadow};
+      box-shadow:${insetOnePxShadow};
     }
     &+button{
-        margin-left:10px;
+      margin-left:10px;
     }
 `;
 // toggle btns
@@ -104,20 +104,20 @@ const ToggleSideBarContent = styled.div`
         cursor:pointer;
         margin-right:10px;
         &:before{
-            display:table;
-            width:100%;
-            height:100%;
-            position:absolute;
-            left:50%;
-            top:55%;
-            transform:translate(-50%,-50%);
-            transition:all .2s;
+          display:table;
+          width:100%;
+          height:100%;
+          position:absolute;
+          left:50%;
+          top:55%;
+          transform:translate(-50%,-50%);
+          transition:all .2s;
 
-            content: '✔';
-            line-height: 20px;
-            font-size: 14px;
-            text-align:center;
-            color: ${props => props.isOpened ? iconFontColor : props.activeColor};
+          content: '✔';
+          line-height: 20px;
+          font-size: 14px;
+          text-align:center;
+          color: ${props => props.isOpened ? iconFontColor : props.activeColor};
         }
     }
 `;
