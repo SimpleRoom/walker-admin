@@ -23,7 +23,7 @@ import CardAvatar from '../../components/Card/CardAvatar'
 import Snackbar from '../../components/Snackbar/Snackbar'
 
 import avatar from '../../assets/img/defaultAvatar.png'
-import styles from './UserProfile.module.scss'
+import styles from './UserProfile.module.less'
 
 import { fetchGitInfo } from '../../store/modules/common/action'
 import { getGithubData } from '../../store/modules/common/selector'

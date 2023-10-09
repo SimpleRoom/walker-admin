@@ -2,7 +2,7 @@ import React from 'react'
 // @material-ui/icons
 // import Icon from '@material-ui/core/Icon'
 import GitHub from '@material-ui/icons/GitHub'
-import styles from './Footer.module.scss'
+import styles from './Footer.module.less'
 
 export default () => {
   return (

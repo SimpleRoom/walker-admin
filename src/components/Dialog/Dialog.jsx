@@ -6,7 +6,7 @@ import Button from '../CustomButtons/CustomButtons'
 // import Icon from '../Icon/Icon'
 import { getDialog } from '../../store/modules/common/selector'
 import { displaySetDialog } from '../../store/modules/common/action'
-import styles from './Dialog.module.scss'
+import styles from './Dialog.module.less'
 
 const onBackgroundClickHandler = props => () => {
   const { backgroundClosable, close, hideAction } = props

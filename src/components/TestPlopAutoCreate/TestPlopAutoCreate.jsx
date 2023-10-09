@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './TestPlopAutoCreate.module.scss'
+import styles from './TestPlopAutoCreate.module.less'
 
 class TestPlopAutoCreate extends PureComponent {
   constructor(props) {

@@ -13,8 +13,8 @@ const genComponent = () => ({
     }),
     createAction({
       type: 'add',
-      path: `${componentBasePath}/{{componentName}}/{{componentName}}.module.scss`,
-      templateFile: `${templateBasePath}/component.module.scss.hbs`,
+      path: `${componentBasePath}/{{componentName}}/{{componentName}}.module.less`,
+      templateFile: `${templateBasePath}/component.module.less.hbs`,
     }),
   ],
 })
