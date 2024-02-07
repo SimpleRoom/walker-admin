@@ -465,9 +465,9 @@ module.exports = function(webpackEnv) {
                 getLocalIdent: getCSSModuleLocalIdent,
               }),
             },
-            // Opt-in support for SASS (using .scss or .sass extensions).
+            // Opt-in support for SASS (using .less extensions).
             // By default we support SASS Modules with the
-            // extensions .module.scss or .module.sass
+            // extensions .module.less or .module.less
             {
               test: lessRegex,
               exclude: lessModuleRegex,
@@ -484,8 +484,8 @@ module.exports = function(webpackEnv) {
               // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true,
             },
-            // Adds support for CSS Modules, but using SASS
-            // using the extension .module.scss or .module.sass
+            // Adds support for CSS Modules, but using LESS
+            // using the extension .module.less
             {
               test: lessModuleRegex,
               use: getStyleLoaders(
@@ -574,7 +574,7 @@ module.exports = function(webpackEnv) {
       // Otherwise React will be compiled in the very slow development mode.
       new webpack.DefinePlugin(env.stringified),
       // This is necessary to emit hot updates (currently CSS only):
-      isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
+      // isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       // Watcher doesn't work well if you mistype casing in a path so we use
       // a plugin that prints an error when you attempt to do this.
       // See https://github.com/facebook/create-react-app/issues/240
