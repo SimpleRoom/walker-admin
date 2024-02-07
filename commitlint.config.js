@@ -7,6 +7,7 @@ module.exports = {
   // 自定义规则
   rules: {
     'type-enum': [2, 'always', [
+      'config',
       'feat',
       'fix',
       'refactor',

@@ -1,6 +1,7 @@
 module.exports = {
   'disableEmoji': false,
   'list': [
+    'config',
     'feat',
     'fix',
     'chore',
@@ -21,6 +22,11 @@ module.exports = {
   ],
   'scopes': [],
   'types': {
+    'config': {
+      'description': 'core config for package',
+      'emoji': '🎡',
+      'value': 'config'
+    },
     'chore': {
       'description': 'Build process or auxiliary tool changes',
       'emoji': '🤖',
